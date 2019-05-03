@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4176887503055004105}
   - component: {fileID: 2367722650956665281}
   m_Layer: 0
-  m_Name: Charger
+  m_Name: Charger_Upgraded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

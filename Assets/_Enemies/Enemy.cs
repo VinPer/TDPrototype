@@ -35,9 +35,7 @@ public class Enemy : MonoBehaviour
         fire = new Debuff(true);
         acid = new Debuff(false);
         slow = new Debuff(false);
-
-
-
+        
         debuffs = new Dictionary<string, Debuff>
         {
             { "fire", fire },

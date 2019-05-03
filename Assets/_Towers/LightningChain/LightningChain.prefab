@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  fireRate: 1
+  fireRate: 1.5
   bulletPrefab: {fileID: 0}
   enemyTag: Enemy
   partToRotate: {fileID: 2788256632705547046}

@@ -44,6 +44,4 @@ public class Shop : MonoBehaviour
         Debug.Log("Flamethrower Selected");
         buildManager.SelectTurretToBuild(flamethrower);
     }
-
-    
 }
