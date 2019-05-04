@@ -22,9 +22,12 @@ public class TurretHandler : MonoBehaviour
     // Elements that hold the turrets in the overlay
     public GameObject allTurretsGUI;
     public GameObject selectedTurretsGUI;
+
+    public static bool active = false;
     
     void Start()
     {
+        active = true;
         // Instantiate the selected turrets list
         selectedTurrets = new List<TurretBlueprint>();
 
@@ -87,6 +90,8 @@ public class TurretHandler : MonoBehaviour
             currentChildSelected.GetComponent<Image>().color = currentChildAll.GetComponent<Image>().color;
             currentChildSelected.GetComponentInChildren<Text>().text = "$" + selectedTurrets[i].cost;
 
+            selectedTurrets[i].color = currentChildAll.GetComponent<Image>().color;
+            selectedTurrets[i].sprite = currentChildAll.GetComponent<Image>().sprite;
             //Debug.Log(currentChildSelected.GetComponent<Button>().onClick.);
         }
 

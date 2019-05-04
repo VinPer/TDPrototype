@@ -9031,6 +9031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf4ecd4706458e478682a4e7837ce4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretBlueprints: []
   standardTurret:
     prefab: {fileID: 4176887503054913001, guid: 422418fa6f7766643a9f83560eb6169a,
       type: 3}
@@ -9038,27 +9039,35 @@ MonoBehaviour:
     upgradedPrefab: {fileID: 4176887503054913001, guid: 4a773ace9c0532b43a07fb3303c9247a,
       type: 3}
     upgradeCost: 150
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 284fab2a515efd14cb3c0f3a5b94f2ae, type: 3}
   missileLauncher:
     prefab: {fileID: 4608323941285711657, guid: 7aacc4253725f684db846550fa316e86,
       type: 3}
     cost: 250
     upgradedPrefab: {fileID: 4608323941285711657, guid: 049838c0e156e2146b8d3ad53cacdca5,
       type: 3}
-    upgradeCost: 300
+    upgradeCost: 375
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: f406e86cfced2e44b9e9ae666d64e5be, type: 3}
   bombSpawner:
     prefab: {fileID: 3334567948707967717, guid: aa8f59ccd43c45842aedae553d47d793,
       type: 3}
     cost: 200
     upgradedPrefab: {fileID: 3334567948707967717, guid: 1aed881ab4656764ba1c0f8428e48445,
       type: 3}
-    upgradeCost: 250
+    upgradeCost: 300
+    color: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 0}
+    sprite: {fileID: 21300000, guid: f406e86cfced2e44b9e9ae666d64e5be, type: 3}
   flamethrower:
     prefab: {fileID: 4176887503054913001, guid: a1c3d1ef08990934db4987de90fffd6a,
       type: 3}
     cost: 500
     upgradedPrefab: {fileID: 4176887503054913001, guid: 826be5b6ec082c74eaff3aedbf04e561,
       type: 3}
-    upgradeCost: 600
+    upgradeCost: 750
+    color: {r: 0.735849, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: 284fab2a515efd14cb3c0f3a5b94f2ae, type: 3}
   laserBeamer:
     prefab: {fileID: 2518271756025125490, guid: cfa0cc7908fc32744aa9c40c8389468b,
       type: 3}
@@ -9066,6 +9075,8 @@ MonoBehaviour:
     upgradedPrefab: {fileID: 2518271756025125490, guid: 1b8304f431187814689caa0113e60e1d,
       type: 3}
     upgradeCost: 450
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 773f48cf9a90be64db6a0efaa6c6e7f8, type: 3}
 --- !u!1001 &789217832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13867,15 +13878,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782497096}
     m_Modifications:
-    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986934, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Name
-      value: BombSpawnerItem
+      value: ThirdTurretItem
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -14011,11 +14017,26 @@ PrefabInstance:
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectBombSpawner
+      value: SelectTurret
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14821,15 +14842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782497096}
     m_Modifications:
-    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986934, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Name
-      value: MissileLauncherItem
+      value: SecondTurretItem
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -14950,11 +14966,26 @@ PrefabInstance:
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectMissileLauncher
+      value: SelectTurret
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15713,15 +15744,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782497096}
     m_Modifications:
-    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986934, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Name
-      value: FlamethrowerItem
+      value: FifthTurretItem
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -15851,11 +15877,26 @@ PrefabInstance:
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectFlamethrower
+      value: SelectTurret
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -20168,15 +20209,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782497096}
     m_Modifications:
-    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986934, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Name
-      value: LaserBeamerItem
+      value: FourthTurretItem
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -20297,11 +20333,26 @@ PrefabInstance:
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectLaserBeamer
+      value: SelectTurret
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200927198498441788, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23971,7 +24022,7 @@ PrefabInstance:
     - target: {fileID: 4183598552398986934, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Name
-      value: StandardTurretItem
+      value: FirstTurretItem
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -24086,7 +24137,7 @@ PrefabInstance:
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectStandardTurret
+      value: SelectTurret
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -24096,7 +24147,7 @@ PrefabInstance:
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}

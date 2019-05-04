@@ -5,11 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class TurretBlueprint
 {
+    // costs, color and sprite should probably go inside the turret itself to facilitate things
     public GameObject prefab;
     public int cost;
 
     public GameObject upgradedPrefab;
     public int upgradeCost;
+
+    public Color color;
+    public Sprite sprite;
 
     public int GetSellValue(bool upgraded)
     {
