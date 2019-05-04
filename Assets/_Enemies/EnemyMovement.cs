@@ -8,12 +8,16 @@ public class EnemyMovement : MonoBehaviour
     protected Vector3 targetPosition;
     protected int waypointIndex = 0;
     protected Transform[] waypoints;
-    
-    public float waypointOffsetX = 2.5f;
-    public float waypointOffsetY = 2.5f;
+    protected Waypoint targetWaypoint;
+
+    //public float waypointOffsetX = 2.5f;
+    //public float waypointOffsetY = 2.5f;
 
     protected float offsetX = 0;
     protected float offsetZ = 0;
+
+    public bool infiniteOffsets = true;
+    protected bool stopOffset = false;
 
     // todo: improve offset handling
     //       includes targetPosition, offsetX, offsetZ
@@ -21,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     {
         waypoints = transform.GetComponentInParent<WaveSpawner>().GetWaypoints();
         target = waypoints[waypointIndex];
+        targetWaypoint = target.GetComponent<Waypoint>();
         GetNextPosition();
         enemy = GetComponent<Enemy>();
     }
@@ -46,13 +51,20 @@ public class EnemyMovement : MonoBehaviour
 
         waypointIndex++;
         target = waypoints[waypointIndex];
+        targetWaypoint = target.GetComponent<Waypoint>();
         GetNextPosition();
     }
 
     protected void GetNextPosition()
     {
-        offsetX = Random.Range(-waypointOffsetX, waypointOffsetX);
-        offsetZ = Random.Range(-waypointOffsetY, waypointOffsetY);
+        if (!stopOffset)
+        {
+            offsetX = Random.Range(-targetWaypoint.offsetX, targetWaypoint.offsetX);
+            offsetZ = Random.Range(-targetWaypoint.offsetZ, targetWaypoint.offsetZ);
+        }
+
+        if (!infiniteOffsets) stopOffset = true;
+
         targetPosition = target.position + new Vector3(offsetX, 0f, offsetZ);
     }
 

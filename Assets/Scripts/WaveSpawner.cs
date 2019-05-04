@@ -18,6 +18,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
     public Transform waypointHandler;
+    public bool infiniteOffset = true;
 
     public float timeBetweenWaves = 5f;
     public float timeBetweenBursts = 2f;
@@ -85,6 +86,7 @@ public class WaveSpawner : MonoBehaviour
     {
         Transform e = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         e.SetParent(transform);
+        e.GetComponent<EnemyMovement>().infiniteOffsets = infiniteOffset;
         EnemiesAlive++;
     }
 
