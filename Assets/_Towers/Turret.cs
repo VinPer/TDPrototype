@@ -74,7 +74,7 @@ public class Turret : MonoBehaviour
 
     }
 
-    protected void LockOnTarget()
+    protected virtual void LockOnTarget()
     {
         // Target lock on for nearest target
         Vector3 dir = target.position - transform.position;

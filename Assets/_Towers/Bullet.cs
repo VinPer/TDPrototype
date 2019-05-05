@@ -10,9 +10,16 @@ public class Bullet : MonoBehaviour
     public float piercingValue = 0f;
     public GameObject impactEffect;
 
+    public string mode = "homing";
+
     public void Seek(Transform _target)
     {
-        target = _target;
+        if (mode == "homing") target = _target;
+        else
+        {
+            target = new GameObject().transform;
+            target.position = _target.position;
+        }
     }
 
     // Update is called once per frame

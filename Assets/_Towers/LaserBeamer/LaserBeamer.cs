@@ -9,7 +9,7 @@ public class LaserBeamer : Turret
     public Light impactLight;
     public float damageOverTime = 5f;
     public float piercingValue = 0f;
-    public float slowPercent = .5f;
+    public float slowPercent = 50f;
     public float slowDuration = 5f;
 
     protected override void Update()

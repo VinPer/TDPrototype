@@ -22,7 +22,7 @@ public class Flames : MonoBehaviour
     {
         if (damageCountdown <= 0f)
         {
-            DamageArea();
+            BurnArea();
             damageCountdown = 1f / damageRate;
         }
 
@@ -31,21 +31,22 @@ public class Flames : MonoBehaviour
     }
 
     // This requires optimization to the collision area
-    void DamageArea()
+    void BurnArea()
     {
         Collider[] colliders = Physics.OverlapBox(transform.position, transform.localScale / 2, transform.rotation);
         foreach (Collider collider in colliders)
         {
             if (collider.tag == "Enemy")
             {
-                Damage(collider.transform);
+                BurnTarget(collider.transform);
             }
         }
     }
 
-    private void Damage(Transform enemy)
+    private void BurnTarget(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
         e.TakeDamage(damage, piercingValue);
+        e.ActivateDebuff(damage * 10, 50f, "fire");
     }
 }

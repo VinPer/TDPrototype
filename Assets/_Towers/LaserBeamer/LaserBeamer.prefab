@@ -9699,7 +9699,7 @@ MonoBehaviour:
   impactLight: {fileID: 7840314150892823605}
   damageOverTime: 5
   piercingValue: 0
-  slowPercent: 0.5
+  slowPercent: 50
   slowDuration: 5
 --- !u!1 &2518271756025125494
 GameObject:

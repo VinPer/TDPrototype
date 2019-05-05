@@ -39,7 +39,7 @@ public class Shop : MonoBehaviour
 
         // draw all from their data contained in TurretBlueprint
         for (int i = 0; i < turretBlueprints.Count; i++)
-        {
+        {            
             currentChild = transform.GetChild(i);
             currentChild.GetComponent<Image>().sprite = turretBlueprints[i].sprite;
             currentChild.GetComponent<Image>().color = turretBlueprints[i].color;

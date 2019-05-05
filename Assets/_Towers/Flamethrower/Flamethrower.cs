@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Flamethrower : MonoBehaviour
 {
-    public enum Direction { Clockwise = 1, Counter = -1};
+    public enum Direction { Clockwise = 1, Counter = -1, Motionless = 0};
     private Transform target;
+    public Transform firingArea;
 
     [Header("Attributes")]
 
@@ -27,13 +28,13 @@ public class Flamethrower : MonoBehaviour
     // Instantiates the flame item
     void Start()
     {
-        Instantiate(flamePrefab, firePoint);
+        flames = Instantiate(flamePrefab, firePoint);
     }
 
     // Rotates the flamethrower at a constant rate dictated by the turnSpeed
     void Update()
     {
-        RotateFlamethrower();
+        if (direction != 0) RotateFlamethrower();
     }
 
     private void RotateFlamethrower()
@@ -41,6 +42,43 @@ public class Flamethrower : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, currentRotation * turnSpeed * 0.1f * (float) direction, 0f);
         currentRotation++;
         if (currentRotation * turnSpeed * 0.1f >= 360f) currentRotation = 0f;
+    }
+
+    private void OnMouseDown()
+    {
+        // allows player to select where tower will fire
+        StartCoroutine(SetFiringArea());
+    }
+
+    private IEnumerator SetFiringArea()
+    {
+        // stop flames to prevent abuse
+        flames.SetActive(false);
+
+        float distanceToScreen;
+        Vector3 posMove;
+        bool moving = true;
+
+        Vector3 initialFiringAreaPosition = firingArea.position;
+
+        // move the firing area with the mouse
+        while (moving)
+        {
+            distanceToScreen = Camera.main.WorldToScreenPoint(firingArea.position).z;
+            posMove = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceToScreen));
+            firingArea.position = new Vector3(posMove.x, firingArea.position.y, posMove.z);
+
+            yield return null;
+
+            // stop if the player clicks anywhere
+            if (Input.GetMouseButtonDown(0)) moving = false;
+        }
+
+        // activate flames again
+        flames.SetActive(true);
+
+        // check if the firing area is valid, if not retain the old firing area
+        partToRotate.LookAt(firingArea);
     }
 
     private void OnDrawGizmosSelected()
