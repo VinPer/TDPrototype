@@ -27,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
 
     private float countdown = 2f;
     private int waveIndex = 0;
+    public bool countingDown = true;
 
     private void Start()
     {
@@ -45,10 +46,13 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        countdown -= Time.deltaTime;
-        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-        waveCountdownText.text = string.Format("{0:00.00}", countdown);
-        waveNumber.text = EnemiesAlive + " - " + waveIndex;
+        if (countingDown)
+        {
+            countdown -= Time.deltaTime;
+            countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+            waveCountdownText.text = string.Format("{0:00.00}", countdown);
+            waveNumber.text = EnemiesAlive + " - " + waveIndex;
+        }
     }
 
     // todo: implement concept of waves & bursts more elegantly
@@ -82,7 +86,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    void SpawnEnemy(Transform enemy)
+    public void SpawnEnemy(Transform enemy)
     {
         Transform e = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         e.SetParent(transform);

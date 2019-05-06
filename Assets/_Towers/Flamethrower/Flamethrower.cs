@@ -25,6 +25,8 @@ public class Flamethrower : MonoBehaviour
 
     private GameObject flames;
 
+    private bool selectingRotation = false;
+
     // Instantiates the flame item
     void Start()
     {
@@ -47,7 +49,11 @@ public class Flamethrower : MonoBehaviour
     private void OnMouseDown()
     {
         // allows player to select where tower will fire
-        StartCoroutine(SetFiringArea());
+        if (!selectingRotation && direction == 0)
+        {
+            selectingRotation = true;
+            StartCoroutine(SetFiringArea());
+        }
     }
 
     private IEnumerator SetFiringArea()
@@ -70,15 +76,15 @@ public class Flamethrower : MonoBehaviour
 
             yield return null;
 
+            partToRotate.LookAt(firingArea);
+
             // stop if the player clicks anywhere
             if (Input.GetMouseButtonDown(0)) moving = false;
         }
 
         // activate flames again
         flames.SetActive(true);
-
-        // check if the firing area is valid, if not retain the old firing area
-        partToRotate.LookAt(firingArea);
+        selectingRotation = false;
     }
 
     private void OnDrawGizmosSelected()

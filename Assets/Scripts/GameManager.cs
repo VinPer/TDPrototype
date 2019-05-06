@@ -7,9 +7,7 @@ public class GameManager : MonoBehaviour
     public static bool GameIsOver;
 
     public GameObject gameOverUI;
-
-    public float speedUpMultiplier = 5f;
-    private bool speedUp = false;
+    public GameObject debugUI;
 
     private void Start()
     {
@@ -26,16 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void Toggle()
     {
-        speedUp = (!speedUp);
-
-        if (speedUp)
-        {
-            Time.timeScale = speedUpMultiplier;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-        }
+        debugUI.SetActive(!debugUI.activeSelf);
     }
 
     private void EndGame()
