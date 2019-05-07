@@ -5,7 +5,6 @@ using UnityEngine;
 public class Mortar : Turret
 {
     public Transform firingArea;
-    public bool firingAreaSet = false;
     public float explosionRadius = 5f;
 
     protected override void Start()
@@ -22,6 +21,7 @@ public class Mortar : Turret
 
     private IEnumerator SetFiringArea()
     {
+        target = null;
         // display the blast zone
         firingArea.gameObject.SetActive(true);
 
@@ -52,8 +52,7 @@ public class Mortar : Turret
         else
         {
             // assign target position to firing area
-            if (target == null) target = new GameObject().transform;
-            target.position = firingArea.position;
+            target = firingArea;
             LockOnTarget();
         }
     }

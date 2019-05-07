@@ -108,6 +108,7 @@ public class LightningChain : Turret
         chainRenderer.SetPosition(0, origin.position);
         chainRenderer.SetPosition(1, enemy.position);
         Destroy(chainRenderer, 0.1f);
+        Destroy(chain, 0.1f);
 
         Enemy e = enemy.GetComponent<Enemy>();
         e.TakeDamage(damage, piercingValue);

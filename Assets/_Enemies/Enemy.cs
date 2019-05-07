@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
     public GameObject acidEffect;
     public GameObject slowEffect;
 
+    protected bool isDead = false;
+
     protected void Start()
     {
         initialSpeed = speed;
@@ -54,6 +56,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (isDead) return;
+        isDead = true;
         PlayerStats.Money += value;
         PlayerStats.UpdateMoney();
         WaveSpawner.EnemiesAlive--;
@@ -69,6 +73,7 @@ public class Enemy : MonoBehaviour
     // respective coroutines, passing the debuff in particular as a parameter?
     public void ActivateDebuff(float multiplier, float duration, string debuffType)
     {
+        if (isDead || debuffs == null) return;
         Debuff debuff = debuffs[debuffType];
         debuff.Refresh(multiplier, duration);
         if (!debuff.isActive)

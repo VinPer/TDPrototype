@@ -57,6 +57,7 @@ public class Bullet : MonoBehaviour
             Damage(target);
         }
 
+        if (mode != "homing") Destroy(target.gameObject);
         Destroy(gameObject);
     }
 
