@@ -5,12 +5,24 @@ using UnityEngine;
 public class LinearBullet : Bullet
 {
     protected Vector3 direction;
+    [HideInInspector]
+    public float initialDecayTimer;
     public float decayTimer = 2f;
+
+    private void Start()
+    {
+        initialDecayTimer = decayTimer;
+    }
 
     public override void Seek(Transform _target)
     {
         direction = _target.position - transform.position;
         transform.LookAt(_target);
+    }
+
+    public void Seek(Vector3 dir)
+    {
+        direction = dir;
     }
 
     protected override void Update()
