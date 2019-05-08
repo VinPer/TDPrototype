@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     public string mode = "homing";
 
-    public void Seek(Transform _target)
+    public virtual void Seek(Transform _target)
     {
         if (mode == "homing") target = _target;
         else
@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour
             Damage(target);
         }
 
-        if (mode != "homing") Destroy(target.gameObject);
+        if (mode == "fixed") Destroy(target.gameObject);
         Destroy(gameObject);
     }
 

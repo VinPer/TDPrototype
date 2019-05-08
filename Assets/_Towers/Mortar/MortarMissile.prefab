@@ -50,7 +50,7 @@ MonoBehaviour:
   piercingValue: 50
   impactEffect: {fileID: 813437829348923904, guid: f8cd730c893ffbb448d75afbb49bbf06,
     type: 3}
-  mode: no
+  mode: fixed
 --- !u!1 &7271039198656567963
 GameObject:
   m_ObjectHideFlags: 0

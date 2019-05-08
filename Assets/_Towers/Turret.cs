@@ -23,8 +23,6 @@ public class Turret : MonoBehaviour
     public float turnSpeed = 10f;
     public Transform firePoint;
 
-
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -93,8 +91,6 @@ public class Turret : MonoBehaviour
             bullet.Seek(target);
         }
     }
-
-
 
     protected void OnDrawGizmosSelected()
     {
