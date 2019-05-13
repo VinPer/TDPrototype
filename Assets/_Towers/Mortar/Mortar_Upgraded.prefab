@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 7597324478516068768}
   m_Layer: 0
   m_Name: Mortar_Upgraded
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   fireRate: 1
+  damageBoost: 1
   bulletPrefab: {fileID: 169384279486500228, guid: eb54312a6263532488614b1af7b0d3fd,
     type: 3}
   enemyTag: Enemy
@@ -209,7 +210,6 @@ MonoBehaviour:
   turnSpeed: 10
   firePoint: {fileID: 1360129122325951352}
   firingArea: {fileID: 6075306623301483179}
-  firingAreaSet: 0
   explosionRadius: 5
 --- !u!65 &7597324478516068768
 BoxCollider:

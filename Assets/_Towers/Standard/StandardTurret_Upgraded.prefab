@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8209841474244607839}
   m_Layer: 0
   m_Name: StandardTurret_Upgraded
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,15 +77,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 25
   fireRate: 1.5
+  damageBoost: 1
   bulletPrefab: {fileID: 3369391130654538165, guid: 8f58555023e191b4bb4e495b6f64265c,
     type: 3}
-  useLaser: 0
-  lineRenderer: {fileID: 0}
-  impactEffect: {fileID: 0}
-  impactLight: {fileID: 0}
-  damageOverTime: 5
-  slowPercent: 0.5
-  slowDuration: 5
   enemyTag: Enemy
   partToRotate: {fileID: 7705982935783266180}
   turnSpeed: 10

@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 8420072041819386724}
   m_Layer: 0
   m_Name: MissileLauncher_Upgraded
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,15 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 40
   fireRate: 0.75
+  damageBoost: 1
   bulletPrefab: {fileID: 169384279486500228, guid: 49dd551798c182840a4a3f5e313bc225,
     type: 3}
-  useLaser: 0
-  lineRenderer: {fileID: 0}
-  impactEffect: {fileID: 0}
-  impactLight: {fileID: 0}
-  damageOverTime: 5
-  slowPercent: 0.5
-  slowDuration: 5
   enemyTag: Enemy
   partToRotate: {fileID: 7115326720665114565}
   turnSpeed: 10

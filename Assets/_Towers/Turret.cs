@@ -9,10 +9,8 @@ public class Turret : MonoBehaviour
     [Header("General")]
 
     public float range = 15f;
-
-    [Header("Bullet Settings")]
-
     public float fireRate = 1f;
+    public float damageBoost = 1f;
     protected float fireCountdown = 0f;
     public GameObject bulletPrefab;
 
@@ -85,6 +83,7 @@ public class Turret : MonoBehaviour
     {
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
+        bullet.damage *= damageBoost;
 
         if (bullet != null)
         {

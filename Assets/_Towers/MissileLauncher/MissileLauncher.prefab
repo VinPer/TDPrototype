@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 8420072041819386724}
   m_Layer: 0
   m_Name: MissileLauncher
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 25
   fireRate: 0.5
+  damageBoost: 1
   bulletPrefab: {fileID: 169384279486500228, guid: b75096810bea8fe4ebad23ac220f6c8d,
     type: 3}
   enemyTag: Enemy
