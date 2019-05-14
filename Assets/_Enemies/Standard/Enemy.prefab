@@ -106,8 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43d4927900148741b7255c7d3786565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointOffsetX: 2
-  waypointOffsetY: 2
+  infiniteOffsets: 1
 --- !u!114 &852744764168812743
 MonoBehaviour:
   m_ObjectHideFlags: 0

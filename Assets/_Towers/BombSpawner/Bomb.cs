@@ -42,7 +42,7 @@ public class Bomb : MonoBehaviour
         Debug.Log("Bomb primed!");
         bombPrimed = true;
     }
-
+    
     // Spawns explosion particle effects and damages all enemies within range before destroying the bomb
     private void Explode()
     {

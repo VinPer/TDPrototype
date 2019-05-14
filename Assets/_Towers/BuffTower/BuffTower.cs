@@ -28,7 +28,6 @@ public class BuffTower : MonoBehaviour
         GameObject[] turrets = GameObject.FindGameObjectsWithTag(towerTag);
         float distanceToTower;
         Turret currentTower;
-        Debug.Log(turrets.Length + " towers");
         foreach (GameObject tower in turrets)
         {
             distanceToTower = Vector3.Distance(transform.position, tower.transform.position);
