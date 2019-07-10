@@ -2,36 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerProjectile : TowerBase
+public class TowerLaser : TowerNonProjectile
 {
-    //private Magazine magazine;
-    public float fireRate = 1f;
-    public Transform target;
-    public Enemy targetEnemy;
-    public int targettingStyle;
+    public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
+    public Light impactLight;
 
-    public string enemyTag = "Enemy";
+    public int targettingStyle;
+    private Transform target;
+    private Enemy targetEnemy;
+
+    public Transform firePoint;
     public Transform partToRotate;
     public float turnSpeed = 10f;
-    public Transform firePoint;
-    protected float fireCountdown = 0f;
-    public GameObject bulletPrefab;
+    private float fireCountdown = 0;
+    public string enemyTag = "Enemy";
 
-    protected virtual void Start()
+    private void Start()
     {
         InvokeRepeating("GetTarget", 0f, 0.5f);
     }
 
-    protected virtual void Update()
+    private void Update()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            if (lineRenderer.enabled)
+            {
+                lineRenderer.enabled = false;
+                impactEffect.Stop();
+                impactLight.enabled = false;
+            }
+            return;
+        }
 
         LockOnTarget();
 
         if (fireCountdown <= 0f)
         {
-            Shoot();
-            fireCountdown = 1f / fireRate;
+            Laser();
+            fireCountdown = 1f / triggerRate;
         }
 
         fireCountdown -= Time.deltaTime;
@@ -64,7 +74,7 @@ public class TowerProjectile : TowerBase
         }
     }
 
-    protected virtual void LockOnTarget()
+    private void LockOnTarget()
     {
         // Target lock on for nearest target
         Vector3 dir = target.position - transform.position;
@@ -73,16 +83,24 @@ public class TowerProjectile : TowerBase
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
-    protected virtual void Shoot()
+    private void Laser()
     {
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-        //bullet.damage *= damageBoost;
+        targetEnemy.TakeDamage(damage, penetration);
 
-        if (bullet != null)
+        if (!lineRenderer.enabled)
         {
-            bullet.Seek(target);
+            lineRenderer.enabled = true;
+            impactEffect.Play();
+            impactLight.enabled = true;
         }
+
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+
+        Vector3 dir = firePoint.position - target.position;
+
+        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
+        impactEffect.transform.position = target.position + dir.normalized * .5f;
     }
 
     public void UpdateTarget(Transform newTarget)
@@ -91,20 +109,8 @@ public class TowerProjectile : TowerBase
         targetEnemy = newTarget.GetComponent<Enemy>();
     }
 
-    public void UpdateFireRate(float value)
-    {
-        if (value <= 0f) Debug.Log("Incorrect value to update fire rate!");
-        else fireRate = value;
-    }
-
     public override void UpgradeTower()
     {
         // upgrade logic
-    }
-
-    protected void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
