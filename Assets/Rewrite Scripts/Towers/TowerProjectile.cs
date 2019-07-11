@@ -6,8 +6,8 @@ public class TowerProjectile : TowerBase
 {
     //private Magazine magazine;
     public float fireRate = 1f;
-    public Transform target;
-    public Enemy targetEnemy;
+    protected Transform target;
+    protected Enemy targetEnemy;
     public int targettingStyle;
 
     public string enemyTag = "Enemy";
@@ -19,7 +19,7 @@ public class TowerProjectile : TowerBase
 
     protected virtual void Start()
     {
-        InvokeRepeating("GetTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     protected virtual void Update()
@@ -37,7 +37,7 @@ public class TowerProjectile : TowerBase
         fireCountdown -= Time.deltaTime;
     }
 
-    public void GetTarget()
+    public void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -64,6 +64,17 @@ public class TowerProjectile : TowerBase
         }
     }
 
+    public Transform GetTarget()
+    {
+        return target;
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+        targetEnemy = newTarget.GetComponent<Enemy>();
+    }
+
     protected virtual void LockOnTarget()
     {
         // Target lock on for nearest target
@@ -76,22 +87,16 @@ public class TowerProjectile : TowerBase
     protected virtual void Shoot()
     {
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-        //bullet.damage *= damageBoost;
+        ProjectileBase bullet = bulletGO.GetComponent<ProjectileBase>();
 
         if (bullet != null)
         {
-            bullet.Seek(target);
+            //bullet.damage *= damageBoost;
+            bullet.SetTarget(target);
         }
     }
 
-    public void UpdateTarget(Transform newTarget)
-    {
-        target = newTarget;
-        targetEnemy = newTarget.GetComponent<Enemy>();
-    }
-
-    public void UpdateFireRate(float value)
+    public void SetFireRate(float value)
     {
         if (value <= 0f) Debug.Log("Incorrect value to update fire rate!");
         else fireRate = value;

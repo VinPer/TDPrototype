@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class TowerNonProjectile : TowerBase
 {
@@ -11,13 +9,13 @@ public abstract class TowerNonProjectile : TowerBase
     public float debuffIntensity;
     public float debuffDuration;
 
-    public void UpdateDamage(float value)
+    public void SetDamage(float value)
     {
         if (value <= 0f) Debug.Log("Incorrect value to update damage!");
         else damage = value;
     }
 
-    public void UpdateRate(float value)
+    public void SetRate(float value)
     {
         if (value <= 0f) Debug.Log("Incorrect value to update trigger rate!");
         else triggerRate = value;

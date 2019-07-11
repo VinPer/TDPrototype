@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4608323941285810953}
-  - component: {fileID: 8420072041819386724}
+  - component: {fileID: 7941044138962371117}
   m_Layer: 0
   m_Name: MissileLauncher
   m_TagString: Tower
@@ -95,7 +95,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8420072041819386724
+--- !u!114 &7941044138962371117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,18 +104,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4608323941285711657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7279421345d1c274f9ba5300fd3f3fef, type: 3}
+  m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   range: 25
+  seesInvisible: 0
   fireRate: 0.5
-  damageBoost: 1
-  bulletPrefab: {fileID: 169384279486500228, guid: b75096810bea8fe4ebad23ac220f6c8d,
-    type: 3}
+  targettingStyle: 0
   enemyTag: Enemy
   partToRotate: {fileID: 7115326720665114565}
   turnSpeed: 10
   firePoint: {fileID: 1360129122325951352}
+  bulletPrefab: {fileID: 169384279486500228, guid: b75096810bea8fe4ebad23ac220f6c8d,
+    type: 3}
 --- !u!1 &4608323941285711661
 GameObject:
   m_ObjectHideFlags: 0

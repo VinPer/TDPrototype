@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TowerLaser : TowerNonProjectile
 {
@@ -20,7 +18,7 @@ public class TowerLaser : TowerNonProjectile
 
     private void Start()
     {
-        InvokeRepeating("GetTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     private void Update()
@@ -47,7 +45,7 @@ public class TowerLaser : TowerNonProjectile
         fireCountdown -= Time.deltaTime;
     }
 
-    public void GetTarget()
+    public void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -72,6 +70,17 @@ public class TowerLaser : TowerNonProjectile
             target = null;
             targetEnemy = null;
         }
+    }
+
+    public Transform GetTarget()
+    {
+        return target;
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+        targetEnemy = newTarget.GetComponent<Enemy>();
     }
 
     private void LockOnTarget()
@@ -101,12 +110,6 @@ public class TowerLaser : TowerNonProjectile
 
         impactEffect.transform.rotation = Quaternion.LookRotation(dir);
         impactEffect.transform.position = target.position + dir.normalized * .5f;
-    }
-
-    public void UpdateTarget(Transform newTarget)
-    {
-        target = newTarget;
-        targetEnemy = newTarget.GetComponent<Enemy>();
     }
 
     public override void UpgradeTower()

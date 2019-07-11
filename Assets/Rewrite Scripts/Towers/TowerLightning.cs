@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TowerLightning : TowerNonProjectile
 {
@@ -22,7 +20,7 @@ public class TowerLightning : TowerNonProjectile
     private void Start()
     {
         targets = new Transform[maxTargets];
-        InvokeRepeating("GetTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     private void Update()
@@ -37,21 +35,21 @@ public class TowerLightning : TowerNonProjectile
     }
 
     // runs GetTarget multiple times, depending on maxTargets, keeping an array of enemies to attack
-    private void GetTarget()
+    private void UpdateTarget()
     {
         // currentReference serves to indicate where the lightning will come from
         Transform currentReference = transform;
         enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         for (int i = 0; i < maxTargets; i++)
         {
-            targets[i] = GetTarget(currentReference);
+            targets[i] = FindEnemy(currentReference);
             // uses the selected enemy as the point of reference for range
             currentReference = targets[i];
         }
     }
 
     // acquires a single target, making sure it doesn't get the same twice
-    private Transform GetTarget(Transform origin)
+    private Transform FindEnemy(Transform origin)
     {
         if (origin == null) return null;
 

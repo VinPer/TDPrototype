@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3188563923387642422}
   - component: {fileID: 2306137128901050468}
   - component: {fileID: 4575463744028352787}
-  - component: {fileID: 6551148946540850519}
+  - component: {fileID: 2704469953784980365}
+  - component: {fileID: 6232384731935394705}
+  - component: {fileID: 5214888205595875388}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -78,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6551148946540850519
+--- !u!114 &2704469953784980365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +89,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 3369391130654538165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e9750bb1c41422418464dc448986912, type: 3}
+  m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
-  explosionRadius: 0
   damage: 10
-  damageType: no??
+  penetration: 0
+  element: none
+  intensity: 0
+  duration: 0
+  speed: 100
+  acceleration: 0
+  seeking: 0
+  explosionRadius: 0
+  durability: 100
   impactEffect: {fileID: 6452593582639930427, guid: 98149b311457e454c8abc0f7f979f2cf,
     type: 3}
+  decayTimer: 1
+  direction: {x: 0, y: 0, z: 0}
+--- !u!135 &6232384731935394705
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369391130654538165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5214888205595875388
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369391130654538165}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
