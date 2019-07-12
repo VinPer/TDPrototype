@@ -5,17 +5,17 @@ public class TowerBuff : TowerBase
 {
     public string towerTag = "Tower";
 
-    public float rangeBuff = 10f;
-    public float rateBuff = 10f;
-    public float damageBuff = 10f;
+    public float buffRange = 10f;
+    public float buffRate = 10f;
+    public float buffDamage = 10f;
 
     private List<Transform> towers;
 
     private void Start()
     {
-        rangeBuff = rangeBuff / 100 + 1;
-        rateBuff = rateBuff / 100 + 1;
-        damageBuff = damageBuff / 100 + 1;
+        buffRange = buffRange / 100 + 1;
+        buffRate = buffRate / 100 + 1;
+        buffDamage = buffDamage / 100 + 1;
 
         towers = new List<Transform>();
         FindTowers();
@@ -33,9 +33,9 @@ public class TowerBuff : TowerBase
             {
                 towers.Add(tower.transform);
                 currentTower = tower.transform.GetComponent<TowerBase>();
-                currentTower.SetRangeBoost(rangeBuff);
-                currentTower.SetRateBoost(rateBuff);
-                currentTower.SetDamageBoost(damageBuff);
+                currentTower.SetRangeBoost(buffRange);
+                currentTower.SetRateBoost(buffRate);
+                currentTower.SetDamageBoost(buffDamage);
             }
         }
     }
@@ -48,9 +48,9 @@ public class TowerBuff : TowerBase
             if (tower != null)
             {
                 currentTower = tower.GetComponent<TowerBase>();
-                currentTower.SetRangeBoost(rangeBuff);
-                currentTower.SetRateBoost(rateBuff);
-                currentTower.SetDamageBoost(damageBuff);
+                currentTower.SetRangeBoost(1f);
+                currentTower.SetRateBoost(1f);
+                currentTower.SetDamageBoost(1f);
             }
         }
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2231641450745717043}
   - component: {fileID: 7486506820801514299}
   - component: {fileID: 4481097481221438258}
-  - component: {fileID: 8807519139258562562}
+  - component: {fileID: 3100469325254215808}
   m_Layer: 0
   m_Name: PuddleSkill
   m_TagString: Untagged
@@ -110,7 +110,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8807519139258562562
+--- !u!114 &3100469325254215808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,12 +119,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8223315051072114872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764917a719a1c5349b6469fdfa931b5a, type: 3}
+  m_Script: {fileID: 11500000, guid: bdc8c46e67174aa49be7e3ceb06fd799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillRadius: 5
+  cooldown: 30
+  skillName: PUDDLE
+  radius: 5
+  yToSpawn: 1.5
   debuffIntensity: 10
-  debuffDuration: 50
+  debuffDuration: 5
   debuffType: fire
   duration: 10
   enemyTag: Enemy

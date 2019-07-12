@@ -703,8 +703,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5448850775047548471}
   - component: {fileID: 1200628905185194649}
-  - component: {fileID: 8156091740146915285}
   - component: {fileID: 4580594363870530067}
+  - component: {fileID: 8353170657663705866}
   m_Layer: 0
   m_Name: SpikesSkill
   m_TagString: Untagged
@@ -755,23 +755,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8156091740146915285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5543813017621042609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d8e9c4909e01c546a4e5b124cc26ca4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillRadius: 5
-  damage: 15
-  piercing: 0
-  ticks: 4
-  enemyTag: Enemy
 --- !u!54 &4580594363870530067
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -788,6 +771,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8353170657663705866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543813017621042609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda593246b48d3e48bf8bbfef2d9a19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 30
+  skillName: SPIKES
+  radius: 5
+  yToSpawn: 1.5
+  damage: 15
+  penetration: 0
+  ticks: 4
+  enemyTag: Enemy
 --- !u!1 &6640565254369616684
 GameObject:
   m_ObjectHideFlags: 0
