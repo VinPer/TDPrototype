@@ -3092,8 +3092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allTurrets:
-  - prefab: {fileID: 4176887503054913001, guid: 422418fa6f7766643a9f83560eb6169a,
-      type: 3}
+  - prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
     cost: 100
     upgradedPrefab: {fileID: 4176887503054913001, guid: 4a773ace9c0532b43a07fb3303c9247a,
       type: 3}
@@ -3174,8 +3173,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 284fab2a515efd14cb3c0f3a5b94f2ae, type: 3}
   max: 5
   defaultSelected:
-  - prefab: {fileID: 4176887503054913001, guid: 422418fa6f7766643a9f83560eb6169a,
-      type: 3}
+  - prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
     cost: 100
     upgradedPrefab: {fileID: 4176887503054913001, guid: 4a773ace9c0532b43a07fb3303c9247a,
       type: 3}

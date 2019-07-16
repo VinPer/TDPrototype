@@ -16,19 +16,12 @@ public class TowerFlamethrower : TowerNonProjectile
     public string enemyTag = "Enemy";
     public Transform partToRotate;
     public float turnSpeed = 1f;
-
-    public GameObject flamePrefab;
+    
     public Transform firePoint;
 
-    private GameObject flames;
+    public GameObject flames;
 
     private bool selectingRotation = false;
-
-    // Instantiates the flame item
-    void Start()
-    {
-        flames = Instantiate(flamePrefab, firePoint);
-    }
 
     // Rotates the flamethrower at a constant rate dictated by the turnSpeed
     void Update()
