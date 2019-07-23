@@ -39,7 +39,7 @@ public class SkillBomb : SkillTargetted
 
     private void Damage(Transform enemy)
     {
-        Enemy e = enemy.GetComponent<Enemy>();
-        e.TakeDamage(damage, penetration);
+        EnemyBase e = enemy.GetComponent<EnemyBase>();
+        e.TakeDamage(damage, penetration, Elements.Element.none);
     }
 }

@@ -4,7 +4,7 @@ public class ProjectileBase : MonoBehaviour
 {
     public float damage = 10f;
     public float penetration = 0f;
-    public string debuffElement = "none";
+    public Elements.Element debuffElement;
     public float debuffIntensity = 0f;
     public float debuffDuration = 0f;
 
@@ -74,8 +74,8 @@ public class ProjectileBase : MonoBehaviour
 
     private void Damage(Transform enemy)
     {
-        Enemy e = enemy.GetComponent<Enemy>();
-        e.TakeDamage(damage, penetration);
+        EnemyBase e = enemy.GetComponent<EnemyBase>();
+        e.TakeDamage(damage, penetration, debuffElement);
     }
 
     private void Explode()

@@ -12,8 +12,8 @@ public class SkillSpikes : SkillTargetted
     {
         if (col.tag != enemyTag || !placed) return;
 
-        Enemy e = col.GetComponent<Enemy>();
-        e.TakeDamage(damage, penetration);
+        EnemyBase e = col.GetComponent<EnemyBase>();
+        e.TakeDamage(damage, penetration, Elements.Element.none);
         ticks--;
 
         if (ticks <= 0)

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 587572028145555677}
   - component: {fileID: 587572028145555676}
   - component: {fileID: 587572028145555679}
-  - component: {fileID: 353118198464319859}
-  - component: {fileID: 852744764168812743}
+  - component: {fileID: 2779650769461662415}
+  - component: {fileID: 453794183084322575}
   m_Layer: 0
   m_Name: ClusterMini
   m_TagString: Enemy
@@ -94,7 +94,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &353118198464319859
+--- !u!114 &2779650769461662415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,37 +103,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 587572028145555678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43d4927900148741b7255c7d3786565, type: 3}
+  m_Script: {fileID: 11500000, guid: b91c7dbe34637bb4cb3030cc21a198d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointOffsetX: 2
-  waypointOffsetY: 2
---- !u!114 &852744764168812743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587572028145555678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 853129f0247eed24b95f8af7244c227d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 12
   health: 5
-  armor: 0
-  damage: 1
   value: 20
-  deathEffect: {fileID: 5884954783071359119, guid: 73a87f872e88c984db9e368b146db09d,
-    type: 3}
+  armor: 0
+  speed: 12
+  damage: 1
+  invisible: 0
   healthBar: {fileID: 7986271224386339178}
+  armorBar: {fileID: 6159511114841788668}
   fireEffect: {fileID: 6353654771837472138, guid: a0def5ce55927ac4b92f20cbca1cdc7f,
-    type: 3}
-  acidEffect: {fileID: 6353654771837472138, guid: 0af62086988e9bf4f98e2ab8b8a43fcd,
     type: 3}
   slowEffect: {fileID: 6353654771837472138, guid: dbdf12d53333376488b35d902ea7bf30,
     type: 3}
+  acidEffect: {fileID: 6353654771837472138, guid: 0af62086988e9bf4f98e2ab8b8a43fcd,
+    type: 3}
+  deathEffect: {fileID: 5884954783071359119, guid: 73a87f872e88c984db9e368b146db09d,
+    type: 3}
+--- !u!114 &453794183084322575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587572028145555678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271859b43e0e3fe42b8a1849ba79f948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointIndex: 0
+  distToNextWaypoint: 0
+  infiniteOffsets: 1
 --- !u!1 &7318682040466518959
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +162,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7318682040466518959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -169,7 +172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 10.74}
+  m_AnchoredPosition: {x: 0, y: 10.739996}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2455636432923096949

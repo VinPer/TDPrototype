@@ -113,8 +113,8 @@ public class TowerLightning : TowerNonProjectile
         Destroy(chainRenderer, 0.1f);
         Destroy(chain, 0.1f);
 
-        Enemy e = enemy.GetComponent<Enemy>();
-        e.TakeDamage(damage, penetration);
+        EnemyBase e = enemy.GetComponent<EnemyBase>();
+        e.TakeDamage(damage, penetration, debuffElement);
     }
 
     public override void UpgradeTower()

@@ -1,33 +1,32 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
-public class AEnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    protected Enemy enemy;
-    protected Transform target;
-    protected Vector3 targetPosition;
-    protected int waypointIndex = 0;
     protected Transform[] waypoints;
+    protected string waypointTag;
+    [HideInInspector]
+    public int waypointIndex;
+    [HideInInspector]
+    public float distToNextWaypoint;
+    protected EnemyBase enemy;
+    protected Transform target;
     protected Waypoint targetWaypoint;
-
-    //public float waypointOffsetX = 2.5f;
-    //public float waypointOffsetY = 2.5f;
-
-    protected float offsetX = 0;
-    protected float offsetZ = 0;
-
+    protected Vector3 targetPosition;
     public bool infiniteOffsets = true;
     protected bool stopOffset = false;
 
-    // todo: improve offset handling
-    //       includes targetPosition, offsetX, offsetZ
+    protected float offsetX = 0;
+    protected float offsetZ = 0;
+    
     protected virtual void Start()
     {
+        enemy = GetComponent<EnemyBase>();
         waypoints = transform.GetComponentInParent<WaveSpawner>().GetWaypoints();
         target = waypoints[waypointIndex];
         targetWaypoint = target.GetComponent<Waypoint>();
         GetNextPosition();
-        enemy = GetComponent<Enemy>();
     }
 
     protected virtual void Update()
@@ -39,6 +38,7 @@ public class AEnemyMovement : MonoBehaviour
         {
             GetNextWaypoint();
         }
+        distToNextWaypoint = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
     }
 
     protected virtual void GetNextWaypoint()
@@ -53,6 +53,7 @@ public class AEnemyMovement : MonoBehaviour
         target = waypoints[waypointIndex];
         targetWaypoint = target.GetComponent<Waypoint>();
         GetNextPosition();
+        transform.LookAt(target);
     }
 
     protected void GetNextPosition()
@@ -75,7 +76,7 @@ public class AEnemyMovement : MonoBehaviour
         Destroy(gameObject);
         WaveSpawner.EnemiesAlive--;
     }
-    
+
     public int GetWaypointIndex()
     {
         return waypointIndex;

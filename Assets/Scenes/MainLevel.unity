@@ -5347,6 +5347,11 @@ PrefabInstance:
       propertyPath: referencePoint
       value: 
       objectReference: {fileID: 1674009721}
+    - target: {fileID: 8552797532657903366, guid: 791d4b5b0d2652747959411a66edc7e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 237.40039
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
 --- !u!1001 &522351377
@@ -18540,24 +18545,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemy: {fileID: 587572028145555678, guid: dec0ba70c2cc2a843b0476be25061395, type: 3}
+  - enemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
     count: 2
-    rate: 0.5
-  - enemy: {fileID: 587572028145555678, guid: f5dd255d1e6f23a4da71857573ef6b01, type: 3}
+    rate: 1
+  - enemy: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
     count: 2
     rate: 1.5
-  - enemy: {fileID: 587572028145555678, guid: 54a3400d887ba2640bfc6a95c5476c70, type: 3}
-    count: 1
+  - enemy: {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
+    count: 2
     rate: 1
-  - enemy: {fileID: 587572028145555678, guid: eb514edaacd462743bbafba97cd3c5b3, type: 3}
-    count: 1
+  - enemy: {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
+    count: 2
     rate: 1
-  defaultEnemyPrefab: {fileID: 587572028145555674, guid: dec0ba70c2cc2a843b0476be25061395,
-    type: 3}
-  zipEnemyPrefab: {fileID: 587572028145555674, guid: f5dd255d1e6f23a4da71857573ef6b01,
-    type: 3}
-  armoredEnemyPrefab: {fileID: 587572028145555674, guid: 54a3400d887ba2640bfc6a95c5476c70,
-    type: 3}
+  defaultEnemyPrefab: {fileID: 456072, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
+  zipEnemyPrefab: {fileID: 405780, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
+  armoredEnemyPrefab: {fileID: 417502, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
   spawnPoint: {fileID: 1674009721}
   waypointHandler: {fileID: 185024545}
   infiniteOffset: 1

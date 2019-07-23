@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillElementalBlast : SkillGlobal
 {
-    public string debuffElement = "fire";
+    public Elements.Element debuffElement;
     public float debuffIntensity = 10f;
     public float debuffDuration = 5f;
     public float duration = 10f;
@@ -14,7 +14,7 @@ public class SkillElementalBlast : SkillGlobal
         FindTargets();
         foreach(GameObject target in enemies)
         {
-            Enemy enemy = target.GetComponent<Enemy>();
+            EnemyBase enemy = target.GetComponent<EnemyBase>();
             enemy.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffElement);
         }
     }
@@ -31,17 +31,17 @@ public class SkillElementalBlast : SkillGlobal
 
     private void OnTriggerEnter(Collider col)
     {
-        Enemy enemy = col.GetComponent<Enemy>();
+        EnemyBase enemy = col.GetComponent<EnemyBase>();
         enemy.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffElement);
     }
 
     private void End()
     {
         FindTargets();
-        Enemy currentEnemy;
+        EnemyBase currentEnemy;
         foreach(GameObject enemy in enemies)
         {
-            currentEnemy = enemy.GetComponent<Enemy>();
+            currentEnemy = enemy.GetComponent<EnemyBase>();
             currentEnemy.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
         }
 

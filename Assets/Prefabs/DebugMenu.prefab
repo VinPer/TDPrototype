@@ -1444,10 +1444,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 587572028145555678, guid: dec0ba70c2cc2a843b0476be25061395, type: 3}
-  - {fileID: 587572028145555678, guid: f5dd255d1e6f23a4da71857573ef6b01, type: 3}
-  - {fileID: 587572028145555678, guid: 54a3400d887ba2640bfc6a95c5476c70, type: 3}
-  - {fileID: 587572028145555678, guid: eb514edaacd462743bbafba97cd3c5b3, type: 3}
+  - {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
+  - {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
+  - {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
+  - {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
   GameMaster: {fileID: 0}
   speedUpMultiplier: 4
   delay: 0.1

@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  penetration: 50
-  debuffElement: none
+  penetration: 0.5
+  debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
   speed: 30

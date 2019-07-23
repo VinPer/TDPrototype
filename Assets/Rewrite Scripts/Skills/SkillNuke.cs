@@ -10,11 +10,11 @@ public class SkillNuke : SkillGlobal
     private void Start()
     {
         FindTargets();
-        Enemy enemy;
+        EnemyBase enemy;
         foreach(GameObject target in enemies)
         {
-            enemy = target.GetComponent<Enemy>();
-            enemy.TakeDamage(damage, penetration);
+            enemy = target.GetComponent<EnemyBase>();
+            enemy.TakeDamage(damage, penetration, Elements.Element.none);
         }
     }
 }

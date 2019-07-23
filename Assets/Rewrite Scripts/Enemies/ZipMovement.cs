@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Enemy))]
-public class AZipMovement : AEnemyMovement
+[RequireComponent(typeof(EnemyBase))]
+public class ZipMovement : EnemyMovement
 {
     public float delay = 1.5f;
     private bool canMove = false;

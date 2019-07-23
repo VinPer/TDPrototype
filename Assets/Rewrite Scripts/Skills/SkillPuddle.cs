@@ -6,7 +6,7 @@ public class SkillPuddle : SkillTargetted
 {
     public float debuffIntensity = 10f;
     public float debuffDuration = 5f;
-    public string debuffType = "fire";
+    public Elements.Element debuffType;
     public float duration = 10f;
 
     public string enemyTag = "Enemy";
@@ -28,7 +28,7 @@ public class SkillPuddle : SkillTargetted
     {
         if (col.tag != enemyTag || !placed || disappear) return;
 
-        Enemy e = col.GetComponent<Enemy>();
+        EnemyBase e = col.GetComponent<EnemyBase>();
         e.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffType);
     }
 
@@ -36,7 +36,7 @@ public class SkillPuddle : SkillTargetted
     {
         if (col.tag != enemyTag || placed == false) return;
 
-        Enemy e = col.GetComponent<Enemy>();
+        EnemyBase e = col.GetComponent<EnemyBase>();
         e.ActivateDebuff(debuffIntensity, debuffDuration, debuffType);
     }
 
@@ -48,7 +48,7 @@ public class SkillPuddle : SkillTargetted
         {
             if (col.tag == enemyTag)
             {
-                Enemy e = col.GetComponent<Enemy>();
+                EnemyBase e = col.GetComponent<EnemyBase>();
                 e.ActivateDebuff(debuffIntensity, debuffDuration, debuffType);
             }
         }

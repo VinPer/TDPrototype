@@ -19,7 +19,7 @@ public class TowerArea : TowerNonProjectile
     {
         if (col.tag != enemyTag) return;
 
-        Enemy e = col.GetComponent<Enemy>();
+        EnemyBase e = col.GetComponent<EnemyBase>();
         e.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffElement);
     }
 
@@ -27,7 +27,7 @@ public class TowerArea : TowerNonProjectile
     {
         if (col.tag != enemyTag) return;
 
-        Enemy e = col.GetComponent<Enemy>();
+        EnemyBase e = col.GetComponent<EnemyBase>();
         e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
     }
 
