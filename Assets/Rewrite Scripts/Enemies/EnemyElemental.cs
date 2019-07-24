@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyElemental : EnemyBase
 {
     [Header("Element")]
-    public Elements.Element element;
-    public float resistance;
+    public Elements.Element element = Elements.Element.none;
+    public float resistance = 0;
 
     public override void ActivateDebuff(float multiplier, float duration, Elements.Element debuffType)
     {

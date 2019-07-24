@@ -25,6 +25,9 @@ public class EnemyBase : MonoBehaviour
     private Debuff acid;
     private Dictionary<Elements.Element, Debuff> debuffs;
 
+    public Elements.Element element = Elements.Element.none;
+    public float resistance = 0;
+
     public Image healthBar;
     public Image armorBar;
 
@@ -168,6 +171,8 @@ public class EnemyBase : MonoBehaviour
     {
         if (status == Status.disable || debuffs == null) return;
 
+        if (debuffType == element) return;
+
         Debuff debuff = debuffs[debuffType];
         debuff.Refresh(multiplier, duration);
         if (!debuff.isActive)
@@ -224,6 +229,8 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void TakeDamage(float amount, float piercingValue, Elements.Element turretElement)
     {
+        if (element == turretElement) amount *= (1 - resistance);
+
         float multiplier = armor * (1 - piercingValue);
         health -= amount * (1 - multiplier);
         healthBar.fillAmount = health / initialHp;

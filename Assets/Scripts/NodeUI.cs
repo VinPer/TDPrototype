@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class NodeUI : MonoBehaviour
 {
-    private Node target;
+    public Node target;
     public GameObject ui;
     public Text upgradeCost;
     public Button upgradeButton;
@@ -28,6 +28,7 @@ public class NodeUI : MonoBehaviour
         }
 
         ui.SetActive(true);
+        target.range.SetTarget(target);
     }
 
     public void Upgrade()
@@ -44,6 +45,11 @@ public class NodeUI : MonoBehaviour
 
     public void Hide()
     {
+        if(target != null)
+        {
+            target.range.Hide();
+            target = null;
+        }
         ui.SetActive(false);
     }
 }

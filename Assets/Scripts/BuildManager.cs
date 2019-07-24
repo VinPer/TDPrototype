@@ -3,7 +3,6 @@
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
-
     private void Awake()
     {
         if (instance != null)
@@ -14,7 +13,6 @@ public class BuildManager : MonoBehaviour
 
         instance = this;
     }
-
     public GameObject buildEffect;
     public GameObject sellEffect;
     public NodeUI nodeUI;

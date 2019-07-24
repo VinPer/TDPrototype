@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
-    BuildManager buildManager;
+    public BuildManager buildManager;
 
     [HideInInspector]
     public GameObject turret;
@@ -19,12 +19,18 @@ public class Node : MonoBehaviour
     public Color hoverColor;
     public Color cannotAffordColor;
 
+    public GameObject turretRange;
+    public Range range;
+    private string rangeTag = "Range";
+
     private void Start()
     {
         buildManager = BuildManager.instance;
 
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+        
+        range = FindObjectOfType<Range>();
     }
 
     public Vector3 GetBuildPosition()
@@ -117,12 +123,18 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!buildManager.CanBuild) return;
 
-        if (PlayerStats.Money >= buildManager.GetTurretToBuild().cost) rend.material.color = hoverColor;
+        if (PlayerStats.Money >= buildManager.GetTurretToBuild().cost)
+        {
+            rend.material.color = hoverColor;
+            if(!turret)
+                range.HoverTarget(this.gameObject);
+        }
         else rend.material.color = cannotAffordColor;
     }
 
     private void OnMouseExit()
     {
         rend.material.color = startColor;
+        if (buildManager.nodeUI.target == null) range.Hide();
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Bullet
   - Tower
+  - Range
   layers:
   - Default
   - TransparentFX
