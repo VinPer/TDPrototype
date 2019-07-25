@@ -2,6 +2,8 @@
 
 public abstract class TowerBase : MonoBehaviour
 {
+    public BuildManager buildManager;
+    
     protected enum Status { Disabled, Enabled };
     protected Status currentState = Status.Enabled;
     public float range = 15f;
@@ -13,8 +15,8 @@ public abstract class TowerBase : MonoBehaviour
     protected float rateBoost = 1f;
     protected float damageBoost = 1f;
 
-    //public TowerModel model;
-
+    //public TowerModel model;s
+   
     public virtual void SetRange(float value)
     {
         if (value <= 0f) Debug.Log("Incorrect value to update range!");        

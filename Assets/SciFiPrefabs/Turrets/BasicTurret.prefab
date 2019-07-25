@@ -88,7 +88,7 @@ BoxCollider:
   m_GameObject: {fileID: 106626}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.4634973, y: 0.6412301, z: 1.4634973}
   m_Center: {x: 0, y: 1.5720135, z: 0.00000017881393}
@@ -413,7 +413,7 @@ BoxCollider:
   m_GameObject: {fileID: 177350}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.3813658, y: 2.1714735, z: 3.5929308}
   m_Center: {x: 0, y: 0.88839054, z: 0.43449336}
@@ -527,7 +527,7 @@ BoxCollider:
   m_GameObject: {fileID: 197016}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.9823475, y: 1.2378664, z: 1.9823475}
   m_Center: {x: 0, y: 0.6189331, z: 0}
@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
   fireRate: 1
@@ -553,6 +554,7 @@ MonoBehaviour:
   firePoint: {fileID: 5608702030693297934}
   bulletPrefab: {fileID: 3369391130654538165, guid: 180e825ad4cced04d942cf202443b7a7,
     type: 3}
+  possibleTargets: 0
 --- !u!1 &393731500854775277
 GameObject:
   m_ObjectHideFlags: 0

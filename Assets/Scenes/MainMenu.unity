@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa42dde20b6731d4a8cdb56616225ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: MainLevel
+  levelToLoad: LevelT
   sceneFader: {fileID: 2113100164}
 --- !u!4 &15333551
 Transform:
@@ -1225,9 +1225,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 30
   panBorderThickness: 10
+  rotationSpeed: 100
   scrollSpeed: 5
   minY: 10
   maxY: 130
+  minX: 5
+  maxX: 70
+  minZ: 0
+  maxZ: 70
 --- !u!1 &567915740
 GameObject:
   m_ObjectHideFlags: 0

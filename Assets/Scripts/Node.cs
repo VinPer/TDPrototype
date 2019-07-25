@@ -18,10 +18,8 @@ public class Node : MonoBehaviour
     private Color startColor;
     public Color hoverColor;
     public Color cannotAffordColor;
-
-    public GameObject turretRange;
+    
     public Range range;
-    private string rangeTag = "Range";
 
     private void Start()
     {

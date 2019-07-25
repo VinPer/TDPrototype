@@ -41,6 +41,6 @@ public class EnemyCluster : EnemyBase
         EnemyMovement childMovement = c.GetComponent<EnemyMovement>();
         EnemyMovement parentMovement = transform.GetComponent<EnemyMovement>();
         childMovement.SetWaypoint(parentMovement.GetWaypointIndex());
-
+        WaveSpawner.EnemiesAlive++;
     }
 }

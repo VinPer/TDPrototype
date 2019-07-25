@@ -111,7 +111,7 @@ BoxCollider:
   m_GameObject: {fileID: 113658}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 3.1370769, y: 0.7694636, z: 3.1370769}
   m_Center: {x: 0, y: 0.38473168, z: 0}
@@ -127,12 +127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d7f6ea3e8a9e7489f8a4f5577a2255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
   triggerRate: 1
   damage: 10
   penetration: 0
-  debuffElement: fire
+  debuffElement: 0
   debuffIntensity: 1
   debuffDuration: 1
   firingArea: {fileID: 8343185195614419934}
@@ -310,7 +311,7 @@ BoxCollider:
   m_GameObject: {fileID: 147688}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.630216, y: 1.7021508, z: 3.6034803}
   m_Center: {x: 0.2976653, y: -0.028564185, z: 0.6893292}
@@ -479,7 +480,7 @@ BoxCollider:
   m_GameObject: {fileID: 169208}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.9026693, y: 1.5612588, z: 1.1622767}
   m_Center: {x: -0.1536764, y: 1.4870794, z: 0.109924525}
