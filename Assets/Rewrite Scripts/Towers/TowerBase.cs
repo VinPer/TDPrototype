@@ -4,8 +4,7 @@ public abstract class TowerBase : MonoBehaviour
 {
     public BuildManager buildManager;
     
-    protected enum Status { Disabled, Enabled };
-    protected Status currentState = Status.Enabled;
+    protected Enums.Status currentState = Enums.Status.enable;
     public float range = 15f;
     protected float cost = 100f;
     protected int level = 1;

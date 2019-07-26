@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyElemental : EnemyBase
 {
     [Header("Element")]
-    public Elements.Element element = Elements.Element.none;
+    public Enums.Element element = Enums.Element.none;
     public float resistance = 0;
 
-    public override void ActivateDebuff(float multiplier, float duration, Elements.Element debuffType)
+    public override void ActivateDebuff(float multiplier, float duration, Enums.Element debuffType)
     {
         if(debuffType == element)
         {
@@ -17,7 +17,7 @@ public class EnemyElemental : EnemyBase
         base.ActivateDebuff(multiplier,duration,debuffType);
     }
 
-    public override void TakeDamage(float amount, float piercingValue, Elements.Element turretElement)
+    public override void TakeDamage(float amount, float piercingValue, Enums.Element turretElement)
     {
         if(element == turretElement)
         {

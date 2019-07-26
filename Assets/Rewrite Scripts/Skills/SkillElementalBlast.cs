@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillElementalBlast : SkillGlobal
 {
-    public Elements.Element debuffElement;
+    public Enums.Element debuffElement;
     public float debuffIntensity = 10f;
     public float debuffDuration = 5f;
     public float duration = 10f;

@@ -10,6 +10,7 @@ public class Flames : MonoBehaviour
     private float damageCountdown = 0f;
     public GameObject fireEffect;
     private GameObject flameEffect;
+    private Enums.Element fire = Enums.Element.fire;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +46,8 @@ public class Flames : MonoBehaviour
 
     private void BurnTarget(Transform enemy)
     {
-        Enemy e = enemy.GetComponent<Enemy>();
-        e.TakeDamage(damage, piercingValue);
-        e.ActivateDebuff(damage * 10, 50f, "fire");
+        EnemyBase e = enemy.GetComponent<EnemyBase>();
+        e.TakeDamage(damage, piercingValue,fire);
+        e.ActivateDebuff(damage * 10, 50f, fire);
     }
 }

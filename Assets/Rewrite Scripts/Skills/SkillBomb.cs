@@ -40,6 +40,6 @@ public class SkillBomb : SkillTargetted
     private void Damage(Transform enemy)
     {
         EnemyBase e = enemy.GetComponent<EnemyBase>();
-        e.TakeDamage(damage, penetration, Elements.Element.none);
+        e.TakeDamage(damage, penetration, Enums.Element.none);
     }
 }

@@ -14,7 +14,7 @@ public class SkillNuke : SkillGlobal
         foreach(GameObject target in enemies)
         {
             enemy = target.GetComponent<EnemyBase>();
-            enemy.TakeDamage(damage, penetration, Elements.Element.none);
+            enemy.TakeDamage(damage, penetration, Enums.Element.none);
         }
     }
 }

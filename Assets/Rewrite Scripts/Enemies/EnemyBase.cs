@@ -17,15 +17,14 @@ public class EnemyBase : MonoBehaviour
 
     public float damage = 1;
     public bool invisible;
-
-    public enum Status { enable, disable }
-    private Status status;
+    
+    private Enums.Status status;
     private Debuff fire;
     private Debuff slow;
     private Debuff acid;
-    private Dictionary<Elements.Element, Debuff> debuffs;
+    private Dictionary<Enums.Element, Debuff> debuffs;
 
-    public Elements.Element element = Elements.Element.none;
+    public Enums.Element element = Enums.Element.none;
     public float resistance = 0;
 
     public Image healthBar;
@@ -46,7 +45,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        status = Status.disable;
+        status = Enums.Status.disable;
         initialHp = health;
         initialSpeed = speed;
 
@@ -58,17 +57,17 @@ public class EnemyBase : MonoBehaviour
         acid = new Debuff(false);
         slow = new Debuff(false);
 
-        debuffs = new Dictionary<Elements.Element, Debuff>
+        debuffs = new Dictionary<Enums.Element, Debuff>
         {
-            { Elements.Element.fire, fire },
-            { Elements.Element.acid, acid },
-            { Elements.Element.ice, slow }
+            { Enums.Element.fire, fire },
+            { Enums.Element.acid, acid },
+            { Enums.Element.ice, slow }
         };
         Spawn();
     }
     public void Spawn()
     {
-        status = Status.enable;
+        status = Enums.Status.enable;
         health = initialHp;
         speed = initialSpeed;
         armor = initialArmor;
@@ -143,7 +142,7 @@ public class EnemyBase : MonoBehaviour
         while (fire.duration > 0)
         {
             damage = Mathf.Min(fire.level, 100) / 100;
-            TakeDamage(damage, 0, Elements.Element.fire);
+            TakeDamage(damage, 0, Enums.Element.fire);
             fire.duration--; // this needs to be improved with a time-relevant setting
             yield return new WaitForSeconds(0.1f); // delay between damage ticks
         }
@@ -167,9 +166,9 @@ public class EnemyBase : MonoBehaviour
         acid.isActive = false;
     }
 
-    public virtual void ActivateDebuff(float multiplier, float duration, Elements.Element debuffType)
+    public virtual void ActivateDebuff(float multiplier, float duration, Enums.Element debuffType)
     {
-        if (status == Status.disable || debuffs == null) return;
+        if (status == Enums.Status.disable || debuffs == null) return;
 
         if (debuffType == element) return;
 
@@ -180,13 +179,13 @@ public class EnemyBase : MonoBehaviour
             debuff.isActive = true;
             switch (debuffType)
             {
-                case Elements.Element.fire:
+                case Enums.Element.fire:
                     StartCoroutine(ApplyFire());
                     break;
-                case Elements.Element.acid:
+                case Enums.Element.acid:
                     StartCoroutine(ApplyAcid());
                     break;
-                case Elements.Element.ice:
+                case Enums.Element.ice:
                     StartCoroutine(ApplySlow());
                     break;
             }
@@ -195,13 +194,13 @@ public class EnemyBase : MonoBehaviour
 
     public float GetHp() { return health; }
     public float GetDamage() { return damage; }
-    public Status GetStatus() { return status; }
+    public Enums.Status GetStatus() { return status; }
     public bool GetInvisibleState() { return invisible; }
 
     public void UpdateStatus()
     {
-        if (status == Status.disable) status = Status.enable;
-        else status = Status.disable;
+        if (status == Enums.Status.disable) status = Enums.Status.enable;
+        else status = Enums.Status.disable;
     }
     public void UpdateInvisible()
     {
@@ -212,8 +211,8 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        if (status == Status.disable) return;
-        status = Status.disable;
+        if (status == Enums.Status.disable) return;
+        status = Enums.Status.disable;
         PlayerStats.Money += (int) value;
         PlayerStats.UpdateMoney();
         WaveSpawner.EnemiesAlive--;
@@ -227,7 +226,7 @@ public class EnemyBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public virtual void TakeDamage(float amount, float piercingValue, Elements.Element turretElement)
+    public virtual void TakeDamage(float amount, float piercingValue, Enums.Element turretElement)
     {
         if (element == turretElement) amount *= (1 - resistance);
 

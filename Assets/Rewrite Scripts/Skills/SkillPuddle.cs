@@ -6,7 +6,7 @@ public class SkillPuddle : SkillTargetted
 {
     public float debuffIntensity = 10f;
     public float debuffDuration = 5f;
-    public Elements.Element debuffType;
+    public Enums.Element debuffType;
     public float duration = 10f;
 
     public string enemyTag = "Enemy";

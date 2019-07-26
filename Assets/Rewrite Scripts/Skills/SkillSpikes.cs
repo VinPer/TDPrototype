@@ -13,7 +13,7 @@ public class SkillSpikes : SkillTargetted
         if (col.tag != enemyTag || !placed) return;
 
         EnemyBase e = col.GetComponent<EnemyBase>();
-        e.TakeDamage(damage, penetration, Elements.Element.none);
+        e.TakeDamage(damage, penetration, Enums.Element.none);
         ticks--;
 
         if (ticks <= 0)

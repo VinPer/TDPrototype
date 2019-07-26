@@ -4,7 +4,7 @@ public class ProjectileBase : MonoBehaviour
 {
     public float damage = 10f;
     public float penetration = 0f;
-    public Elements.Element debuffElement;
+    public Enums.Element debuffElement;
     public float debuffIntensity = 0f;
     public float debuffDuration = 0f;
 
