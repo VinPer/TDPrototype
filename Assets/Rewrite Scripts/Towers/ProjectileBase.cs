@@ -12,7 +12,7 @@ public class ProjectileBase : MonoBehaviour
     public float acceleration = 0f;
     public bool seeking = false;
     public float explosionRadius = 0f;
-    public float durability = 100f;
+    public int durability = 1;
     private Transform target;
 
     public GameObject impactEffect;
@@ -28,7 +28,6 @@ public class ProjectileBase : MonoBehaviour
 
     private void Update()
     {
-
         if ((target == null && seeking) || decayTimer <= 0f || durability <= 0f)
         {
             Destroy(gameObject);
@@ -42,12 +41,6 @@ public class ProjectileBase : MonoBehaviour
         }
 
         float distanceThisFrame = speed * Time.deltaTime;
-
-        //if (direction.magnitude <= distanceThisFrame)
-        //{
-        //    HitTarget();
-        //    return;
-        //}
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
         decayTimer -= Time.deltaTime;
@@ -65,11 +58,15 @@ public class ProjectileBase : MonoBehaviour
         else
         {
             Damage(target);
+            durability--;
             // include logic for reducing durability
         }
         
         // include logic for checking durability
-        Destroy(gameObject);
+        if(durability <= 0 || seeking)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Damage(Transform enemy)
@@ -88,6 +85,28 @@ public class ProjectileBase : MonoBehaviour
                 Damage(collider.transform);
             }
         }
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public void SetDamage(float value)
+    {
+        if (value <= 0f) Debug.Log("Incorrect value to update damage!");
+        else damage = value;
+    }
+
+    public int GetDurability()
+    {
+        return durability;
+    }
+
+    public void SetDurability(int value)
+    {
+        if (value <= 0) Debug.Log("Incorrect value to update durability!");
+        else durability = value;
     }
 
     public void SetSpeed(float value)
@@ -115,12 +134,6 @@ public class ProjectileBase : MonoBehaviour
     public void SetTarget(Vector3 dir)
     {
         direction = dir;
-    }
-
-    public void UpdateDurability(float value)
-    {
-        if (value <= 0f) Debug.Log("Incorrect value to update durability!");
-        else durability -= value;
     }
 
     public void OnTriggerEnter(Collider col)
