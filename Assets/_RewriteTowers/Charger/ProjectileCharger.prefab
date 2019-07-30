@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6232384731935394705}
   - component: {fileID: 5214888205595875388}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: ProjectileCharger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b9e6ab380a5bcd44fa047612ae934993, type: 2}
+  - {fileID: 2100000, guid: 780fc7fa1501fc646b62c6ddf44cd560, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   seeking: 0
   explosionRadius: 0
   durability: 1
-  impactEffect: {fileID: 6452593582639930427, guid: 98149b311457e454c8abc0f7f979f2cf,
+  impactEffect: {fileID: 6452593582639930427, guid: 08a4e69c041e6bc489cddb55f313a18f,
     type: 3}
   initialDecayTimer: 0
   decayTimer: 1

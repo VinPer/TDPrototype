@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildManager: {fileID: 0}
-  range: 15
+  range: 20
   seesInvisible: 0
   fireRate: 1
   targettingStyle: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
   partToRotate: {fileID: 491510}
   turnSpeed: 10
   firePoint: {fileID: 8184259198771357106}
-  bulletPrefab: {fileID: 3369391130654538165, guid: 180e825ad4cced04d942cf202443b7a7,
+  bulletPrefab: {fileID: 3369391130654538165, guid: 5daa84cc091c3d1408d1eda387732e00,
     type: 3}
   possibleTargets: 0
   maxChargeLevel: 3

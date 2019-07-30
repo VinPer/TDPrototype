@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6232384731935394705}
   - component: {fileID: 5214888205595875388}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: ProjectileSniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b9e6ab380a5bcd44fa047612ae934993, type: 2}
+  - {fileID: 2100000, guid: 84325396261fffb4097e3ea0673ccc80, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,17 +92,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  penetration: 0
+  damage: 25
+  penetration: 1
   debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
-  speed: 100
+  speed: 120
   acceleration: 0
   seeking: 0
   explosionRadius: 0
-  durability: 1
-  impactEffect: {fileID: 6452593582639930427, guid: 98149b311457e454c8abc0f7f979f2cf,
+  durability: 5
+  impactEffect: {fileID: 6452593582639930427, guid: acd25a66ddcc77c4988cb52efce603f6,
     type: 3}
   initialDecayTimer: 0
   decayTimer: 1
