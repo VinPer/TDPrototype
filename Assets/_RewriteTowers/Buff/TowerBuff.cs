@@ -21,12 +21,15 @@ public class TowerBuff : TowerBase
 
         towers = new List<Transform>();
 
-        GetComponent<SphereCollider>().radius = range*2;
+        GetComponent<SphereCollider>().radius = range;
     }
-
+    private void Update()
+    {
+        GetComponent<SphereCollider>().radius = range;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<TowerBase>())
+        if (other.GetComponent<TowerBase>() && !other.GetComponent<TowerBuff>())
         {
             TowerBase currentTower = other.GetComponent<TowerBase>();
             currentTower.BuffRange(buffRange);

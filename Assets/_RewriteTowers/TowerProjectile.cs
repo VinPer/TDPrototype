@@ -11,7 +11,7 @@ public class TowerProjectile : TowerBase
 
     public string enemyTag = "Enemy";
     public Transform partToRotate;
-    public float turnSpeed = 10f;
+    public float turnSpeed = 10f; 
     public Transform firePoint;
     protected float fireCountdown = 0f;
     public GameObject bulletPrefab;
