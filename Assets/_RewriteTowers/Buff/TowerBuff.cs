@@ -11,14 +11,29 @@ public class TowerBuff : TowerBase
 
     private List<Transform> towers;
 
-    private void Start()
+    protected override void Start()
     {
-        buffRange = buffRange / 100 + 1;
-        buffRate = buffRate / 100 + 1;
-        buffDamage = buffDamage / 100 + 1;
+        base.Start();
+
+        buffRange = buffRange / 100;
+        buffRate = buffRate / 100;
+        buffDamage = buffDamage / 100;
 
         towers = new List<Transform>();
-        FindTowers();
+
+        GetComponent<SphereCollider>().radius = range*2;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<TowerBase>())
+        {
+            TowerBase currentTower = other.GetComponent<TowerBase>();
+            currentTower.BuffRange(buffRange);
+            currentTower.SetRateBoost(buffRate);
+            currentTower.SetDamageBoost(buffDamage);
+            towers.Add(other.transform);
+        }
     }
 
     private void FindTowers()
@@ -33,7 +48,7 @@ public class TowerBuff : TowerBase
             {
                 towers.Add(tower.transform);
                 currentTower = tower.transform.GetComponent<TowerBase>();
-                currentTower.SetRangeBoost(buffRange);
+                currentTower.BuffRange(buffRange);
                 currentTower.SetRateBoost(buffRate);
                 currentTower.SetDamageBoost(buffDamage);
             }
@@ -47,16 +62,44 @@ public class TowerBuff : TowerBase
         {
             if (tower != null)
             {
+                Debug.Log("oi");
                 currentTower = tower.GetComponent<TowerBase>();
-                currentTower.SetRangeBoost(1f);
-                currentTower.SetRateBoost(1f);
-                currentTower.SetDamageBoost(1f);
+                currentTower.BuffRange(-buffRange);
+                currentTower.SetRateBoost(-buffRate);
+                currentTower.SetDamageBoost(-buffDamage);
             }
         }
     }
 
     public override void UpgradeTower()
     {
+        GetComponent<SphereCollider>().radius = range;
+
+        TowerBase currentTower;
+        foreach (Transform tower in towers)
+        {
+            if (tower != null)
+            {
+                Debug.Log("oi");
+                currentTower = tower.GetComponent<TowerBase>();
+                currentTower.BuffRange(-buffRange);
+                currentTower.SetRateBoost(-buffRate);
+                currentTower.SetDamageBoost(-buffDamage);
+            }
+        }
+
         // upgrade logic
+
+        foreach (Transform tower in towers)
+        {
+            if (tower != null)
+            {
+                Debug.Log("oi");
+                currentTower = tower.GetComponent<TowerBase>();
+                currentTower.BuffRange(buffRange);
+                currentTower.SetRateBoost(buffRate);
+                currentTower.SetDamageBoost(buffDamage);
+            }
+        }
     }
 }

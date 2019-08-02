@@ -19,8 +19,9 @@ public class TowerProjectile : TowerBase
     public enum PossibleTargets { first, last, strongest, weakest };
     public PossibleTargets possibleTargets = PossibleTargets.first; //First by default
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 

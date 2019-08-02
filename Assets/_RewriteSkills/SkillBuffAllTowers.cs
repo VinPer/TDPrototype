@@ -40,19 +40,19 @@ public class SkillBuffAllTowers : SkillGlobal
         foreach(GameObject target in towers)
         {
             tower = target.GetComponent<TowerBase>();
-            tower.SetRangeBoost(buffRange);
+            tower.BuffRange(buffRange);
             tower.SetRateBoost(buffRate);
             tower.SetDamageBoost(buffDamage);
         }
     }
-
+    
     private void End()
     {
         TowerBase tower;
         foreach (GameObject target in towers)
         {
             tower = target.GetComponent<TowerBase>();
-            tower.SetRangeBoost(1f);
+            tower.BuffRange(-buffRange);
             tower.SetRateBoost(1f);
             tower.SetDamageBoost(1f);
         }
@@ -63,7 +63,7 @@ public class SkillBuffAllTowers : SkillGlobal
     private void OnTriggerEnter(Collider col)
     {
         TowerBase tower = col.GetComponent<TowerBase>();
-        tower.SetRangeBoost(buffRange);
+        tower.BuffRange(buffRange);
         tower.SetRateBoost(buffRate);
         tower.SetDamageBoost(buffDamage);
     }

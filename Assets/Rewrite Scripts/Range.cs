@@ -16,7 +16,10 @@ public class Range : MonoBehaviour
         {
             return;
         }
-        range = target.turret.GetComponent<TowerBase>().range * 2;
+        if(target.turret.GetComponent<TowerBase>())
+            range = target.turret.GetComponent<TowerBase>().range * 2;
+        else
+            range = target.turret.GetComponentInChildren<TowerBase>().range * 2;
         rangeSize.transform.localScale = new Vector3(range, .1f, range);
         rangeSize.SetActive(true);
     }
@@ -25,7 +28,10 @@ public class Range : MonoBehaviour
         target = _target.GetComponent<Node>();
         Vector3 nodePosition = _target.transform.position;
         nodePosition.y += .5f;
-        range = target.buildManager.GetTurretToBuild().prefab.GetComponent<TowerBase>().range * 2;
+        if(target.buildManager.GetTurretToBuild().prefab.GetComponent<TowerBase>())
+            range = target.buildManager.GetTurretToBuild().prefab.GetComponent<TowerBase>().range * 2;
+        else
+            range = target.buildManager.GetTurretToBuild().prefab.GetComponentInChildren<TowerBase>().range * 2;
         rangeSize.transform.localScale = new Vector3(range, .1f, range);
         rangeSize.transform.position = nodePosition;
         rangeSize.SetActive(true);

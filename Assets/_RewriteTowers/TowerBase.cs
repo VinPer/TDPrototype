@@ -6,6 +6,7 @@ public abstract class TowerBase : MonoBehaviour
     
     protected Enums.Status currentState = Enums.Status.enable;
     public float range = 15f;
+    protected float initialRange;
     protected float cost = 100f;
     protected int level = 1;
     public bool seesInvisible = false;
@@ -15,7 +16,12 @@ public abstract class TowerBase : MonoBehaviour
     protected float damageBoost = 1f;
 
     //public TowerModel model;s
-   
+
+    protected virtual void Start()
+    {
+        initialRange = range;
+    }
+
     public virtual void SetRange(float value)
     {
         if (value <= 0f) Debug.Log("Incorrect value to update range!");        
@@ -38,10 +44,10 @@ public abstract class TowerBase : MonoBehaviour
         // enum?
     }
 
-    public void SetRangeBoost(float value)
+    public void BuffRange(float value)
     {
-        if (value <= 0f) Debug.Log("Incorrect value to update range boost!");
-        else rangeBoost = value;
+        rangeBoost += value;
+        SetRange(initialRange * rangeBoost);
     }
 
     public void SetRateBoost(float value)
