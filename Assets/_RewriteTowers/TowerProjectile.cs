@@ -16,6 +16,9 @@ public class TowerProjectile : TowerBase
     protected float fireCountdown = 0f;
     public GameObject bulletPrefab;
 
+    public float damageUpgrade = .1f;
+    public float fireRateUpgrade = .1f;
+
     public enum PossibleTargets { first, last, strongest, weakest };
     public PossibleTargets possibleTargets = PossibleTargets.first; //First by default
 
@@ -217,7 +220,7 @@ public class TowerProjectile : TowerBase
 
         if (bullet != null)
         {
-            //bullet.damage *= damageBoost;
+            bullet.damage *= damageBoost;
             bullet.SetTarget(target);
         }
     }
@@ -228,9 +231,11 @@ public class TowerProjectile : TowerBase
         else fireRate = value;
     }
 
-    public override void UpgradeTower()
+    protected override void UpgradeStatus()
     {
-        // upgrade logic
+        range += rangeUpgrade;
+        damageBoost += damageUpgrade;
+        fireRate += fireRateUpgrade;
     }
 
     protected void OnDrawGizmosSelected()

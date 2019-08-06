@@ -83,8 +83,8 @@ public class TowerFlamethrower : TowerNonProjectile
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
-    public override void UpgradeTower()
+    protected override void UpgradeStatus()
     {
-        // upgrade logic
+        range += rangeUpgrade;
     }
 }

@@ -11,6 +11,12 @@ public abstract class TowerBase : MonoBehaviour
     protected int level = 1;
     public bool seesInvisible = false;
 
+    public float rangeUpgrade = 2f;
+    protected int numberOfUpgrades = 0;
+    public int maxUpgrade = 3;
+    [HideInInspector]
+    public bool turretMaximized = false;
+
     protected float rangeBoost = 1f;
     protected float rateBoost = 1f;
     protected float damageBoost = 1f;
@@ -62,5 +68,22 @@ public abstract class TowerBase : MonoBehaviour
         else damageBoost = value;
     }
 
-    public abstract void UpgradeTower();
+    public void UpgradeTower()
+    {
+        if (!turretMaximized)
+        {
+            UpgradeStatus();
+            numberOfUpgrades++;
+            if (numberOfUpgrades < maxUpgrade) Debug.Log("Number of Upgrades:" + numberOfUpgrades);
+            else
+            {
+                turretMaximized = true;
+                Debug.Log("Number of Upgrades: Maximized");
+            }
+        }
+    }
+
+    protected abstract void UpgradeStatus();
+
+    //public abstract void BuffTower();
 }

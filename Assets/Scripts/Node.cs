@@ -8,9 +8,9 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
-    public TurretBlueprint turretBlueprint;
+    private TowerBase tower;
     [HideInInspector]
-    public bool isUpgraded = false;
+    public TurretBlueprint turretBlueprint;
 
     public Vector3 positionOffset;
 
@@ -64,7 +64,7 @@ public class Node : MonoBehaviour
 
         turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret.transform.SetParent(transform);
-
+        tower = turret.GetComponent<TowerBase>();
         turretBlueprint = blueprint;
 
         GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
@@ -84,28 +84,27 @@ public class Node : MonoBehaviour
 
         PlayerStats.Money -= turretBlueprint.upgradeCost;
 
-        // Get rid of old turret
-        Destroy(turret);
-        // Build new turret
-        turret = Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
-        turret.transform.SetParent(transform);
+        //// Get rid of old turret
+        //Destroy(turret);
+        //// Build new turret
+        //turret = Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        //turret.transform.SetParent(transform);
+
+        tower.UpgradeTower();
 
         GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
-
-        isUpgraded = true;
-        Debug.Log("Turret upgraded!");
+        
         PlayerStats.UpdateMoney();
     }
 
     public void SellTurret()
     {
         // Add money at half the cost spent
-        PlayerStats.Money += turretBlueprint.GetSellValue(isUpgraded);
+        PlayerStats.Money += turretBlueprint.GetSellValue(tower.turretMaximized);
         // Destroy turret and kill references
         Destroy(turret);
         turret = null;
-        isUpgraded = false;
 
         // Play effect
         GameObject effect = Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);

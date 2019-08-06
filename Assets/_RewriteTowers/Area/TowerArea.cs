@@ -4,8 +4,9 @@ public class TowerArea : TowerNonProjectile
 {
     public string enemyTag = "Enemy";
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         // logic to set scale of collision area
     }
 
@@ -31,8 +32,8 @@ public class TowerArea : TowerNonProjectile
         e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
     }
 
-    public override void UpgradeTower()
+    protected override void UpgradeStatus()
     {
-        // upgrade logic
+        range += rangeUpgrade;
     }
 }

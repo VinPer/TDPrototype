@@ -14,7 +14,7 @@ public class NodeUI : MonoBehaviour
         this.target = target;
 
         transform.position = this.target.GetBuildPosition();
-        if (!target.isUpgraded)
+        if (!target.GetComponentInChildren<TowerBase>().turretMaximized)
         {
             upgradeCost.text = "$" + target.turretBlueprint.upgradeCost;
             sellValue.text = "$" + target.turretBlueprint.GetSellValue(false);
@@ -22,7 +22,7 @@ public class NodeUI : MonoBehaviour
         }
         else
         {
-            upgradeCost.text = "DONE";
+            upgradeCost.text = "MAXIMIZED";
             sellValue.text = "$" + target.turretBlueprint.GetSellValue(true);
             upgradeButton.interactable = false;
         }

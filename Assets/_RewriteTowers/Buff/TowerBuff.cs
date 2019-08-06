@@ -9,6 +9,8 @@ public class TowerBuff : TowerBase
     public float buffRate = 10f;
     public float buffDamage = 10f;
 
+    public float upgradeBuff = 2f;
+
     private List<Transform> towers;
 
     protected override void Start()
@@ -74,8 +76,9 @@ public class TowerBuff : TowerBase
         }
     }
 
-    public override void UpgradeTower()
+    protected override void UpgradeStatus()
     {
+        range += rangeUpgrade;
         GetComponent<SphereCollider>().radius = range;
 
         TowerBase currentTower;
@@ -91,7 +94,9 @@ public class TowerBuff : TowerBase
             }
         }
 
-        // upgrade logic
+        buffDamage += upgradeBuff;
+        buffDamage += upgradeBuff;
+        buffRate += upgradeBuff;
 
         foreach (Transform tower in towers)
         {
