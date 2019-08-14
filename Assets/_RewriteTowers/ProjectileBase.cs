@@ -13,6 +13,7 @@ public class ProjectileBase : MonoBehaviour
     public bool seeking = false;
     public float explosionRadius = 0f;
     public int durability = 1;
+    private int initialDurability;
     private Transform target;
 
     public GameObject impactEffect;
@@ -24,13 +25,24 @@ public class ProjectileBase : MonoBehaviour
     private void Start()
     {
         initialDecayTimer = decayTimer;
+        initialDurability = durability;
     }
-
+    
+    void Destroy()
+    {
+        decayTimer = initialDecayTimer;
+        durability = initialDurability;
+        target = null;
+        seeking = false;
+        gameObject.SetActive(false);
+    }
+    
     private void Update()
     {
         if ((target == null && seeking) || decayTimer <= 0f || durability <= 0f)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            Destroy();
             return;
         }
 
@@ -65,7 +77,8 @@ public class ProjectileBase : MonoBehaviour
         // include logic for checking durability
         if(durability <= 0 || seeking)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            Destroy();
         }
     }
 

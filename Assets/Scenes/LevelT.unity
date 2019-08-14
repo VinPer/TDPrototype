@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -4283,15 +4283,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5317946451130308149, guid: 791d4b5b0d2652747959411a66edc7e9,
+    - target: {fileID: 5317946452396029027, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1898957084}
-    - target: {fileID: 5317946451130308149, guid: 791d4b5b0d2652747959411a66edc7e9,
+    - target: {fileID: 5317946452396029027, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Toggle
+      value: Retry
       objectReference: {fileID: 0}
     - target: {fileID: 5317946451795536855, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
@@ -4303,15 +4303,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 5317946452396029027, guid: 791d4b5b0d2652747959411a66edc7e9,
+    - target: {fileID: 5317946451130308149, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1898957084}
-    - target: {fileID: 5317946452396029027, guid: 791d4b5b0d2652747959411a66edc7e9,
+    - target: {fileID: 5317946451130308149, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
+      value: Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
@@ -15831,6 +15831,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Range
       objectReference: {fileID: 0}
+    - target: {fileID: 8186821082037616882, guid: af99db9720428b448a67cdc5b46d005f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 975907174875690192, guid: af99db9720428b448a67cdc5b46d005f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16490,6 +16495,16 @@ PrefabInstance:
       propertyPath: waveCountdownText
       value: 
       objectReference: {fileID: 1742622198}
+    - target: {fileID: 1276107921016421592, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: timeBetweenWaves
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276107921016421592, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: timeBetweenBursts
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: nodeUI
@@ -16540,6 +16555,11 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 1794753849}
+    - target: {fileID: 6725940440281665184, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 8097813068469736418}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d0a50ba1927e2448b607f9aa16c699, type: 3}
 --- !u!1 &1898957083 stripped
@@ -19178,3 +19198,9 @@ PrefabInstance:
     - {fileID: 7039808033493494243, guid: 2682dd2ff295c13459b7673008b9259f, type: 3}
     - {fileID: 6350875529671932866, guid: 2682dd2ff295c13459b7673008b9259f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2682dd2ff295c13459b7673008b9259f, type: 3}
+--- !u!20 &8097813068469736418 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8097813067005824035, guid: 2682dd2ff295c13459b7673008b9259f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8097813068469736417}
+  m_PrefabAsset: {fileID: 0}

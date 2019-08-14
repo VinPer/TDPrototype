@@ -503,10 +503,14 @@ MonoBehaviour:
   buildManager: {fileID: 0}
   range: 20
   seesInvisible: 0
+  rangeUpgrade: 2
+  maxUpgrade: 3
+  turretMaximized: 0
   towerTag: Tower
-  buffRange: 100
+  buffRange: 10
   buffRate: 10
   buffDamage: 10
+  upgradeBuff: 2
 --- !u!135 &3910660129407305767
 SphereCollider:
   m_ObjectHideFlags: 0

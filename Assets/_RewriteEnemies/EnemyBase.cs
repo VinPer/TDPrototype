@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour
 {
+    [HideInInspector]
+    public bool isDead;
+
     public float health = 100;
     private float initialHp;
 
@@ -42,6 +45,11 @@ public class EnemyBase : MonoBehaviour
     protected Renderer rend;
     protected Color startColor;
     private Color invisibleColor;
+
+    private void OnEnable()
+    {
+        isDead = false;
+    }
 
     protected virtual void Start()
     {
@@ -223,7 +231,14 @@ public class EnemyBase : MonoBehaviour
         if (debuffEffect != null) Destroy(debuffEffect);
 
         //Sera alterado
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        isDead = true;
     }
 
     public virtual void TakeDamage(float amount, float piercingValue, Enums.Element turretElement)

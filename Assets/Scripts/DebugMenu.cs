@@ -46,7 +46,7 @@ public class DebugMenu : MonoBehaviour
     {
         for(int i = 0; i < amount; i++)
         {
-            waveSpawner.SpawnEnemy(enemies[enemy.value].transform);
+            // waveSpawner.SpawnEnemy(enemies[enemy.value].transform);
             yield return new WaitForSeconds(delay);
         }
     }

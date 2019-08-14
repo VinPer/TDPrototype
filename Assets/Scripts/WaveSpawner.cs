@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
@@ -7,6 +8,8 @@ public class WaveSpawner : MonoBehaviour
     public static int EnemiesAlive = 0;
 
     public Wave[] waves;
+    private Dictionary<int, List<GameObject>> enemyWave;
+    private List<GameObject> enemiesOfWave;
 
     [Header("Enemies")]
 
@@ -29,9 +32,35 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
     public bool countingDown = true;
 
+
+
     private void Start()
     {
+        //Pooling
+        PoolEnemies();
+
         EnemiesAlive = 0;
+    }
+
+    void PoolEnemies()
+    {
+        enemyWave = new Dictionary<int, List<GameObject>>();
+        enemiesOfWave = new List<GameObject>();
+
+        for (int i = 0; i < waves.Length; i++)
+        {
+            Wave wave = waves[i];
+            if(enemiesOfWave.Count>0)
+                enemiesOfWave.Clear();
+            for (int j = 0; j < wave.count; j++)
+            {
+                GameObject obj = (GameObject)Instantiate(wave.enemy, spawnPoint.position, spawnPoint.rotation);
+                obj.transform.SetParent(transform);
+                obj.SetActive(false);
+                enemiesOfWave.Add(obj);
+            }
+            enemyWave.Add(i, enemiesOfWave);
+        }
     }
 
     private void Update()
@@ -76,22 +105,51 @@ public class WaveSpawner : MonoBehaviour
         //}
     }
 
+    //IEnumerator SpawnBurst(int index)
+    //{
+    //    Wave burst = waves[index];
+    //    for (int i = 0; i < burst.count; i++)
+    //    {
+    //        SpawnEnemy(burst.enemy.transform);
+    //        yield return new WaitForSeconds(burst.rate);
+    //    }
+    //}
+
+
+    //public void SpawnEnemy(Transform enemy)
+    //{
+    //    Transform e = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+    //    e.SetParent(transform);
+    //    e.GetComponent<EnemyMovement>().infiniteOffsets = infiniteOffset;
+    //    EnemiesAlive++;
+    //}
+
     IEnumerator SpawnBurst(int index)
     {
         Wave burst = waves[index];
-        for(int i = 0; i < burst.count; i++)
+        for (int i = 0; i < burst.count; i++)
         {
-            SpawnEnemy(burst.enemy.transform);
+            SpawnEnemy(index + i);
             yield return new WaitForSeconds(burst.rate);
         }
     }
 
-    public void SpawnEnemy(Transform enemy)
+    //public void SpawnEnemy(int index)
+    //{
+    //    enemies[index].SetActive(true);
+    //    enemies[index].GetComponent<EnemyMovement>().infiniteOffsets = infiniteOffset;
+    //    EnemiesAlive++;
+    //}
+
+    public void SpawnEnemy(int index)
     {
-        Transform e = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        e.SetParent(transform);
-        e.GetComponent<EnemyMovement>().infiniteOffsets = infiniteOffset;
-        EnemiesAlive++;
+        for (int i = 0; i < enemyWave[index].Count; i++)
+        {
+            GameObject enemyToSpawn = enemyWave[index][i];
+            enemyToSpawn.SetActive(true);
+            enemyToSpawn.GetComponent<EnemyMovement>().infiniteOffsets = infiniteOffset;
+            EnemiesAlive++;
+        }
     }
 
     public Transform[] GetWaypoints()

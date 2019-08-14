@@ -5,6 +5,7 @@ public class TowerProjectile : TowerBase
 {
     //private Magazine magazine;
     public float fireRate = 1f;
+    private float initialFireRate;
     protected Transform target;
     protected EnemyBase targetEnemy;
     public int targettingStyle;
@@ -19,12 +20,11 @@ public class TowerProjectile : TowerBase
     public float damageUpgrade = .1f;
     public float fireRateUpgrade = .1f;
 
-    public enum PossibleTargets { first, last, strongest, weakest };
-    public PossibleTargets possibleTargets = PossibleTargets.first; //First by default
+    public enum TargetStyle { first, last, strongest, weakest };
+    public TargetStyle targetStyle = TargetStyle.first; //First by default
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -48,18 +48,18 @@ public class TowerProjectile : TowerBase
         //Array of all th enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag); //enemyTag is in TurretBase
         
-        switch (possibleTargets)
+        switch (targetStyle)
         {
-            case (PossibleTargets.first):
+            case (TargetStyle.first):
                 FindFirstTarget(enemies);
                 break;
-            case (PossibleTargets.last):
+            case (TargetStyle.last):
                 FindLastTarget(enemies);
                 break;
-            case (PossibleTargets.strongest):
+            case (TargetStyle.strongest):
                 FindStrongestTarget(enemies);
                 break;
-            case (PossibleTargets.weakest):
+            case (TargetStyle.weakest):
                 FindWeakestTarget(enemies);
                 break;
         }
@@ -243,4 +243,5 @@ public class TowerProjectile : TowerBase
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
 }

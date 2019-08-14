@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23000012655148402}
   - component: {fileID: 3082808305498957803}
   - component: {fileID: 4121219215192199253}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurretNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,11 +100,11 @@ MonoBehaviour:
     upgradeCost: 0
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
-  isUpgraded: 0
   positionOffset: {x: 0, y: 0.1, z: 0}
   hoverColor: {r: 0, g: 0, b: 0, a: 0}
   cannotAffordColor: {r: 0, g: 0, b: 0, a: 0}
   range: {fileID: 0}
+  turretRange: {fileID: 0}
 --- !u!135 &4121219215192199253
 SphereCollider:
   m_ObjectHideFlags: 0

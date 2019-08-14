@@ -13,10 +13,8 @@ public class TowerBuff : TowerBase
 
     private List<Transform> towers;
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
-
         buffRange = buffRange / 100;
         buffRate = buffRate / 100;
         buffDamage = buffDamage / 100;
@@ -31,14 +29,28 @@ public class TowerBuff : TowerBase
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<TowerBase>() && !other.GetComponent<TowerBuff>())
+        if ((other.GetComponent<TowerBase>() || other.GetComponentInChildren<TowerBase>()) && !other.GetComponentInChildren<TowerBuff>())
         {
-            TowerBase currentTower = other.GetComponent<TowerBase>();
+            TowerBase currentTower;
+            if (other.GetComponent<TowerBase>())
+                currentTower = other.GetComponent<TowerBase>();
+            else
+                currentTower = other.GetComponentInChildren<TowerBase>();
             currentTower.BuffRange(buffRange);
             currentTower.SetRateBoost(buffRate);
             currentTower.SetDamageBoost(buffDamage);
             towers.Add(other.transform);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.GetComponent<TowerBase>() || other.GetComponentInChildren<TowerBase>()) && !other.GetComponentInChildren<TowerBuff>())
+        {
+            Debug.Log("eita");
+            towers.Remove(other.transform);
+        }
+
     }
 
     private void FindTowers()
@@ -52,7 +64,10 @@ public class TowerBuff : TowerBase
             if (distanceToTower <= range && !towers.Contains(tower.transform))
             {
                 towers.Add(tower.transform);
-                currentTower = tower.transform.GetComponent<TowerBase>();
+                if (tower.GetComponent<TowerBase>())
+                    currentTower = tower.GetComponent<TowerBase>();
+                else
+                    currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(buffRange);
                 currentTower.SetRateBoost(buffRate);
                 currentTower.SetDamageBoost(buffDamage);
@@ -67,8 +82,10 @@ public class TowerBuff : TowerBase
         {
             if (tower != null)
             {
-                Debug.Log("oi");
-                currentTower = tower.GetComponent<TowerBase>();
+                if (tower.GetComponent<TowerBase>())
+                    currentTower = tower.GetComponent<TowerBase>();
+                else
+                    currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(-buffRange);
                 currentTower.SetRateBoost(-buffRate);
                 currentTower.SetDamageBoost(-buffDamage);
@@ -87,7 +104,10 @@ public class TowerBuff : TowerBase
             if (tower != null)
             {
                 Debug.Log("oi");
-                currentTower = tower.GetComponent<TowerBase>();
+                if (tower.GetComponent<TowerBase>())
+                    currentTower = tower.GetComponent<TowerBase>();
+                else
+                    currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(-buffRange);
                 currentTower.SetRateBoost(-buffRate);
                 currentTower.SetDamageBoost(-buffDamage);
@@ -103,7 +123,10 @@ public class TowerBuff : TowerBase
             if (tower != null)
             {
                 Debug.Log("oi");
-                currentTower = tower.GetComponent<TowerBase>();
+                if(tower.GetComponent<TowerBase>())
+                    currentTower = tower.GetComponent<TowerBase>();
+                else
+                    currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(buffRange);
                 currentTower.SetRateBoost(buffRate);
                 currentTower.SetDamageBoost(buffDamage);

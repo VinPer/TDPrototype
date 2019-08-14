@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Node : MonoBehaviour
 {
     public BuildManager buildManager;
-
     [HideInInspector]
     public GameObject turret;
-    [HideInInspector]
+
     private TowerBase tower;
     [HideInInspector]
     public TurretBlueprint turretBlueprint;
@@ -21,6 +22,8 @@ public class Node : MonoBehaviour
     
     public Range range;
 
+    //private List<GameObject> turrets;
+
     private void Start()
     {
         buildManager = BuildManager.instance;
@@ -29,6 +32,22 @@ public class Node : MonoBehaviour
         startColor = rend.material.color;
         
         range = FindObjectOfType<Range>();
+        //turrets = new List<GameObject>();
+        //StartCoroutine(FillTurretList());
+    }
+
+    IEnumerator FillTurretList()
+    {
+        yield return new WaitForSeconds(.1f);
+        foreach (TurretBlueprint obj in Shop.turretBlueprints)
+        {
+            GameObject newTurret = (GameObject)Instantiate(obj.prefab);
+            newTurret.transform.position = transform.position;
+            newTurret.transform.rotation = transform.rotation;
+            newTurret.transform.SetParent(transform);
+            newTurret.SetActive(false);
+            //turrets.Add(newTurret);
+        }
     }
 
     public Vector3 GetBuildPosition()
@@ -36,11 +55,25 @@ public class Node : MonoBehaviour
         return transform.position + positionOffset;
     }
 
-    private void OnMouseDown()
-    {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+    //private void OnMouseDown()
+    //{
+    //    //if (EventSystem.current.IsPointerOverGameObject()) return;
 
-        if (turret != null)
+    //    if (turret != null)
+    //    {
+    //        buildManager.SelectNode(this);
+    //        return;
+    //    }
+
+    //    if (!buildManager.CanBuild) return;
+
+    //    // buildManager.BuildTurretOn(this);
+    //    BuildTurret(buildManager.GetTurretToBuild());
+    //}
+
+    public void SelectNode()
+    {
+        if(turret != null)
         {
             buildManager.SelectNode(this);
             return;
@@ -48,11 +81,11 @@ public class Node : MonoBehaviour
 
         if (!buildManager.CanBuild) return;
 
-        // buildManager.BuildTurretOn(this);
         BuildTurret(buildManager.GetTurretToBuild());
+        //BuildTurret(buildManager.GetTurretIndexToBuild());
     }
 
-    void BuildTurret (TurretBlueprint blueprint)
+    void BuildTurret(TurretBlueprint blueprint)
     {
         if (PlayerStats.Money < blueprint.cost)
         {
@@ -64,7 +97,12 @@ public class Node : MonoBehaviour
 
         turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret.transform.SetParent(transform);
-        tower = turret.GetComponent<TowerBase>();
+
+
+        if (turret.GetComponent<TowerBase>())
+            tower = turret.GetComponent<TowerBase>();
+        else
+            tower = turret.GetComponentInChildren<TowerBase>();
         turretBlueprint = blueprint;
 
         GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
@@ -73,6 +111,28 @@ public class Node : MonoBehaviour
         Debug.Log("Turret built!");
         PlayerStats.UpdateMoney();
     }
+
+    //void BuildTurret(int index)
+    //{
+    //    if (PlayerStats.Money < Shop.turretBlueprints[index].cost)
+    //    {
+    //        Debug.Log("Not enough money to build that!");
+    //        return;
+    //    }
+
+    //    PlayerStats.Money -= Shop.turretBlueprints[index].cost;
+
+    //    turrets[index].SetActive(true);
+    //    turret = turrets[index];
+    //    turretBlueprint = Shop.turretBlueprints[index];
+    //    if (turret.GetComponent<TowerBase>())
+    //        tower = turret.GetComponent<TowerBase>();
+    //    else
+    //        tower = turret.GetComponentInChildren<TowerBase>();
+
+    //    Debug.Log("Turret built!");
+    //    PlayerStats.UpdateMoney();
+    //}
 
     public void UpgradeTurret()
     {
@@ -103,7 +163,8 @@ public class Node : MonoBehaviour
         // Add money at half the cost spent
         PlayerStats.Money += turretBlueprint.GetSellValue(tower.turretMaximized);
         // Destroy turret and kill references
-        Destroy(turret);
+        //Destroy(turret);
+        turret.SetActive(false);
         turret = null;
 
         // Play effect
@@ -114,6 +175,7 @@ public class Node : MonoBehaviour
         Debug.Log("Turret sold!");
         PlayerStats.UpdateMoney();
     }
+    
 
     private void OnMouseEnter()
     {

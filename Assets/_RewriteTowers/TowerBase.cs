@@ -23,9 +23,17 @@ public abstract class TowerBase : MonoBehaviour
 
     //public TowerModel model;s
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        initialRange = range;
+        initialRange = range;    
+    }
+    
+    protected virtual void OnEnable()
+    {   
+        rangeBoost = 1f;
+        rateBoost = 1f;
+        damageBoost = 1f;
+        range = initialRange;
     }
 
     public virtual void SetRange(float value)
@@ -82,7 +90,7 @@ public abstract class TowerBase : MonoBehaviour
             }
         }
     }
-
+    
     protected abstract void UpgradeStatus();
 
     //public abstract void BuffTower();

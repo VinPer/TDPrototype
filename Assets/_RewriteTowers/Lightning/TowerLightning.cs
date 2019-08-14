@@ -17,9 +17,8 @@ public class TowerLightning : TowerNonProjectile
     public string enemyTag = "Enemy";
 
     // Start is called before the first frame update
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         targets = new Transform[maxTargets];
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }

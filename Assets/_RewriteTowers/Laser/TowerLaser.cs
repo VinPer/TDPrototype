@@ -20,9 +20,8 @@ public class TowerLaser : TowerNonProjectile
     public enum PossibleTargets { first, last, strongest, weakest };
     public PossibleTargets possibleTargets = PossibleTargets.first; //First by default
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -244,4 +243,5 @@ public class TowerLaser : TowerNonProjectile
     {
         range += rangeUpgrade;
     }
+
 }

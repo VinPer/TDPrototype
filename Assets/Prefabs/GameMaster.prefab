@@ -9,11 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1276107921016421599}
+  - component: {fileID: 606494862982769299}
   - component: {fileID: 1276107921016421592}
   - component: {fileID: 1276107921016421598}
   - component: {fileID: 1276107921016421597}
   - component: {fileID: 1276107921016421596}
   - component: {fileID: 1276107921016421571}
+  - component: {fileID: 6725940440281665184}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -35,6 +37,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &606494862982769299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfb6bf02c29cef4084f1440e88f35a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicEnemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
+  fastEnemy: {fileID: 150684, guid: b37daab609aeb204c80873d303f25508, type: 3}
+  tankEnemy: {fileID: 162058, guid: a159dc8ad2f683545a3c762f81d990bb, type: 3}
+  shildedEnemy: {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
+  cluster: {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
+  fireElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  acidElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  iceElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  flying: {fileID: 127644, guid: c12cd68320f648a4c820f5858a2b0719, type: 3}
+  zip: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
+  spawnPoint: {fileID: 0}
+  waypointHandler: {fileID: 0}
+  infiniteOffset: 1
+  timeBetweenWaves: 5
+  waveCountdownText: {fileID: 0}
+  waveNumber: {fileID: 0}
+  countingDown: 1
 --- !u!114 &1276107921016421592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276107921016421593}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 157774722adb22245bd14b19f3d76665, type: 3}
   m_Name: 
@@ -135,3 +166,15 @@ MonoBehaviour:
   ui: {fileID: 0}
   menuScene: MainMenu
   sceneFader: {fileID: 0}
+--- !u!114 &6725940440281665184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7de114e6a46efe47aeefb1006a91186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
