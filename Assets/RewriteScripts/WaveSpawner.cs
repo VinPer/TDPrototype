@@ -48,7 +48,8 @@ public class WaveSpawner : MonoBehaviour
 
     private float waveCountdown = 2f;
     private int nextWave = 0;
-    public bool countingDown = true;
+
+    private bool stopWaveSpawner = false;
     
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,9 @@ public class WaveSpawner : MonoBehaviour
         //pool
         PoolEnemies();
         waveCountdown = timeBetweenWaves;
-
+        state = SpawnerState.counting;
+        WavesLeft();
+        stopWaveSpawner = false;
     }
 
     void PoolEnemies()
@@ -124,8 +127,9 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         waveNumber.text = "Enemies Alive: " + EnemiesAlive;
-        if (EnemiesAlive > 0) return;
 
+        if (stopWaveSpawner) return;
+        
         if (state == SpawnerState.waiting)
         {
             //check if enemies are still alive
@@ -148,7 +152,7 @@ public class WaveSpawner : MonoBehaviour
             if (state != SpawnerState.spawning)
             StartCoroutine(SpawnWave(waves[nextWave]));
         }
-        else if (countingDown)
+        else
         {
             waveCountdown -= Time.deltaTime;
             waveCountdown = Mathf.Clamp(waveCountdown, 0f, Mathf.Infinity);
@@ -168,7 +172,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 Debug.Log("currently disabled");
                 //gameManager.Winning();
-                gameObject.SetActive(false);
+                //stopWaveSpawner = true;
             }
         }
         else

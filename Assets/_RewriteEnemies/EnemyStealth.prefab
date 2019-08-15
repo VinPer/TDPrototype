@@ -213,7 +213,7 @@ MonoBehaviour:
   speed: 7
   damage: 1
   invisible: 1
-  type: 0
+  type: 10
   element: 0
   resistance: 0
   healthBar: {fileID: 8079252625794585579}

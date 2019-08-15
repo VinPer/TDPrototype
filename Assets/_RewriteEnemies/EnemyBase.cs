@@ -19,6 +19,7 @@ public class EnemyBase : MonoBehaviour
 
     public float damage = 1;
     public bool invisible;
+    public int radarsAffecting;
 
     public Enums.EnemyType type;
     
@@ -195,8 +196,6 @@ public class EnemyBase : MonoBehaviour
     public void UpdateInvisible(bool update)
     {
         invisible = update;
-        if (invisible) rend.material.color = invisibleColor;
-        else rend.material.color = startColor;
     }
 
     protected virtual void Die()

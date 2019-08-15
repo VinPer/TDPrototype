@@ -22,9 +22,9 @@ TagManager:
   - Environment
   - Range
   - Node
-  - 
-  - 
-  - 
+  - Enemy
+  - Tower
+  - Bullet
   - 
   - 
   - 

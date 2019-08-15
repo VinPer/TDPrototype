@@ -65,8 +65,8 @@ public class DebugMenu : MonoBehaviour
         }
     }
 
-    public void ToggleWave()
-    {
-        waveSpawner.countingDown = !waveSpawner.countingDown;
-    }
+    //public void ToggleWave()
+    //{
+    //    waveSpawner.countingDown = !waveSpawner.countingDown;
+    //}
 }

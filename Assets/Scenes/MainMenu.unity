@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -667,7 +667,7 @@ PrefabInstance:
     - target: {fileID: 4183598552398986934, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_Name
-      value: LinearTurretItem
+      value: RadarItem
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -809,6 +809,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!1001 &370887245
@@ -3173,14 +3179,13 @@ MonoBehaviour:
     upgradeCost: 750
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
-  - prefab: {fileID: 4176887503054913001, guid: 7aa97a04b1d084b49825ba685f00a1ec,
-      type: 3}
+  - prefab: {fileID: 162182, guid: ece3573a92123e84b8b2787c40ce918a, type: 3}
     cost: 150
     upgradedPrefab: {fileID: 4176887503054913001, guid: b87d1961490f227439f3c68561a4ae56,
       type: 3}
     upgradeCost: 225
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 284fab2a515efd14cb3c0f3a5b94f2ae, type: 3}
+    sprite: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69, type: 3}
   - prefab: {fileID: 199946, guid: 5b97ec26bd5fc624bb21b8365cbcfb23, type: 3}
     cost: 400
     upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
