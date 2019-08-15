@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 9527054}
   - component: {fileID: 6513336}
   - component: {fileID: 8374737448865602962}
-  - component: {fileID: 9139566961706002774}
   m_Layer: 13
   m_Name: BasicTurret
   m_TagString: Tower
@@ -549,35 +548,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9139566961706002774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197016}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildManager: {fileID: 0}
-  range: 15
-  seesInvisible: 0
-  rangeUpgrade: 2
-  maxUpgrade: 3
-  turretMaximized: 0
-  fireRate: 1
-  targettingStyle: 0
-  enemyTag: Enemy
-  partToRotate: {fileID: 495240}
-  turnSpeed: 10
-  firePoint: {fileID: 5608702030693297934}
-  bulletPrefab: {fileID: 3369391130654538165, guid: a5640abf8dcd9fe438b55fbcc9886376,
-    type: 3}
-  damageUpgrade: 0.1
-  fireRateUpgrade: 0.1
-  targetStyle: 0
 --- !u!1 &393731500854775277
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildManager: {fileID: 0}
-  range: 150
+  range: 15
   seesInvisible: 0
   rangeUpgrade: 2
   maxUpgrade: 3

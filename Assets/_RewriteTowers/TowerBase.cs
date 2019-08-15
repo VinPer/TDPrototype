@@ -66,14 +66,12 @@ public abstract class TowerBase : MonoBehaviour
 
     public void SetRateBoost(float value)
     {
-        if (value <= 0f) Debug.Log("Incorrect value to update rate boost!");
-        else rateBoost = value;
+       rateBoost = value;
     }
 
     public void SetDamageBoost(float value)
     {
-        if (value <= 0f) Debug.Log("Incorrect value to update damage boost!");
-        else damageBoost = value;
+        damageBoost = value;
     }
 
     public void UpgradeTower()

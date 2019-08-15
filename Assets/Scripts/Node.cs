@@ -163,8 +163,7 @@ public class Node : MonoBehaviour
         // Add money at half the cost spent
         PlayerStats.Money += turretBlueprint.GetSellValue(tower.turretMaximized);
         // Destroy turret and kill references
-        //Destroy(turret);
-        turret.SetActive(false);
+        Destroy(turret);
         turret = null;
 
         // Play effect

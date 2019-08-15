@@ -16,9 +16,12 @@ public class TowerRadar : TowerBase
 
     private void OnTriggerEnter(Collider col)
     {
-        col.GetComponent<EnemyBase>().UpdateInvisible(false);
-        col.GetComponent<EnemyBase>().radarsAffecting++;
-        enemies.Add(col.GetComponent<EnemyBase>());
+        if (col.GetComponent<EnemyBase>().type == Enums.EnemyType.invisible)
+        {
+            col.GetComponent<EnemyBase>().UpdateInvisible(false);
+            col.GetComponent<EnemyBase>().radarsAffecting++;
+            enemies.Add(col.GetComponent<EnemyBase>());
+        }
     }
     private void OnTriggerExit(Collider col)
     {
@@ -31,7 +34,8 @@ public class TowerRadar : TowerBase
     }
     protected override void UpgradeStatus()
     {
-        throw new System.NotImplementedException();
+        range += rangeUpgrade;
+        GetComponent<SphereCollider>().radius = range;
     }
     private void OnDestroy()
     {
