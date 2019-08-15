@@ -201,16 +201,12 @@ public class WaveSpawner : MonoBehaviour
     bool EnemyIsAlive()
     //check if enemies are alive
     {
-        searchCountdown -= Time.deltaTime;
-        if (searchCountdown <= 0f)
+        bool res = false;
+        if (EnemiesAlive > 0)
         {
-            searchCountdown = 1f;
-            if (GameObject.FindGameObjectWithTag("Enemy") == null)
-            {
-                return false;
-            }
+            res = true;
         }
-        return true;
+        return res;
     }
 
     IEnumerator SpawnWave(Waves _wave)

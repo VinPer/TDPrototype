@@ -90,7 +90,6 @@ public class EnemyMovement : MonoBehaviour
         PlayerStats.UpdateLives();
         enemy.Hide();
         ReturnToSpawn();
-        WaveSpawner.EnemiesAlive--;
     }
 
     public int GetWaypointIndex()
