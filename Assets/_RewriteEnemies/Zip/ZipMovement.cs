@@ -11,6 +11,14 @@ public class ZipMovement : EnemyMovement
 
     private float initialDistance;
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        if (target == null) return;
+        initialDistance = Vector3.Distance(transform.position, target.position);
+        InvokeRepeating("Zip", 0.1f, delay);
+    }
+
     protected override void Start()
     {
         base.Start();

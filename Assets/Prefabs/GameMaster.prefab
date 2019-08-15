@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1276107921016421599}
-  - component: {fileID: 606494862982769299}
-  - component: {fileID: 1276107921016421592}
+  - component: {fileID: 5256149404726400498}
   - component: {fileID: 1276107921016421598}
   - component: {fileID: 1276107921016421597}
   - component: {fileID: 1276107921016421596}
@@ -37,18 +36,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &606494862982769299
+--- !u!114 &5256149404726400498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276107921016421593}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dfb6bf02c29cef4084f1440e88f35a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves: []
   basicEnemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
   fastEnemy: {fileID: 150684, guid: b37daab609aeb204c80873d303f25508, type: 3}
   tankEnemy: {fileID: 162058, guid: a159dc8ad2f683545a3c762f81d990bb, type: 3}
@@ -59,47 +59,13 @@ MonoBehaviour:
   iceElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
   flying: {fileID: 127644, guid: c12cd68320f648a4c820f5858a2b0719, type: 3}
   zip: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
+  invisible: {fileID: 126950, guid: 9367964038275c543b1f8070bf0be267, type: 3}
   spawnPoint: {fileID: 0}
   waypointHandler: {fileID: 0}
   infiniteOffset: 1
   timeBetweenWaves: 5
   waveCountdownText: {fileID: 0}
-  waveNumber: {fileID: 0}
-  countingDown: 1
---- !u!114 &1276107921016421592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276107921016421593}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 157774722adb22245bd14b19f3d76665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - enemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
-    count: 2
-    rate: 1
-  - enemy: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
-    count: 2
-    rate: 1.5
-  - enemy: {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
-    count: 2
-    rate: 1
-  - enemy: {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
-    count: 2
-    rate: 1
-  defaultEnemyPrefab: {fileID: 456072, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
-  zipEnemyPrefab: {fileID: 405780, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
-  armoredEnemyPrefab: {fileID: 417502, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
-  spawnPoint: {fileID: 0}
-  waypointHandler: {fileID: 0}
-  infiniteOffset: 1
-  timeBetweenWaves: 10
-  timeBetweenBursts: 2
-  waveCountdownText: {fileID: 0}
+  wavesLeft: {fileID: 0}
   waveNumber: {fileID: 0}
   countingDown: 1
 --- !u!114 &1276107921016421598

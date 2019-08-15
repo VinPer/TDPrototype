@@ -129,12 +129,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91c7dbe34637bb4cb3030cc21a198d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   health: 20
   value: 25
   armor: 0
   speed: 10
   damage: 1
   invisible: 0
+  type: 0
   element: 0
   resistance: 0
   healthBar: {fileID: 1986413810504973268}

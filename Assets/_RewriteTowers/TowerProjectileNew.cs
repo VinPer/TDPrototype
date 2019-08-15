@@ -60,7 +60,6 @@ public class TowerProjectileNew : TowerBase
         targetStyle = TargetStyle.first;
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -238,13 +237,6 @@ public class TowerProjectileNew : TowerBase
 
     protected virtual void Shoot()
     {
-        //GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        //ProjectileBase bullet = bulletGO.GetComponent<ProjectileBase>();
-        //if (bullet != null)
-        //{
-        //    bullet.damage *= damageBoost;
-        //    bullet.SetTarget(target);
-        //}
         for (int i = 0; i < bullets.Count; i++)
         {
             if (!bullets[i].activeInHierarchy)

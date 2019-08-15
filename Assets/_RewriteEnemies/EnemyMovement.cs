@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     protected Transform[] waypoints;
     protected string waypointTag;
-    [HideInInspector]
+
     public int waypointIndex;
     [HideInInspector]
     public float distToNextWaypoint;
@@ -19,7 +19,22 @@ public class EnemyMovement : MonoBehaviour
 
     protected float offsetX = 0;
     protected float offsetZ = 0;
-    
+
+    private Vector3 spawnPosition;
+
+    private void Awake()
+    {
+        spawnPosition = transform.position;
+    }
+
+    protected virtual void OnEnable()
+    {
+        if (waypoints == null) return;
+        target = waypoints[waypointIndex];
+        targetWaypoint = target.GetComponent<Waypoint>();
+        GetNextPosition();
+    }
+
     protected virtual void Start()
     {
         enemy = GetComponent<EnemyBase>();
@@ -27,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
         target = waypoints[waypointIndex];
         targetWaypoint = target.GetComponent<Waypoint>();
         GetNextPosition();
-    }
+    }   
 
     protected virtual void Update()
     {
@@ -73,7 +88,8 @@ public class EnemyMovement : MonoBehaviour
     {
         PlayerStats.Lives--;
         PlayerStats.UpdateLives();
-        Destroy(gameObject);
+        enemy.Hide();
+        ReturnToSpawn();
         WaveSpawner.EnemiesAlive--;
     }
 
@@ -85,5 +101,10 @@ public class EnemyMovement : MonoBehaviour
     public void SetWaypoint(int index)
     {
         waypointIndex = index;
+    }
+
+    public void ReturnToSpawn()
+    {
+        transform.position = spawnPosition;
     }
 }

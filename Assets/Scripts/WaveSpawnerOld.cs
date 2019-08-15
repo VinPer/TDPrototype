@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawnerOld : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
 

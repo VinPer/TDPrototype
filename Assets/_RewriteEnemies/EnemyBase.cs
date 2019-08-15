@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour
 {
-    [HideInInspector]
     public bool isDead;
 
     public float health = 100;
@@ -20,8 +19,10 @@ public class EnemyBase : MonoBehaviour
 
     public float damage = 1;
     public bool invisible;
+
+    public Enums.EnemyType type;
     
-    private Enums.Status status;
+    private Enums.Status status = Enums.Status.disable;
     private Debuff fire;
     private Debuff slow;
     private Debuff acid;
@@ -45,15 +46,15 @@ public class EnemyBase : MonoBehaviour
     protected Renderer rend;
     protected Color startColor;
     private Color invisibleColor;
-
+    
     private void OnEnable()
     {
         isDead = false;
+        status = Enums.Status.enable;
     }
 
     protected virtual void Start()
     {
-        status = Enums.Status.disable;
         initialHp = health;
         initialSpeed = speed;
 
@@ -71,26 +72,7 @@ public class EnemyBase : MonoBehaviour
             { Enums.Element.acid, acid },
             { Enums.Element.ice, slow }
         };
-        Spawn();
-    }
-    public void Spawn()
-    {
-        status = Enums.Status.enable;
-        health = initialHp;
-        speed = initialSpeed;
-        armor = initialArmor;
-        healthBar.fillAmount = health / initialHp;
-        armorBar.fillAmount = armor / initialArmor;
-
-        rend = GetComponent<Renderer>();
-        if (rend == null)
-        {
-            rend = GetComponentInChildren<Renderer>();
-        }
-        startColor = rend.material.color;
-        invisibleColor = startColor;
-        invisibleColor.a = 0f;
-        if (invisible) rend.material.color = invisibleColor;
+        Zero();
     }
 
     //DEBUFFS
@@ -219,27 +201,35 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        if (status == Enums.Status.disable) return;
-        status = Enums.Status.disable;
         PlayerStats.Money += (int) value;
         PlayerStats.UpdateMoney();
-        WaveSpawner.EnemiesAlive--;
-
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
-
-        if (debuffEffect != null) Destroy(debuffEffect);
-
-        //Sera alterado
-        //Destroy(gameObject);
+        deathEffect.SetActive(true);
         
+        if (debuffEffect != null) Destroy(debuffEffect);
+        Hide();
+    }
+
+    public void Hide()
+    {
+        WaveSpawner.EnemiesAlive--;
+        if (status == Enums.Status.disable) return;
+        status = Enums.Status.disable;
+        Zero();
+        isDead = true;
         gameObject.SetActive(false);
     }
 
-    private void OnDisable()
+    public void Zero()
     {
-        isDead = true;
+        health = initialHp;
+        speed = initialSpeed;
+        armor = initialArmor;
+        healthBar.fillAmount = health / initialHp;
+        armorBar.fillAmount = armor / initialArmor;
+        GetComponent<EnemyMovement>().SetWaypoint(0);
     }
+    
 
     public virtual void TakeDamage(float amount, float piercingValue, Enums.Element turretElement)
     {

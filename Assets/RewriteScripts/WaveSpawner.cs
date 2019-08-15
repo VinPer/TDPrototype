@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WaveSpawnerNew : MonoBehaviour
+public class WaveSpawner : MonoBehaviour
 {
     [System.Serializable]
     public class Waves
@@ -18,8 +18,9 @@ public class WaveSpawnerNew : MonoBehaviour
     private SpawnerState state = SpawnerState.counting;
 
     public Waves[] waves;
-    private Dictionary<Enums.EnemyType, int> enemiesCount;
-    private Dictionary<Enums.EnemyType, GameObject> enemiesType;
+    private Dictionary<Enums.EnemyType, int> enemiesCount; //Count of each type of enemy
+    private Dictionary<Enums.EnemyType, GameObject> enemiesType; //Which GameObject is related to each type
+    private Dictionary<Enums.EnemyType, List<GameObject>> enemiesAvailable; //Enemies used in level
 
     public GameObject basicEnemy;
     public GameObject fastEnemy;
@@ -31,6 +32,7 @@ public class WaveSpawnerNew : MonoBehaviour
     public GameObject iceElement;
     public GameObject flying;
     public GameObject zip;
+    public GameObject invisible;
 
 
     [Header("Other")]
@@ -42,21 +44,25 @@ public class WaveSpawnerNew : MonoBehaviour
 
     public Text waveCountdownText;
     public Text wavesLeft;
+    public Text waveNumber;
 
     private float waveCountdown = 2f;
     private int nextWave = 0;
     public bool countingDown = true;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         //pool
         PoolEnemies();
+        waveCountdown = timeBetweenWaves;
+
     }
 
     void PoolEnemies()
     {
         enemiesCount = new Dictionary<Enums.EnemyType, int>();
+        enemiesAvailable = new Dictionary<Enums.EnemyType, List<GameObject>>();
         enemiesType = new Dictionary<Enums.EnemyType, GameObject>
         {
             { Enums.EnemyType.basic , basicEnemy},
@@ -69,6 +75,7 @@ public class WaveSpawnerNew : MonoBehaviour
             { Enums.EnemyType.iceElement , iceElement },
             { Enums.EnemyType.flying , flying },
             { Enums.EnemyType.zip , zip },
+            { Enums.EnemyType.invisible , invisible }
         };
 
         //Get max number of each enemy
@@ -92,17 +99,32 @@ public class WaveSpawnerNew : MonoBehaviour
         }
         foreach (Enums.EnemyType enemyType in enemiesCount.Keys)
         {
+            int n = 0;
             for (int i = 0; i < enemiesCount[enemyType]; i++)
             {
                 GameObject obj = (GameObject)Instantiate(enemiesType[enemyType], spawnPoint.position, spawnPoint.rotation);
                 obj.transform.SetParent(transform);
                 obj.SetActive(false);
+                if (enemiesAvailable.ContainsKey(enemyType))
+                {
+                    enemiesAvailable[enemyType].Add(obj);
+                    n++;
+                }
+                else
+                {
+                    List<GameObject> objs = new List<GameObject>();
+                    objs.Add(obj);
+                    enemiesAvailable.Add(enemyType, objs);
+                    n = 0;
+                }
             }
         }
     }
 
     private void Update()
     {
+        waveNumber.text = "Enemies Alive: " + EnemiesAlive;
+        if (EnemiesAlive > 0) return;
 
         if (state == SpawnerState.waiting)
         {
@@ -124,7 +146,7 @@ public class WaveSpawnerNew : MonoBehaviour
         {
             waveCountdown = 0;
             if (state != SpawnerState.spawning)
-                StartCoroutine(SpawnWave(waves[nextWave]));
+            StartCoroutine(SpawnWave(waves[nextWave]));
         }
         else if (countingDown)
         {
@@ -139,7 +161,7 @@ public class WaveSpawnerNew : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Completed!");
-        if (nextWave + 1 > waves.Length - 1)
+        if (nextWave + 1 > waves.Length)
         {
             enabled = false;
             if (!GameManager.GameIsOver)
@@ -161,7 +183,7 @@ public class WaveSpawnerNew : MonoBehaviour
 
     void WavesLeft()
     {
-        if (nextWave + 1 > waves.Length - 1)
+        if (nextWave + 1 > waves.Length)
         {
             wavesLeft.text = "Last wave!";
         }
@@ -190,18 +212,18 @@ public class WaveSpawnerNew : MonoBehaviour
     {
         state = SpawnerState.spawning;
         int count;
-        int rate;
-        foreach (EnemyWave enemy in _wave.enemies)
+        float rate;
+        foreach (WaveBurst enemy in _wave.burst)
         {
             count = enemy.count;
             if (count == 0)
                 count = Random.Range(1, 10);
             rate = enemy.rate;
             if (rate == 0)
-                rate = Random.Range(1, 5);
+                rate = Random.Range(1, 5);  
             for (int i = 0; i < count; i++)
             {
-                SpawnEnemy(enemy.enemy);
+                SpawnEnemy(enemy.enemyType);
                 yield return new WaitForSeconds(1f / rate);
             }
         }
@@ -209,6 +231,21 @@ public class WaveSpawnerNew : MonoBehaviour
         state = SpawnerState.waiting;
 
         yield break;
+    }
+
+    void SpawnEnemy(Enums.EnemyType _enemyType)
+    {
+        for (int i = 0; i < enemiesAvailable[_enemyType].Count; i++)
+        {
+            if (!enemiesAvailable[_enemyType][i].activeInHierarchy)
+            {
+                enemiesAvailable[_enemyType][i].transform.position = spawnPoint.position;
+                enemiesAvailable[_enemyType][i].transform.rotation = spawnPoint.rotation;
+                enemiesAvailable[_enemyType][i].SetActive(true);
+                EnemiesAlive++;
+                return;
+            }
+        }
     }
 
     public Transform[] GetWaypoints()
