@@ -17,7 +17,7 @@ public class SkillReveal : SkillGlobal
     private void OnTriggerEnter(Collider col)
     {
         EnemyBase enemy = col.GetComponent<EnemyBase>();
-        enemy.UpdateInvisible(); // change this later
+        enemy.UpdateInvisible(false); // change this later
     }
 
     private void End()

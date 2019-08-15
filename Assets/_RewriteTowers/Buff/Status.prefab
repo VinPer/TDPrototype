@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2216064149653083529}
   - component: {fileID: 2216064149652119035}
   - component: {fileID: 3599271531792075461}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 2216064149645646443}
   - component: {fileID: 2216064149646901137}
   - component: {fileID: 2216064149647932149}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shield_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 2216064149645664693}
   - component: {fileID: 2216064149646923561}
   - component: {fileID: 2216064149647979687}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shield_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 2216064149645679333}
   - component: {fileID: 2216064149646983147}
   - component: {fileID: 2216064149647981155}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shield_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 2216064149646970271}
   - component: {fileID: 2216064149647960741}
   - component: {fileID: 2216064149651814273}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 4642639352479823773}
   - component: {fileID: 8259374458119065547}
   - component: {fileID: 3910660129407305767}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Buffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

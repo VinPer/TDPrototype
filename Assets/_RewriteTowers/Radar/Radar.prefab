@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3315314}
   - component: {fileID: 2381750}
   - component: {fileID: 6576906}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 448450}
   - component: {fileID: 3370396}
   - component: {fileID: 2367216}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Radar_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 2316968}
   - component: {fileID: 9519976}
   - component: {fileID: 6558376}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,6 +203,7 @@ Transform:
   m_Children:
   - {fileID: 456522}
   - {fileID: 478674}
+  - {fileID: 8861498794099346293}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -294,7 +295,7 @@ GameObject:
   - component: {fileID: 478674}
   - component: {fileID: 3345132}
   - component: {fileID: 2360834}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Radar_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +373,7 @@ GameObject:
   - component: {fileID: 3341578}
   - component: {fileID: 2315974}
   - component: {fileID: 6595992}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Radar_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +464,7 @@ GameObject:
   - component: {fileID: 490446}
   - component: {fileID: 3387198}
   - component: {fileID: 2326236}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Radar_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,3 +530,66 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &4156811407481395126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8861498794099346293}
+  - component: {fileID: 703910071924918526}
+  - component: {fileID: 345662945260384057}
+  m_Layer: 13
+  m_Name: Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8861498794099346293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156811407481395126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 492900}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &703910071924918526
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156811407481395126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &345662945260384057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156811407481395126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7a2cddd7a68004f9730ecf21e6dba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildManager: {fileID: 0}
+  range: 15
+  seesInvisible: 1
+  rangeUpgrade: 2
+  maxUpgrade: 3
+  turretMaximized: 0

@@ -10,10 +10,14 @@ public class TowerRadar : TowerBase
         GetComponent<SphereCollider>().radius = range;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider col)
     {
-        
+        col.GetComponent<EnemyBase>().UpdateInvisible(false);
+    }
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.GetComponent<EnemyBase>().type == Enums.EnemyType.invisible)
+            col.GetComponent<EnemyBase>().UpdateInvisible(true);
     }
 
     protected override void UpgradeStatus()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 498320}
   - component: {fileID: 3395662}
   - component: {fileID: 2366472}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocket_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 480556}
   - component: {fileID: 3357748}
   - component: {fileID: 2325656}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocket_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 3322568}
   - component: {fileID: 2308302}
   - component: {fileID: 6514766}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 473986}
   - component: {fileID: 3367536}
   - component: {fileID: 2360004}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocket_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 3328788}
   - component: {fileID: 2367296}
   - component: {fileID: 6503140}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocket_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 9544402}
   - component: {fileID: 6534552}
   - component: {fileID: 4871097474895528398}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,6 +546,9 @@ MonoBehaviour:
   buildManager: {fileID: 0}
   range: 25
   seesInvisible: 0
+  rangeUpgrade: 2
+  maxUpgrade: 3
+  turretMaximized: 0
   fireRate: 0.5
   targettingStyle: 0
   enemyTag: Enemy
@@ -554,7 +557,9 @@ MonoBehaviour:
   firePoint: {fileID: 7299632427139851549}
   bulletPrefab: {fileID: 169384279486500228, guid: 4d67ee03ca6fbc9479a896cf302a8117,
     type: 3}
-  possibleTargets: 0
+  damageUpgrade: 0.1
+  fireRateUpgrade: 0.1
+  targetStyle: 0
 --- !u!1 &5104661713612967759
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7299632427139851549}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

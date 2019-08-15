@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 432500}
   - component: {fileID: 3356402}
   - component: {fileID: 2305912}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plasma_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 463654}
   - component: {fileID: 3320970}
   - component: {fileID: 2381076}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plasma_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 6579638}
   - component: {fileID: 7804344676697579092}
   - component: {fileID: 5967300103941238142}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,6 +284,9 @@ MonoBehaviour:
   buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
+  rangeUpgrade: 2
+  maxUpgrade: 3
+  turretMaximized: 0
   triggerRate: 100
   damage: 0.15
   penetration: 0
@@ -406,7 +409,7 @@ GameObject:
   - component: {fileID: 3307392}
   - component: {fileID: 2395546}
   - component: {fileID: 6512492}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plasma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +503,7 @@ GameObject:
   - component: {fileID: 3368860}
   - component: {fileID: 2381502}
   - component: {fileID: 6534174}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plasma_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +595,7 @@ GameObject:
   - component: {fileID: 447316}
   - component: {fileID: 3319448}
   - component: {fileID: 2326592}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plasma_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +672,7 @@ GameObject:
   - component: {fileID: 1360402704632966865}
   - component: {fileID: 8842430942717618224}
   - component: {fileID: 4690601511822058925}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5366,7 +5369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5855768235263325351}
   - component: {fileID: 6005442984672213924}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5434,7 +5437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4048797603864055642}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5466,7 +5469,7 @@ GameObject:
   - component: {fileID: 2699453482319547403}
   - component: {fileID: 5820695504531019553}
   - component: {fileID: 4845262221799956841}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ImpactEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -161,13 +161,14 @@ public class WaveSpawner : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Completed!");
-        if (nextWave + 1 > waves.Length)
+        if (nextWave + 1 > waves.Length -1)
         {
             enabled = false;
             if (!GameManager.GameIsOver)
             {
                 Debug.Log("currently disabled");
                 //gameManager.Winning();
+                gameObject.SetActive(false);
             }
         }
         else

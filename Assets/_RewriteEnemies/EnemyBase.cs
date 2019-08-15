@@ -192,9 +192,9 @@ public class EnemyBase : MonoBehaviour
         if (status == Enums.Status.disable) status = Enums.Status.enable;
         else status = Enums.Status.disable;
     }
-    public void UpdateInvisible()
+    public void UpdateInvisible(bool update)
     {
-        invisible = !invisible;
+        invisible = update;
         if (invisible) rend.material.color = invisibleColor;
         else rend.material.color = startColor;
     }

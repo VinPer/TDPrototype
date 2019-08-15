@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9515096}
   - component: {fileID: 6594680}
   - component: {fileID: 2341447918202010090}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +129,9 @@ MonoBehaviour:
   buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
+  rangeUpgrade: 2
+  maxUpgrade: 3
+  turretMaximized: 0
   triggerRate: 1.5
   damage: 15
   penetration: 0
@@ -151,7 +154,7 @@ GameObject:
   - component: {fileID: 473638}
   - component: {fileID: 3389210}
   - component: {fileID: 2362756}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Disruptor_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +231,7 @@ GameObject:
   - component: {fileID: 464600}
   - component: {fileID: 3308214}
   - component: {fileID: 2372584}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Disruptor_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +308,7 @@ GameObject:
   - component: {fileID: 446736}
   - component: {fileID: 3329530}
   - component: {fileID: 2353286}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Disruptor_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +387,7 @@ GameObject:
   - component: {fileID: 3314890}
   - component: {fileID: 2324158}
   - component: {fileID: 6504982}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Disruptor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3907978033142513034}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

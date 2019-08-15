@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 430770}
   - component: {fileID: 3394100}
   - component: {fileID: 2329642}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shotgun_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2372028}
   - component: {fileID: 9516262}
   - component: {fileID: 6547710}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 436238}
   - component: {fileID: 3381144}
   - component: {fileID: 2339176}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shotgun_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 3319984}
   - component: {fileID: 2319344}
   - component: {fileID: 6525082}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shotgun_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 491142}
   - component: {fileID: 3366130}
   - component: {fileID: 2306406}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shotgun_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 3336182}
   - component: {fileID: 2395292}
   - component: {fileID: 6598280}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

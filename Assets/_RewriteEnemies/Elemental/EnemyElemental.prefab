@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 468200}
   - component: {fileID: 3329034}
   - component: {fileID: 2328092}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy_Flamer_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 3895288114580877236}
   - component: {fileID: 9538224}
   - component: {fileID: 6500250}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyElemental
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -173,12 +173,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91c7dbe34637bb4cb3030cc21a198d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   health: 100
   value: 10
   armor: 0
   speed: 10
   damage: 1
   invisible: 0
+  type: 0
   element: 0
   resistance: 0
   healthBar: {fileID: 0}
@@ -230,7 +232,7 @@ GameObject:
   - component: {fileID: 433908}
   - component: {fileID: 3359838}
   - component: {fileID: 2345024}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy_Flamer_Up_Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +309,7 @@ GameObject:
   - component: {fileID: 488146}
   - component: {fileID: 3305346}
   - component: {fileID: 2370700}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy_Flamer_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasLook
       objectReference: {fileID: 0}
+    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6459938684759093540, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -455,6 +462,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5426792616141526335, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080377950161341451, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4680656367918774784, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -515,6 +532,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1854493741917337177, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4142369741857967733, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -544,6 +566,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856439154508534419, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962241675801873644, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062390966610656202, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049647319761289990, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 820df5e45d809a544891244299b95aa7, type: 3}

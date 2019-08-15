@@ -109,19 +109,21 @@ public class TowerProjectileNew : TowerBase
             if (enemy.GetComponent<EnemyBase>().isDead)
             {
                 targetsToVerify.Remove(enemy);
-                //break;
             }
             else
             {
-                if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() >= nextWaypoint)
+                if ((!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()) || seesInvisible)
                 {
-                    nextWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
-
-                    if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint < shortestDist)
+                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() >= nextWaypoint)
                     {
-                        target = enemy.transform;
-                        targetEnemy = enemy.GetComponent<EnemyBase>();
-                        shortestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                        nextWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
+
+                        if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint < shortestDist)
+                        {
+                            target = enemy.transform;
+                            targetEnemy = enemy.GetComponent<EnemyBase>();
+                            shortestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                        }
                     }
                 }
             }
@@ -140,15 +142,18 @@ public class TowerProjectileNew : TowerBase
             if (enemy == null) possibleTargets.Remove(enemy);
             else
             {
-                if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
+                if ((!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()) || seesInvisible)
                 {
-                    lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
-
-                    if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
                     {
-                        target = enemy.transform;
-                        targetEnemy = enemy.GetComponent<EnemyBase>();
-                        longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                        lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
+
+                        if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                        {
+                            target = enemy.transform;
+                            targetEnemy = enemy.GetComponent<EnemyBase>();
+                            longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                        }
                     }
                 }
             }
@@ -213,7 +218,7 @@ public class TowerProjectileNew : TowerBase
         if (col.GetComponent<EnemyBase>())
         {
             EnemyBase enemy = col.GetComponent<EnemyBase>();
-            if ((enemy.GetInvisibleState() && seesInvisible) || !enemy.invisible)
+
                 possibleTargets.Add(enemy.gameObject);
         }
     }

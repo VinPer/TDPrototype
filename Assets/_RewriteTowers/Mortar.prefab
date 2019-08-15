@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3377782}
   - component: {fileID: 2346484}
   - component: {fileID: 6550614}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mortar_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 483594}
   - component: {fileID: 3386356}
   - component: {fileID: 2302358}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mortar_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 2324556}
   - component: {fileID: 9576110}
   - component: {fileID: 6500326}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mortar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 3360650}
   - component: {fileID: 2399408}
   - component: {fileID: 6593382}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mortar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 444534}
   - component: {fileID: 3343832}
   - component: {fileID: 2348668}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mortar_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 424940}
   - component: {fileID: 3370086}
   - component: {fileID: 2351102}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mortar_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

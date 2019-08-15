@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3372364}
   - component: {fileID: 2336014}
   - component: {fileID: 6520164}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AA_Up_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 479640}
   - component: {fileID: 3368488}
   - component: {fileID: 2384560}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AA_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 466544}
   - component: {fileID: 3369224}
   - component: {fileID: 2313654}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AA_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 407460}
   - component: {fileID: 3339418}
   - component: {fileID: 2350240}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AA_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 3317570}
   - component: {fileID: 2351948}
   - component: {fileID: 6519822}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AA_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 6513336}
   - component: {fileID: 8374737448865602962}
   - component: {fileID: 9139566961706002774}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BasicTurret
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5608702030693297934}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 8520834572111035829}
   - component: {fileID: 8140209854079168544}
   - component: {fileID: 1510534849350480600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
