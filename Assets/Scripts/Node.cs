@@ -55,21 +55,21 @@ public class Node : MonoBehaviour
         return transform.position + positionOffset;
     }
 
-    //private void OnMouseDown()
-    //{
-    //    //if (EventSystem.current.IsPointerOverGameObject()) return;
+    private void OnMouseDown()
+    {
+        //if (EventSystem.current.IsPointerOverGameObject()) return;
 
-    //    if (turret != null)
-    //    {
-    //        buildManager.SelectNode(this);
-    //        return;
-    //    }
+        if (turret != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
 
-    //    if (!buildManager.CanBuild) return;
+        if (!buildManager.CanBuild) return;
 
-    //    // buildManager.BuildTurretOn(this);
-    //    BuildTurret(buildManager.GetTurretToBuild());
-    //}
+        // buildManager.BuildTurretOn(this);
+        BuildTurret(buildManager.GetTurretToBuild());
+    }
 
     public void SelectNode()
     {

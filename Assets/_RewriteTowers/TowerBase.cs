@@ -34,6 +34,12 @@ public abstract class TowerBase : MonoBehaviour
         rateBoost = 1f;
         damageBoost = 1f;
         range = initialRange;
+        BuildManager.TurretsBuilded.Add(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        BuildManager.TurretsBuilded.Remove(gameObject);
     }
 
     public virtual void SetRange(float value)

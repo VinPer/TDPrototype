@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class BuildManager : MonoBehaviour
 {
@@ -22,7 +23,14 @@ public class BuildManager : MonoBehaviour
 
     private int turretIndexToBuild;
 
+    public static List<GameObject> TurretsBuilded;
+
     public bool CanBuild { get { return turretToBuild != null; } }
+
+    private void Start()
+    {
+        TurretsBuilded = new List<GameObject>();
+    }
 
     public void SelectTurretToBuild(TurretBlueprint turret)
     {

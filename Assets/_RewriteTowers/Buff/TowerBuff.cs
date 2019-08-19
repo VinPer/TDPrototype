@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class TowerBuff : TowerBase
 {
-    public string towerTag = "Tower";
-
     public float buffRange = 10f;
     public float buffRate = 10f;
     public float buffDamage = 10f;
@@ -20,45 +18,15 @@ public class TowerBuff : TowerBase
         buffDamage = buffDamage / 100;
 
         towers = new List<Transform>();
-
-        GetComponent<SphereCollider>().radius = range;
-    }
-    private void Update()
-    {
-        GetComponent<SphereCollider>().radius = range;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if ((other.GetComponent<TowerBase>() || other.GetComponentInChildren<TowerBase>()) && !other.GetComponentInChildren<TowerBuff>())
-        {
-            TowerBase currentTower;
-            if (other.GetComponent<TowerBase>())
-                currentTower = other.GetComponent<TowerBase>();
-            else
-                currentTower = other.GetComponentInChildren<TowerBase>();
-            currentTower.BuffRange(buffRange);
-            currentTower.SetRateBoost(buffRate);
-            currentTower.SetDamageBoost(buffDamage);
-            towers.Add(other.transform);
-        }
+        InvokeRepeating("FindTowers", 0f, 0.5f);
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if ((other.GetComponent<TowerBase>() || other.GetComponentInChildren<TowerBase>()) && !other.GetComponentInChildren<TowerBuff>())
-        {
-            Debug.Log("eita");
-            towers.Remove(other.transform);
-        }
-
-    }
 
     private void FindTowers()
     {
-        GameObject[] turrets = GameObject.FindGameObjectsWithTag(towerTag);
         float distanceToTower;
         TowerBase currentTower;
-        foreach (GameObject tower in turrets)
+        foreach (GameObject tower in BuildManager.TurretsBuilded)
         {
             distanceToTower = Vector3.Distance(transform.position, tower.transform.position);
             if (distanceToTower <= range && !towers.Contains(tower.transform))
@@ -123,7 +91,7 @@ public class TowerBuff : TowerBase
             if (tower != null)
             {
                 Debug.Log("oi");
-                if(tower.GetComponent<TowerBase>())
+                if (tower.GetComponent<TowerBase>())
                     currentTower = tower.GetComponent<TowerBase>();
                 else
                     currentTower = tower.GetComponentInChildren<TowerBase>();

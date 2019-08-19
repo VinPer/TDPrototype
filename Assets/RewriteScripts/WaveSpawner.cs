@@ -175,7 +175,6 @@ public class WaveSpawner : MonoBehaviour
             {
                 Debug.Log("currently disabled");
                 //gameManager.Winning();
-                //stopWaveSpawner = true;
             }
         }
         else
