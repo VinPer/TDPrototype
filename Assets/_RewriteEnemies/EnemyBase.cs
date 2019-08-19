@@ -54,6 +54,11 @@ public class EnemyBase : MonoBehaviour
         status = Enums.Status.enable;
     }
 
+    private void OnDisable()
+    {
+        WaveSpawner.EnemiesAlive.Remove(gameObject);
+    }
+
     protected virtual void Start()
     {
         initialHp = health;
@@ -211,7 +216,7 @@ public class EnemyBase : MonoBehaviour
 
     public void Hide()
     {
-        WaveSpawner.EnemiesAlive--;
+        WaveSpawner.numberOfEnemiesAlive--;
         if (status == Enums.Status.disable) return;
         status = Enums.Status.disable;
         Zero();

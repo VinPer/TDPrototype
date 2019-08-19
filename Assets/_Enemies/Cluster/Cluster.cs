@@ -42,6 +42,6 @@ public class Cluster : Enemy
         EnemyMovement parentMovement = transform.GetComponent<EnemyMovement>();
         childMovement.SetWaypoint(parentMovement.GetWaypointIndex());
 
-        WaveSpawner.EnemiesAlive++;
+        WaveSpawner.numberOfEnemiesAlive++;
     }
 }

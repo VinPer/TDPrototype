@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
         public WaveBurst[] burst;
     }
 
-    public static int EnemiesAlive = 0;
+    public static int numberOfEnemiesAlive = 0;
 
     private float searchCountdown = 1f;
     public enum SpawnerState { spawning, waiting, counting };
@@ -21,6 +21,8 @@ public class WaveSpawner : MonoBehaviour
     private Dictionary<Enums.EnemyType, int> enemiesCount; //Count of each type of enemy
     private Dictionary<Enums.EnemyType, GameObject> enemiesType; //Which GameObject is related to each type
     private Dictionary<Enums.EnemyType, List<GameObject>> enemiesAvailable; //Enemies used in level
+
+    public static List<GameObject> EnemiesAlive;
 
     public GameObject basicEnemy;
     public GameObject fastEnemy;
@@ -54,6 +56,8 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EnemiesAlive = new List<GameObject>();
+
         //pool
         PoolEnemies();
         waveCountdown = timeBetweenWaves;
@@ -126,7 +130,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        waveNumber.text = "Enemies Alive: " + EnemiesAlive;
+        waveNumber.text = "Enemies Alive: " + numberOfEnemiesAlive;
 
         if (stopWaveSpawner) return;
         
@@ -202,7 +206,7 @@ public class WaveSpawner : MonoBehaviour
     //check if enemies are alive
     {
         bool res = false;
-        if (EnemiesAlive > 0)
+        if (numberOfEnemiesAlive > 0)
         {
             res = true;
         }
@@ -243,7 +247,8 @@ public class WaveSpawner : MonoBehaviour
                 enemiesAvailable[_enemyType][i].transform.position = spawnPoint.position;
                 enemiesAvailable[_enemyType][i].transform.rotation = spawnPoint.rotation;
                 enemiesAvailable[_enemyType][i].SetActive(true);
-                EnemiesAlive++;
+                numberOfEnemiesAlive++;
+                EnemiesAlive.Add(enemiesAvailable[_enemyType][i]);
                 return;
             }
         }
