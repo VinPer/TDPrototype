@@ -22,7 +22,7 @@ public class ProjectileBase : MonoBehaviour
     public float decayTimer = 2f;
     public Vector3 direction;
 
-    private void Start()
+    protected virtual void Start()
     {
         initialDecayTimer = decayTimer;
         initialDurability = durability;
@@ -37,7 +37,7 @@ public class ProjectileBase : MonoBehaviour
         gameObject.SetActive(false);
     }
     
-    private void Update()
+    protected virtual void Update()
     {
         if ((target == null && seeking) || decayTimer <= 0f || durability <= 0f)
         {
