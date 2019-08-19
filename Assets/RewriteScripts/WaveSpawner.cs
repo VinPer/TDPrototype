@@ -51,11 +51,14 @@ public class WaveSpawner : MonoBehaviour
     private int nextWave = 0;
 
     private bool stopWaveSpawner = false;
+
+    public GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
     {
         EnemiesAlive = new List<GameObject>();
+        numberOfEnemiesAlive = 0;
 
         //pool
         PoolEnemies();
@@ -174,7 +177,7 @@ public class WaveSpawner : MonoBehaviour
             if (!GameManager.GameIsOver)
             {
                 Debug.Log("currently disabled");
-                //gameManager.Winning();
+                gameManager.Winning();
             }
         }
         else

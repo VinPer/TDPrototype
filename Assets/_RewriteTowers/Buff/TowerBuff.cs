@@ -37,8 +37,8 @@ public class TowerBuff : TowerBase
                 else
                     currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(buffRange);
-                currentTower.SetRateBoost(buffRate);
-                currentTower.SetDamageBoost(buffDamage);
+                //currentTower.SetRateBoost(buffRate);
+                //currentTower.SetDamageBoost(buffDamage);
             }
         }
     }
@@ -55,8 +55,8 @@ public class TowerBuff : TowerBase
                 else
                     currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(-buffRange);
-                currentTower.SetRateBoost(-buffRate);
-                currentTower.SetDamageBoost(-buffDamage);
+                //currentTower.SetRateBoost(-buffRate);
+                //currentTower.SetDamageBoost(-buffDamage);
             }
         }
     }
@@ -77,12 +77,12 @@ public class TowerBuff : TowerBase
                 else
                     currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(-buffRange);
-                currentTower.SetRateBoost(-buffRate);
-                currentTower.SetDamageBoost(-buffDamage);
+                //currentTower.SetRateBoost(-buffRate);
+                //currentTower.SetDamageBoost(-buffDamage);
             }
         }
 
-        buffDamage += upgradeBuff;
+        buffRange += upgradeBuff;
         buffDamage += upgradeBuff;
         buffRate += upgradeBuff;
 
@@ -96,8 +96,8 @@ public class TowerBuff : TowerBase
                 else
                     currentTower = tower.GetComponentInChildren<TowerBase>();
                 currentTower.BuffRange(buffRange);
-                currentTower.SetRateBoost(buffRate);
-                currentTower.SetDamageBoost(buffDamage);
+                //currentTower.SetRateBoost(buffRate);
+                //currentTower.SetDamageBoost(buffDamage);
             }
         }
     }

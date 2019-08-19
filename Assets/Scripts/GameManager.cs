@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject debugUI;
     public GameObject turretUI;
     public GameObject skillUI;
+    public GameObject winUI;
 
     private void Start()
     {
@@ -39,5 +40,11 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         gameOverUI.SetActive(true);
+    }
+
+    public void Winning()
+    {
+        GameIsOver = true;
+        winUI.SetActive(true); 
     }
 }

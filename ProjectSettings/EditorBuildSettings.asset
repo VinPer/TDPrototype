@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelT.unity
     guid: a8943d53a9dbd8143afb842ef71f1e76
+  - enabled: 1
+    path: Assets/Scenes/big spiral map.unity
+    guid: 073a06e2186bcad4e8cf65539fbc1279
   m_configObjects: {}
