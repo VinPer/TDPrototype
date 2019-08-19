@@ -14,13 +14,13 @@ public class ProjectileBase : MonoBehaviour
     public float explosionRadius = 0f;
     public int durability = 1;
     private int initialDurability;
-    private Transform target;
+    protected Transform target;
 
     public GameObject impactEffect;
 
-    public float initialDecayTimer;
+    private float initialDecayTimer;
     public float decayTimer = 2f;
-    public Vector3 direction;
+    protected Vector3 direction;
 
     protected virtual void Start()
     {
@@ -28,7 +28,7 @@ public class ProjectileBase : MonoBehaviour
         initialDurability = durability;
     }
     
-    void Destroy()
+    protected void Destroy()
     {
         decayTimer = initialDecayTimer;
         durability = initialDurability;

@@ -8,9 +8,7 @@ public class TowerProjectile : TowerBase
     private float initialFireRate;
     protected Transform target;
     protected EnemyBase targetEnemy;
-    public int targettingStyle;
-
-    public string enemyTag = "Enemy";
+    
     public Transform partToRotate;
     public float turnSpeed = 10f;
     public Transform firePoint;
@@ -30,6 +28,11 @@ public class TowerProjectile : TowerBase
     {
         base.Awake();
         initialFireRate = fireRate;
+        SpawnBulletPool();
+    }
+
+    protected virtual void SpawnBulletPool()
+    {
         bullets = new List<GameObject>();
         for (int i = 0; i < poolAmount; i++)
         {
@@ -40,7 +43,7 @@ public class TowerProjectile : TowerBase
         }
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
