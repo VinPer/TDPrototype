@@ -56,7 +56,7 @@ public class EnemyBase : MonoBehaviour
 
     private void OnDisable()
     {
-        WaveSpawner.EnemiesAlive.Remove(gameObject);
+        GetComponent<EnemyMovement>().SetWaypoint(0);
     }
 
     protected virtual void Start()
@@ -208,7 +208,7 @@ public class EnemyBase : MonoBehaviour
         PlayerStats.Money += (int) value;
         PlayerStats.UpdateMoney();
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        deathEffect.SetActive(true);
+        Destroy(effect, 2f);
         
         if (debuffEffect != null) Destroy(debuffEffect);
         Hide();
@@ -216,6 +216,7 @@ public class EnemyBase : MonoBehaviour
 
     public void Hide()
     {
+        WaveSpawner.EnemiesAlive.Remove(gameObject);
         WaveSpawner.numberOfEnemiesAlive--;
         if (status == Enums.Status.disable) return;
         status = Enums.Status.disable;
@@ -231,7 +232,6 @@ public class EnemyBase : MonoBehaviour
         armor = initialArmor;
         healthBar.fillAmount = health / initialHp;
         armorBar.fillAmount = armor / initialArmor;
-        GetComponent<EnemyMovement>().SetWaypoint(0);
     }
     
 

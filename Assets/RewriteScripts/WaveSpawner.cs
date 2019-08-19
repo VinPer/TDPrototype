@@ -13,7 +13,6 @@ public class WaveSpawner : MonoBehaviour
 
     public static int numberOfEnemiesAlive = 0;
 
-    private float searchCountdown = 1f;
     public enum SpawnerState { spawning, waiting, counting };
     private SpawnerState state = SpawnerState.counting;
 
