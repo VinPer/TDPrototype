@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         gameOverUI.SetActive(true);
         AudioManager.instance.Play("Defeat");
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 
     public void Winning()
@@ -50,5 +51,6 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         winUI.SetActive(true);
         AudioManager.instance.Play("Victory");
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 }

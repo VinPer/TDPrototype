@@ -4130,6 +4130,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5317946451285455292, guid: 791d4b5b0d2652747959411a66edc7e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5317946450721993045, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4425,11 +4430,6 @@ PrefabInstance:
       propertyPath: referencePoint
       value: 
       objectReference: {fileID: 708900708}
-    - target: {fileID: 5317946451285455292, guid: 791d4b5b0d2652747959411a66edc7e9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 95077506110903835, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: m_IsActive
@@ -4509,6 +4509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Replay
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116362945459649170, guid: 791d4b5b0d2652747959411a66edc7e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
@@ -8835,6 +8840,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91841e1549230774a8337d6d2864efae, type: 3}
+--- !u!114 &990396745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7401832047814824425, guid: 791d4b5b0d2652747959411a66edc7e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 464921992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &990996014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 426370, guid: 9e457a00b2f1df746b87e78681f2f28f,
@@ -14439,6 +14456,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3f80c8e587820498d886dd1f84b0aa, type: 3}
+--- !u!114 &1619639864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2755603709045539525, guid: 791d4b5b0d2652747959411a66edc7e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 464921992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1623013333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 491556, guid: bfd3c906ba55f4640803052eb34f54e4,
@@ -16850,6 +16879,11 @@ PrefabInstance:
       propertyPath: startLives
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1276107921016421597, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: startMoney
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 1276107921016421596, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: gameOverUI
@@ -16888,12 +16922,12 @@ PrefabInstance:
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waves.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waves.Array.data[0].burst.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
@@ -16903,6 +16937,11 @@ PrefabInstance:
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waves.Array.data[2].burst.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: waves.Array.data[3].burst.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
@@ -16943,7 +16982,7 @@ PrefabInstance:
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waves.Array.data[0].burst.Array.data[1].enemyType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
@@ -17045,6 +17084,21 @@ PrefabInstance:
       propertyPath: wavesSurvived
       value: 
       objectReference: {fileID: 29357366}
+    - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: waves.Array.data[3].burst.Array.data[0].enemyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: waves.Array.data[3].burst.Array.data[0].count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: waves.Array.data[3].burst.Array.data[0].rate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 311848045307514384, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: sceneFader
@@ -17070,6 +17124,16 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 693485073}
+    - target: {fileID: 311848045307514384, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 1619639864}
+    - target: {fileID: 311848045307514384, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: lives
+      value: 
+      objectReference: {fileID: 990396745}
     - target: {fileID: 6725940440281665184, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: camera

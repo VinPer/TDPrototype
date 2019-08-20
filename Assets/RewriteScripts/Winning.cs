@@ -10,6 +10,8 @@ public class Winning : MonoBehaviour
     public Button nextLevelButton;
     public Text nextLevelButtonText;
     public string menuScene = "MainMenu";
+    public Text money;
+    public Text lives;
     
     public void Toggle()
     {
@@ -33,6 +35,9 @@ public class Winning : MonoBehaviour
             nextLevelButtonText.text = "MORE LEVELS TO COME...";
             nextLevelButtonText.fontSize = 25;
         }
+        money.text ="$" + PlayerStats.Money.ToString();
+        lives.text = "♥" + PlayerStats.Lives.ToString();
+
     }
 
     public void Continue()
