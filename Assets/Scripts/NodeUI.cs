@@ -13,7 +13,7 @@ public class NodeUI : MonoBehaviour
     {
         this.target = target;
 
-        transform.position = this.target.GetBuildPosition();
+        //transform.position = this.target.GetBuildPosition();
         if (!target.GetComponentInChildren<TowerBase>().turretMaximized)
         {
             upgradeCost.text = "$" + target.turretBlueprint.upgradeCost;
