@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8097813067815350561}
-  - component: {fileID: 6000114224763304340}
+  - component: {fileID: 6523215852985745741}
   m_Layer: 0
   m_Name: CameraBase
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6000114224763304340
+--- !u!114 &6523215852985745741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,13 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24c1a2844281e94bb8215a3e86d2573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 10
+  panSpeed: 30
   panBorderThickness: 10
-  rotationSpeed: 50
-  scrollSpeed: 4
-  minY: 0
-  maxY: 55
-  minX: 5
-  maxX: 70
-  minZ: 0
-  maxZ: 70
+  scrollSpeed: 3
+  minY: 10
+  maxY: 50
+  minX: -2
+  maxX: 102
+  minZ: -15
+  maxZ: 33

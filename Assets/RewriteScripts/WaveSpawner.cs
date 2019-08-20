@@ -11,9 +11,8 @@ public class WaveSpawner : MonoBehaviour
         public WaveBurst[] burst;
     }
 
-    public static int EnemiesAlive = 0;
+    public static int numberOfEnemiesAlive = 0;
 
-    private float searchCountdown = 1f;
     public enum SpawnerState { spawning, waiting, counting };
     private SpawnerState state = SpawnerState.counting;
 
@@ -21,6 +20,8 @@ public class WaveSpawner : MonoBehaviour
     private Dictionary<Enums.EnemyType, int> enemiesCount; //Count of each type of enemy
     private Dictionary<Enums.EnemyType, GameObject> enemiesType; //Which GameObject is related to each type
     private Dictionary<Enums.EnemyType, List<GameObject>> enemiesAvailable; //Enemies used in level
+
+    public static List<GameObject> EnemiesAlive;
 
     public GameObject basicEnemy;
     public GameObject fastEnemy;
@@ -43,22 +44,28 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
 
     public Text waveCountdownText;
-    public Text wavesLeft;
+    public Text wavesSurvived;
     public Text waveNumber;
 
     private float waveCountdown = 2f;
     private int nextWave = 0;
 
     private bool stopWaveSpawner = false;
+
+    public GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        EnemiesAlive = new List<GameObject>();
+        numberOfEnemiesAlive = 0;
+
         //pool
         PoolEnemies();
         waveCountdown = timeBetweenWaves;
         state = SpawnerState.counting;
-        WavesLeft();
+        //WavesLeft();
+        wavesSurvived.text = nextWave.ToString();
         stopWaveSpawner = false;
     }
 
@@ -126,7 +133,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        waveNumber.text = "Enemies Alive: " + EnemiesAlive;
+        waveNumber.text = "Enemies Alive: " + numberOfEnemiesAlive;
 
         if (stopWaveSpawner) return;
         
@@ -171,8 +178,7 @@ public class WaveSpawner : MonoBehaviour
             if (!GameManager.GameIsOver)
             {
                 Debug.Log("currently disabled");
-                //gameManager.Winning();
-                //stopWaveSpawner = true;
+                gameManager.Winning();
             }
         }
         else
@@ -180,29 +186,30 @@ public class WaveSpawner : MonoBehaviour
             state = SpawnerState.counting;
             waveCountdown = timeBetweenWaves;
             nextWave++;
-            WavesLeft();
+            wavesSurvived.text = nextWave.ToString();
+            //WavesLeft();
 
         }
 
     }
 
-    void WavesLeft()
-    {
-        if (nextWave + 1 > waves.Length)
-        {
-            wavesLeft.text = "Last wave!";
-        }
-        else
-        {
-            wavesLeft.text = (waves.Length - nextWave).ToString();
-        }
-    }
+    //void WavesLeft()
+    //{
+    //    if (nextWave + 1 > waves.Length)
+    //    {
+    //        wavesLeft.text = "Last wave!";
+    //    }
+    //    else
+    //    {
+    //        wavesLeft.text = (waves.Length - nextWave).ToString();
+    //    }
+    //}
 
     bool EnemyIsAlive()
     //check if enemies are alive
     {
         bool res = false;
-        if (EnemiesAlive > 0)
+        if (numberOfEnemiesAlive > 0)
         {
             res = true;
         }
@@ -243,7 +250,8 @@ public class WaveSpawner : MonoBehaviour
                 enemiesAvailable[_enemyType][i].transform.position = spawnPoint.position;
                 enemiesAvailable[_enemyType][i].transform.rotation = spawnPoint.rotation;
                 enemiesAvailable[_enemyType][i].SetActive(true);
-                EnemiesAlive++;
+                numberOfEnemiesAlive++;
+                EnemiesAlive.Add(enemiesAvailable[_enemyType][i]);
                 return;
             }
         }

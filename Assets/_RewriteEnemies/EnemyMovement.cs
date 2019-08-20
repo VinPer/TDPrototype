@@ -35,6 +35,11 @@ public class EnemyMovement : MonoBehaviour
         GetNextPosition();
     }
 
+    private void OnDisable()
+    {
+        SetWaypoint(0);
+    }
+
     protected virtual void Start()
     {
         enemy = GetComponent<EnemyBase>();

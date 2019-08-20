@@ -73,7 +73,7 @@ public class AEnemyMovement : MonoBehaviour
         PlayerStats.Lives--;
         PlayerStats.UpdateLives();
         Destroy(gameObject);
-        WaveSpawner.EnemiesAlive--;
+        WaveSpawner.numberOfEnemiesAlive--;
     }
     
     public int GetWaypointIndex()

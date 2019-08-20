@@ -11,6 +11,7 @@ public class EnemyBase : MonoBehaviour
     private float initialHp;
 
     public float value = 10;
+    [Range(0f,1f)]
     public float armor = 0; //from 0 to 1
     private float initialArmor;
 
@@ -19,7 +20,8 @@ public class EnemyBase : MonoBehaviour
 
     public float damage = 1;
     public bool invisible;
-    public int radarsAffecting;
+    [HideInInspector]
+    public int radarsAffecting; //only if enemy is invisible
 
     public Enums.EnemyType type;
     
@@ -30,6 +32,7 @@ public class EnemyBase : MonoBehaviour
     private Dictionary<Enums.Element, Debuff> debuffs;
 
     public Enums.Element element = Enums.Element.none;
+    [Range(0f, 1f)]
     public float resistance = 0;
 
     public Image healthBar;
@@ -52,6 +55,11 @@ public class EnemyBase : MonoBehaviour
     {
         isDead = false;
         status = Enums.Status.enable;
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<EnemyMovement>().SetWaypoint(0);
     }
 
     protected virtual void Start()
@@ -203,7 +211,7 @@ public class EnemyBase : MonoBehaviour
         PlayerStats.Money += (int) value;
         PlayerStats.UpdateMoney();
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        deathEffect.SetActive(true);
+        Destroy(effect, 2f);
         
         if (debuffEffect != null) Destroy(debuffEffect);
         Hide();
@@ -211,7 +219,8 @@ public class EnemyBase : MonoBehaviour
 
     public void Hide()
     {
-        WaveSpawner.EnemiesAlive--;
+        WaveSpawner.EnemiesAlive.Remove(gameObject);
+        WaveSpawner.numberOfEnemiesAlive--;
         if (status == Enums.Status.disable) return;
         status = Enums.Status.disable;
         Zero();
@@ -226,7 +235,6 @@ public class EnemyBase : MonoBehaviour
         armor = initialArmor;
         healthBar.fillAmount = health / initialHp;
         armorBar.fillAmount = armor / initialArmor;
-        GetComponent<EnemyMovement>().SetWaypoint(0);
     }
     
 
