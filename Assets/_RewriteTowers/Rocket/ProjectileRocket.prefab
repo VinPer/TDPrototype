@@ -58,9 +58,7 @@ MonoBehaviour:
   durability: 100
   impactEffect: {fileID: 813437829348923904, guid: ddc2df1f4aaa2bf49a24253824d7d9cd,
     type: 3}
-  initialDecayTimer: 0
   decayTimer: 5
-  direction: {x: 0, y: 0, z: 0}
 --- !u!135 &3698602533075816543
 SphereCollider:
   m_ObjectHideFlags: 0

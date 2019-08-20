@@ -235,6 +235,8 @@ public class TowerProjectile : TowerBase
                 bullets[i].SetActive(true);
                 bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
                 bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
+                if (GetComponent<AudioSource>())
+                    GetComponent<AudioSource>().Play();
                 break;
             }
         }

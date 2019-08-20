@@ -11,6 +11,7 @@ public class EnemyBase : MonoBehaviour
     private float initialHp;
 
     public float value = 10;
+    [Range(0f,1f)]
     public float armor = 0; //from 0 to 1
     private float initialArmor;
 
@@ -19,7 +20,8 @@ public class EnemyBase : MonoBehaviour
 
     public float damage = 1;
     public bool invisible;
-    public int radarsAffecting;
+    [HideInInspector]
+    public int radarsAffecting; //only if enemy is invisible
 
     public Enums.EnemyType type;
     
@@ -30,6 +32,7 @@ public class EnemyBase : MonoBehaviour
     private Dictionary<Enums.Element, Debuff> debuffs;
 
     public Enums.Element element = Enums.Element.none;
+    [Range(0f, 1f)]
     public float resistance = 0;
 
     public Image healthBar;

@@ -10,7 +10,7 @@ public class Winning : MonoBehaviour
     public Button nextLevelButton;
     public Text nextLevelButtonText;
     public string menuScene = "MainMenu";
-
+    
     public void Toggle()
     {
         ui.SetActive(!ui.activeSelf);
@@ -25,14 +25,20 @@ public class Winning : MonoBehaviour
         }
     }
 
-    public void Continue()
+    private void OnEnable()
     {
-        Debug.Log("Going to next level");
-        if (nextLevel == "")
+        if (string.Equals(nextLevel, ""))
         {
             nextLevelButton.interactable = false;
             nextLevelButtonText.text = "MORE LEVELS TO COME...";
+            nextLevelButtonText.fontSize = 25;
         }
+    }
+
+    public void Continue()
+    {
+        Debug.Log("Going to next level");
+
         sceneFader.FadeTo(nextLevel);
     }
 

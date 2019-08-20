@@ -39,6 +39,8 @@ public class TowerShotgun : TowerProjectile
                 pellets[i].GetComponent<ProjectileBase>().SetTarget(target);
             }
         }
+        if (GetComponent<AudioSource>())
+            GetComponent<AudioSource>().Play();
     }
 
     protected override void UpgradeStatus()
