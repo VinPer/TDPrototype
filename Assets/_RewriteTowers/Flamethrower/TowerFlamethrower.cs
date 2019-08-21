@@ -8,7 +8,7 @@ public class TowerFlamethrower : TowerNonProjectile
 
     [Header("Attributes")]
     
-    private float currentRotation = 0f;
+    private int currentRotation = 0;
     public Direction direction;
 
     [Header("Unity Setup Fields")]
@@ -32,17 +32,31 @@ public class TowerFlamethrower : TowerNonProjectile
     {
         partToRotate.rotation = Quaternion.Euler(0f, currentRotation * turnSpeed * 0.1f * (float)direction, 0f);
         currentRotation++;
-        if (currentRotation * turnSpeed * 0.1f >= 360f) currentRotation = 0f;
+        if (currentRotation * turnSpeed * 0.1f >= 360f) currentRotation = 0;
+    }
+
+    public void RotateClockwise()
+    {
+        currentRotation += 45 % 360;
+        partToRotate.rotation = Quaternion.Euler(0f, currentRotation, 0f);
+    }
+
+    public void RotateAntiClockwise()
+    {
+        currentRotation -= 45 % 360;
+        partToRotate.rotation = Quaternion.Euler(0f, currentRotation, 0f);
     }
 
     private void OnMouseDown()
     {
         // allows player to select where tower will fire
-        if (!selectingRotation && direction == 0)
-        {
-            selectingRotation = true;
-            StartCoroutine(SetFiringArea());
-        }
+        //if (!selectingRotation && direction == 0)
+        //{
+        //    selectingRotation = true;
+        //    StartCoroutine(SetFiringArea());
+        //}
+
+        RotateClockwise();
     }
 
     private IEnumerator SetFiringArea()
