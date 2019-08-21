@@ -17,8 +17,8 @@ public class TowerLaser : TowerNonProjectile
     private float fireCountdown = 0;
     public string enemyTag = "Enemy";
 
-    public enum PossibleTargets { first, last, strongest, weakest };
-    public PossibleTargets possibleTargets = PossibleTargets.first; //First by default
+    public enum TargetStyle { first, last, strongest, weakest };
+    public TargetStyle targetStyle = TargetStyle.first; //First by default
 
     protected void Start()
     {
@@ -52,149 +52,130 @@ public class TowerLaser : TowerNonProjectile
 
     protected virtual void UpdateTarget()
     {
-        //Array of all th enemies
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag); //enemyTag is in TurretBase
-
-        switch (possibleTargets)
+        switch (targetStyle)
         {
-            case (PossibleTargets.first):
-                FindFirstTarget(enemies);
+            case (TargetStyle.first):
+                FindFirstTarget();
                 break;
-            case (PossibleTargets.last):
-                FindLastTarget(enemies);
+            case (TargetStyle.last):
+                FindLastTarget();
                 break;
-            case (PossibleTargets.strongest):
-                FindStrongestTarget(enemies);
+            case (TargetStyle.strongest):
+                FindStrongestTarget();
                 break;
-            case (PossibleTargets.weakest):
-                FindWeakestTarget(enemies);
+            case (TargetStyle.weakest):
+                FindWeakestTarget();
                 break;
         }
     }
 
     //The target is the first enemy
-    private void FindFirstTarget(GameObject[] _enemies)
+    private void FindFirstTarget()
     {
         target = null;
         targetEnemy = null;
 
-        List<GameObject> possibleTargets = new List<GameObject>();
         float shortestDist = Mathf.Infinity; //shortest distance to next waypoint
         int nextWaypoint = 0; //index of next waypoint
 
-        foreach (GameObject enemy in _enemies)
+        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
         {
-            if ((!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()) || seesInvisible)
+            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
             {
                 float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range && enemy.GetComponent<EnemyMovement>().GetWaypointIndex() >= nextWaypoint)
+                if (distToEnemy <= range)
                 {
-                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() > nextWaypoint)
+                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() >= nextWaypoint)
                     {
                         nextWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
-                        possibleTargets.Clear();
-                        possibleTargets.Add(enemy);
-                    }
-                    else
-                    {
-                        possibleTargets.Add(enemy);
+                        if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint < shortestDist)
+                        {
+                            target = enemy.transform;
+                            targetEnemy = enemy.GetComponent<EnemyBase>();
+                            shortestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                        }
                     }
                 }
-            }
-        }
-        //check possible targets
-        foreach (GameObject possibleTarget in possibleTargets)
-        {
-            if (possibleTarget.GetComponent<EnemyMovement>().distToNextWaypoint < shortestDist)
-            {
-                target = possibleTarget.transform;
-                targetEnemy = possibleTarget.GetComponent<EnemyBase>();
-                shortestDist = possibleTarget.GetComponent<EnemyMovement>().distToNextWaypoint;
             }
         }
     }
 
-    private void FindLastTarget(GameObject[] _enemies)
+    private void FindLastTarget()
     {
         target = null;
         targetEnemy = null;
 
-        List<GameObject> possibleTargets = new List<GameObject>();
         float longestDist = 0; //shortest distance to next waypoint
-        int lastWaypoint = 1000; //index of the last waypoint
+        int lastWaypoint = 1000; //index of next waypoint
 
-        foreach (GameObject enemy in _enemies)
+        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
         {
-            if ((!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState() || seesInvisible))
+            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
             {
                 float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range && enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
+                if (distToEnemy <= range)
                 {
-                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() < lastWaypoint)
+                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
                     {
                         lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
-                        possibleTargets.Clear();
-                        possibleTargets.Add(enemy);
-                    }
-                    else
-                    {
-                        possibleTargets.Add(enemy);
+                        if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                        {
+                            target = enemy.transform;
+                            targetEnemy = enemy.GetComponent<EnemyBase>();
+                            longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                        }
                     }
                 }
-            }
-        }
-        //check possible targets
-        foreach (GameObject possibleTarget in possibleTargets)
-        {
-            if (possibleTarget.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
-            {
-                target = possibleTarget.transform;
-                targetEnemy = possibleTarget.GetComponent<EnemyBase>();
-                longestDist = possibleTarget.GetComponent<EnemyMovement>().distToNextWaypoint;
             }
         }
     }
 
     //The target is the enemy with the highest HP
-    private void FindStrongestTarget(GameObject[] _enemies)
+    private void FindStrongestTarget()
     {
         target = null;
         targetEnemy = null;
 
         float highestHp = 0;
 
-        foreach (GameObject enemy in _enemies)
+        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
         {
-            if ((!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()) || seesInvisible)
+            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
             {
                 float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range && enemy.GetComponent<EnemyBase>().GetHp() > highestHp)
+                if (distToEnemy <= range)
                 {
-                    target = enemy.transform;
-                    targetEnemy = enemy.GetComponent<EnemyBase>();
-                    highestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                    if (highestHp < enemy.GetComponent<EnemyBase>().GetHp())
+                    {
+                        target = enemy.transform;
+                        targetEnemy = enemy.GetComponent<EnemyBase>();
+                        highestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                    }
                 }
             }
         }
     }
     //The target is the enemy with the lowest HP
-    private void FindWeakestTarget(GameObject[] _enemies)
+    private void FindWeakestTarget()
     {
         target = null;
         targetEnemy = null;
 
         float lowestHp = Mathf.Infinity;
 
-        foreach (GameObject enemy in _enemies)
+        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
         {
-            if ((!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()) || seesInvisible)
+            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
             {
                 float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range && enemy.GetComponent<EnemyBase>().GetHp() < lowestHp)
+                if (distToEnemy <= range)
                 {
-                    target = enemy.transform;
-                    targetEnemy = enemy.GetComponent<EnemyBase>();
-                    lowestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                    if (lowestHp > enemy.GetComponent<EnemyBase>().GetHp())
+                    {
+                        target = enemy.transform;
+                        targetEnemy = enemy.GetComponent<EnemyBase>();
+                        lowestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                    }
                 }
             }
         }
@@ -223,6 +204,7 @@ public class TowerLaser : TowerNonProjectile
     private void Laser()
     {
         targetEnemy.TakeDamage(damage, penetration, debuffElement);
+        if(!GetComponent<AudioSource>().isPlaying)
         GetComponent<AudioSource>().Play();
         if (!lineRenderer.enabled)
         {

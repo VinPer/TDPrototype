@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class TowerLightning : TowerNonProjectile
 {
@@ -10,7 +11,7 @@ public class TowerLightning : TowerNonProjectile
     public GameObject lightning;
     public Transform firePoint;
 
-    private GameObject[] enemies;
+    private List<GameObject> enemies;
     private int targettingStyle;
 
     private float fireCountdown = 0;
@@ -39,7 +40,7 @@ public class TowerLightning : TowerNonProjectile
     {
         // currentReference serves to indicate where the lightning will come from
         Transform currentReference = transform;
-        enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        enemies = new List<GameObject>(WaveSpawner.EnemiesAlive);
         for (int i = 0; i < maxTargets; i++)
         {
             targets[i] = FindEnemy(currentReference);
@@ -58,7 +59,7 @@ public class TowerLightning : TowerNonProjectile
         Transform target;
         int enemyIndex = -1;
 
-        for (int i = 0; i < enemies.Length; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
             // in case the enemy was already selected
             if (enemies[i] != null)
@@ -67,9 +68,12 @@ public class TowerLightning : TowerNonProjectile
                 float distanceToEnemy = Vector3.Distance(origin.position, enemies[i].transform.position);
                 if (distanceToEnemy < shortestDistance)
                 {
-                    shortestDistance = distanceToEnemy;
-                    nearestEnemy = enemies[i];
-                    enemyIndex = i;
+                    if(seesInvisible || (!seesInvisible && !enemies[i].GetComponent<EnemyBase>().GetInvisibleState()))
+                    {
+                        shortestDistance = distanceToEnemy;
+                        nearestEnemy = enemies[i];
+                        enemyIndex = i;
+                    }
                 }
             }
         }
@@ -99,6 +103,7 @@ public class TowerLightning : TowerNonProjectile
                 Damage(target, currentReference);
                 // uses the selected enemy as the point of reference to create a LineRenderer between enemies
                 currentReference = target;
+                GetComponent<AudioSource>().Play();
             }
         }
     }

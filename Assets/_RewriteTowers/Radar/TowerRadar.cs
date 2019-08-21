@@ -44,6 +44,13 @@ public class TowerRadar : TowerBase
             if(t != null)
                 t.seesInvisible = false;
         }
-
+    }
+    private void OnDisable()
+    {
+        foreach (TowerBase t in towersAffecting)
+        {
+            if (t != null)
+                t.seesInvisible = false;
+        }
     }
 }

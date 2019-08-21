@@ -147,7 +147,7 @@ public class EnemyBase : MonoBehaviour
             damage = Mathf.Min(fire.level, 100) / 100;
             TakeDamage(damage, 0, Enums.Element.fire);
             fire.duration--; // this needs to be improved with a time-relevant setting
-            yield return new WaitForSeconds(0.1f); // delay between damage ticks
+            yield return new WaitForSeconds(0.2f); // delay between damage ticks
         }
         Destroy(debuffEffect);
         fire.isActive = false;
@@ -162,10 +162,12 @@ public class EnemyBase : MonoBehaviour
         {
             armor = armor * (100 - acid.level) / 100;
             acid.duration -= Time.deltaTime;
+            armorBar.fillAmount = armor / initialArmor;
             yield return null;
         }
         Destroy(debuffEffect);
         armor = defaultArmor;
+        armorBar.fillAmount = armor / initialArmor;
         acid.isActive = false;
     }
 
@@ -251,6 +253,5 @@ public class EnemyBase : MonoBehaviour
         healthBar.fillAmount = health / initialHp;
         if (health <= 0) Die();
         healthBar.fillAmount = health / initialHp;
-        armorBar.fillAmount = armor / initialArmor;
     }
 }

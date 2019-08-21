@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: Victory
     clip: {fileID: 8300000, guid: dfc4f5ba52d03bc41880f11f2f9bfcd5, type: 3}
     volume: 1
-    pitch: 1.19
+    pitch: 0.87
     loop: 0
     source: {fileID: 0}
   - name: MainMenu
