@@ -469,15 +469,20 @@ MonoBehaviour:
   buildManager: {fileID: 0}
   range: 20
   seesInvisible: 0
+  rangeUpgrade: 2
+  maxUpgrade: 3
+  turretMaximized: 0
+  element: 0
   fireRate: 1
-  targettingStyle: 0
-  enemyTag: Enemy
   partToRotate: {fileID: 491510}
   turnSpeed: 10
   firePoint: {fileID: 8184259198771357106}
+  poolAmount: 3
   bulletPrefab: {fileID: 3369391130654538165, guid: 5daa84cc091c3d1408d1eda387732e00,
     type: 3}
-  possibleTargets: 0
+  damageUpgrade: 0.1
+  fireRateUpgrade: 0.1
+  targetStyle: 0
   maxChargeLevel: 3
   chargeRate: 0.5
 --- !u!1 &195460

@@ -27,6 +27,7 @@ public class TowerCharger : TowerProjectile
         if (fireCountdown <= 0f)
         {
             Shoot();
+            currentChargeLevel = 0;
             fireCountdown = 1f / fireRate;
         }
 

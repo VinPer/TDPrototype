@@ -3,6 +3,7 @@
 public class ProjectileBase : MonoBehaviour
 {
     public float damage = 10f;
+    private float initialDamage;
     public float penetration = 0f;
     public Enums.Element debuffElement;
     public float debuffIntensity = 0f;
@@ -26,14 +27,16 @@ public class ProjectileBase : MonoBehaviour
     {
         initialDecayTimer = decayTimer;
         initialDurability = durability;
+        initialDamage = damage;
     }
     
     protected void Destroy()
     {
         decayTimer = initialDecayTimer;
         durability = initialDurability;
+        damage = initialDamage;
+
         target = null;
-        seeking = false;
         gameObject.SetActive(false);
     }
     
@@ -62,6 +65,9 @@ public class ProjectileBase : MonoBehaviour
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 5f);
+
+        //Debug.Log("Damage: " + damage);
+        //Debug.Log("Durability: " + durability);
 
         if (explosionRadius > 0f)
         {
