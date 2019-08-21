@@ -568,6 +568,7 @@ MonoBehaviour:
   rangeUpgrade: 2
   maxUpgrade: 3
   turretMaximized: 0
+  element: 0
   fireRate: 1
   partToRotate: {fileID: 495240}
   turnSpeed: 10
@@ -588,7 +589,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4f5897d0a94391843a6f902fa4a4a22a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 686569c61db72604fafc658fab872903, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -754,6 +755,7 @@ MonoBehaviour:
   rangeUpgrade: 2
   maxUpgrade: 3
   turretMaximized: 0
+  element: 0
   fireRate: 1
   targettingStyle: 0
   enemyTag: Enemy

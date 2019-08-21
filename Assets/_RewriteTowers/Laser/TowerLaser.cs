@@ -29,6 +29,7 @@ public class TowerLaser : TowerNonProjectile
     {
         if (target == null)
         {
+            GetComponent<AudioSource>().Stop();
             if (lineRenderer.enabled)
             {
                 lineRenderer.enabled = false;
@@ -222,7 +223,7 @@ public class TowerLaser : TowerNonProjectile
     private void Laser()
     {
         targetEnemy.TakeDamage(damage, penetration, debuffElement);
-
+        GetComponent<AudioSource>().Play();
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;

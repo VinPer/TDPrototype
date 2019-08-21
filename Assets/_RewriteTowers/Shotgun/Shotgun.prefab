@@ -140,6 +140,7 @@ MonoBehaviour:
   rangeUpgrade: 2
   maxUpgrade: 3
   turretMaximized: 0
+  element: 0
   fireRate: 0.5
   partToRotate: {fileID: 425980}
   turnSpeed: 10
@@ -231,10 +232,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4fe31b21e6f95e7439509c3e7b88950b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 42bebcf3615b7e546a58f58792269ee5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.58
   Loop: 0
   Mute: 0
   Spatialize: 0

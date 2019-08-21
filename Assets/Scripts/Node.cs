@@ -57,11 +57,12 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         if (turret != null)
         {
             buildManager.SelectNode(this);
+            range.SetTarget(this);
             return;
         }
 
@@ -69,6 +70,7 @@ public class Node : MonoBehaviour
 
         // buildManager.BuildTurretOn(this);
         BuildTurret(buildManager.GetTurretToBuild());
+        AudioManager.instance.Play("buildTurret");
     }
 
     public void SelectNode()
@@ -193,6 +195,9 @@ public class Node : MonoBehaviour
     private void OnMouseExit()
     {
         rend.material.color = startColor;
-        if (buildManager.nodeUI.target == null) range.Hide();
+        if (buildManager.turretMenu.isActive == false)
+        {
+            range.Hide();
+        } 
     }
 }

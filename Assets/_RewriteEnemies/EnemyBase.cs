@@ -19,9 +19,8 @@ public class EnemyBase : MonoBehaviour
     private float initialSpeed;
 
     public float damage = 1;
+
     public bool invisible;
-    [HideInInspector]
-    public int radarsAffecting; //only if enemy is invisible
 
     public Enums.EnemyType type;
     
@@ -82,6 +81,11 @@ public class EnemyBase : MonoBehaviour
             { Enums.Element.ice, slow }
         };
         Zero();
+    }
+
+    private void Update()
+    {
+        if (type == Enums.EnemyType.invisible) invisible = true;
     }
 
     //DEBUFFS

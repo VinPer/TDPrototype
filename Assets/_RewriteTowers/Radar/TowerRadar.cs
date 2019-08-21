@@ -5,48 +5,45 @@ using UnityEngine;
 //TA TOSCO, AINDA TO MEXENDO
 public class TowerRadar : TowerBase
 {
-    List<EnemyBase> enemies;
+    List<TowerBase> towersAffecting;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SphereCollider>().radius = range;
-        enemies = new List<EnemyBase>();
+        towersAffecting = new List<TowerBase>();
+        InvokeRepeating("Radar", 0f, 0.5f);
     }
 
-    private void OnTriggerEnter(Collider col)
+    void Radar()
     {
-        if (col.GetComponent<EnemyBase>().type == Enums.EnemyType.invisible)
+        foreach(GameObject t in BuildManager.TurretsBuilded)
         {
-            col.GetComponent<EnemyBase>().UpdateInvisible(false);
-            col.GetComponent<EnemyBase>().radarsAffecting++;
-            enemies.Add(col.GetComponent<EnemyBase>());
-        }
-    }
-    private void OnTriggerExit(Collider col)
-    {
-        col.GetComponent<EnemyBase>().radarsAffecting--;
-        enemies.Remove(col.GetComponent<EnemyBase>());
-        if (col.GetComponent<EnemyBase>().type == Enums.EnemyType.invisible && col.GetComponent<EnemyBase>().radarsAffecting <= 0)
-        {
-            col.GetComponent<EnemyBase>().UpdateInvisible(true);
-        }
-    }
-    protected override void UpgradeStatus()
-    {
-        range += rangeUpgrade;
-        GetComponent<SphereCollider>().radius = range;
-    }
-    private void OnDestroy()
-    {
-        foreach(EnemyBase enemy in enemies)
-        {
-            enemy.radarsAffecting--;
-            if (enemy.type == Enums.EnemyType.invisible && enemy.radarsAffecting <= 0)
+            float distToTower = Vector3.Distance(transform.position, t.transform.position);
+            if (distToTower <= range)
             {
-                enemy.UpdateInvisible(true);
+                TowerBase tower = t.GetComponent<TowerBase>();
+                if (!tower.seesInvisible)
+                {
+                    GetComponent<AudioSource>().Play();
+                    tower.seesInvisible = true;
+                    towersAffecting.Add(tower);
+                }
             }
         }
     }
 
+    protected override void UpgradeStatus()
+    {
+        range += rangeUpgrade;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (TowerBase t in towersAffecting)
+        {
+            if(t != null)
+                t.seesInvisible = false;
+        }
+
+    }
 }

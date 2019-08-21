@@ -20,6 +20,7 @@ public class SceneFader : MonoBehaviour
 
     IEnumerator FadeIn()
     {
+        AudioManager.instance.Play(SceneManager.GetActiveScene().name);
         float t = 1f;
         while (t > 0f)
         {
@@ -40,7 +41,7 @@ public class SceneFader : MonoBehaviour
             img.color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
-
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(scene);
     }
 }

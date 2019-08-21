@@ -8,6 +8,7 @@ public class TurretMenu : MonoBehaviour
     public TowerBase turretSelected;
     public TowerProjectile towerProjectile;
     public TowerNonProjectile towerNonProjectile;
+    public TowerRadar towerRadar;
     public Image turretImage;
     public Text dmgText;
     public Text rangeText;
@@ -22,6 +23,8 @@ public class TurretMenu : MonoBehaviour
     public TurretBlueprint bombSpawner;
     public TurretBlueprint flamethrower;
     public TurretBlueprint laserBeamer;
+
+    public bool isActive = false;
 
 
     private void Start()
@@ -47,22 +50,29 @@ public class TurretMenu : MonoBehaviour
             dmgText.text = towerProjectile.bulletPrefab.GetComponent<ProjectileBase>().damage.ToString();
             //elementImage.sprite = target.turretBlueprint.element; << 
         }
-        else
+        else if(turretSelected.GetComponent<TowerNonProjectile>())
         {
             towerNonProjectile = turretSelected.GetComponent<TowerNonProjectile>();
             dmgText.text = towerNonProjectile.damage.ToString();
             //elementImage.sprite = target.turretBlueprint.element; << 
+        }
+        else
+        {
+            towerRadar = turretSelected.GetComponent<TowerRadar>();
+            dmgText.text = "-";
         }
 
         //btnSellText.text ="<b>UPGRADE</b>\n" + target.turretBlueprint.GetSellValue();
         //btnUpgradeText.text ="<b>SELL</b>\n" + target.turretBlueprint.GetUpgradePrice();
 
         this.gameObject.SetActive(true);
+        isActive = true;
         anim.Play("TurretMenuSlideIn");
     }
     public void CloseMenu()
     {
         Debug.Log(anim);
+        isActive = false;
         anim.Play("TurretMenuSlideOut");
     }
 

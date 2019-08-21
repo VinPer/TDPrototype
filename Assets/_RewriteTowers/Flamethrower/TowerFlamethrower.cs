@@ -22,7 +22,6 @@ public class TowerFlamethrower : TowerNonProjectile
     public GameObject flames;
 
     private bool selectingRotation = false;
-
     // Rotates the flamethrower at a constant rate dictated by the turnSpeed
     void Update()
     {
