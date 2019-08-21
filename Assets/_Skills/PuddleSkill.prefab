@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7486506820801514299}
   - component: {fileID: 4481097481221438258}
   - component: {fileID: 3100469325254215808}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: PuddleSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 57
+  m_Height: 100
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &4481097481221438258
@@ -126,8 +126,8 @@ MonoBehaviour:
   skillName: PUDDLE
   radius: 5
   yToSpawn: 1.5
-  debuffIntensity: 10
+  debuffIntensity: 100
   debuffDuration: 5
-  debuffType: fire
+  debuffType: 1
   duration: 10
   enemyTag: Enemy
