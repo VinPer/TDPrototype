@@ -47,8 +47,7 @@ MonoBehaviour:
   damage: 1
   piercingValue: 10
   damageRate: 100
-  fireEffect: {fileID: 813437829348923904, guid: 27de2a2ff055e954d9b6bc68c35e647c,
-    type: 3}
+  fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
 --- !u!82 &3390961184690500316
 AudioSource:
   m_ObjectHideFlags: 0
