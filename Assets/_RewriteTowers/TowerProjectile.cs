@@ -15,7 +15,7 @@ public class TowerProjectile : TowerBase
     protected float fireCountdown = 0f;
 
     public int poolAmount = 3;
-    private List<GameObject> bullets;
+    protected List<GameObject> bullets;
     public GameObject bulletPrefab;
 
     public float damageUpgrade = .1f;

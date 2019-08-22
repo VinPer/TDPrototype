@@ -25,7 +25,7 @@ public class ProjectileBase : MonoBehaviour
     public float decayTimer = 2f;
     protected Vector3 direction;
 
-    protected virtual void Start()
+    protected void Awake()
     {
         initialDecayTimer = decayTimer;
         initialDurability = durability;

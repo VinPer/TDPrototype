@@ -42,15 +42,23 @@ public class TowerCharger : TowerProjectile
     {
         // base.Shoot();
         charging.Stop();
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        ProjectileBase bullet = bulletGO.GetComponent<ProjectileBase>();
-        shoot.Play();
-        if (bullet != null)
+        //GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        for (int i = 0; i < bullets.Count; i++)
         {
-            bullet.SetDamage(bullet.GetDamage() * currentChargeLevel);
-            bullet.SetDurability(currentChargeLevel);
-            // change scale of bullet
-            bullet.SetTarget(target);
+            if (!bullets[i].activeInHierarchy)
+            {
+                GameObject _bullet = bullets[i];
+                ProjectileBase projectile = _bullet.GetComponent<ProjectileBase>();
+                _bullet.transform.position = firePoint.position;
+                _bullet.transform.rotation = firePoint.rotation;
+                _bullet.SetActive(true);
+                projectile.SetDamage(projectile.GetDamage() * currentChargeLevel);
+                Debug.Log(projectile.GetDamage());
+                projectile.SetDurability(currentChargeLevel);
+                projectile.SetTarget(target);
+                shoot.Play();
+                break;
+            }
         }
     }
 }

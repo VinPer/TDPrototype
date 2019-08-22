@@ -5247,7 +5247,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 396638044}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1788162415}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &396638044
@@ -6688,7 +6699,7 @@ PrefabInstance:
     - target: {fileID: 3769000256113248465, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Toggle
+      value: Replay
       objectReference: {fileID: 0}
     - target: {fileID: 5116362945459649170, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
@@ -27122,7 +27133,7 @@ PrefabInstance:
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waves.Array.data[0].burst.Array.data[0].enemyType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}

@@ -27,7 +27,7 @@ public class Winning : MonoBehaviour
 
     }
 
-    public void Toggle()
+    private void Toggle()
     {
         ui.SetActive(!ui.activeSelf);
 
