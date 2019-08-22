@@ -63,14 +63,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: LevelT
-    clip: {fileID: 8300000, guid: aa91f70f45506e94b9a930e0933caedf, type: 3}
-    volume: 0.102
+    clip: {fileID: 8300000, guid: 403a0722bf5239346af57145b93c335a, type: 3}
+    volume: 0.07
     pitch: 1.02
     loop: 1
     source: {fileID: 0}
   - name: buildTurret
     clip: {fileID: 8300000, guid: 1a16027f6728aba4abc9120a8b651633, type: 3}
-    volume: 0.181
+    volume: 0.1
     pitch: 1.02
     loop: 0
     source: {fileID: 0}

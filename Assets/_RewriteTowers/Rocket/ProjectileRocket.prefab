@@ -56,7 +56,7 @@ MonoBehaviour:
   seeking: 1
   explosionRadius: 7
   durability: 100
-  impactEffect: {fileID: 813437829348923904, guid: ddc2df1f4aaa2bf49a24253824d7d9cd,
+  impactEffect: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
     type: 3}
   decayTimer: 5
 --- !u!135 &3698602533075816543

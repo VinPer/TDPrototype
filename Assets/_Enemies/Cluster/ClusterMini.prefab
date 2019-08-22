@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 587572028145555679}
   - component: {fileID: 2779650769461662415}
   - component: {fileID: 453794183084322575}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ClusterMini
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -106,12 +106,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91c7dbe34637bb4cb3030cc21a198d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   health: 5
   value: 20
   armor: 0
   speed: 12
   damage: 1
   invisible: 0
+  type: 0
+  element: 0
+  resistance: 0
   healthBar: {fileID: 7986271224386339178}
   armorBar: {fileID: 6159511114841788668}
   fireEffect: {fileID: 6353654771837472138, guid: a0def5ce55927ac4b92f20cbca1cdc7f,
@@ -148,7 +152,7 @@ GameObject:
   - component: {fileID: 4812880122734292580}
   - component: {fileID: 2455636432923096949}
   - component: {fileID: 6159511114841788668}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: HealthBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +228,7 @@ GameObject:
   - component: {fileID: 1118326789819863012}
   - component: {fileID: 9031458825148164821}
   - component: {fileID: 4892573062063764976}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: EnemyHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +326,7 @@ GameObject:
   - component: {fileID: 3309527512342824973}
   - component: {fileID: 23789680727644014}
   - component: {fileID: 7986271224386339178}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

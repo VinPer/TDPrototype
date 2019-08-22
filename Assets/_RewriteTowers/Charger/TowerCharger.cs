@@ -9,13 +9,17 @@ public class TowerCharger : TowerProjectile
     private int currentChargeLevel = 0;
     public float chargeRate = 0.5f;
     private float chargeCooldown = 0f;
-    
+
+    public AudioSource charging;
+    public AudioSource shoot;
+
     protected override void Update()
     {
         if (currentChargeLevel < maxChargeLevel && chargeCooldown <= 0f)
         {
             currentChargeLevel++;
             chargeCooldown = 1f / chargeRate;
+            if (!charging.isPlaying) charging.Play();
         }
 
         chargeCooldown -= Time.deltaTime;
@@ -37,9 +41,10 @@ public class TowerCharger : TowerProjectile
     protected override void Shoot()
     {
         // base.Shoot();
+        charging.Stop();
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         ProjectileBase bullet = bulletGO.GetComponent<ProjectileBase>();
-
+        shoot.Play();
         if (bullet != null)
         {
             bullet.SetDamage(bullet.GetDamage() * currentChargeLevel);

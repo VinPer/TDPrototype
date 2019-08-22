@@ -97,7 +97,7 @@ MonoBehaviour:
   debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
-  speed: 100
+  speed: 130
   acceleration: 0
   seeking: 0
   explosionRadius: 0
@@ -116,7 +116,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5214888205595875388
 Rigidbody:

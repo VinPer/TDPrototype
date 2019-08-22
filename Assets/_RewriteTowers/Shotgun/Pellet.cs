@@ -13,7 +13,7 @@ public class Pellet : ProjectileBase
 
     IEnumerator Direction()
     {
-        yield return new WaitForSeconds(.01f);
+        yield return new WaitForEndOfFrame();
         direction = new Vector3(direction.x * Random.Range(0, rotationOffset), direction.y * Random.Range(0, rotationOffset), direction.z * Random.Range(0, rotationOffset));
     }
 }
