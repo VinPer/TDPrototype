@@ -23,6 +23,8 @@ public class TurretHandler : MonoBehaviour
     public GameObject allTurretsGUI;
     public GameObject selectedTurretsGUI;
 
+    public Button playButton;
+
     public static bool active = false;
     
     void Start()
@@ -102,5 +104,9 @@ public class TurretHandler : MonoBehaviour
             currentChildSelected.GetComponent<Image>().color = new Color(0, 0, 0, 0);
             currentChildSelected.GetComponentInChildren<Text>().text = "$0";
         }
+        if(selectedTurrets.Count < 1)
+            playButton.interactable = false;
+        else
+            playButton.interactable = true;
     }
 }

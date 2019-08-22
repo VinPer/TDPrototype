@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2704469953784980365}
   - component: {fileID: 6232384731935394705}
   - component: {fileID: 5214888205595875388}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ProjectileGatling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,9 +104,7 @@ MonoBehaviour:
   durability: 1
   impactEffect: {fileID: 6452593582639930427, guid: db3b6ace8b4bcf84cba927f0bc2b47a3,
     type: 3}
-  initialDecayTimer: 0
   decayTimer: 1
-  direction: {x: 0, y: 0, z: 0}
 --- !u!135 &6232384731935394705
 SphereCollider:
   m_ObjectHideFlags: 0
