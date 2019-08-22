@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flames : MonoBehaviour
 {
     public float damage = 1f;
+    [Range(0f,1f)]
     public float piercingValue = 0f;
     public float damageRate = 100f;
     private float damageCountdown = 0f;

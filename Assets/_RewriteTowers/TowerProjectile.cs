@@ -38,6 +38,7 @@ public class TowerProjectile : TowerBase
         {
             GameObject obj = (GameObject)Instantiate(bulletPrefab);
             obj.transform.SetParent(transform);
+            obj.GetComponent<ProjectileBase>().debuffElement = element;
             obj.SetActive(false);
             bullets.Add(obj);
         }

@@ -4,7 +4,9 @@ public class ProjectileBase : MonoBehaviour
 {
     public float damage = 10f;
     private float initialDamage;
+    [Range(0f,1f)]
     public float penetration = 0f;
+    [HideInInspector]
     public Enums.Element debuffElement;
     public float debuffIntensity = 0f;
     public float debuffDuration = 0f;
@@ -92,6 +94,8 @@ public class ProjectileBase : MonoBehaviour
     {
         EnemyBase e = enemy.GetComponent<EnemyBase>();
         e.TakeDamage(damage, penetration, debuffElement);
+        if (debuffElement != Enums.Element.none)
+            e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
     }
 
     private void Explode()

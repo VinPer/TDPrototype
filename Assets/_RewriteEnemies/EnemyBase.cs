@@ -243,7 +243,7 @@ public class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float amount, float piercingValue, Enums.Element turretElement)
     {
         if (element == turretElement) amount *= (1 - resistance);
-
+        Debug.Log(piercingValue);
         float multiplier = armor * (1 - piercingValue);
         health -= amount * (1 - multiplier);
         healthBar.fillAmount = health / initialHp;

@@ -226,7 +226,7 @@ MonoBehaviour:
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
-  fireRate: 0.333
+  fireRate: 0.2
   partToRotate: {fileID: 437540}
   turnSpeed: 10
   firePoint: {fileID: 8801715720961649628}

@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildManager: {fileID: 0}
-  range: 10
+  range: 15
   seesInvisible: 0
   rangeUpgrade: 2
   maxUpgrade: 3
