@@ -218,8 +218,7 @@ MonoBehaviour:
   resistance: 0
   healthBar: {fileID: 1019330860168806552}
   armorBar: {fileID: 3183690062345254618}
-  fireEffect: {fileID: 6353654771837472138, guid: a0def5ce55927ac4b92f20cbca1cdc7f,
-    type: 3}
+  fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   slowEffect: {fileID: 6353654771837472138, guid: dbdf12d53333376488b35d902ea7bf30,
     type: 3}
   acidEffect: {fileID: 6353654771837472138, guid: 0af62086988e9bf4f98e2ab8b8a43fcd,

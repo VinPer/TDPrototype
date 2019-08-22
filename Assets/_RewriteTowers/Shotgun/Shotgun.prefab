@@ -151,8 +151,7 @@ MonoBehaviour:
   damageUpgrade: 0.1
   fireRateUpgrade: 0.1
   targetStyle: 0
-  pelletCount: 5
-  rotationOffset: 10
+  pelletCount: 6
 --- !u!23 &2372028
 MeshRenderer:
   m_ObjectHideFlags: 0

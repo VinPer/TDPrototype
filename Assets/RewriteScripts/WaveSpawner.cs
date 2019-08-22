@@ -50,8 +50,6 @@ public class WaveSpawner : MonoBehaviour
     private float waveCountdown = 2f;
     private int nextWave = 0;
 
-    private bool stopWaveSpawner = false;
-
     public GameManager gameManager;
     
     // Start is called before the first frame update
@@ -66,7 +64,6 @@ public class WaveSpawner : MonoBehaviour
         state = SpawnerState.counting;
         //WavesLeft();
         wavesSurvived.text = nextWave.ToString();
-        stopWaveSpawner = false;
     }
 
     void PoolEnemies()
@@ -135,7 +132,7 @@ public class WaveSpawner : MonoBehaviour
     {
         waveNumber.text = "Enemies Alive: " + numberOfEnemiesAlive;
 
-        if (stopWaveSpawner) return;
+        if (GameManager.GameIsOver) return;
         
         if (state == SpawnerState.waiting)
         {

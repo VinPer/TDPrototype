@@ -8,6 +8,7 @@ public class Flames : MonoBehaviour
     public float piercingValue = 0f;
     public float damageRate = 100f;
     private float damageCountdown = 0f;
+    public float duration = 5f;
     public GameObject fireEffect;
     private GameObject flameEffect;
     private Enums.Element fire = Enums.Element.fire;
@@ -61,7 +62,7 @@ public class Flames : MonoBehaviour
     private void BurnTarget(Transform enemy)
     {
         EnemyBase e = enemy.GetComponent<EnemyBase>();
-        e.TakeDamage(damage, piercingValue,fire);
-        e.ActivateDebuff(damage * 10, 50f, fire);
+        e.TakeDamage(damage * Time.deltaTime, piercingValue,fire);
+        e.ActivateDebuff(damage, duration, fire);
     }
 }

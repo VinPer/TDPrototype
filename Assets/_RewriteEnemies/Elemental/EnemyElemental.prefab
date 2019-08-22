@@ -185,7 +185,7 @@ MonoBehaviour:
   resistance: 0
   healthBar: {fileID: 3093141919575147794}
   armorBar: {fileID: 641434236440982352}
-  fireEffect: {fileID: 0}
+  fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   slowEffect: {fileID: 0}
   acidEffect: {fileID: 0}
   deathEffect: {fileID: 0}

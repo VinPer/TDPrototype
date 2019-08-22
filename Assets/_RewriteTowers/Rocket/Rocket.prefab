@@ -545,13 +545,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildManager: {fileID: 0}
-  range: 25
+  range: 20
   seesInvisible: 0
   rangeUpgrade: 2
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
-  fireRate: 0.5
+  fireRate: 0.3
   partToRotate: {fileID: 434064}
   turnSpeed: 10
   firePoint: {fileID: 7299632427139851549}

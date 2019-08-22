@@ -485,7 +485,7 @@ MonoBehaviour:
   damageUpgrade: 0.1
   fireRateUpgrade: 0.1
   targetStyle: 0
-  maxChargeLevel: 3
+  maxChargeLevel: 10
   chargeRate: 0.5
   charging: {fileID: 8274475054476532716}
   shoot: {fileID: 9153667437752671086}

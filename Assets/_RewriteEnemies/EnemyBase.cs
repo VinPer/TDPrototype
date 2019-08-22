@@ -19,7 +19,7 @@ public class EnemyBase : MonoBehaviour
     private float initialSpeed;
 
     public float damage = 1;
-
+    [HideInInspector]
     public bool invisible;
 
     public Enums.EnemyType type;
@@ -54,6 +54,7 @@ public class EnemyBase : MonoBehaviour
     {
         isDead = false;
         status = Enums.Status.enable;
+        if (type == Enums.EnemyType.invisible) invisible = true;
     }
 
     private void OnDisable()
@@ -81,11 +82,6 @@ public class EnemyBase : MonoBehaviour
             { Enums.Element.ice, slow }
         };
         Zero();
-    }
-
-    private void Update()
-    {
-        if (type == Enums.EnemyType.invisible) invisible = true;
     }
 
     //DEBUFFS

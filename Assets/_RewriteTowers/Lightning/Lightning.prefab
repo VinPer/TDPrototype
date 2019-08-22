@@ -134,8 +134,8 @@ MonoBehaviour:
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
-  triggerRate: 1.5
-  damage: 15
+  triggerRate: 1
+  damage: 5
   penetration: 0
   debuffElement: 0
   debuffIntensity: 0

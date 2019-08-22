@@ -12,7 +12,21 @@ public class Winning : MonoBehaviour
     public string menuScene = "MainMenu";
     public Text money;
     public Text lives;
-    
+
+    private void Update()
+    {
+        if (!GameManager.GameIsOver) return;
+        if (string.Equals(nextLevel, ""))
+        {
+            nextLevelButton.interactable = false;
+            nextLevelButtonText.text = "MORE LEVELS TO COME...";
+            nextLevelButtonText.fontSize = 25;
+        }
+        money.text = "$" + PlayerStats.Money.ToString();
+        lives.text = "♥" + PlayerStats.Lives.ToString();
+
+    }
+
     public void Toggle()
     {
         ui.SetActive(!ui.activeSelf);
@@ -25,19 +39,6 @@ public class Winning : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
-    }
-
-    private void OnEnable()
-    {
-        if (string.Equals(nextLevel, ""))
-        {
-            nextLevelButton.interactable = false;
-            nextLevelButtonText.text = "MORE LEVELS TO COME...";
-            nextLevelButtonText.fontSize = 25;
-        }
-        money.text ="$" + PlayerStats.Money.ToString();
-        lives.text = "♥" + PlayerStats.Lives.ToString();
-
     }
 
     public void Continue()

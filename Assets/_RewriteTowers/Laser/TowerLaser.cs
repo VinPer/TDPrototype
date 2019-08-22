@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TowerLaser : TowerNonProjectile
 {
+    private float multiplicator = .1f;
+
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
     public Light impactLight;
@@ -22,7 +24,7 @@ public class TowerLaser : TowerNonProjectile
 
     protected void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
     private void Update()
@@ -46,7 +48,6 @@ public class TowerLaser : TowerNonProjectile
             Laser();
             fireCountdown = 1f / triggerRate;
         }
-
         fireCountdown -= Time.deltaTime;
     }
 
@@ -67,6 +68,7 @@ public class TowerLaser : TowerNonProjectile
                 FindWeakestTarget();
                 break;
         }
+        if (target == null) multiplicator = .1f;
     }
 
     //The target is the first enemy
@@ -203,16 +205,20 @@ public class TowerLaser : TowerNonProjectile
 
     private void Laser()
     {
-        targetEnemy.TakeDamage(damage, penetration, debuffElement);
-        if(!GetComponent<AudioSource>().isPlaying)
+        targetEnemy.TakeDamage(damage * multiplicator * Time.deltaTime, penetration, element);
+        if (multiplicator < 1) multiplicator *= 1.01f;
+        else multiplicator = 1;
+
+        //Sound
+        if (!GetComponent<AudioSource>().isPlaying)
         GetComponent<AudioSource>().Play();
+
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;
             impactEffect.Play();
             impactLight.enabled = true;
         }
-
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
 

@@ -20,7 +20,7 @@ public class TowerArea : TowerNonProjectile
         if (col.tag != enemyTag) return;
 
         EnemyBase e = col.GetComponent<EnemyBase>();
-        e.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffElement);
+        e.ActivateDebuff(debuffIntensity, Mathf.Infinity, element);
     }
 
     private void OnTriggerExit(Collider col)
@@ -28,7 +28,7 @@ public class TowerArea : TowerNonProjectile
         if (col.tag != enemyTag) return;
 
         EnemyBase e = col.GetComponent<EnemyBase>();
-        e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
+        e.ActivateDebuff(debuffIntensity, debuffDuration, element);
     }
 
     protected override void UpgradeStatus()

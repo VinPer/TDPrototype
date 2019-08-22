@@ -7,19 +7,19 @@ public class TowerShotgun : TowerProjectile
     //Numero de tiros menores para spawnar
     public int pelletCount = 5;
     //angulo máximo do "spread" do tiro
-    public float rotationOffset = 10f;
+    //public float rotationOffset = 10f;
 
     private List<GameObject> pellets;
     
     protected override void SpawnBulletPool()
     {
-        System.Random rng = new System.Random();
-        Quaternion rotation = Quaternion.Euler(new Vector3((float)rng.NextDouble() * rotationOffset, (float)rng.NextDouble() * rotationOffset, (float)rng.NextDouble() * rotationOffset));
+        //System.Random rng = new System.Random();
+        //Quaternion rotation = Quaternion.Euler(new Vector3((float)rng.NextDouble() * rotationOffset, (float)rng.NextDouble() * rotationOffset, (float)rng.NextDouble() * rotationOffset));
         pellets = new List<GameObject>();
         
         for (int i = 0; i < pelletCount; i++)
         {
-            GameObject newPellet = Instantiate(bulletPrefab, transform.position, rotation);
+            GameObject newPellet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             newPellet.transform.SetParent(transform);
             newPellet.SetActive(false);
             pellets.Add(newPellet);

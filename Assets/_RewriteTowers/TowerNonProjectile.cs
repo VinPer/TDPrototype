@@ -5,7 +5,6 @@ public abstract class TowerNonProjectile : TowerBase
     public float triggerRate;
     public float damage;
     public float penetration;
-    public Enums.Element debuffElement;
     public float debuffIntensity;
     public float debuffDuration;
 
