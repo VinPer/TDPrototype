@@ -97,4 +97,4 @@ MonoBehaviour:
   maxUpgrade: 3
   turretMaximized: 0
   element: 2
-  amount: 50
+  amount: 30

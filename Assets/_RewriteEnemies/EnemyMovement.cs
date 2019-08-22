@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     protected Transform[] waypoints;
     protected string waypointTag;
-
+    [HideInInspector]
     public int waypointIndex;
     [HideInInspector]
     public float distToNextWaypoint;

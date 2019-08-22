@@ -181,8 +181,8 @@ MonoBehaviour:
   damage: 1
   invisible: 0
   type: 0
-  element: 0
-  resistance: 0
+  element: 1
+  resistance: 0.68
   healthBar: {fileID: 3093141919575147794}
   armorBar: {fileID: 641434236440982352}
   fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}

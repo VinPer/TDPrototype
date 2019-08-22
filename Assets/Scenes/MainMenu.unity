@@ -5903,7 +5903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allTurrets:
   - prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
-    cost: 100
+    cost: 200
     upgradedPrefab: {fileID: 4176887503054913001, guid: 4a773ace9c0532b43a07fb3303c9247a,
       type: 3}
     upgradeCost: 200
@@ -5968,7 +5968,7 @@ MonoBehaviour:
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69, type: 3}
   - prefab: {fileID: 199946, guid: 5b97ec26bd5fc624bb21b8365cbcfb23, type: 3}
-    cost: 400
+    cost: 150
     upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
       type: 3}
     upgradeCost: 600
@@ -5982,28 +5982,28 @@ MonoBehaviour:
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2a4fe609b910f244181bdfb444ad0438, type: 3}
   - prefab: {fileID: 129874, guid: 26bc24faf5ae2d44caaec3aa60a0236f, type: 3}
-    cost: 400
+    cost: 500
     upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
       type: 3}
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ce9f8eb148a30e844951e6dd54da1c88, type: 3}
   - prefab: {fileID: 1000014142393632, guid: 0a4d785296d91174fb324fa33224c504, type: 3}
-    cost: 400
+    cost: 250
     upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
       type: 3}
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: d30751bf17a73fe45b21820cd978b3c7, type: 3}
   - prefab: {fileID: 1000011940937682, guid: 9c27ad61aa1515b4ea9d5b76cb841341, type: 3}
-    cost: 400
+    cost: 300
     upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
       type: 3}
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 43d0ac46c16bde148a013be4e98589cd, type: 3}
   - prefab: {fileID: 164160, guid: bd3111d7b003ed040b9e860c3572624c, type: 3}
-    cost: 400
+    cost: 250
     upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
       type: 3}
     upgradeCost: 600
@@ -6632,6 +6632,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MortarItem
       objectReference: {fileID: 0}
+    - target: {fileID: 4183598552398986934, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6690,22 +6695,22 @@ PrefabInstance:
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 662
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -6715,7 +6720,7 @@ PrefabInstance:
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
@@ -6725,7 +6730,7 @@ PrefabInstance:
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986937, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}

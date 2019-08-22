@@ -37,7 +37,7 @@ public class CameraController : MonoBehaviour
         //mouse out of the screen
         if (!screenRect.Contains(Input.mousePosition)) return;
 
-        if (Input.GetKeyDown(KeyCode.X)) enableMovement = !enableMovement;
+        //if (Input.GetKeyDown(KeyCode.X)) enableMovement = !enableMovement;
         if (!enableMovement) return;
 
         ////Rotation

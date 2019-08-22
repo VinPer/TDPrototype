@@ -47,17 +47,17 @@ public class TowerFlamethrower : TowerNonProjectile
         partToRotate.rotation = Quaternion.Euler(0f, currentRotation, 0f);
     }
 
-    private void OnMouseDown()
-    {
-        // allows player to select where tower will fire
-        //if (!selectingRotation && direction == 0)
-        //{
-        //    selectingRotation = true;
-        //    StartCoroutine(SetFiringArea());
-        //}
+    //private void OnMouseDown()
+    //{
+    //    // allows player to select where tower will fire
+    //    //if (!selectingRotation && direction == 0)
+    //    //{
+    //    //    selectingRotation = true;
+    //    //    StartCoroutine(SetFiringArea());
+    //    //}
 
-        RotateClockwise();
-    }
+    //    RotateClockwise();
+    //}
 
     private IEnumerator SetFiringArea()
     {
