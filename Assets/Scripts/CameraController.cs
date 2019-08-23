@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
         if (!screenRect.Contains(Input.mousePosition)) return;
 
         //if (Input.GetKeyDown(KeyCode.X)) enableMovement = !enableMovement;
-        if (!enableMovement) return;
+         //if (!enableMovement) return;
 
         ////Rotation
         //if (Input.GetKey("q"))

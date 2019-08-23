@@ -70,7 +70,9 @@ public class Node : MonoBehaviour
 
         // buildManager.BuildTurretOn(this);
         BuildTurret(buildManager.GetTurretToBuild());
-        AudioManager.instance.Play("buildTurret");
+
+        
+
     }
 
     public void SelectNode()
@@ -92,6 +94,7 @@ public class Node : MonoBehaviour
         if (PlayerStats.Money < blueprint.cost)
         {
             Debug.Log("Not enough money to build that!");
+            AudioManager.instance.Play("negate");
             return;
         }
 
@@ -110,6 +113,8 @@ public class Node : MonoBehaviour
         GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
+        //Sound
+        AudioManager.instance.Play("buildTurret");
         Debug.Log("Turret built!");
         PlayerStats.UpdateMoney();
     }
