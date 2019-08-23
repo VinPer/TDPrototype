@@ -67,13 +67,15 @@ public class TurretMenu : MonoBehaviour
 
         this.gameObject.SetActive(true);
         isActive = true;
-        anim.Play("TurretMenuSlideIn");
+        if(anim!=null)
+            anim.Play("TurretMenuSlideIn");
     }
     public void CloseMenu()
     {
         Debug.Log(anim);
         isActive = false;
-        anim.Play("TurretMenuSlideOut");
+        if(anim!=null)
+            anim.Play("TurretMenuSlideOut");
     }
 
     // instantiate the list and add defaults
