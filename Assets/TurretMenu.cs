@@ -25,8 +25,14 @@ public class TurretMenu : MonoBehaviour
     public TurretBlueprint flamethrower;
     public TurretBlueprint laserBeamer;
 
+    public Sprite fire;
+    public Sprite acid;
+    public Sprite ice;
+    public Sprite none;
+
     public bool isActive = false;
 
+    private Dictionary<Enums.Element, Sprite> elDic;
 
     private void Start()
     {
@@ -35,6 +41,11 @@ public class TurretMenu : MonoBehaviour
         else
             LoadDefault();
         anim = gameObject.GetComponent<Animator>();
+
+        elDic = new Dictionary<Enums.Element, Sprite>
+        {
+            {Enums.Element.fire, fire },  {Enums.Element.ice, ice }, {Enums.Element.acid, acid }, {Enums.Element.none, none }
+        };
     }
 
     public void SetTarget(Node _target)
@@ -50,18 +61,55 @@ public class TurretMenu : MonoBehaviour
         if (towerProjectile != null)
         {
             dmgText.text = towerProjectile.bulletPrefab.GetComponent<ProjectileBase>().damage.ToString();
-            //elementImage.sprite = target.turretBlueprint.element; << 
+
+            switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
+            {
+                case Enums.Element.fire:
+                    elementImage.sprite = fire;
+                    elementImage.color = Color.red;
+                    break;
+                case Enums.Element.acid:
+                    elementImage.sprite = acid;
+                    elementImage.color = Color.green;
+                    break;
+                case Enums.Element.ice:
+                    elementImage.sprite = ice;
+                    elementImage.color = Color.cyan;
+                    break;
+                case Enums.Element.none:
+                    elementImage.sprite = none;
+                    break;
+            }
+
         }
         else if(turretSelected.GetComponent<TowerNonProjectile>())
         {
             towerNonProjectile = turretSelected.GetComponent<TowerNonProjectile>();
             dmgText.text = towerNonProjectile.damage.ToString();
-            //elementImage.sprite = target.turretBlueprint.element; << 
+            switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
+            {
+                case Enums.Element.fire:
+                    elementImage.sprite = fire;
+                    elementImage.color = Color.red;
+                    break;
+                case Enums.Element.acid:
+                    elementImage.sprite = acid;
+                    elementImage.color = Color.green;
+                    break;
+                case Enums.Element.ice:
+                    elementImage.sprite = ice;
+                    elementImage.color = Color.cyan;
+                    break;
+                case Enums.Element.none:
+                    elementImage.sprite = none;
+                    break;
+            }
         }
         else
         {
             towerRadar = turretSelected.GetComponent<TowerRadar>();
             dmgText.text = "-";
+            elementImage.sprite = none;
         }
 
         //btnSellText.text ="<b>UPGRADE</b>\n" + target.turretBlueprint.GetSellValue();
