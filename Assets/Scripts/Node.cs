@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Node : MonoBehaviour
 {
-    BuildManager buildManager;
-
+    public BuildManager buildManager;
     [HideInInspector]
     public GameObject turret;
+
+    private TowerBase tower;
     [HideInInspector]
     public TurretBlueprint turretBlueprint;
-    [HideInInspector]
-    public bool isUpgraded = false;
 
     public Vector3 positionOffset;
 
@@ -18,6 +19,10 @@ public class Node : MonoBehaviour
     private Color startColor;
     public Color hoverColor;
     public Color cannotAffordColor;
+    
+    public Range range;
+
+    //private List<GameObject> turrets;
 
     private void Start()
     {
@@ -25,6 +30,24 @@ public class Node : MonoBehaviour
 
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+        
+        range = FindObjectOfType<Range>();
+        //turrets = new List<GameObject>();
+        //StartCoroutine(FillTurretList());
+    }
+
+    IEnumerator FillTurretList()
+    {
+        yield return new WaitForSeconds(.1f);
+        foreach (TurretBlueprint obj in Shop.turretBlueprints)
+        {
+            GameObject newTurret = (GameObject)Instantiate(obj.prefab);
+            newTurret.transform.position = transform.position;
+            newTurret.transform.rotation = transform.rotation;
+            newTurret.transform.SetParent(transform);
+            newTurret.SetActive(false);
+            //turrets.Add(newTurret);
+        }
     }
 
     public Vector3 GetBuildPosition()
@@ -39,6 +62,7 @@ public class Node : MonoBehaviour
         if (turret != null)
         {
             buildManager.SelectNode(this);
+            range.SetTarget(this);
             return;
         }
 
@@ -46,13 +70,31 @@ public class Node : MonoBehaviour
 
         // buildManager.BuildTurretOn(this);
         BuildTurret(buildManager.GetTurretToBuild());
+
+        
+
     }
 
-    void BuildTurret (TurretBlueprint blueprint)
+    public void SelectNode()
+    {
+        if(turret != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
+
+        if (!buildManager.CanBuild) return;
+
+        BuildTurret(buildManager.GetTurretToBuild());
+        //BuildTurret(buildManager.GetTurretIndexToBuild());
+    }
+
+    void BuildTurret(TurretBlueprint blueprint)
     {
         if (PlayerStats.Money < blueprint.cost)
         {
             Debug.Log("Not enough money to build that!");
+            AudioManager.instance.Play("negate");
             return;
         }
 
@@ -61,14 +103,43 @@ public class Node : MonoBehaviour
         turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret.transform.SetParent(transform);
 
+
+        if (turret.GetComponent<TowerBase>())
+            tower = turret.GetComponent<TowerBase>();
+        else
+            tower = turret.GetComponentInChildren<TowerBase>();
         turretBlueprint = blueprint;
 
         GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
+        //Sound
+        AudioManager.instance.Play("buildTurret");
         Debug.Log("Turret built!");
         PlayerStats.UpdateMoney();
     }
+
+    //void BuildTurret(int index)
+    //{
+    //    if (PlayerStats.Money < Shop.turretBlueprints[index].cost)
+    //    {
+    //        Debug.Log("Not enough money to build that!");
+    //        return;
+    //    }
+
+    //    PlayerStats.Money -= Shop.turretBlueprints[index].cost;
+
+    //    turrets[index].SetActive(true);
+    //    turret = turrets[index];
+    //    turretBlueprint = Shop.turretBlueprints[index];
+    //    if (turret.GetComponent<TowerBase>())
+    //        tower = turret.GetComponent<TowerBase>();
+    //    else
+    //        tower = turret.GetComponentInChildren<TowerBase>();
+
+    //    Debug.Log("Turret built!");
+    //    PlayerStats.UpdateMoney();
+    //}
 
     public void UpgradeTurret()
     {
@@ -80,28 +151,27 @@ public class Node : MonoBehaviour
 
         PlayerStats.Money -= turretBlueprint.upgradeCost;
 
-        // Get rid of old turret
-        Destroy(turret);
-        // Build new turret
-        turret = Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
-        turret.transform.SetParent(transform);
+        //// Get rid of old turret
+        //Destroy(turret);
+        //// Build new turret
+        //turret = Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        //turret.transform.SetParent(transform);
+
+        tower.UpgradeTower();
 
         GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
-
-        isUpgraded = true;
-        Debug.Log("Turret upgraded!");
+        
         PlayerStats.UpdateMoney();
     }
 
     public void SellTurret()
     {
         // Add money at half the cost spent
-        PlayerStats.Money += turretBlueprint.GetSellValue(isUpgraded);
+        PlayerStats.Money += turretBlueprint.GetSellValue(tower.turretMaximized);
         // Destroy turret and kill references
         Destroy(turret);
         turret = null;
-        isUpgraded = false;
 
         // Play effect
         GameObject effect = Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
@@ -111,18 +181,28 @@ public class Node : MonoBehaviour
         Debug.Log("Turret sold!");
         PlayerStats.UpdateMoney();
     }
+    
 
     private void OnMouseEnter()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!buildManager.CanBuild) return;
 
-        if (PlayerStats.Money >= buildManager.GetTurretToBuild().cost) rend.material.color = hoverColor;
+        if (PlayerStats.Money >= buildManager.GetTurretToBuild().cost)
+        {
+            rend.material.color = hoverColor;
+            if(!turret)
+                range.HoverTarget(this.gameObject);
+        }
         else rend.material.color = cannotAffordColor;
     }
 
     private void OnMouseExit()
     {
         rend.material.color = startColor;
+        if (buildManager.turretMenu.isActive == false)
+        {
+            range.Hide();
+        } 
     }
 }

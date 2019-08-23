@@ -6,16 +6,17 @@ public class Shop : MonoBehaviour
 {
     BuildManager buildManager;
 
-    public List<TurretBlueprint> turretBlueprints;
+    public static List<TurretBlueprint> turretBlueprints;
     public TurretBlueprint standardTurret;
     public TurretBlueprint missileLauncher;
     public TurretBlueprint bombSpawner;
     public TurretBlueprint flamethrower;
     public TurretBlueprint laserBeamer;
-
+    
     private void Start()
     {
         buildManager = BuildManager.instance;
+        
 
         // checks if TurretHandler has been carried from main menu, places the selected turrets
         if (TurretHandler.active)
@@ -70,6 +71,7 @@ public class Shop : MonoBehaviour
     {
         if (index >= turretBlueprints.Count) return;
         buildManager.SelectTurretToBuild(turretBlueprints[index]);
+        buildManager.SelectTurretIndexToBuild(index);
     }
 
 

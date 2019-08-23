@@ -9555,7 +9555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2518271756024759890}
   - component: {fileID: 496410065449868558}
-  - component: {fileID: 887046191710555500}
+  - component: {fileID: 2334034282966715893}
   m_Layer: 0
   m_Name: LaserBeamer
   m_TagString: Tower
@@ -9675,7 +9675,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &887046191710555500
+--- !u!114 &2334034282966715893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9684,24 +9684,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2518271756025125490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d48f7cf0c74be4dae7965fc7bee5d9, type: 3}
+  m_Script: {fileID: 11500000, guid: b0b3e7029bed7034f92ba3e5dd0a8de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
-  fireRate: 1
-  damageBoost: 1
-  bulletPrefab: {fileID: 0}
-  enemyTag: Enemy
-  partToRotate: {fileID: 2788256632705547046}
-  turnSpeed: 10
-  firePoint: {fileID: 4926182196596077308}
+  range: 15
+  triggerRate: 100
+  damage: 0.15
+  penetration: 0
+  debuffElement: none
+  debuffIntensity: 0
+  debuffDuration: 0
   lineRenderer: {fileID: 496410065449868558}
   impactEffect: {fileID: 8878319577648006051}
   impactLight: {fileID: 7840314150892823605}
-  damageOverTime: 5
-  piercingValue: 0
-  slowPercent: 50
-  slowDuration: 5
+  targettingStyle: 0
+  firePoint: {fileID: 4926182196596077308}
+  partToRotate: {fileID: 2788256632705547046}
+  turnSpeed: 10
+  enemyTag: Enemy
 --- !u!1 &2518271756025125494
 GameObject:
   m_ObjectHideFlags: 0

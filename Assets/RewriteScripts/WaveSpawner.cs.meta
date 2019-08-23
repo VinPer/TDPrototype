@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 5dfb6bf02c29cef4084f1440e88f35a0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - basicEnemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
+  - fastEnemy: {fileID: 150684, guid: b37daab609aeb204c80873d303f25508, type: 3}
+  - tankEnemy: {fileID: 162058, guid: a159dc8ad2f683545a3c762f81d990bb, type: 3}
+  - shildedEnemy: {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
+  - cluster: {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
+  - fireElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  - acidElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  - iceElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  - flying: {fileID: 127644, guid: c12cd68320f648a4c820f5858a2b0719, type: 3}
+  - zip: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
+  - invisible: {fileID: 126950, guid: 9367964038275c543b1f8070bf0be267, type: 3}
+  - spawnPoint: {instanceID: 0}
+  - waypointHandler: {instanceID: 0}
+  - waveCountdownText: {instanceID: 0}
+  - wavesLeft: {instanceID: 0}
+  - waveNumber: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

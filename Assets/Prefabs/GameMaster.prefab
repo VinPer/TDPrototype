@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1276107921016421593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1276107921016421599}
+  - component: {fileID: 5256149404726400498}
+  - component: {fileID: 1276107921016421598}
+  - component: {fileID: 1276107921016421597}
+  - component: {fileID: 1276107921016421596}
+  - component: {fileID: 1276107921016421571}
+  - component: {fileID: 311848045307514384}
+  m_Layer: 0
+  m_Name: GameMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1276107921016421599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5256149404726400498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfb6bf02c29cef4084f1440e88f35a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves: []
+  basicEnemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
+  fastEnemy: {fileID: 150684, guid: b37daab609aeb204c80873d303f25508, type: 3}
+  tankEnemy: {fileID: 162058, guid: a159dc8ad2f683545a3c762f81d990bb, type: 3}
+  shildedEnemy: {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
+  cluster: {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
+  fireElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  acidElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  iceElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
+  flying: {fileID: 127644, guid: c12cd68320f648a4c820f5858a2b0719, type: 3}
+  zip: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
+  invisible: {fileID: 126950, guid: 9367964038275c543b1f8070bf0be267, type: 3}
+  spawnPoint: {fileID: 0}
+  waypointHandler: {fileID: 0}
+  infiniteOffset: 1
+  timeBetweenWaves: 5
+  waveCountdownText: {fileID: 0}
+  wavesLeft: {fileID: 0}
+  waveNumber: {fileID: 0}
+  gameManager: {fileID: 0}
+--- !u!114 &1276107921016421598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1f45c96f669d4d90390a00c72a991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildEffect: {fileID: 3900145034223850294, guid: aaeef99a6ac93f942a01b4ceaa0e8fa6,
+    type: 3}
+  sellEffect: {fileID: 3900145034223850294, guid: 77b07d1dda6077d4281a511bc90e1c53,
+    type: 3}
+  nodeUI: {fileID: 0}
+--- !u!114 &1276107921016421597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8bc585134ef38459cc5d82fa5903ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 3500
+  moneyDisplayStart: {fileID: 0}
+  startLives: 20
+  livesDisplayStart: {fileID: 0}
+--- !u!114 &1276107921016421596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc932a60e66ed4449f72820202bdc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
+  debugUI: {fileID: 0}
+  turretUI: {fileID: 0}
+  skillUI: {fileID: 0}
+  winUI: {fileID: 0}
+--- !u!114 &1276107921016421571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cac38f7990a60149ad12fa921063724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 0}
+  menuScene: MainMenu
+  sceneFader: {fileID: 0}
+--- !u!114 &311848045307514384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276107921016421593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed0e5ae06601f84e9589f3e00f13cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSceneName: MainMenu
+  levelSelectionScene: LevelSelect
+  nextLevel: 
+  sceneFader: {fileID: 0}
+  overlayCanvas: {fileID: 0}

@@ -1,0 +1,166 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class TurretMenu : MonoBehaviour
+{
+    private Node target;
+    public TowerBase turretSelected;
+    public TowerProjectile towerProjectile;
+    public TowerNonProjectile towerNonProjectile;
+    public TowerRadar towerRadar;
+    public Image turretImage;
+    public Text dmgText;
+    public Text rangeText;
+    public Image elementImage;
+    public Animator anim;
+    public Text btnUpgradeText;
+    public Text btnSellText;
+    public Text turretName;
+
+    public List<TurretBlueprint> turretBlueprints;
+    public TurretBlueprint standardTurret;
+    public TurretBlueprint missileLauncher;
+    public TurretBlueprint bombSpawner;
+    public TurretBlueprint flamethrower;
+    public TurretBlueprint laserBeamer;
+
+    public Sprite fire;
+    public Sprite acid;
+    public Sprite ice;
+    public Sprite none;
+
+    public bool isActive = false;
+
+    private Dictionary<Enums.Element, Sprite> elDic;
+
+    private void Start()
+    {
+        if (TurretHandler.active)
+            turretBlueprints = TurretHandler.selectedTurrets;
+        else
+            LoadDefault();
+        anim = gameObject.GetComponent<Animator>();
+
+        elDic = new Dictionary<Enums.Element, Sprite>
+        {
+            {Enums.Element.fire, fire },  {Enums.Element.ice, ice }, {Enums.Element.acid, acid }, {Enums.Element.none, none }
+        };
+    }
+
+    public void SetTarget(Node _target)
+    {
+        this.target = _target;
+        turretImage.sprite = target.turretBlueprint.sprite;
+        turretName.text = target.turretBlueprint.name;
+        //Debug.Log(target.GetComponentInChildren<TowerBase>().GetComponent<TowerProjectile>().bulletPrefab.GetComponent<ProjectileBase>().damage);
+        turretSelected = target.GetComponentInChildren<TowerBase>();
+        rangeText.text = turretSelected.range.ToString();
+
+        towerProjectile = turretSelected.GetComponent<TowerProjectile>();
+        if (towerProjectile != null)
+        {
+            dmgText.text = towerProjectile.bulletPrefab.GetComponent<ProjectileBase>().damage.ToString();
+
+            switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
+            {
+                case Enums.Element.fire:
+                    elementImage.sprite = fire;
+                    elementImage.color = Color.red;
+                    break;
+                case Enums.Element.acid:
+                    elementImage.sprite = acid;
+                    elementImage.color = Color.green;
+                    break;
+                case Enums.Element.ice:
+                    elementImage.sprite = ice;
+                    elementImage.color = Color.cyan;
+                    break;
+                case Enums.Element.none:
+                    elementImage.sprite = none;
+                    break;
+            }
+
+        }
+        else if(turretSelected.GetComponent<TowerNonProjectile>())
+        {
+            towerNonProjectile = turretSelected.GetComponent<TowerNonProjectile>();
+            dmgText.text = towerNonProjectile.damage.ToString();
+            switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
+            {
+                case Enums.Element.fire:
+                    elementImage.sprite = fire;
+                    elementImage.color = Color.red;
+                    break;
+                case Enums.Element.acid:
+                    elementImage.sprite = acid;
+                    elementImage.color = Color.green;
+                    break;
+                case Enums.Element.ice:
+                    elementImage.sprite = ice;
+                    elementImage.color = Color.cyan;
+                    break;
+                case Enums.Element.none:
+                    elementImage.sprite = none;
+                    break;
+            }
+        }
+        else
+        {
+            towerRadar = turretSelected.GetComponent<TowerRadar>();
+            dmgText.text = "-";
+            elementImage.sprite = none;
+        }
+
+        //btnSellText.text ="<b>UPGRADE</b>\n" + target.turretBlueprint.GetSellValue();
+        //btnUpgradeText.text ="<b>SELL</b>\n" + target.turretBlueprint.GetUpgradePrice();
+
+        this.gameObject.SetActive(true);
+        isActive = true;
+        if(anim!=null)
+            anim.Play("TurretMenuSlideIn");
+    }
+    public void CloseMenu()
+    {
+        Debug.Log(anim);
+        isActive = false;
+        if(anim!=null)
+            anim.Play("TurretMenuSlideOut");
+    }
+
+    // instantiate the list and add defaults
+    private void LoadDefault()
+    {
+        turretBlueprints = new List<TurretBlueprint>();
+        turretBlueprints.Add(standardTurret);
+        turretBlueprints.Add(missileLauncher);
+        turretBlueprints.Add(bombSpawner);
+        turretBlueprints.Add(laserBeamer);
+        turretBlueprints.Add(flamethrower);
+    }
+
+    // draw the turrets that are up for sale
+    private void DrawTurrets()
+    {
+        Transform currentChild;
+
+        // draw all from their data contained in TurretBlueprint
+        for (int i = 0; i < turretBlueprints.Count; i++)
+        {
+            currentChild = transform.GetChild(i);
+            currentChild.GetComponent<Image>().sprite = turretBlueprints[i].sprite;
+            currentChild.GetComponent<Image>().color = turretBlueprints[i].color;
+            currentChild.GetComponentInChildren<Text>().text = "$" + turretBlueprints[i].cost;
+        }
+
+        // draw the empty spots
+        for (int i = turretBlueprints.Count; i < transform.childCount; i++)
+        {
+            currentChild = transform.GetChild(i);
+            currentChild.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            currentChild.GetComponentInChildren<Text>().text = "-";
+        }
+    }
+
+
+}

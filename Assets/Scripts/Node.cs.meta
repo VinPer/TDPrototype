@@ -3,7 +3,10 @@ guid: 95729230f60c19a4a97619594a36c272
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - buildManager: {instanceID: 0}
+  - turret: {instanceID: 0}
+  - turretRange: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

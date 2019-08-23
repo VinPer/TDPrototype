@@ -1,4 +1,4 @@
-﻿
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
     public GameObject debugUI;
     public GameObject turretUI;
     public GameObject skillUI;
+    public GameObject winUI;
 
     private void Start()
     {
         GameIsOver = false;
+        AudioManager.instance.Play(SceneManager.GetActiveScene().name);
+        Debug.Log(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
@@ -39,5 +42,15 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         gameOverUI.SetActive(true);
+        AudioManager.instance.Play("Defeat");
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
+    }
+
+    public void Winning()
+    {
+        GameIsOver = true;
+        winUI.SetActive(true);
+        AudioManager.instance.Play("Victory");
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 }

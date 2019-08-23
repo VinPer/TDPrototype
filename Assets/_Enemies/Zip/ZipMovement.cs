@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Enemy))]
-public class ZipMovement : EnemyMovement
+public class AZipMovement : AEnemyMovement
 {
     public float delay = 1.5f;
     private bool canMove = false;

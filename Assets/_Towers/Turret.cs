@@ -67,7 +67,6 @@ public class Turret : MonoBehaviour
         }
 
         fireCountdown -= Time.deltaTime;
-
     }
 
     protected virtual void LockOnTarget()

@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Bullet
   - Tower
+  - Range
   layers:
   - Default
   - TransparentFX
@@ -19,13 +20,13 @@ TagManager:
   - 
   - PostProcessing
   - Environment
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Range
+  - Node
+  - Enemy
+  - Tower
+  - Bullet
+  - BufferRange
+  - Skills
   - 
   - 
   - 

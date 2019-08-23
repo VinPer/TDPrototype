@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
-public class EnemyMovement : MonoBehaviour
+public class AEnemyMovement : MonoBehaviour
 {
     protected Enemy enemy;
     protected Transform target;
@@ -73,7 +73,7 @@ public class EnemyMovement : MonoBehaviour
         PlayerStats.Lives--;
         PlayerStats.UpdateLives();
         Destroy(gameObject);
-        WaveSpawner.EnemiesAlive--;
+        WaveSpawner.numberOfEnemiesAlive--;
     }
     
     public int GetWaypointIndex()

@@ -46,7 +46,7 @@ public class DebugMenu : MonoBehaviour
     {
         for(int i = 0; i < amount; i++)
         {
-            waveSpawner.SpawnEnemy(enemies[enemy.value].transform);
+            // waveSpawner.SpawnEnemy(enemies[enemy.value].transform);
             yield return new WaitForSeconds(delay);
         }
     }
@@ -65,8 +65,8 @@ public class DebugMenu : MonoBehaviour
         }
     }
 
-    public void ToggleWave()
-    {
-        waveSpawner.countingDown = !waveSpawner.countingDown;
-    }
+    //public void ToggleWave()
+    //{
+    //    waveSpawner.countingDown = !waveSpawner.countingDown;
+    //}
 }
