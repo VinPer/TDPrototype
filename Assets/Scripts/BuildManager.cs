@@ -74,4 +74,17 @@ public class BuildManager : MonoBehaviour
     {
         return turretIndexToBuild;
     }
+
+    public void Sell()
+    {
+        selectedNode.SellTurret();
+        BuildManager.instance.DeselectNode();
+    }
+
+    public void Upgrade()
+    {
+        selectedNode.UpgradeTurret();
+        BuildManager.instance.DeselectNode();
+    }
+
 }

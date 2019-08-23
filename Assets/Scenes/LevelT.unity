@@ -5248,12 +5248,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1788162415}
-        m_MethodName: 
+      - m_Target: {fileID: 1898957088}
+        m_MethodName: Sell
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -19088,7 +19088,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1391483532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1898957088}
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1391483532
@@ -27500,6 +27511,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ed0e5ae06601f84e9589f3e00f13cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1898957088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
+    type: 3}
+  m_PrefabInstance: {fileID: 1898957082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898957083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1f45c96f669d4d90390a00c72a991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1908513845
