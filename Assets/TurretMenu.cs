@@ -16,6 +16,7 @@ public class TurretMenu : MonoBehaviour
     public Animator anim;
     public Text btnUpgradeText;
     public Text btnSellText;
+    public Text turretName;
 
     public List<TurretBlueprint> turretBlueprints;
     public TurretBlueprint standardTurret;
@@ -40,6 +41,7 @@ public class TurretMenu : MonoBehaviour
     {
         this.target = _target;
         turretImage.sprite = target.turretBlueprint.sprite;
+        turretName.text = target.turretBlueprint.name;
         //Debug.Log(target.GetComponentInChildren<TowerBase>().GetComponent<TowerProjectile>().bulletPrefab.GetComponent<ProjectileBase>().damage);
         turretSelected = target.GetComponentInChildren<TowerBase>();
         rangeText.text = turretSelected.range.ToString();
