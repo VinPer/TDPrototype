@@ -235,6 +235,7 @@ public class EnemyBase : MonoBehaviour
         health = initialHp;
         speed = initialSpeed;
         armor = initialArmor;
+        foreach (Debuff debuff in debuffs.Values) debuff.Zero();
         healthBar.fillAmount = health / initialHp;
         armorBar.fillAmount = armor / initialArmor;
     }
