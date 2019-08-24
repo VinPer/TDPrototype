@@ -44,9 +44,9 @@ public class ProjectileBase : MonoBehaviour
     
     protected virtual void Update()
     {
-        if ((target == null && seeking) || decayTimer <= 0f || durability <= 0f)
+        if ((!target.gameObject.active && seeking) || decayTimer <= 0f || durability <= 0f)
         {
-            //Destroy(gameObject);
+            target = null;
             Destroy();
             return;
         }

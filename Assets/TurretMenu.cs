@@ -122,7 +122,6 @@ public class TurretMenu : MonoBehaviour
     }
     public void CloseMenu()
     {
-        Debug.Log(anim);
         isActive = false;
         if(anim!=null)
             anim.Play("TurretMenuSlideOut");
