@@ -19,6 +19,7 @@ public class TurretMenu : MonoBehaviour
     public Image elementImage;
     [HideInInspector]
     public Animator anim;
+    public Button btnUpgrade;
     public Text btnUpgradeText;
     public Text btnSellText;
     public Text turretName;
@@ -61,7 +62,16 @@ public class TurretMenu : MonoBehaviour
         //Debug.Log(target.GetComponentInChildren<TowerBase>().GetComponent<TowerProjectile>().bulletPrefab.GetComponent<ProjectileBase>().damage);
         turretSelected = target.GetComponentInChildren<TowerBase>();
         rangeText.text = turretSelected.range.ToString();
-        btnSellText.text = "$" + target.turretBlueprint.GetSellValue(turretSelected.numberOfUpgrades);
+        if (turretSelected.turretMaximized)
+        {
+            btnUpgrade.interactable = false;
+            btnUpgradeText.text = "MAXIMIZED";
+        }
+        else
+        {
+            btnUpgrade.interactable = true;
+            btnSellText.text = "$" + target.turretBlueprint.GetSellValue(turretSelected.numberOfUpgrades);
+        }
         btnUpgradeText.text ="$" + target.turretBlueprint.GetUpgradeCost();
         towerProjectile = turretSelected.GetComponent<TowerProjectile>();
         if (towerProjectile != null)

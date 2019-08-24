@@ -28,12 +28,8 @@ public class TurretBlueprint
 
     public int GetSellValue(int numberOfUpgrades)
     {
-        int value = cost/2;
+        int value = (cost + upgradeCost*numberOfUpgrades)/2;
         
-        for (int i = 0; i < numberOfUpgrades; i++)
-        {
-            value = (cost + upgradeCost*i) / 2;
-        }
         return value;
     }
 
