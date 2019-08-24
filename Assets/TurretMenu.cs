@@ -5,14 +5,19 @@ using UnityEngine.UI;
 public class TurretMenu : MonoBehaviour
 {
     private Node target;
+    [HideInInspector]
     public TowerBase turretSelected;
+    [HideInInspector]
     public TowerProjectile towerProjectile;
+    [HideInInspector]
     public TowerNonProjectile towerNonProjectile;
+    [HideInInspector]
     public TowerRadar towerRadar;
     public Image turretImage;
     public Text dmgText;
     public Text rangeText;
     public Image elementImage;
+    [HideInInspector]
     public Animator anim;
     public Text btnUpgradeText;
     public Text btnSellText;
@@ -29,7 +34,7 @@ public class TurretMenu : MonoBehaviour
     public Sprite acid;
     public Sprite ice;
     public Sprite none;
-
+    [HideInInspector]
     public bool isActive = false;
 
     private Dictionary<Enums.Element, Sprite> elDic;
@@ -56,7 +61,8 @@ public class TurretMenu : MonoBehaviour
         //Debug.Log(target.GetComponentInChildren<TowerBase>().GetComponent<TowerProjectile>().bulletPrefab.GetComponent<ProjectileBase>().damage);
         turretSelected = target.GetComponentInChildren<TowerBase>();
         rangeText.text = turretSelected.range.ToString();
-
+        btnSellText.text = "$" + target.turretBlueprint.GetSellValue(turretSelected.numberOfUpgrades);
+        btnUpgradeText.text ="$" + target.turretBlueprint.GetUpgradeCost();
         towerProjectile = turretSelected.GetComponent<TowerProjectile>();
         if (towerProjectile != null)
         {
