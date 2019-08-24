@@ -85,7 +85,6 @@ public class ProjectileBase : MonoBehaviour
             Damage(target);
             // include logic for reducing durability
         }
-        Debug.Log(durability);
         // include logic for checking durability
         if(durability <= 0 || seeking)
         {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TowerCharger : TowerProjectile
 {
-
     public int maxChargeLevel = 3;
     private int currentChargeLevel = 0;
     public float chargeRate = 0.5f;

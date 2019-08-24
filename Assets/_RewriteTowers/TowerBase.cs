@@ -2,7 +2,8 @@
 
 public abstract class TowerBase : MonoBehaviour
 {
-    public BuildManager buildManager;
+    //[HideInInspector]
+    //public BuildManager buildManager;
     
     protected Enums.Status currentState = Enums.Status.enable;
     public float range = 15f;
