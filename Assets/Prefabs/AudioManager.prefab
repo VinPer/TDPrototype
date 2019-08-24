@@ -46,8 +46,8 @@ MonoBehaviour:
   sounds:
   - name: Victory
     clip: {fileID: 8300000, guid: dfc4f5ba52d03bc41880f11f2f9bfcd5, type: 3}
-    volume: 1
-    pitch: 0.4
+    volume: 0.3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MainMenu
@@ -58,8 +58,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Defeat
     clip: {fileID: 8300000, guid: ad778fe5ddbd5274086772575c96cd38, type: 3}
-    volume: 0.4
-    pitch: 1.2
+    volume: 0.3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LevelT
