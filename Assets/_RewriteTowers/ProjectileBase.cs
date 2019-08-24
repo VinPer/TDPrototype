@@ -44,15 +44,19 @@ public class ProjectileBase : MonoBehaviour
     
     protected virtual void Update()
     {
-        if ((!target.gameObject.active && seeking) || decayTimer <= 0f || durability <= 0f)
+        if (decayTimer <= 0f || durability <= 0f)
         {
-            target = null;
             Destroy();
             return;
         }
 
         if (seeking)
         {
+            if (target.GetComponent<EnemyBase>().isDead)
+            {
+                Destroy();
+                return;
+            }
             direction = target.position - transform.position;
             transform.LookAt(target);
         }
@@ -70,6 +74,7 @@ public class ProjectileBase : MonoBehaviour
 
         //Debug.Log("Damage: " + damage);
         //Debug.Log("Durability: " + durability);
+        durability--;
 
         if (explosionRadius > 0f)
         {
@@ -78,10 +83,9 @@ public class ProjectileBase : MonoBehaviour
         else
         {
             Damage(target);
-            durability--;
             // include logic for reducing durability
         }
-        
+        Debug.Log(durability);
         // include logic for checking durability
         if(durability <= 0 || seeking)
         {
@@ -115,6 +119,11 @@ public class ProjectileBase : MonoBehaviour
         return damage;
     }
 
+    public float GetExplosionRadius()
+    {
+        return explosionRadius;
+    }
+
     public void SetDamage(float value)
     {
         if (value <= 0f) Debug.Log("Incorrect value to update damage!");
@@ -142,6 +151,12 @@ public class ProjectileBase : MonoBehaviour
     {
         if (value <= 0f) Debug.Log("Incorrect value to update acceleration!");
         else acceleration = value;
+    }
+
+    public void SetExplosionRadius(float value)
+    {
+        if (value <= 0f) Debug.Log("Incorrect value to update explosion radius!");
+        else explosionRadius = value;
     }
 
     public void SetTarget(Transform newTarget)
