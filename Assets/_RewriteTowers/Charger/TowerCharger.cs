@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TowerCharger : TowerProjectile
 {
-
     public int maxChargeLevel = 3;
     private int currentChargeLevel = 0;
     public float chargeRate = 0.5f;
@@ -53,7 +52,8 @@ public class TowerCharger : TowerProjectile
                 _bullet.transform.rotation = firePoint.rotation;
                 _bullet.SetActive(true);
                 projectile.SetDamage(projectile.GetDamage() * currentChargeLevel);
-                Debug.Log(projectile.GetDamage());
+                projectile.SetExplosionRadius(projectile.GetExplosionRadius() * currentChargeLevel);
+                projectile.transform.localScale = projectile.transform.localScale * (1 + currentChargeLevel * .1f);
                 projectile.SetDurability(currentChargeLevel);
                 projectile.SetTarget(target);
                 shoot.Play();

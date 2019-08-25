@@ -17,13 +17,13 @@ public class NodeUI : MonoBehaviour
         if (!target.GetComponentInChildren<TowerBase>().turretMaximized)
         {
             upgradeCost.text = "$" + target.turretBlueprint.upgradeCost;
-            sellValue.text = "$" + target.turretBlueprint.GetSellValue(false);
+            //sellValue.text = "$" + target.turretBlueprint.GetSellValue(false);
             upgradeButton.interactable = true;
         }
         else
         {
             upgradeCost.text = "MAXIMIZED";
-            sellValue.text = "$" + target.turretBlueprint.GetSellValue(true);
+            //sellValue.text = "$" + target.turretBlueprint.GetSellValue(true);
             upgradeButton.interactable = false;
         }
 

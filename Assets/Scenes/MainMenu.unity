@@ -583,6 +583,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $220
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!4 &139819639 stripped
@@ -786,6 +791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $280
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -1353,6 +1363,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69,
         type: 3}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!1001 &370887245
@@ -1858,6 +1873,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!1001 &460139899
@@ -2325,6 +2345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $320
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -2973,6 +2998,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!1001 &798059083
@@ -3448,6 +3478,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e54c54116c6283d4ab70245e5d7b555a,
         type: 3}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!1 &896168934
@@ -3864,6 +3899,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2d13065b2620f654c9772ed3e18ec55d,
         type: 3}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $450
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!1001 &937970417
@@ -4568,6 +4608,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 78f42a330ed53e842bac7178d47af7a7,
         type: 3}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!224 &1292304446 stripped
@@ -4835,6 +4880,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3e3e09ef78d741f4f9e54657d5c85a50,
         type: 3}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!1001 &1423697699
@@ -5528,6 +5578,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ed3a268be7c377542abce1ae14c359b0,
         type: 3}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $350
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!224 &1644355808 stripped
@@ -5904,48 +5959,36 @@ MonoBehaviour:
   allTurrets:
   - prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
     cost: 200
-    upgradedPrefab: {fileID: 4176887503054913001, guid: 4a773ace9c0532b43a07fb3303c9247a,
-      type: 3}
     upgradeCost: 200
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 78f42a330ed53e842bac7178d47af7a7, type: 3}
     name: Basic
   - prefab: {fileID: 174414, guid: f10cb9f4e98ef41458c6a3b9b696648e, type: 3}
     cost: 350
-    upgradedPrefab: {fileID: 4608323941285711657, guid: 049838c0e156e2146b8d3ad53cacdca5,
-      type: 3}
     upgradeCost: 525
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ed3a268be7c377542abce1ae14c359b0, type: 3}
     name: Rocket
   - prefab: {fileID: 122216, guid: 4e50f7c196eb0e94282d8df00c58fbc7, type: 3}
-    cost: 250
-    upgradedPrefab: {fileID: 2518271756025125490, guid: 1b8304f431187814689caa0113e60e1d,
-      type: 3}
+    cost: 300
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e54c54116c6283d4ab70245e5d7b555a, type: 3}
     name: Laser
   - prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
     cost: 250
-    upgradedPrefab: {fileID: 4176887503054913001, guid: 0d3c315ebd04c5442b42169d9183138c,
-      type: 3}
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 3e3e09ef78d741f4f9e54657d5c85a50, type: 3}
     name: Megaman
   - prefab: {fileID: 108410, guid: 809c9e6c385da994ba56e27e307b629b, type: 3}
     cost: 400
-    upgradedPrefab: {fileID: 2518271756025125490, guid: 5386582d660c8574db4b9a7114b6e405,
-      type: 3}
     upgradeCost: 600
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e237335f5cba8c841bac4159b1f7f55d, type: 3}
     name: Tesla
   - prefab: {fileID: 113658, guid: 45d1fe44ae62c474f914b29f3c019ba0, type: 3}
-    cost: 500
-    upgradedPrefab: {fileID: 4176887503054913001, guid: 826be5b6ec082c74eaff3aedbf04e561,
-      type: 3}
+    cost: 450
     upgradeCost: 750
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2d13065b2620f654c9772ed3e18ec55d, type: 3}
@@ -5953,8 +5996,6 @@ MonoBehaviour:
   - prefab: {fileID: 3334567948707967717, guid: aa8f59ccd43c45842aedae553d47d793,
       type: 3}
     cost: 350
-    upgradedPrefab: {fileID: 3334567948707967717, guid: 1aed881ab4656764ba1c0f8428e48445,
-      type: 3}
     upgradeCost: 525
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: f406e86cfced2e44b9e9ae666d64e5be, type: 3}
@@ -5962,64 +6003,48 @@ MonoBehaviour:
   - prefab: {fileID: 4608323941285711657, guid: 2f7cedb1f6f5f924f9c2ca5cb5ef9899,
       type: 3}
     cost: 500
-    upgradedPrefab: {fileID: 4608323941285711657, guid: 04efacf368c91084a81122cd61c05a49,
-      type: 3}
     upgradeCost: 750
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 684654ecd76176e4b9df56cc42560ad7, type: 3}
     name: Mortar
   - prefab: {fileID: 162182, guid: ece3573a92123e84b8b2787c40ce918a, type: 3}
     cost: 150
-    upgradedPrefab: {fileID: 4176887503054913001, guid: b87d1961490f227439f3c68561a4ae56,
-      type: 3}
     upgradeCost: 225
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69, type: 3}
     name: Radar
   - prefab: {fileID: 199946, guid: 5b97ec26bd5fc624bb21b8365cbcfb23, type: 3}
-    cost: 150
-    upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
-      type: 3}
+    cost: 180
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e98b93686ee32534aac39ec253dd005f, type: 3}
     name: Buffer
   - prefab: {fileID: 130390, guid: b9836ac70b57ca5408f79c7a48ee16db, type: 3}
-    cost: 400
-    upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
-      type: 3}
+    cost: 340
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2a4fe609b910f244181bdfb444ad0438, type: 3}
     name: Shotgun
   - prefab: {fileID: 129874, guid: 26bc24faf5ae2d44caaec3aa60a0236f, type: 3}
     cost: 500
-    upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
-      type: 3}
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ce9f8eb148a30e844951e6dd54da1c88, type: 3}
     name: Sniper
   - prefab: {fileID: 1000014142393632, guid: 0a4d785296d91174fb324fa33224c504, type: 3}
-    cost: 250
-    upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
-      type: 3}
+    cost: 220
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: d30751bf17a73fe45b21820cd978b3c7, type: 3}
     name: Acid
   - prefab: {fileID: 1000011940937682, guid: 9c27ad61aa1515b4ea9d5b76cb841341, type: 3}
-    cost: 300
-    upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
-      type: 3}
+    cost: 280
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 43d0ac46c16bde148a013be4e98589cd, type: 3}
     name: Ice
   - prefab: {fileID: 164160, guid: bd3111d7b003ed040b9e860c3572624c, type: 3}
-    cost: 250
-    upgradedPrefab: {fileID: 6002104687461003265, guid: 6bd454a9a0d3db74a95de63500381e3f,
-      type: 3}
+    cost: 320
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 8ea92b06554b90c459ccdbdf4c66a794, type: 3}
@@ -6028,40 +6053,30 @@ MonoBehaviour:
   defaultSelected:
   - prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
     cost: 100
-    upgradedPrefab: {fileID: 4176887503054913001, guid: 4a773ace9c0532b43a07fb3303c9247a,
-      type: 3}
     upgradeCost: 150
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
     name: 
   - prefab: {fileID: 174414, guid: f10cb9f4e98ef41458c6a3b9b696648e, type: 3}
     cost: 350
-    upgradedPrefab: {fileID: 4608323941285711657, guid: 049838c0e156e2146b8d3ad53cacdca5,
-      type: 3}
     upgradeCost: 525
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
     name: 
   - prefab: {fileID: 122216, guid: 4e50f7c196eb0e94282d8df00c58fbc7, type: 3}
     cost: 250
-    upgradedPrefab: {fileID: 2518271756025125490, guid: 1b8304f431187814689caa0113e60e1d,
-      type: 3}
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
     name: 
   - prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
     cost: 250
-    upgradedPrefab: {fileID: 4176887503054913001, guid: 0d3c315ebd04c5442b42169d9183138c,
-      type: 3}
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
     name: 
   - prefab: {fileID: 108410, guid: 809c9e6c385da994ba56e27e307b629b, type: 3}
     cost: 400
-    upgradedPrefab: {fileID: 2518271756025125490, guid: 5386582d660c8574db4b9a7114b6e405,
-      type: 3}
     upgradeCost: 600
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
@@ -6231,6 +6246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $340
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -6967,6 +6987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157426040961163407, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_Text
+      value: $180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}

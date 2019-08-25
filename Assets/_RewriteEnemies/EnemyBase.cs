@@ -235,6 +235,7 @@ public class EnemyBase : MonoBehaviour
         health = initialHp;
         speed = initialSpeed;
         armor = initialArmor;
+        foreach (Debuff debuff in debuffs.Values) debuff.Zero();
         healthBar.fillAmount = health / initialHp;
         armorBar.fillAmount = armor / initialArmor;
     }
@@ -243,7 +244,6 @@ public class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float amount, float piercingValue, Enums.Element turretElement)
     {
         if (element == turretElement) amount *= (1 - resistance);
-        Debug.Log(piercingValue);
         float multiplier = armor * (1 - piercingValue);
         health -= amount * (1 - multiplier);
         healthBar.fillAmount = health / initialHp;

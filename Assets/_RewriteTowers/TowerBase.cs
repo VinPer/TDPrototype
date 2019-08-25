@@ -2,7 +2,8 @@
 
 public abstract class TowerBase : MonoBehaviour
 {
-    public BuildManager buildManager;
+    //[HideInInspector]
+    //public BuildManager buildManager;
     
     protected Enums.Status currentState = Enums.Status.enable;
     public float range = 15f;
@@ -12,7 +13,8 @@ public abstract class TowerBase : MonoBehaviour
     public bool seesInvisible = false;
 
     public float rangeUpgrade = 2f;
-    protected int numberOfUpgrades = 0;
+    [HideInInspector]
+    public int numberOfUpgrades = 0;
     public int maxUpgrade = 3;
     [HideInInspector]
     public bool turretMaximized = false;
