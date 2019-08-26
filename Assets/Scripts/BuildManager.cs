@@ -63,6 +63,8 @@ public class BuildManager : MonoBehaviour
         selectedNode = null;
         //nodeUI.Hide();
         turretMenu.CloseMenu();
+        Range.instance.Hide();
+        
     }
 
     public TurretBlueprint GetTurretToBuild()

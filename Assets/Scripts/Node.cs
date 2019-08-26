@@ -21,6 +21,9 @@ public class Node : MonoBehaviour
     public Color cannotAffordColor;
     
     public Range range;
+    GameObject buildEffect;
+    GameObject sellEffect;
+    GameObject upgradeEffect;
 
     //private List<GameObject> turrets;
 
@@ -30,10 +33,20 @@ public class Node : MonoBehaviour
 
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
-        
-        range = FindObjectOfType<Range>();
+
+        range = Range.instance;
         //turrets = new List<GameObject>();
         //StartCoroutine(FillTurretList());
+
+        buildEffect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        sellEffect = Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
+        upgradeEffect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        buildEffect.transform.SetParent(transform);
+        buildEffect.SetActive(false);
+        sellEffect.transform.SetParent(transform);
+        sellEffect.SetActive(false);
+        upgradeEffect.transform.SetParent(transform);
+        upgradeEffect.SetActive(false);
     }
 
     IEnumerator FillTurretList()
@@ -110,8 +123,9 @@ public class Node : MonoBehaviour
             tower = turret.GetComponentInChildren<TowerBase>();
         turretBlueprint = blueprint;
 
-        GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
+        //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        //Destroy(effect, 5f);
+        StartCoroutine(Effect.PlayEffect(buildEffect));
 
         //Sound
         AudioManager.instance.Play("buildTurret");
@@ -159,8 +173,9 @@ public class Node : MonoBehaviour
 
         tower.UpgradeTower();
 
-        GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
+        //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        //Destroy(effect, 5f);
+        StartCoroutine(Effect.PlayEffect(upgradeEffect));
         
         PlayerStats.UpdateMoney();
     }
@@ -174,8 +189,9 @@ public class Node : MonoBehaviour
         turret = null;
 
         // Play effect
-        GameObject effect = Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
+        //GameObject effect = Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
+        //Destroy(effect, 5f);
+        StartCoroutine(Effect.PlayEffect(sellEffect));
 
         // Update money counter
         Debug.Log("Turret sold!");
