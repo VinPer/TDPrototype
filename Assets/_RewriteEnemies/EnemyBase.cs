@@ -214,6 +214,8 @@ public class EnemyBase : MonoBehaviour
         PlayerStats.UpdateMoney();
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 2f);
+
+        StartCoroutine(Effect.PlayEffect(deathEffect,transform));
         
         if (debuffEffect != null) Destroy(debuffEffect);
         Hide();

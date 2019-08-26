@@ -52,8 +52,7 @@ public class BuildManager : MonoBehaviour
             return;
         }
         selectedNode = node;
-        turretToBuild = null;
-        turretIndexToBuild = -1;
+        DeselectTurret();
         turretMenu.SetTarget(node);
         //nodeUI.SetTarget(node);
     }
@@ -65,6 +64,12 @@ public class BuildManager : MonoBehaviour
         turretMenu.CloseMenu();
         Range.instance.Hide();
         
+    }
+
+    public void DeselectTurret()
+    {
+        turretIndexToBuild = -1;
+        turretToBuild = null;
     }
 
     public TurretBlueprint GetTurretToBuild()

@@ -54,7 +54,6 @@ public class TowerCharger : TowerProjectile
                 projectile.SetDamage(projectile.GetDamage() * currentChargeLevel);
                 projectile.SetExplosionRadius(projectile.GetExplosionRadius() * currentChargeLevel);
                 projectile.transform.localScale = projectile.transform.localScale * (1 + currentChargeLevel * .1f);
-                projectile.SetDurability(currentChargeLevel);
                 projectile.SetTarget(target);
                 shoot.Play();
                 break;

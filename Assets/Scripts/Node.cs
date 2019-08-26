@@ -83,9 +83,6 @@ public class Node : MonoBehaviour
 
         // buildManager.BuildTurretOn(this);
         BuildTurret(buildManager.GetTurretToBuild());
-
-        
-
     }
 
     public void SelectNode()
@@ -116,6 +113,8 @@ public class Node : MonoBehaviour
         turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret.transform.SetParent(transform);
 
+        buildManager.DeselectTurret();
+
 
         if (turret.GetComponent<TowerBase>())
             tower = turret.GetComponent<TowerBase>();
@@ -125,7 +124,7 @@ public class Node : MonoBehaviour
 
         //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
-        StartCoroutine(Effect.PlayEffect(buildEffect));
+        StartCoroutine(Effect.PlayEffect(buildEffect,transform));
 
         //Sound
         AudioManager.instance.Play("buildTurret");
@@ -175,7 +174,7 @@ public class Node : MonoBehaviour
 
         //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
-        StartCoroutine(Effect.PlayEffect(upgradeEffect));
+        StartCoroutine(Effect.PlayEffect(upgradeEffect,transform));
         
         PlayerStats.UpdateMoney();
     }
@@ -191,7 +190,7 @@ public class Node : MonoBehaviour
         // Play effect
         //GameObject effect = Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
-        StartCoroutine(Effect.PlayEffect(sellEffect));
+        StartCoroutine(Effect.PlayEffect(sellEffect,transform));
 
         // Update money counter
         Debug.Log("Turret sold!");
