@@ -11,8 +11,6 @@ public class TurretMenu : MonoBehaviour
     public TowerProjectile towerProjectile;
     [HideInInspector]
     public TowerNonProjectile towerNonProjectile;
-    [HideInInspector]
-    public TowerRadar towerRadar;
     public Image turretImage;
     public Text dmgText;
     public Text rangeText;
@@ -73,59 +71,39 @@ public class TurretMenu : MonoBehaviour
             btnSellText.text = "$" + target.turretBlueprint.GetSellValue(turretSelected.numberOfUpgrades);
         }
         btnUpgradeText.text ="$" + target.turretBlueprint.GetUpgradeCost();
+
+        //Element Sprite
+        switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
+        {
+            case Enums.Element.fire:
+                elementImage.sprite = fire;
+                elementImage.color = Color.red;
+                break;
+            case Enums.Element.acid:
+                elementImage.sprite = acid;
+                elementImage.color = Color.green;
+                break;
+            case Enums.Element.ice:
+                elementImage.sprite = ice;
+                elementImage.color = Color.cyan;
+                break;
+            case Enums.Element.none:
+                elementImage.sprite = none;
+                break;
+        }
         towerProjectile = turretSelected.GetComponent<TowerProjectile>();
         if (towerProjectile != null)
         {
             dmgText.text = towerProjectile.bulletPrefab.GetComponent<ProjectileBase>().damage.ToString();
-
-            switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
-            {
-                case Enums.Element.fire:
-                    elementImage.sprite = fire;
-                    elementImage.color = Color.red;
-                    break;
-                case Enums.Element.acid:
-                    elementImage.sprite = acid;
-                    elementImage.color = Color.green;
-                    break;
-                case Enums.Element.ice:
-                    elementImage.sprite = ice;
-                    elementImage.color = Color.cyan;
-                    break;
-                case Enums.Element.none:
-                    elementImage.sprite = none;
-                    break;
-            }
-
         }
         else if(turretSelected.GetComponent<TowerNonProjectile>())
         {
             towerNonProjectile = turretSelected.GetComponent<TowerNonProjectile>();
             dmgText.text = towerNonProjectile.damage.ToString();
-            switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
-            {
-                case Enums.Element.fire:
-                    elementImage.sprite = fire;
-                    elementImage.color = Color.red;
-                    break;
-                case Enums.Element.acid:
-                    elementImage.sprite = acid;
-                    elementImage.color = Color.green;
-                    break;
-                case Enums.Element.ice:
-                    elementImage.sprite = ice;
-                    elementImage.color = Color.cyan;
-                    break;
-                case Enums.Element.none:
-                    elementImage.sprite = none;
-                    break;
-            }
         }
         else
         {
-            towerRadar = turretSelected.GetComponent<TowerRadar>();
             dmgText.text = "-";
-            elementImage.sprite = none;
         }
 
         //btnSellText.text ="<b>UPGRADE</b>\n" + target.turretBlueprint.GetSellValue();
