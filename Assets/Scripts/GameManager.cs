@@ -1,5 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject turretUI;
     public GameObject skillUI;
     public GameObject winUI;
+
+    public Text switchText;
 
     public static GameManager instance;
     private void Awake()
@@ -28,6 +31,9 @@ public class GameManager : MonoBehaviour
         GameIsOver = false;
         AudioManager.instance.Play(SceneManager.GetActiveScene().name);
         Debug.Log(SceneManager.GetActiveScene().name);
+
+        if (turretUI.activeSelf) switchText.text = "Skills";
+        else switchText.text = "Turrets";
     }
 
     // Update is called once per frame
@@ -47,6 +53,8 @@ public class GameManager : MonoBehaviour
     {
         turretUI.SetActive(!turretUI.activeSelf);
         skillUI.SetActive(!skillUI.activeSelf);
+        if (turretUI.activeSelf) switchText.text = "Skills";
+        else switchText.text = "Turrets";
     }
 
     private void EndGame()
