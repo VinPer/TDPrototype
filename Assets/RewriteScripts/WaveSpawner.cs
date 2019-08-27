@@ -45,7 +45,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Text waveCountdownText;
     public Text wavesSurvived;
-    public Text waveNumber;
+    public Text waveNumberOfEnemies;
 
     private float waveCountdown = 2f;
     private int nextWave = 0;
@@ -128,7 +128,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        waveNumber.text = "Enemies Alive: " + numberOfEnemiesAlive;
+        waveNumberOfEnemies.text = "Enemies Alive: " + numberOfEnemiesAlive;
 
         if (GameManager.GameIsOver) return;
         

@@ -20,6 +20,8 @@ public class EnemyMovement : MonoBehaviour
     protected float offsetX = 0;
     protected float offsetZ = 0;
 
+    private float turnSpeed = 11f;
+
     private Vector3 spawnPosition;
 
     private void Awake()
@@ -59,6 +61,7 @@ public class EnemyMovement : MonoBehaviour
             GetNextWaypoint();
         }
         distToNextWaypoint = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        LockOnTarget();
     }
 
     protected virtual void GetNextWaypoint()
@@ -73,7 +76,17 @@ public class EnemyMovement : MonoBehaviour
         target = waypoints[waypointIndex];
         targetWaypoint = target.GetComponent<Waypoint>();
         GetNextPosition();
-        transform.LookAt(target);
+        //transform.LookAt(target);
+
+    }
+
+    protected virtual void LockOnTarget()
+    {
+        // Target lock on for nearest target
+        Vector3 dir = targetPosition - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
     protected void GetNextPosition()

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour
 {
+    [HideInInspector]
     public bool isDead;
 
     public float health = 100;

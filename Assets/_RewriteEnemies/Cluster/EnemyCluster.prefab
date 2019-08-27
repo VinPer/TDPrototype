@@ -150,7 +150,7 @@ MonoBehaviour:
     type: 3}
   childrenToSpawn: 3
   overflow: 15
-  child: {fileID: 587572028145555678, guid: a15b4fc1ca342c24891455d7f9f23e99, type: 3}
+  child: {fileID: 108062, guid: 5be755b883175204595442cba0c487f0, type: 3}
 --- !u!114 &1880638996297619177
 MonoBehaviour:
   m_ObjectHideFlags: 0
