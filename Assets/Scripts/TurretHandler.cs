@@ -36,8 +36,9 @@ public class TurretHandler : MonoBehaviour
         // Set the cost display for all available turrets
         for(int i = 0; i < allTurrets.Count; i++)
         {
+            allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
             allTurretsGUI.transform.GetChild(i)
-                .GetComponentInChildren<Text>().text = "$" + allTurrets[i].cost;
+                .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
         }
 
         // Add the first (max) turrets to the selected turrets list
@@ -90,7 +91,8 @@ public class TurretHandler : MonoBehaviour
                 allTurrets.IndexOf(selectedTurrets[i]));
             currentChildSelected.GetComponent<Image>().sprite = currentChildAll.GetComponent<Image>().sprite;
             currentChildSelected.GetComponent<Image>().color = currentChildAll.GetComponent<Image>().color;
-            currentChildSelected.GetComponentInChildren<Text>().text = "$" + selectedTurrets[i].cost;
+            currentChildSelected.GetComponentsInChildren<Text>()[1].text = "$" + selectedTurrets[i].cost;
+            currentChildSelected.GetComponentsInChildren<Text>()[0].text = selectedTurrets[i].name;
 
             selectedTurrets[i].color = currentChildAll.GetComponent<Image>().color;
             selectedTurrets[i].sprite = currentChildAll.GetComponent<Image>().sprite;
@@ -102,7 +104,8 @@ public class TurretHandler : MonoBehaviour
         {
             currentChildSelected = selectedTurretsGUI.transform.GetChild(i);
             currentChildSelected.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-            currentChildSelected.GetComponentInChildren<Text>().text = "$0";
+            currentChildSelected.GetComponentsInChildren<Text>()[1].text = "$0";
+            currentChildSelected.GetComponentsInChildren<Text>()[0].text = "";
         }
         if(selectedTurrets.Count < 1)
             playButton.interactable = false;

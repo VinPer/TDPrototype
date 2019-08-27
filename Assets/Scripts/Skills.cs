@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,7 +52,7 @@ public class Skills : MonoBehaviour
             if (currentSkill.currentCooldown > 0f)
             {
                 currentSkill.currentCooldown -= Time.deltaTime;
-                skillsText[i].text = currentSkill.name + "\n" + currentSkill.currentCooldown;
+                skillsText[i].text = currentSkill.name + "\n" + Mathf.Round(currentSkill.currentCooldown);
             }
             else
             {
