@@ -18,6 +18,7 @@ public class EnemyCluster : EnemyBase
         {
             GameObject newChild = Instantiate(child, transform.position, transform.rotation);
             children.Add(newChild);
+            newChild.transform.SetParent(transform.parent);
             newChild.SetActive(false);
         }
     }

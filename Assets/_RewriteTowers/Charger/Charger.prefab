@@ -468,10 +468,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd674be367343014a8fc7a6c2d426cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildManager: {fileID: 0}
   range: 20
   seesInvisible: 0
   rangeUpgrade: 2
+  numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
   damageUpgrade: 0.1
   fireRateUpgrade: 0.1
   targetStyle: 0
-  maxChargeLevel: 10
+  maxChargeLevel: 5
   chargeRate: 0.5
   charging: {fileID: 8274475054476532716}
   shoot: {fileID: 9153667437752671086}
@@ -501,7 +501,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 834d40aef4b67494790047e9d44c581a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.08
+  m_Volume: 0.18
   m_Pitch: 0.8
   Loop: 0
   Mute: 0
@@ -597,7 +597,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 250b287a761534c46bf90c2912e2b024, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

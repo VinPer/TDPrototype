@@ -17,24 +17,12 @@ public class WaveSpawner : MonoBehaviour
     private SpawnerState state = SpawnerState.counting;
 
     public Waves[] waves;
-    private Dictionary<Enums.EnemyType, int> enemiesCount; //Count of each type of enemy
-    private Dictionary<Enums.EnemyType, GameObject> enemiesType; //Which GameObject is related to each type
-    private Dictionary<Enums.EnemyType, List<GameObject>> enemiesAvailable; //Enemies used in level
+    private Dictionary<GameObject, int> enemiesCount; //Count of each type of enemy
+    private Dictionary<GameObject, List<GameObject>> enemiesAvailable; //Enemies used in level
 
     public static List<GameObject> EnemiesAlive;
 
-    public GameObject basicEnemy;
-    public GameObject fastEnemy;
-    public GameObject tankEnemy;
-    public GameObject shildedEnemy;
-    public GameObject cluster;
-    public GameObject fireElement;
-    public GameObject acidElement;
-    public GameObject iceElement;
-    public GameObject flying;
-    public GameObject zip;
-    public GameObject invisible;
-
+    public GameObject[] enemyTypes;
 
     [Header("Other")]
     public Transform spawnPoint;
@@ -66,22 +54,8 @@ public class WaveSpawner : MonoBehaviour
 
     void PoolEnemies()
     {
-        enemiesCount = new Dictionary<Enums.EnemyType, int>();
-        enemiesAvailable = new Dictionary<Enums.EnemyType, List<GameObject>>();
-        enemiesType = new Dictionary<Enums.EnemyType, GameObject>
-        {
-            { Enums.EnemyType.basic , basicEnemy},
-            { Enums.EnemyType.fast , fastEnemy },
-            { Enums.EnemyType.tank , tankEnemy },
-            { Enums.EnemyType.shilded , shildedEnemy },
-            { Enums.EnemyType.cluster , cluster },
-            { Enums.EnemyType.fireElement , fireElement },
-            { Enums.EnemyType.acidElement , acidElement },
-            { Enums.EnemyType.iceElement , iceElement },
-            { Enums.EnemyType.flying , flying },
-            { Enums.EnemyType.zip , zip },
-            { Enums.EnemyType.invisible , invisible }
-        };
+        enemiesCount = new Dictionary<GameObject, int>();
+        enemiesAvailable = new Dictionary<GameObject, List<GameObject>>();
 
         //Get max number of each enemy
         for (int i = 0; i < waves.Length; i++)
@@ -102,12 +76,12 @@ public class WaveSpawner : MonoBehaviour
                 }
             }
         }
-        foreach (Enums.EnemyType enemyType in enemiesCount.Keys)
+        foreach (GameObject enemyType in enemiesCount.Keys)
         {
             int n = 0;
             for (int i = 0; i < enemiesCount[enemyType]; i++)
             {
-                GameObject obj = (GameObject)Instantiate(enemiesType[enemyType], spawnPoint.position, spawnPoint.rotation);
+                GameObject obj = (GameObject)Instantiate(enemyType, spawnPoint.position, spawnPoint.rotation);
                 obj.transform.SetParent(transform);
                 obj.SetActive(false);
                 if (enemiesAvailable.ContainsKey(enemyType))
@@ -236,7 +210,7 @@ public class WaveSpawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Enums.EnemyType _enemyType)
+    void SpawnEnemy(GameObject _enemyType)
     {
         for (int i = 0; i < enemiesAvailable[_enemyType].Count; i++)
         {
