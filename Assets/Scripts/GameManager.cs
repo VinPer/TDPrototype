@@ -12,6 +12,17 @@ public class GameManager : MonoBehaviour
     public GameObject skillUI;
     public GameObject winUI;
 
+    public static GameManager instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one BuildManager in scene!");
+            return;
+        }
+
+        instance = this;
+    }
     private void Start()
     {
         GameIsOver = false;

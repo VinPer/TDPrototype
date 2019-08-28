@@ -49,8 +49,6 @@ public class WaveSpawner : MonoBehaviour
 
     private float waveCountdown = 2f;
     private int nextWave = 0;
-
-    public GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
@@ -175,7 +173,7 @@ public class WaveSpawner : MonoBehaviour
             if (!GameManager.GameIsOver)
             {
                 Debug.Log("currently disabled");
-                gameManager.Winning();
+                GameManager.instance.Winning();
             }
         }
         else

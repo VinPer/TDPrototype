@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//TA TOSCO, AINDA TO MEXENDO
 public class TowerElement : TowerBase
 {
     public float amount = 10f;

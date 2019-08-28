@@ -7,7 +7,19 @@ public class Range : MonoBehaviour
     private Node target;
     private float range;
     public GameObject rangeSize;
-    
+
+    public static Range instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one BuildManager in scene!");
+            return;
+        }
+
+        instance = this;
+    }  
+
     public void SetTarget(Node _target)
     {
         target = _target;

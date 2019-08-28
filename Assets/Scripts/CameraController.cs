@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private bool enableMovement = false;
+    private bool enableMovement = true;
 
     Rect screenRect = new Rect(0, 0, Screen.width, Screen.height);
 
@@ -38,7 +36,7 @@ public class CameraController : MonoBehaviour
         if (!screenRect.Contains(Input.mousePosition)) return;
 
         //if (Input.GetKeyDown(KeyCode.X)) enableMovement = !enableMovement;
-         //if (!enableMovement) return;
+        if (!enableMovement) return;
 
         ////Rotation
         //if (Input.GetKey("q"))
