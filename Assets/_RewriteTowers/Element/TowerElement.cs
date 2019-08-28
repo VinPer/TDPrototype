@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerElement : TowerBase
+public class TowerElement : TowerNonProjectile
 {
-    public float amount = 10f;
-
     private void Start()
     {
-        InvokeRepeating("Debuff", 0f, 0.5f);
+        InvokeRepeating("Debuff", 0f, 0.2f);
     }
 
     void Debuff()
@@ -24,7 +22,7 @@ public class TowerElement : TowerBase
                     float distToEnemy = Vector3.Distance(transform.position, e.transform.position);
                     if (distToEnemy <= range)
                     {
-                        enemy.ActivateDebuff(amount, 5f, element);
+                        enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
 
                     }
                 }
