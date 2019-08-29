@@ -21,8 +21,10 @@ public class TowerProjectile : TowerBase
     public float damageUpgrade = .1f;
     public float fireRateUpgrade = .1f;
 
-    public enum TargetStyle { first, last, strongest, weakest };
-    public TargetStyle targetStyle = TargetStyle.first; //First by default
+    //public enum TargetStyle { first, last, strongest, weakest };
+    //public TargetStyle targetStyle = TargetStyle.first; //First by default
+    public List<string> targetStyles = new List<string> {"First","Last","Strongest","Weakest" };
+    public string targetSelected;
 
     protected override void Awake()
     {
@@ -71,23 +73,39 @@ public class TowerProjectile : TowerBase
         fireCountdown = 0;
         target = null;
         targetEnemy = null;
-        targetStyle = TargetStyle.first;
+        //targetStyle = TargetStyle.first;
+        targetSelected = targetStyles[0];
     }
 
     protected virtual void UpdateTarget()
     {
-        switch (targetStyle)
+        //switch (targetStyles)
+        //{
+        //    case (TargetStyle.first):
+        //        FindFirstTarget();
+        //        break;
+        //    case (TargetStyle.last):
+        //        FindLastTarget();
+        //        break;
+        //    case (TargetStyle.strongest):
+        //        FindStrongestTarget();
+        //        break;
+        //    case (TargetStyle.weakest):
+        //        FindWeakestTarget();
+        //        break;
+        //}
+        switch (targetSelected)
         {
-            case (TargetStyle.first):
+            case ("First"):
                 FindFirstTarget();
                 break;
-            case (TargetStyle.last):
+            case ("Last"):
                 FindLastTarget();
                 break;
-            case (TargetStyle.strongest):
+            case ("Strongest"):
                 FindStrongestTarget();
                 break;
-            case (TargetStyle.weakest):
+            case ("Weakest"):
                 FindWeakestTarget();
                 break;
         }

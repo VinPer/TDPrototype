@@ -21,9 +21,7 @@ public class WaveSpawner : MonoBehaviour
     private Dictionary<GameObject, List<GameObject>> enemiesAvailable; //Enemies used in level
 
     public static List<GameObject> EnemiesAlive;
-
-    public GameObject[] enemyTypes;
-
+    
     [Header("Other")]
     public Transform spawnPoint;
     public Transform waypointHandler;

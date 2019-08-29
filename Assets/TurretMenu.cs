@@ -35,9 +35,7 @@ public class TurretMenu : MonoBehaviour
     public Sprite none;
     [HideInInspector]
     public bool isActive = false;
-
-    private Dictionary<Enums.Element, Sprite> elDic;
-
+    
     private void Start()
     {
         if (TurretHandler.active)
@@ -45,11 +43,6 @@ public class TurretMenu : MonoBehaviour
         else
             LoadDefault();
         anim = gameObject.GetComponent<Animator>();
-
-        elDic = new Dictionary<Enums.Element, Sprite>
-        {
-            {Enums.Element.fire, fire },  {Enums.Element.ice, ice }, {Enums.Element.acid, acid }, {Enums.Element.none, none }
-        };
     }
 
     public void SetTarget(Node _target)
@@ -59,6 +52,7 @@ public class TurretMenu : MonoBehaviour
         turretName.text = target.turretBlueprint.name;
         //Debug.Log(target.GetComponentInChildren<TowerBase>().GetComponent<TowerProjectile>().bulletPrefab.GetComponent<ProjectileBase>().damage);
         turretSelected = target.GetComponentInChildren<TowerBase>();
+        GetComponent<TargetSelectionDropdown>().UpdateDropdown();
         rangeText.text = turretSelected.range.ToString();
         if (turretSelected.turretMaximized)
         {
