@@ -19,12 +19,15 @@ public class TowerLaser : TowerNonProjectile
     private float fireCountdown = 0;
     public string enemyTag = "Enemy";
 
-    public enum TargetStyle { first, last, strongest, weakest };
-    public TargetStyle targetStyle = TargetStyle.first; //First by default
+    //public enum TargetStyle { first, last, strongest, weakest };
+    //public TargetStyle targetStyle = TargetStyle.first; //First by default
+    public List<string> targetStyles = new List<string> { "First", "Last", "Strongest", "Weakest","bola" };
+    public string targetSelected;
 
     protected void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
+        targetSelected = "First";
     }
 
     private void Update()
@@ -53,18 +56,33 @@ public class TowerLaser : TowerNonProjectile
 
     protected virtual void UpdateTarget()
     {
-        switch (targetStyle)
+        //switch (targetStyle)
+        //{
+        //    case (TargetStyle.first):
+        //        FindFirstTarget();
+        //        break;
+        //    case (TargetStyle.last):
+        //        FindLastTarget();
+        //        break;
+        //    case (TargetStyle.strongest):
+        //        FindStrongestTarget();
+        //        break;
+        //    case (TargetStyle.weakest):
+        //        FindWeakestTarget();
+        //        break;
+        //}
+        switch (targetSelected)
         {
-            case (TargetStyle.first):
+            case ("First"):
                 FindFirstTarget();
                 break;
-            case (TargetStyle.last):
+            case ("Last"):
                 FindLastTarget();
                 break;
-            case (TargetStyle.strongest):
+            case ("Strongest"):
                 FindStrongestTarget();
                 break;
-            case (TargetStyle.weakest):
+            case ("Weakest"):
                 FindWeakestTarget();
                 break;
         }

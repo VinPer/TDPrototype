@@ -11,10 +11,13 @@ public class ProjectileBase : MonoBehaviour
     public float debuffIntensity = 0f;
     public float debuffDuration = 0f;
 
+    private Vector3 initialSize;
+
     public float speed = 50f;
     public float acceleration = 0f;
     public bool seeking = false;
     public float explosionRadius = 0f;
+    private float initialExplosionRadius;
     public int durability = 1;
     private int initialDurability;
     protected Transform target;
@@ -30,6 +33,8 @@ public class ProjectileBase : MonoBehaviour
         initialDecayTimer = decayTimer;
         initialDurability = durability;
         initialDamage = damage;
+        initialSize = transform.localScale;
+        initialExplosionRadius = explosionRadius;
     }
     
     protected void Destroy()
@@ -37,6 +42,8 @@ public class ProjectileBase : MonoBehaviour
         decayTimer = initialDecayTimer;
         durability = initialDurability;
         damage = initialDamage;
+        transform.localScale = initialSize;
+        explosionRadius = initialExplosionRadius;
 
         target = null;
         gameObject.SetActive(false);

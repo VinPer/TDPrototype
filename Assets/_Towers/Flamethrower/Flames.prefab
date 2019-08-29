@@ -50,7 +50,7 @@ MonoBehaviour:
   piercingValue: 1
   damageRate: 100
   duration: 10
-  fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
+  fireEffect: {fileID: 1000012118400646, guid: 3123da49cb81147489b444f2749aba47, type: 3}
   enemyTag: Enemy
 --- !u!82 &3390961184690500316
 AudioSource:

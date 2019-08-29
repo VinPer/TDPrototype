@@ -18,13 +18,15 @@ public class Flames : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 pos;
-        for (int i = 0; i < 9; i ++)
-        {
-            pos = new Vector3(transform.position.x, transform.position.y, transform.position.z + i);
-            flameEffect = Instantiate(fireEffect, transform);
-            flameEffect.transform.position = pos;
-        }
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+        flameEffect = Instantiate(fireEffect, transform);
+        flameEffect.transform.position = pos;
+        //for (int i = 0; i < 9; i ++)
+        //{
+        //    pos = new Vector3(transform.position.x, transform.position.y, transform.position.z + i);
+        //    flameEffect = Instantiate(fireEffect, transform);
+        //    flameEffect.transform.position = pos;
+        //}
     }
 
     // Damages everything within its area every 1f / damageRate seconds

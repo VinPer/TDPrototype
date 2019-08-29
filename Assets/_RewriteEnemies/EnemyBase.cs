@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour
 {
+    [HideInInspector]
     public bool isDead;
 
     public float health = 100;
@@ -19,10 +20,8 @@ public class EnemyBase : MonoBehaviour
     private float initialSpeed;
 
     public float damage = 1;
-    [HideInInspector]
-    public bool invisible;
 
-    public Enums.EnemyType type;
+    public bool invisible;
     
     private Enums.Status status = Enums.Status.disable;
     private Debuff fire;
@@ -54,7 +53,6 @@ public class EnemyBase : MonoBehaviour
     {
         isDead = false;
         status = Enums.Status.enable;
-        if (type == Enums.EnemyType.invisible) invisible = true;
     }
 
     private void OnDisable()
