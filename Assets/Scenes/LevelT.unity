@@ -26499,6 +26499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
+      propertyPath: waypointHandler.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
       propertyPath: waveCountdownText
       value: 
       objectReference: {fileID: 1742622198}
@@ -26521,7 +26526,7 @@ PrefabInstance:
         type: 3}
       propertyPath: waypointHandler
       value: 
-      objectReference: {fileID: 1396447365}
+      objectReference: {fileID: 0}
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: timeBetweenWaves
@@ -26606,6 +26611,16 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[1].burst.Array.data[1].rate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: waypointHandler.Array.data[0]
+      value: 
+      objectReference: {fileID: 1396447365}
+    - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: waypointHandler.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

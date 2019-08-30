@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     
     [Header("Other")]
     public Transform spawnPoint;
-    public Transform waypointHandler;
+    public Transform[] waypointHandler;
     public bool infiniteOffset = true;
 
     public float timeBetweenWaves = 5f;
@@ -226,7 +226,12 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform[] GetWaypoints()
     {
-        Transform[] waypoints = waypointHandler.GetComponent<Waypoints>().GetWaypoints();
+        ///<summary>
+        ///chooses randomly from an array of waypoints array fed to the GameMaster
+        /// and returns the list of waypoints
+        ///</summary>
+        
+        Transform[] waypoints = waypointHandler[new System.Random().Next(waypointHandler.Length)].GetComponent<Waypoints>().GetWaypoints();
         return waypoints;
     }
 }
