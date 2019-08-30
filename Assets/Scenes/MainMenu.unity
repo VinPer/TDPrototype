@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa42dde20b6731d4a8cdb56616225ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: LevelT
+  levelToLoad: Level3
   sceneFader: {fileID: 1676405101}
 --- !u!4 &15333551
 Transform:
@@ -629,7 +629,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 170076735}
-  - {fileID: 680637410}
   - {fileID: 949803392}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -2505,12 +2504,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466ac4604eb48e84bb3f553d65ce3d0f, type: 3}
---- !u!4 &680637410 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5267400485616489999, guid: 5f431537a0b8af9468ac28a4331ebd7e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5267400485206599149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &706492281
 GameObject:
   m_ObjectHideFlags: 0
@@ -7683,11 +7676,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2714154683464609893, guid: ace90269ad9c1e64f9e86ff19ed766c9,
-        type: 3}
-      propertyPath: m_Name
-      value: torus
-      objectReference: {fileID: 0}
     - target: {fileID: 2714154683464248389, guid: ace90269ad9c1e64f9e86ff19ed766c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7742,6 +7730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714154683464609893, guid: ace90269ad9c1e64f9e86ff19ed766c9,
+        type: 3}
+      propertyPath: m_Name
+      value: torus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ace90269ad9c1e64f9e86ff19ed766c9, type: 3}
