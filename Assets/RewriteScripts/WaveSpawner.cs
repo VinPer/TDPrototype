@@ -230,8 +230,10 @@ public class WaveSpawner : MonoBehaviour
         ///chooses randomly from an array of waypoints array fed to the GameMaster
         /// and returns the list of waypoints
         ///</summary>
+        System.Random rng = new System.Random();
+        int index = rng.Next(waypointHandler.Length);
         
-        Transform[] waypoints = waypointHandler[new System.Random().Next(waypointHandler.Length)].GetComponent<Waypoints>().GetWaypoints();
+        Transform[] waypoints = waypointHandler[index].GetComponent<Waypoints>().GetWaypoints();
         return waypoints;
     }
 }
