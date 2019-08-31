@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d7f6ea3e8a9e7489f8a4f5577a2255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
   rangeUpgrade: 2
+  numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 1
@@ -145,7 +145,7 @@ MonoBehaviour:
   enemyTag: Enemy
   partToRotate: {fileID: 417462}
   turnSpeed: 10
-  firePoint: {fileID: 4116445324977371370}
+  firePoint: {fileID: 0}
   flames: {fileID: 8140006378566645535}
 --- !u!1 &124538
 GameObject:
@@ -1022,6 +1022,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692567185919493130, guid: 09491ab1689109a45830f6faa287d1ce,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 4116445324977371370}
+    - target: {fileID: 6692567185919493130, guid: 09491ab1689109a45830f6faa287d1ce,
+        type: 3}
+      propertyPath: fireEffect
+      value: 
+      objectReference: {fileID: 7032233199633603909, guid: 0d1ee1151df918d48b18f3e313f50ef7,
+        type: 3}
+    - target: {fileID: 3390961184690500316, guid: 09491ab1689109a45830f6faa287d1ce,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09491ab1689109a45830f6faa287d1ce, type: 3}

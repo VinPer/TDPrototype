@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a754a9310684b744a439c78fdb2e3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
   rangeUpgrade: 2
+  numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
@@ -233,8 +233,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 42bebcf3615b7e546a58f58792269ee5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 0.58
+  m_Volume: 0.5
+  m_Pitch: 0.3
   Loop: 0
   Mute: 0
   Spatialize: 0

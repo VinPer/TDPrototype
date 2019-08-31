@@ -90,11 +90,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f063792452d057479744edf14d8bd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
   rangeUpgrade: 2
+  numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 2
-  amount: 30
+  triggerRate: 0
+  damage: 0
+  penetration: 0
+  debuffIntensity: 30
+  debuffDuration: 5

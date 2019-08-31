@@ -282,17 +282,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b3e7029bed7034f92ba3e5dd0a8de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildManager: {fileID: 0}
   range: 15
   seesInvisible: 0
   rangeUpgrade: 2
+  numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
   triggerRate: 100
   damage: 20
   penetration: 0
-  debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
   lineRenderer: {fileID: 5967300103941238142}
@@ -411,7 +410,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dffe781895044744fa73cae0f9814c13, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.177
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

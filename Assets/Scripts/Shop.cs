@@ -44,7 +44,8 @@ public class Shop : MonoBehaviour
             currentChild = transform.GetChild(i);
             currentChild.GetComponent<Image>().sprite = turretBlueprints[i].sprite;
             currentChild.GetComponent<Image>().color = turretBlueprints[i].color;
-            currentChild.GetComponentInChildren<Text>().text = "$" + turretBlueprints[i].cost;
+            currentChild.GetComponentsInChildren<Text>()[1].text = "$" + turretBlueprints[i].cost;
+            currentChild.GetComponentsInChildren<Text>()[0].text = turretBlueprints[i].name;
         }
 
         // draw the empty spots

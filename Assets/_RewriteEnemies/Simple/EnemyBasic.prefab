@@ -163,6 +163,8 @@ MonoBehaviour:
   waypointIndex: 0
   distToNextWaypoint: 0
   infiniteOffsets: 1
+  turnSpeed: 10
+  partToRotate: {fileID: 456072}
 --- !u!1 &136040
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,12 +413,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 6616738312074815213, guid: 820df5e45d809a544891244299b95aa7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c97540bd2cd88d04faa800e3b9cc7a0f,
-        type: 3}
     - target: {fileID: 6459938684759093540, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -472,6 +468,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6616738312074815213, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c97540bd2cd88d04faa800e3b9cc7a0f,
+        type: 3}
     - target: {fileID: 5426792616141526335, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_Layer

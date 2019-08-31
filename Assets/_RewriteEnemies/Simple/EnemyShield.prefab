@@ -317,6 +317,7 @@ MonoBehaviour:
   waypointIndex: 0
   distToNextWaypoint: 0
   infiniteOffsets: 1
+  turnSpeed: 101
 --- !u!1 &135658
 GameObject:
   m_ObjectHideFlags: 0
