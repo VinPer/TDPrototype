@@ -21,13 +21,13 @@ public class TowerLaser : TowerNonProjectile
 
     //public enum TargetStyle { first, last, strongest, weakest };
     //public TargetStyle targetStyle = TargetStyle.first; //First by default
-    public List<string> targetStyles = new List<string> { "First", "Last", "Strongest", "Weakest","bola" };
+    public List<string> targetStyles = new List<string> { "First", "Last", "Strongest", "Weakest" };
     public string targetSelected;
 
     protected void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.2f);
         targetSelected = "First";
+        InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
     private void Update()

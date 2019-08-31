@@ -74,11 +74,15 @@ public class ProjectileBase : MonoBehaviour
         decayTimer -= Time.deltaTime;
     }
 
-    private void HitTarget()
+    private void Hit()
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1.5f);
-
+        if (target == null)
+        {
+            Destroy();
+            return;
+        } 
         //Debug.Log("Damage: " + damage);
         //Debug.Log("Durability: " + durability);
         durability--;
@@ -185,7 +189,7 @@ public class ProjectileBase : MonoBehaviour
         if (col.tag == "Enemy")
         {
             target = col.transform;
-            HitTarget();
         }
+        Hit();
     }
 }
