@@ -132,7 +132,7 @@ public class ProjectileBase : MonoBehaviour
 
     public void SetDamage(float value)
     {
-        if (value <= 0f) Debug.Log("Incorrect value to update damage!");
+        if (value < 0f) Debug.Log("Incorrect value to update damage!");
         else damage = value;
     }
 
@@ -161,7 +161,7 @@ public class ProjectileBase : MonoBehaviour
 
     public void SetExplosionRadius(float value)
     {
-        if (value <= 0f) Debug.Log("Incorrect value to update explosion radius!");
+        if (value < 0f) Debug.Log("Incorrect value to update explosion radius!");
         else explosionRadius = value;
     }
 

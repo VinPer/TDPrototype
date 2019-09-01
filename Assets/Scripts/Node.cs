@@ -215,9 +215,7 @@ public class Node : MonoBehaviour
     private void OnMouseExit()
     {
         rend.material.color = startColor;
-        if (buildManager.turretMenu.isActive == false)
-        {
-            range.Hide();
-        } 
+         if (buildManager.turretMenu.isActive == false)
+             range.Hide();
     }
 }
