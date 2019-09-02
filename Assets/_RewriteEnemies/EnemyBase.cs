@@ -23,6 +23,9 @@ public class EnemyBase : MonoBehaviour
 
     public bool invisible;
 
+    [HideInInspector]
+    public float freezeStatus = 0;
+
     private Enums.Status status = Enums.Status.disable;
     private Debuff fire;
     private Debuff slow;
@@ -131,6 +134,7 @@ public class EnemyBase : MonoBehaviour
         while (slow.duration > 0)
         {
             speed = initialSpeed * (100f - slow.level) / 100; // checks this every time just in case it's updated
+            if (speed < 0) speed = 0;
             slow.duration -= Time.deltaTime;
             yield return null;
         }
@@ -256,6 +260,7 @@ public class EnemyBase : MonoBehaviour
         health = initialHp;
         speed = initialSpeed;
         armor = initialArmor;
+        freezeStatus = 0;
         foreach (Debuff debuff in debuffs.Values) debuff.Zero();
         healthBar.fillAmount = health / initialHp;
         numberArmor = armor * 5;
