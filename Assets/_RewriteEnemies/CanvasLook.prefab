@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 293716969820025986}
   - component: {fileID: 4715618124738099094}
   - component: {fileID: 8310697286896328695}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,6 +34,7 @@ RectTransform:
   - {fileID: 4680656367918774784}
   - {fileID: 5153626126483195195}
   - {fileID: 4142369741857967733}
+  - {fileID: 948881316587931741}
   m_Father: {fileID: 6459938684759093540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,7 +137,7 @@ GameObject:
   - component: {fileID: 5153626126483195195}
   - component: {fileID: 1328705965793993126}
   - component: {fileID: 5990532800912125781}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: ShieldBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,6 +201,81 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!1 &4214164161991104132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948881316587931741}
+  - component: {fileID: 6240086824543472838}
+  - component: {fileID: 407729093937042427}
+  m_Layer: 12
+  m_Name: New ShieldBG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &948881316587931741
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214164161991104132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8955562414241149608}
+  m_Father: {fileID: 5140565051986235144}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6240086824543472838
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214164161991104132}
+  m_CullTransparentMesh: 0
+--- !u!114 &407729093937042427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214164161991104132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.4745098}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!1 &4856439154508534419
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +287,7 @@ GameObject:
   - component: {fileID: 4142369741857967733}
   - component: {fileID: 5801367333584292691}
   - component: {fileID: 415044963787725081}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: HealthBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +362,7 @@ GameObject:
   - component: {fileID: 909196815889531054}
   - component: {fileID: 8052491180284821306}
   - component: {fileID: 8779971202029244591}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +436,7 @@ GameObject:
   - component: {fileID: 6550071484722783259}
   - component: {fileID: 2221979931815007612}
   - component: {fileID: 6616738312074815213}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +510,7 @@ GameObject:
   - component: {fileID: 4680656367918774784}
   - component: {fileID: 5417893907979369579}
   - component: {fileID: 4539640393889038584}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6459938684759093540}
   - component: {fileID: 7333317484449829324}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CanvasLook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +632,7 @@ GameObject:
   - component: {fileID: 1177433886375830297}
   - component: {fileID: 3006384384728883734}
   - component: {fileID: 6137581567942207480}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,3 +730,77 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: -1, y: 1}
   m_UseGraphicAlpha: 1
+--- !u!1 &9213498490049166158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8955562414241149608}
+  - component: {fileID: 2921389367404847730}
+  - component: {fileID: 9102006015899751663}
+  m_Layer: 12
+  m_Name: New Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8955562414241149608
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213498490049166158}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 948881316587931741}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2921389367404847730
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213498490049166158}
+  m_CullTransparentMesh: 0
+--- !u!114 &9102006015899751663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213498490049166158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8335252, g: 0, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: c97540bd2cd88d04faa800e3b9cc7a0f, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0

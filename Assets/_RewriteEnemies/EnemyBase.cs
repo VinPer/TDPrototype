@@ -28,10 +28,11 @@ public class EnemyBase : MonoBehaviour
     //Experimental Recharching Shield
     [Range(0f,100f)] public float shieldCapacity = 0f;
     private float initialShieldCapacity;
-    public float shieldRechargeRate;
-    public float shieldRechargeDelay;
+    public float shieldRechargeRate = 25f;
+    public float shieldRechargeDelay = 2f;
+    private float initalShieldRechargeDelay;
 
-    
+
     //End of Experimental Recharging Shield
 
 
@@ -51,6 +52,7 @@ public class EnemyBase : MonoBehaviour
 
     public Image healthBar;
     public Image armorBar;
+    public Image shieldBar;
 
     //Effects
     [Header("Effects")]
@@ -78,6 +80,10 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
+        //EXPERIMENTAL RECHARGING SHIELD
+        initialShieldCapacity = shieldCapacity;
+        initalShieldRechargeDelay = shieldRechargeDelay;
+        //END OF EXPERIMENTAL RECHARGING SHIELD
         initialHp = health;
         initialSpeed = speed;
 
@@ -96,6 +102,11 @@ public class EnemyBase : MonoBehaviour
             { Enums.Element.ice, slow }
         };
         Zero();
+    }
+
+    protected virtual void Update()
+    {
+        rechargeShield();
     }
 
     //DEBUFFS
@@ -248,6 +259,11 @@ public class EnemyBase : MonoBehaviour
 
     public void Zero()
     {
+        //EXPERIMENTAL RECHARGING SHIELD
+        shieldCapacity = initialShieldCapacity;
+        shieldRechargeDelay = initalShieldRechargeDelay;
+        shieldBar.fillAmount = shieldCapacity / initialShieldCapacity;
+        //END OF EXPERIMENTAL RECHARGING SHIELD
         health = initialHp;
         speed = initialSpeed;
         armor = initialArmor;
@@ -261,9 +277,49 @@ public class EnemyBase : MonoBehaviour
     {
         if (element == turretElement) amount *= (1 - resistance);
         float multiplier = armor * (1 - piercingValue);
-        health -= amount * (1 - multiplier);
+        //health -= amount * (1 - multiplier);
+        ApplyDamage(amount, multiplier);
         healthBar.fillAmount = health / initialHp;
         if (health <= 0) Die();
         healthBar.fillAmount = health / initialHp;
     }
+
+    //EXPERIMENTAL RECHARGING SHIELD
+    protected virtual void ApplyDamage(float amount, float multiplier){
+        float dmg = amount * (1 - multiplier);
+        float shieldOverflow = dmg - shieldCapacity;
+
+        shieldRechargeDelay = initalShieldRechargeDelay;
+
+        if (shieldOverflow <= 0)
+            shieldCapacity -= dmg;
+        else
+        {
+            shieldCapacity = 0f;
+            health -= shieldOverflow;
+        }
+        
+        shieldBar.fillAmount = shieldCapacity / initialShieldCapacity;
+    }
+
+    private void rechargeShield(){
+
+        if (shieldCapacity < initialShieldCapacity){
+
+            shieldBar.fillAmount = shieldCapacity / initialShieldCapacity;
+            shieldRechargeDelay -= Time.deltaTime;
+
+            if (shieldRechargeDelay <= 0f){
+                shieldCapacity += shieldRechargeRate * Time.deltaTime;
+                //Mathf.Clamp(shieldCapacity, 0, initialShieldCapacity);
+            }
+        }
+        
+        if (shieldCapacity >= initialShieldCapacity){
+            shieldRechargeDelay = initalShieldRechargeDelay;
+            shieldCapacity = initialShieldCapacity;
+            }
+    }
+
+    //END OF EXPERIMENTAL RECHARGING SHIELD
 }

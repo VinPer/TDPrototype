@@ -289,12 +289,15 @@ MonoBehaviour:
   armor: 0
   speed: 20
   damage: 1
+  shieldCapacity: 0
+  shieldRechargeRate: 25
+  shieldRechargeDelay: 2
   invisible: 0
-  type: 1
   element: 0
   resistance: 0
   healthBar: {fileID: 3993257783168278980}
   armorBar: {fileID: 1540582855140972422}
+  shieldBar: {fileID: 0}
   fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   slowEffect: {fileID: 6353654771837472138, guid: dbdf12d53333376488b35d902ea7bf30,
     type: 3}
@@ -317,7 +320,6 @@ MonoBehaviour:
   waypointIndex: 0
   distToNextWaypoint: 0
   infiniteOffsets: 1
-  turnSpeed: 13
 --- !u!1 &172134
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +608,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 948881316587931741, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 948881316587931741, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 948881316587931741, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 948881316587931741, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 948881316587931741, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 948881316587931741, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 820df5e45d809a544891244299b95aa7, type: 3}
