@@ -6,6 +6,7 @@ public class Freeze : MonoBehaviour
 {
     public float duration = 5f;
     public float freezeTime = 5f;
+    public float freezeDamage = 2f;
     private float initialFreezeTime;
     public float piercing = 0f;
     public GameObject freezeEffect;
@@ -49,7 +50,7 @@ public class Freeze : MonoBehaviour
     private void FreezeTarget(Transform enemy)
     {
         EnemyBase e = enemy.GetComponent<EnemyBase>();
-        e.TakeDamage(5 * e.freezeStatus * Time.deltaTime,piercing,ice);
+        e.TakeDamage(freezeDamage * Time.deltaTime,piercing,ice);
         e.ActivateDebuff(100 * e.freezeStatus, duration, ice);
         if (e.freezeStatus > 1) e.freezeStatus = 1;
         else e.freezeStatus += .01f;
