@@ -21,6 +21,22 @@ public class EnemyBase : MonoBehaviour
 
     public float damage = 1;
 
+
+
+
+
+    //Experimental Recharching Shield
+    [Range(0f,100f)] public float shieldCapacity = 0f;
+    private float initialShieldCapacity;
+    public float shieldRechargeRate;
+    public float shieldRechargeDelay;
+
+    
+    //End of Experimental Recharging Shield
+
+
+
+
     public bool invisible;
     
     private Enums.Status status = Enums.Status.disable;
