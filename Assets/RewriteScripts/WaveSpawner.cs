@@ -29,10 +29,6 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 5f;
 
-    public Text waveCountdownText;
-    public Text wavesSurvived;
-    public Text waveNumberOfEnemies;
-
     private float waveCountdown = 2f;
     private int nextWave = 0;
     
@@ -47,7 +43,6 @@ public class WaveSpawner : MonoBehaviour
         waveCountdown = timeBetweenWaves;
         state = SpawnerState.counting;
         //WavesLeft();
-        wavesSurvived.text = nextWave.ToString();
     }
 
     void PoolEnemies()
@@ -100,7 +95,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        waveNumberOfEnemies.text = "Enemies Alive: " + numberOfEnemiesAlive;
 
         if (GameManager.GameIsOver) return;
         
@@ -130,7 +124,6 @@ public class WaveSpawner : MonoBehaviour
         {
             waveCountdown -= Time.deltaTime;
             waveCountdown = Mathf.Clamp(waveCountdown, 0f, Mathf.Infinity);
-            waveCountdownText.text = string.Format("{0:00.00}", waveCountdown);
             //waveNumber.text = EnemiesAlive + " - " + waveIndex;
         }
 
@@ -153,7 +146,6 @@ public class WaveSpawner : MonoBehaviour
             state = SpawnerState.counting;
             waveCountdown = timeBetweenWaves;
             nextWave++;
-            wavesSurvived.text = nextWave.ToString();
             //WavesLeft();
 
         }

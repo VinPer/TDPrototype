@@ -35,7 +35,20 @@ public class TurretMenu : MonoBehaviour
     public Sprite none;
     [HideInInspector]
     public bool isActive = false;
-    
+
+    public static TurretMenu instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one turret menu in scene!");
+            return;
+        }
+
+        instance = this;
+        gameObject.SetActive(false);
+    }
+
     private void Start()
     {
         if (TurretHandler.active)
@@ -110,6 +123,7 @@ public class TurretMenu : MonoBehaviour
     }
     public void CloseMenu()
     {
+        Range.instance.Hide();
         isActive = false;
         if(anim!=null)
             anim.Play("TurretMenuSlideOut");
