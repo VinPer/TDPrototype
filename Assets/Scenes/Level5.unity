@@ -3086,36 +3086,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7074942344082597329, guid: b5fd1b8a09a427e42889225384b6e7a6,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7074942344082597329, guid: b5fd1b8a09a427e42889225384b6e7a6,
-        type: 3}
-      propertyPath: sounds.Array.data[9].name
-      value: Level5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7074942344082597329, guid: b5fd1b8a09a427e42889225384b6e7a6,
-        type: 3}
-      propertyPath: sounds.Array.data[9].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: aa91f70f45506e94b9a930e0933caedf, type: 3}
-    - target: {fileID: 7074942344082597329, guid: b5fd1b8a09a427e42889225384b6e7a6,
-        type: 3}
-      propertyPath: sounds.Array.data[9].volume
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7074942344082597329, guid: b5fd1b8a09a427e42889225384b6e7a6,
-        type: 3}
-      propertyPath: sounds.Array.data[9].pitch
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 7074942344082597329, guid: b5fd1b8a09a427e42889225384b6e7a6,
-        type: 3}
-      propertyPath: sounds.Array.data[9].loop
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5fd1b8a09a427e42889225384b6e7a6, type: 3}
 --- !u!1001 &713585536
@@ -5428,17 +5398,17 @@ PrefabInstance:
     - target: {fileID: 8097813067815350561, guid: 2682dd2ff295c13459b7673008b9259f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.58
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8097813067815350561, guid: 2682dd2ff295c13459b7673008b9259f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 74.75
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8097813067815350561, guid: 2682dd2ff295c13459b7673008b9259f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.72
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8097813067815350561, guid: 2682dd2ff295c13459b7673008b9259f,
         type: 3}
@@ -10185,8 +10155,8 @@ Transform:
   - {fileID: 624939125}
   - {fileID: 800427366}
   - {fileID: 1162914355}
-  - {fileID: 1874364133}
   - {fileID: 1219043315}
+  - {fileID: 1874364133}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
