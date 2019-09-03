@@ -1,19 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerLaser : TowerNonProjectile
+public class TowerFreezer : TowerNonProjectile
 {
     private float multiplicator = .1f;
-
-    public LineRenderer lineRenderer;
-    public ParticleSystem impactEffect;
-    public Light impactLight;
 
     public int targettingStyle;
     private Transform target;
     private EnemyBase targetEnemy;
 
-    public Transform firePoint;
     public Transform partToRotate;
     public float turnSpeed = 10f;
     private float fireCountdown = 0;
@@ -34,24 +29,10 @@ public class TowerLaser : TowerNonProjectile
     {
         if (target == null)
         {
-            GetComponent<AudioSource>().Stop();
-            if (lineRenderer.enabled)
-            {
-                lineRenderer.enabled = false;
-                impactEffect.Stop();
-                impactLight.enabled = false;
-            }
             return;
         }
 
         LockOnTarget();
-
-        if (fireCountdown <= 0f)
-        {
-            Laser();
-            fireCountdown = 1f / triggerRate;
-        }
-        fireCountdown -= Time.deltaTime;
     }
 
     protected virtual void UpdateTarget()
@@ -219,31 +200,6 @@ public class TowerLaser : TowerNonProjectile
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-    }
-
-    private void Laser()
-    {
-        targetEnemy.TakeDamage(damage * multiplicator * Time.deltaTime, penetration, element);
-        if (multiplicator < 1) multiplicator *= 1.01f;
-        else multiplicator = 1;
-
-        //Sound
-        if (!GetComponent<AudioSource>().isPlaying)
-        GetComponent<AudioSource>().Play();
-
-        if (!lineRenderer.enabled)
-        {
-            lineRenderer.enabled = true;
-            impactEffect.Play();
-            impactLight.enabled = true;
-        }
-        lineRenderer.SetPosition(0, firePoint.position);
-        lineRenderer.SetPosition(1, target.position);
-
-        Vector3 dir = firePoint.position - target.position;
-
-        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
-        impactEffect.transform.position = target.position + dir.normalized * .5f;
     }
 
     protected override void UpgradeStatus()

@@ -100,5 +100,5 @@ MonoBehaviour:
   triggerRate: 0
   damage: 0
   penetration: 0
-  debuffIntensity: 2
+  debuffIntensity: 10
   debuffDuration: 5

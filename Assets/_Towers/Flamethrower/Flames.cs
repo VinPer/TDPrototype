@@ -38,7 +38,7 @@ public class Flames : MonoBehaviour
         //    damageCountdown = 1f / damageRate;
         //}
 
-        //damageCountdown -= Time.deltaTime;
+        //damageCountdown -= Time.deltaTime;=
 
     }
 
@@ -58,7 +58,12 @@ public class Flames : MonoBehaviour
 
     private void OnTriggerStay(Collider col)
     {
-        if (col.tag != "Enemy") return;
+        //if(col.tag == "Ground") flameEffect.SetActive(false);
+        if (col.tag != "Enemy")
+        {
+            return;
+        }
+        flameEffect.SetActive(true);
         BurnTarget(col.transform);
     }
 
@@ -67,5 +72,6 @@ public class Flames : MonoBehaviour
         EnemyBase e = enemy.GetComponent<EnemyBase>();
         e.TakeDamage(damage * Time.deltaTime, piercingValue,fire);
         e.ActivateDebuff(damage, duration, fire);
+        Debug.Log("Burn");
     }
 }

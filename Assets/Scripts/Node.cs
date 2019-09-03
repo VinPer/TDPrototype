@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class Node : MonoBehaviour
 {
-    public BuildManager buildManager;
+    private BuildManager buildManager;
     [HideInInspector]
     public GameObject turret;
 
@@ -215,7 +215,9 @@ public class Node : MonoBehaviour
     private void OnMouseExit()
     {
         rend.material.color = startColor;
-         if (buildManager.turretMenu.isActive == false)
-             range.Hide();
+        if (TurretMenu.instance.isActive == false)
+        {
+            range.Hide();
+        } 
     }
 }

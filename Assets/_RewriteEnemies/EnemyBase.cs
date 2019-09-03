@@ -12,7 +12,7 @@ public class EnemyBase : MonoBehaviour
     private float initialHp;
 
     public float value = 10;
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     public float armor = 0; //from 0 to 1
     private float initialArmor;
 
@@ -22,7 +22,10 @@ public class EnemyBase : MonoBehaviour
     public float damage = 1;
 
     public bool invisible;
-    
+
+    [HideInInspector]
+    public float freezeStatus = 0;
+
     private Enums.Status status = Enums.Status.disable;
     private Debuff fire;
     private Debuff slow;
@@ -34,7 +37,12 @@ public class EnemyBase : MonoBehaviour
     public float resistance = 0;
 
     public Image healthBar;
-    public Image armorBar;
+    //public Image armorBar;
+    public Transform armorSprites;
+    private Image[] armorImgs = new Image[5];
+    private float numberArmor = 0;
+    public Sprite armorSprite;
+    public Sprite noArmorSprite;
 
     //Effects
     [Header("Effects")]
@@ -48,11 +56,15 @@ public class EnemyBase : MonoBehaviour
     protected Renderer rend;
     protected Color startColor;
     private Color invisibleColor;
-    
+
     private void OnEnable()
     {
         isDead = false;
         status = Enums.Status.enable;
+        for (int i = 0; i < armorImgs.Length; i++)
+        {
+            armorImgs[i] = armorSprites.GetChild(i).GetComponent<Image>();
+        }
     }
 
     private void OnDisable()
@@ -67,7 +79,6 @@ public class EnemyBase : MonoBehaviour
 
         if (armor > 1) armor = 1;
         initialArmor = armor;
-
 
         fire = new Debuff(true);
         acid = new Debuff(false);
@@ -123,6 +134,7 @@ public class EnemyBase : MonoBehaviour
         while (slow.duration > 0)
         {
             speed = initialSpeed * (100f - slow.level) / 100; // checks this every time just in case it's updated
+            if (speed < 0) speed = 0;
             slow.duration -= Time.deltaTime;
             yield return null;
         }
@@ -154,14 +166,27 @@ public class EnemyBase : MonoBehaviour
         float defaultArmor = armor;
         while (acid.duration > 0)
         {
-            armor = armor * (100 - acid.level) / 100;
+            armor = armor - (initialArmor * (acid.level / 100) * Time.deltaTime);
+            if (armor <= 0) armor = 0;
             acid.duration -= Time.deltaTime;
-            armorBar.fillAmount = armor / initialArmor;
+            //armorBar.fillAmount = armor / initialArmor;
+            numberArmor = armor * 5;
+            for (int i = 0; i < armorImgs.Length; i++)
+            {
+                if (i < Mathf.Round(numberArmor)) armorImgs[i].sprite = armorSprite;
+                else armorImgs[i].sprite = noArmorSprite;
+            }
             yield return null;
         }
         Destroy(debuffEffect);
         armor = defaultArmor;
-        armorBar.fillAmount = armor / initialArmor;
+        //armorBar.fillAmount = armor / initialArmor;
+        numberArmor = armor * 5;
+        for (int i = 0; i < armorImgs.Length; i++)
+        {
+            if (i < numberArmor) armorImgs[i].sprite = armorSprite;
+            else armorImgs[i].sprite = noArmorSprite;
+        }
         acid.isActive = false;
     }
 
@@ -208,13 +233,13 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        PlayerStats.Money += (int) value;
+        PlayerStats.Money += (int)value;
         PlayerStats.UpdateMoney();
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 2f);
 
-        StartCoroutine(Effect.PlayEffect(deathEffect,transform));
-        
+        StartCoroutine(Effect.PlayEffect(deathEffect, transform));
+
         if (debuffEffect != null) Destroy(debuffEffect);
         Hide();
     }
@@ -235,11 +260,18 @@ public class EnemyBase : MonoBehaviour
         health = initialHp;
         speed = initialSpeed;
         armor = initialArmor;
+        freezeStatus = 0;
         foreach (Debuff debuff in debuffs.Values) debuff.Zero();
         healthBar.fillAmount = health / initialHp;
-        armorBar.fillAmount = armor / initialArmor;
+        numberArmor = armor * 5;
+        for (int i = 0; i < armorImgs.Length; i++)
+        {
+            if (i < numberArmor) armorImgs[i].sprite = armorSprite;
+            else armorImgs[i].sprite = noArmorSprite;
+        }
+        //armorBar.fillAmount = armor / initialArmor;
     }
-    
+
 
     public virtual void TakeDamage(float amount, float piercingValue, Enums.Element turretElement)
     {

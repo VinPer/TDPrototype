@@ -40,10 +40,10 @@ public class Range : MonoBehaviour
         target = _target.GetComponent<Node>();
         Vector3 nodePosition = _target.transform.position;
         nodePosition.y += .5f;
-        if(target.buildManager.GetTurretToBuild().prefab.GetComponent<TowerBase>())
-            range = target.buildManager.GetTurretToBuild().prefab.GetComponent<TowerBase>().range * 2;
+        if(BuildManager.instance.GetTurretToBuild().prefab.GetComponent<TowerBase>())
+            range = BuildManager.instance.GetTurretToBuild().prefab.GetComponent<TowerBase>().range * 2;
         else
-            range = target.buildManager.GetTurretToBuild().prefab.GetComponentInChildren<TowerBase>().range * 2;
+            range = BuildManager.instance.GetTurretToBuild().prefab.GetComponentInChildren<TowerBase>().range * 2;
         rangeSize.transform.localScale = new Vector3(range, .1f, range);
         rangeSize.transform.position = nodePosition;
         rangeSize.SetActive(true);
