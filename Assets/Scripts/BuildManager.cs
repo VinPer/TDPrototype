@@ -16,7 +16,7 @@ public class BuildManager : MonoBehaviour
     }
     public GameObject buildEffect;
     public GameObject sellEffect;
-    public TurretMenu turretMenu;
+    private TurretMenu turretMenu;
 
     private TurretBlueprint turretToBuild;
     private Node selectedNode;
@@ -30,6 +30,7 @@ public class BuildManager : MonoBehaviour
     private void Start()
     {
         TurretsBuilded = new List<GameObject>();
+        turretMenu = TurretMenu.instance;
     }
 
     public void SelectTurretToBuild(TurretBlueprint turret)
@@ -62,8 +63,6 @@ public class BuildManager : MonoBehaviour
         selectedNode = null;
         //nodeUI.Hide();
         turretMenu.CloseMenu();
-        Range.instance.Hide();
-        
     }
 
     public void DeselectTurret()

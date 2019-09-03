@@ -1039,6 +1039,21 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 74462361500561503, guid: 09491ab1689109a45830f6faa287d1ce,
+        type: 3}
+      propertyPath: piercingValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 74462361500561503, guid: 09491ab1689109a45830f6faa287d1ce,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 74462361500561503, guid: 09491ab1689109a45830f6faa287d1ce,
+        type: 3}
+      propertyPath: duration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09491ab1689109a45830f6faa287d1ce, type: 3}
 --- !u!1 &8140006378566645535 stripped
