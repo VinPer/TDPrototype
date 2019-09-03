@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2d920803c2d43b4faba484b5a1c3dd4, type: 2}
+  - {fileID: 2100000, guid: 2d856be8f12c8c0428a9be1207d3533b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -210,7 +210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2d920803c2d43b4faba484b5a1c3dd4, type: 2}
+  - {fileID: 2100000, guid: 2d856be8f12c8c0428a9be1207d3533b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,7 +383,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2d920803c2d43b4faba484b5a1c3dd4, type: 2}
+  - {fileID: 2100000, guid: 2d856be8f12c8c0428a9be1207d3533b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -802,6 +802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   freezeTime: 5
+  freezeDamage: 2
   piercing: 0
   freezeEffect: {fileID: 7032233199633603909, guid: 7f6bf4a1cb529e14982258c193598fa1,
     type: 3}
@@ -929,9 +930,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 1
+  m_Height: 1.6377845
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Center: {x: 0, y: 3.2149898e-16, z: 0.68110865}
 --- !u!1 &8473345369826354023
 GameObject:
   m_ObjectHideFlags: 0
