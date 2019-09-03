@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerCharger : TowerProjectile
 {
-    public int maxChargeLevel = 3;
+    public int maxChargeLevel = 5;
     private int currentChargeLevel = 0;
     public float chargeRate = 0.5f;
     private float chargeCooldown = 0f;
@@ -30,7 +30,7 @@ public class TowerCharger : TowerProjectile
         if (fireCountdown <= 0f)
         {
             Shoot();
-            currentChargeLevel = 0;
+            currentChargeLevel = 1;
             fireCountdown = 1f / fireRate;
         }
 

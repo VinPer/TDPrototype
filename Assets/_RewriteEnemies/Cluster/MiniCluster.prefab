@@ -151,11 +151,12 @@ MonoBehaviour:
   speed: 12
   damage: 1
   invisible: 0
+  freezeStatus: 0
   element: 0
   resistance: 0
   healthBar: {fileID: 4089288393954113107}
   armorSprites: {fileID: 4996059346711247740}
-  armorSprite: {fileID: 21300000, guid: 0e2dee12e411686488b487e132566ed8, type: 3}
+  armorSprite: {fileID: 21300000, guid: 31be891e7b5f6324b93be171d386e464, type: 3}
   noArmorSprite: {fileID: 21300000, guid: 1153da39508c69e4ebc9c26be73e6745, type: 3}
   fireEffect: {fileID: 6353654771837472138, guid: a0def5ce55927ac4b92f20cbca1cdc7f,
     type: 3}
@@ -458,22 +459,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6080377950161341451, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_Name
       value: CanvasLook
       objectReference: {fileID: 0}
     - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5426792616141526335, guid: 820df5e45d809a544891244299b95aa7,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6080377950161341451, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_Layer
       value: 12
@@ -584,6 +580,11 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4062390966610656202, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426792616141526335, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_Layer
       value: 12
