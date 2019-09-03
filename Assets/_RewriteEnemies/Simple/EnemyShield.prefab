@@ -284,14 +284,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
-  health: 30
+  health: 20
   value: 100
-  armor: 0.9
+  armor: 0.1
   speed: 5
   damage: 1
-  shieldCapacity: 0
-  shieldRechargeRate: 25
-  shieldRechargeDelay: 2
+  shieldCapacity: 100
+  shieldRechargeRate: 20
+  shieldRechargeDelay: 5
   invisible: 0
   freezeStatus: 0
   element: 0
@@ -671,9 +671,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3762214356597574060}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8062976559598825281 stripped
+--- !u!114 &5361183757694131523 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6616738312074815213, guid: 820df5e45d809a544891244299b95aa7,
+  m_CorrespondingSourceObject: {fileID: 9102006015899751663, guid: 820df5e45d809a544891244299b95aa7,
     type: 3}
   m_PrefabInstance: {fileID: 3762214356597574060}
   m_PrefabAsset: {fileID: 0}
@@ -683,9 +683,9 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5361183757694131523 stripped
+--- !u!114 &8062976559598825281 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9102006015899751663, guid: 820df5e45d809a544891244299b95aa7,
+  m_CorrespondingSourceObject: {fileID: 6616738312074815213, guid: 820df5e45d809a544891244299b95aa7,
     type: 3}
   m_PrefabInstance: {fileID: 3762214356597574060}
   m_PrefabAsset: {fileID: 0}
