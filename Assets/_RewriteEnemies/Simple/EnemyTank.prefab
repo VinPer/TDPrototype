@@ -683,7 +683,6 @@ Transform:
 --- !u!224 &8336417610149776823 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2758142311322004418, guid: 820df5e45d809a544891244299b95aa7,
-<<<<<<< HEAD
     type: 3}
   m_PrefabInstance: {fileID: 6194143235134940789}
   m_PrefabAsset: {fileID: 0}
@@ -700,12 +699,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3145437009174540954 stripped
-=======
-    type: 3}
-  m_PrefabInstance: {fileID: 6194143235134940789}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1019330860168806552 stripped
->>>>>>> map3_design
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9102006015899751663, guid: 820df5e45d809a544891244299b95aa7,
     type: 3}
