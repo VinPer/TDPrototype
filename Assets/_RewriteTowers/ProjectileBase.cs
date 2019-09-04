@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class ProjectileBase : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class ProjectileBase : MonoBehaviour
 
     public float speed = 50f;
     public float acceleration = 0f;
-    public bool seeking = false;
+    public bool seeking = true;
     public float explosionRadius = 0f;
     private float initialExplosionRadius;
     public int durability = 1;
