@@ -37,7 +37,7 @@ public class ProjectileBase : MonoBehaviour
         initialExplosionRadius = explosionRadius;
     }
     
-    protected void Destroy()
+    protected virtual void Destroy()
     {
         decayTimer = initialDecayTimer;
         durability = initialDurability;
@@ -74,7 +74,7 @@ public class ProjectileBase : MonoBehaviour
         decayTimer -= Time.deltaTime;
     }
 
-    private void Hit()
+    protected virtual void Hit()
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1.5f);

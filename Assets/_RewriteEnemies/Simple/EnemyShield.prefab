@@ -286,10 +286,10 @@ MonoBehaviour:
   isDead: 0
   health: 20
   value: 100
-  armor: 0.1
+  armor: 0.9
   speed: 5
   damage: 1
-  shieldCapacity: 100
+  shieldCapacity: 0
   shieldRechargeRate: 20
   shieldRechargeDelay: 5
   invisible: 0
