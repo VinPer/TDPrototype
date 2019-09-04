@@ -186,6 +186,9 @@ public class ProjectileBase : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
+        if (col.tag == "BlackHole"){
+            return;
+            }
         if (col.tag == "Enemy")
         {
             target = col.transform;

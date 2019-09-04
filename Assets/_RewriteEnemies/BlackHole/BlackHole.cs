@@ -12,11 +12,9 @@ public class BlackHole : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        print("colisao!");
         projectile = other.transform.GetComponent<ProjectileBase>();
 
         if(projectile != null){
-            print("eh um projetil!");
             projectile.transform.LookAt(blackHoleEnemy.transform);
             projectile.SetTarget(blackHoleEnemy.transform);
         }   
