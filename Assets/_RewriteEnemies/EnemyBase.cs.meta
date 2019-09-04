@@ -3,7 +3,16 @@ guid: b91c7dbe34637bb4cb3030cc21a198d5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthBar: {instanceID: 0}
+  - shieldBar: {instanceID: 0}
+  - armorSprites: {instanceID: 0}
+  - armorSprite: {fileID: 21300000, guid: 0e2dee12e411686488b487e132566ed8, type: 3}
+  - noArmorSprite: {fileID: 21300000, guid: 1153da39508c69e4ebc9c26be73e6745, type: 3}
+  - fireEffect: {instanceID: 0}
+  - slowEffect: {instanceID: 0}
+  - acidEffect: {instanceID: 0}
+  - deathEffect: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
