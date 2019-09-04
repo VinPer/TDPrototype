@@ -145,7 +145,7 @@ MonoBehaviour:
   healthBar: {fileID: 4089288393954113107}
   shieldBar: {fileID: 2108705453268567121}
   armorSprites: {fileID: 4996059346711247740}
-  armorSprite: {fileID: 21300000, guid: 0e2dee12e411686488b487e132566ed8, type: 3}
+  armorSprite: {fileID: 21300000, guid: 6645b327088c4f6408d9561791c57b84, type: 3}
   noArmorSprite: {fileID: 21300000, guid: 1153da39508c69e4ebc9c26be73e6745, type: 3}
   fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
   slowEffect: {fileID: 6353654771837472138, guid: dbdf12d53333376488b35d902ea7bf30,
