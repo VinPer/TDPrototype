@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab2366ece88444a438c5bb066ffa34a7, type: 2}
+  - {fileID: 2100000, guid: d881d3bcf648e1b40a31036ca66a283c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
-  speed: 50
+  speed: 80
   acceleration: 0
   seeking: 1
   explosionRadius: 0
