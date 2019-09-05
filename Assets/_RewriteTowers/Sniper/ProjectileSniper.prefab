@@ -92,14 +92,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 40
   penetration: 1
   debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
   speed: 120
   acceleration: 0
-  seeking: 0
+  seeking: 1
   explosionRadius: 0
   durability: 3
   impactEffect: {fileID: 6452593582639930427, guid: acd25a66ddcc77c4988cb52efce603f6,

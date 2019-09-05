@@ -290,7 +290,7 @@ MonoBehaviour:
   turretMaximized: 0
   element: 0
   triggerRate: 100
-  damage: 20
+  damage: 25
   penetration: 0
   debuffIntensity: 0
   debuffDuration: 0
