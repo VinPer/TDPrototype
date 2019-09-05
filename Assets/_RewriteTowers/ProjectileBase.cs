@@ -15,7 +15,7 @@ public class ProjectileBase : MonoBehaviour
 
     public float speed = 50f;
     public float acceleration = 0f;
-    public bool seeking = true;
+    public bool seeking = false;
     public float explosionRadius = 0f;
     private float initialExplosionRadius;
     public int durability = 1;
@@ -97,7 +97,7 @@ public class ProjectileBase : MonoBehaviour
             // include logic for reducing durability
         }
         // include logic for checking durability
-        if(durability <= 0 || seeking)
+        if(durability <= 0/*|| seeking*/)
         {
             //Destroy(gameObject);
             Destroy();
