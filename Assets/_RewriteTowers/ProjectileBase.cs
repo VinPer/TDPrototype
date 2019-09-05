@@ -74,8 +74,9 @@ public class ProjectileBase : MonoBehaviour
         decayTimer -= Time.deltaTime;
     }
 
-    private void Hit()
+    private void Hit(Transform hitPart)
     {
+        EnemyBase enemy = hitPart.GetComponent<EnemyBase>();
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1.5f);
         if (target == null)
@@ -93,11 +94,10 @@ public class ProjectileBase : MonoBehaviour
         }
         else
         {
-            Damage(target);
-            // include logic for reducing durability
+            Damage(hitPart);
         }
         // include logic for checking durability
-        if(durability <= 0/*|| seeking*/)
+        if(durability <= 0 || seeking)
         {
             //Destroy(gameObject);
             Destroy();
@@ -107,7 +107,11 @@ public class ProjectileBase : MonoBehaviour
     private void Damage(Transform enemy)
     {
         EnemyBase e = enemy.GetComponent<EnemyBase>();
-        e.TakeDamage(damage, penetration, debuffElement);
+
+        //e could be null since now Hit() passes only the transform of where it hit 
+        if (e != null)
+            e.TakeDamage(damage, penetration, debuffElement);
+        
         if (debuffElement != Enums.Element.none)
             e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
     }
@@ -193,6 +197,6 @@ public class ProjectileBase : MonoBehaviour
         {
             target = col.transform;
         }
-        Hit();
+        Hit(col.transform);
     }
 }
