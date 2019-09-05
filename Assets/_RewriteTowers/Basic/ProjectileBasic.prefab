@@ -99,7 +99,7 @@ MonoBehaviour:
   debuffDuration: 5
   speed: 100
   acceleration: 0
-  seeking: 1
+  seeking: 0
   explosionRadius: 0
   durability: 1
   impactEffect: {fileID: 6452593582639930427, guid: 793815334f0082d4cb914bebb518c15a,
