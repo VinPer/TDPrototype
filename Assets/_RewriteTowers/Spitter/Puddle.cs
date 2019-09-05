@@ -6,8 +6,13 @@ public class Puddle : MonoBehaviour
 {
     public float debuffIntensity = 10f;
     public float debuffDuration = 2f;
-    public Enums.Element debuffType;
+    private Enums.Element debuffType;
     public float duration = 3f;
+    
+    private void Start()
+    {
+        debuffType = GetComponentInParent<TowerBase>().element;
+    }
     private void Update()
     {
         duration -= Time.deltaTime;
