@@ -17,6 +17,8 @@ public class SkillElementalBlast : SkillGlobal
             EnemyBase enemy = target.GetComponent<EnemyBase>();
             enemy.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffElement);
         }
+        
+        // move its position to spawnpoint so it doesn't need a gigantic collider?
     }
 
     private void Update()
