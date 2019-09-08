@@ -79,7 +79,7 @@ public class ProjectileBase : MonoBehaviour
         EnemyBase enemy = hitPart.GetComponent<EnemyBase>();
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1.5f);
-        if (!target.GetComponent<EnemyBase>())
+        if (enemy == null)
         {
             Destroy();
             return;
@@ -109,11 +109,13 @@ public class ProjectileBase : MonoBehaviour
         EnemyBase e = enemy.GetComponent<EnemyBase>();
 
         //e could be null since now Hit() passes only the transform of where it hit 
-        if (e != null)
+        if (e != null){
             e.TakeDamage(damage, penetration, debuffElement);
         
-        if (debuffElement != Enums.Element.none)
-            e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
+            if (debuffElement != Enums.Element.none){
+                e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
+            }
+        }
     }
 
     private void Explode()

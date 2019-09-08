@@ -62,7 +62,7 @@ public class Overheat : TowerProjectile
                     Vector3 dir = fp.GetChild(0).transform.position - t.position;
                     dir.y = 0;
                     p.SetDirection(dir);
-                    Debug.Log(p.GetDirection());
+                    //Debug.Log(p.GetDirection());
                     break;
                 }
             }
