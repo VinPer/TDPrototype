@@ -37,7 +37,7 @@ public class ProjectileBase : MonoBehaviour
         initialExplosionRadius = explosionRadius;
     }
     
-    protected void Destroy()
+    protected virtual void Destroy()
     {
         decayTimer = initialDecayTimer;
         durability = initialDurability;
@@ -74,12 +74,12 @@ public class ProjectileBase : MonoBehaviour
         decayTimer -= Time.deltaTime;
     }
 
-    private void Hit(Transform hitPart)
+    protected virtual void Hit(Transform hitPart)
     {
         EnemyBase enemy = hitPart.GetComponent<EnemyBase>();
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1.5f);
-        if (target == null)
+        if (!target.GetComponent<EnemyBase>())
         {
             Destroy();
             return;
@@ -172,7 +172,14 @@ public class ProjectileBase : MonoBehaviour
         if (value < 0f) Debug.Log("Incorrect value to update explosion radius!");
         else explosionRadius = value;
     }
-
+    public Vector3 GetDirection()
+    {
+        return direction;
+    }
+    public void SetDirection(Vector3 dir)
+    {
+        direction = dir;
+    }
     public void SetTarget(Transform newTarget)
     {
         if (seeking) target = newTarget;
@@ -190,6 +197,7 @@ public class ProjectileBase : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
+<<<<<<< HEAD
         if (col.tag == "BlackHole"){
             return;
             }
@@ -198,5 +206,9 @@ public class ProjectileBase : MonoBehaviour
             target = col.transform;
         }
         Hit(col.transform);
+=======
+        target = col.transform;
+        Hit();
+>>>>>>> origin/Skills
     }
 }

@@ -14,19 +14,17 @@ public class TargetSelectionDropdown : MonoBehaviour
         dropdown.interactable = true;
         dropdown.ClearOptions();
         towerProjectile = GetComponent<TurretMenu>().turretSelected.GetComponent<TowerProjectile>();
-        if (towerProjectile)
+        if (towerProjectile && towerProjectile.targetStyles != null)
         {
             dropdown.AddOptions(towerProjectile.targetStyles);
-            Debug.Log("projectlie");
             dropdown.value = towerProjectile.targetStyles.IndexOf(towerProjectile.targetSelected);
         }
         else
         {
             towerLaser = GetComponent<TurretMenu>().turretSelected.GetComponent<TowerLaser>();
-            if (towerLaser)
+            if (towerLaser && towerLaser.targetStyles != null)
             {
                 dropdown.AddOptions(towerLaser.targetStyles);
-                Debug.Log("lasers");
                 dropdown.value = towerLaser.targetStyles.IndexOf(towerLaser.targetSelected);
             }
             else
