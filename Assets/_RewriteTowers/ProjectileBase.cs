@@ -197,7 +197,6 @@ public class ProjectileBase : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-<<<<<<< HEAD
         if (col.tag == "BlackHole"){
             return;
             }
@@ -206,9 +205,5 @@ public class ProjectileBase : MonoBehaviour
             target = col.transform;
         }
         Hit(col.transform);
-=======
-        target = col.transform;
-        Hit();
->>>>>>> origin/Skills
     }
 }
