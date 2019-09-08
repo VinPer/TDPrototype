@@ -4,6 +4,11 @@ public class SkillReveal : SkillGlobal
 {
     public float duration = 10f;
 
+    private void Start()
+    {
+        InvokeRepeating("RevealTargets", 0, 1f);
+    }
+
     private void Update()
     {
         duration -= Time.deltaTime;
@@ -14,10 +19,13 @@ public class SkillReveal : SkillGlobal
         }
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void RevealTargets()
     {
-        EnemyBase enemy = col.GetComponent<EnemyBase>();
-        enemy.UpdateInvisible(false); // change this later
+        FindTargets();
+        foreach (GameObject target in enemies)
+        {
+            target.GetComponent<EnemyBase>().UpdateInvisible(false);
+        }
     }
 
     private void End()
