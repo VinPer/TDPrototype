@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 4
   penetration: 0
   debuffElement: 0
   debuffIntensity: 0
