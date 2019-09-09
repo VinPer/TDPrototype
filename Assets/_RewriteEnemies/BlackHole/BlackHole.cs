@@ -15,6 +15,7 @@ public class BlackHole : MonoBehaviour
         if(projectile != null){
             projectile.transform.LookAt(blackHoleEnemy.transform);
             projectile.SetTarget(blackHoleEnemy.transform);
+            projectile.SetSpeed(projectile.speed * .75f);
         }   
     }
 }

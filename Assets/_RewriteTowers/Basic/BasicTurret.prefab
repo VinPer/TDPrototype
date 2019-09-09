@@ -575,6 +575,8 @@ MonoBehaviour:
   poolAmount: 3
   bulletPrefab: {fileID: 3369391130654538165, guid: a5640abf8dcd9fe438b55fbcc9886376,
     type: 3}
+  penetrationBoost: 0
+  projectileDurability: 1
   damageUpgrade: 0.1
   fireRateUpgrade: 0.1
   targetStyles:

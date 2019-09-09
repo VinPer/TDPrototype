@@ -14,6 +14,7 @@ public class ProjectileBase : MonoBehaviour
     private Vector3 initialSize;
 
     public float speed = 50f;
+    private float initialSpeed;
     public float acceleration = 0f;
     public bool seeking = false;
     public float explosionRadius = 0f;
@@ -35,6 +36,7 @@ public class ProjectileBase : MonoBehaviour
         initialDamage = damage;
         initialSize = transform.localScale;
         initialExplosionRadius = explosionRadius;
+        initialSpeed = speed;
     }
     
     protected virtual void Destroy()
@@ -44,6 +46,7 @@ public class ProjectileBase : MonoBehaviour
         damage = initialDamage;
         transform.localScale = initialSize;
         explosionRadius = initialExplosionRadius;
+        speed = initialSpeed;
 
         target = null;
         gameObject.SetActive(false);
@@ -76,9 +79,10 @@ public class ProjectileBase : MonoBehaviour
 
     protected virtual void Hit(Transform hitPart)
     {
-        EnemyBase enemy = hitPart.GetComponent<EnemyBase>();
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, hitPart.position, hitPart.rotation);
         Destroy(effectIns, 1.5f);
+
+        EnemyBase enemy = hitPart.GetComponent<EnemyBase>();
         if (enemy == null)
         {
             Destroy();
@@ -199,13 +203,12 @@ public class ProjectileBase : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "BlackHole"){
-            return;
-            }
-        if (col.tag == "Enemy")
+        if (col.tag != "BlackHole")
         {
-            target = col.transform;
+            //if (col.tag == "Enemy")
+                //target = col.transform;
+
+            Hit(col.transform);
         }
-        Hit(col.transform);
     }
 }

@@ -243,11 +243,12 @@ public class TowerProjectile : TowerBase
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
     }
 
     protected virtual void Shoot()
     {
+        ProjectileBase bullet;
         for (int i = 0; i < bullets.Count; i++)
         {
             if (!bullets[i].activeInHierarchy)
@@ -255,13 +256,20 @@ public class TowerProjectile : TowerBase
                 bullets[i].transform.position = firePoint.position;
                 bullets[i].transform.rotation = firePoint.rotation;
                 bullets[i].SetActive(true);
-                bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
-                bullets[i].GetComponent<ProjectileBase>().penetration += penetrationBoost;
-                if(bullets[i].GetComponent<ProjectileBase>().durability < projectileDurability)
-                    bullets[i].GetComponent<ProjectileBase>().durability += projectileDurability;
-                bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
+
+                bullet = bullets[i].GetComponent<ProjectileBase>();
+
+                bullet.damage *= damageBoost;
+                bullet.penetration += penetrationBoost;
+
+                if(bullet.durability < projectileDurability)
+                    bullet.durability += projectileDurability;
+
+                bullet.SetTarget(target);
+
                 if (GetComponent<AudioSource>())
                     GetComponent<AudioSource>().Play();
+
                 break;
             }
         }
