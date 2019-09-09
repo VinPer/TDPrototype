@@ -11,14 +11,7 @@ public class SkillElementalBlast : SkillGlobal
 
     private void Start()
     {
-        FindTargets();
-        foreach(GameObject target in enemies)
-        {
-            EnemyBase enemy = target.GetComponent<EnemyBase>();
-            enemy.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffElement);
-        }
-        
-        // move its position to spawnpoint so it doesn't need a gigantic collider?
+        InvokeRepeating("DebuffTargets", 0, 1f);
     }
 
     private void Update()
@@ -31,21 +24,18 @@ public class SkillElementalBlast : SkillGlobal
         }
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void DebuffTargets()
     {
-        EnemyBase enemy = col.GetComponent<EnemyBase>();
-        enemy.ActivateDebuff(debuffIntensity, Mathf.Infinity, debuffElement);
+        FindTargets();
+        foreach (GameObject target in enemies)
+        {
+            target.GetComponent<EnemyBase>().ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
+        }
     }
 
     private void End()
     {
-        FindTargets();
-        EnemyBase currentEnemy;
-        foreach(GameObject enemy in enemies)
-        {
-            currentEnemy = enemy.GetComponent<EnemyBase>();
-            currentEnemy.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
-        }
+        DebuffTargets();
 
         Destroy(gameObject);
     }

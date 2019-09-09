@@ -110,14 +110,15 @@ MonoBehaviour:
   debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
-  speed: 70
+  speed: 30
   acceleration: 0
-  seeking: 0
+  seeking: 1
   explosionRadius: 5
   durability: 1
   impactEffect: {fileID: 6452593582639930427, guid: 793815334f0082d4cb914bebb518c15a,
     type: 3}
-  decayTimer: 2
+  decayTimer: 7
+  gravity: 10
 --- !u!54 &6067855322530944537
 Rigidbody:
   m_ObjectHideFlags: 0

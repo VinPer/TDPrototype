@@ -835,7 +835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5624595492143162665}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.014002562, y: 4.16, z: 1.49}
+  m_LocalPosition: {x: 0.014002562, y: 5.16, z: 2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 474202}
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 2062060716834877446}
   - component: {fileID: 356431138316183496}
   - component: {fileID: 3736774565329276554}
-  - component: {fileID: 8923257311407255047}
+  - component: {fileID: 7583826948428922324}
   m_Layer: 0
   m_Name: FiringArea
   m_TagString: Untagged
@@ -919,18 +919,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &8923257311407255047
-SphereCollider:
+--- !u!136 &7583826948428922324
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5729911441169051721}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
+  m_Height: 1000
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9184348455763619622
 GameObject:
