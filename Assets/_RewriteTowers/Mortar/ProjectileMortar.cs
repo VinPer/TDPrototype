@@ -64,7 +64,7 @@ public class ProjectileMortar : ProjectileBase
         base.Destroy();
     }
 
-    protected override void Hit()
+    protected override void Hit(Transform hitPart)
     {
         GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1.5f);
