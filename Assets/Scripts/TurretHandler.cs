@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class TurretHandler : MonoBehaviour
 {
+    public static TurretHandler instance;
     // Keep the object to reference in the actual level so we can know which turrets are being used
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        if (instance)
+        {
+            Destroy(instance.gameObject);
+        }
+        instance = this;
     }
 
     // Lists for the turrets that are available and selected

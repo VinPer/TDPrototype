@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class TowerLaser : TowerNonProjectile
 {
-    private float multiplicator = .1f;
+    private float multiplier = .1f;
+    public float multiplierSpeed = 1.01f;
 
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
@@ -86,7 +87,7 @@ public class TowerLaser : TowerNonProjectile
                 FindWeakestTarget();
                 break;
         }
-        if (target == null) multiplicator = .1f;
+        if (target == null) multiplier = .1f;
     }
 
     //The target is the first enemy
@@ -223,9 +224,9 @@ public class TowerLaser : TowerNonProjectile
 
     private void Laser()
     {
-        targetEnemy.TakeDamage(damage * multiplicator * Time.deltaTime, penetration, element);
-        if (multiplicator < 1) multiplicator *= 1.01f;
-        else multiplicator = 1;
+        targetEnemy.TakeDamage(damage * multiplier * Time.deltaTime, penetration, element);
+        if (multiplier < 1) multiplier *= multiplierSpeed;
+        else multiplier = 1;
 
         //Sound
         if (!GetComponent<AudioSource>().isPlaying)
@@ -248,7 +249,26 @@ public class TowerLaser : TowerNonProjectile
 
     protected override void UpgradeStatus()
     {
-        range += rangeUpgrade;
+        string _range = "range";
+        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
+        {
+            range += rangeUpgrade;
+            upgrades[_range]++;
+        }
+
+        string _damage = "damage";
+        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
+        {
+            damage += damageBoost;
+            upgrades[_damage]++;
+        }
+
+        string _multiplierSpeed = "multiplierSpeed";
+        if (upgrades[_multiplierSpeed] < TowerUpgrade.instance.towers[gameObject.name][_multiplierSpeed])
+        {
+            range += rangeUpgrade;
+            upgrades[_multiplierSpeed]++;
+        }
     }
 
 }

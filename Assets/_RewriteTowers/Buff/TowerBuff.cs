@@ -63,8 +63,12 @@ public class TowerBuff : TowerBase
 
     protected override void UpgradeStatus()
     {
-        range += rangeUpgrade;
-        GetComponent<SphereCollider>().radius = range;
+        string _range = "range";
+        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
+        {
+            range += rangeUpgrade;
+            upgrades[_range]++;
+        }
 
         TowerBase currentTower;
         foreach (Transform tower in towers)
@@ -82,9 +86,27 @@ public class TowerBuff : TowerBase
             }
         }
 
-        buffRange += upgradeBuff;
-        buffDamage += upgradeBuff;
-        buffRate += upgradeBuff;
+
+        string _buffRange = "buffRange";
+        if (upgrades[_buffRange] < TowerUpgrade.instance.towers[gameObject.name][_buffRange])
+        {
+            buffRange += upgradeBuff;
+            upgrades[_buffRange]++;
+        }
+
+        string _buffDamage = "buffDamage";
+        if (upgrades[_buffDamage] < TowerUpgrade.instance.towers[gameObject.name][_buffDamage])
+        {
+            buffDamage += upgradeBuff;
+            upgrades[_buffDamage]++;
+        }
+
+        string _buffFireRate = "buffFireRate";
+        if (upgrades[_buffFireRate] < TowerUpgrade.instance.towers[gameObject.name][_buffFireRate])
+        {
+            _buffFireRate += upgradeBuff;
+            upgrades[_buffFireRate]++;
+        }
 
         foreach (Transform tower in towers)
         {

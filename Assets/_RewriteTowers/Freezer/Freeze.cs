@@ -27,7 +27,7 @@ public class Freeze : MonoBehaviour
     {
         if(freezer.GetTarget() != null && GetComponent<CapsuleCollider>().enabled) freezerEffect.GetComponent<ParticleSystem>().Play();
         else freezerEffect.GetComponent<ParticleSystem>().Stop();
-        if (freezer.GetTarget() == null && freezeTime < initialFreezeTime) StartCoroutine(Reload(3f));
+        if (freezer.GetTarget() == null && freezeTime < initialFreezeTime) StartCoroutine(Reload(freezer.reloadTime));
 
     }
     
@@ -43,7 +43,7 @@ public class Freeze : MonoBehaviour
         {
             EnemyBase e = col.GetComponent<EnemyBase>();
             e.freezeStatus = 0;
-            StartCoroutine(Reload(3f));
+            StartCoroutine(Reload(freezer.reloadTime));
         }
     }
 

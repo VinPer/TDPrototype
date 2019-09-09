@@ -18,6 +18,9 @@ public class TowerProjectile : TowerBase
     protected List<GameObject> bullets;
     public GameObject bulletPrefab;
 
+    public float penetrationBoost = 0;
+    public int projectileDurability = 1;
+
     public float damageUpgrade = .1f;
     public float fireRateUpgrade = .1f;
 
@@ -253,6 +256,9 @@ public class TowerProjectile : TowerBase
                 bullets[i].transform.rotation = firePoint.rotation;
                 bullets[i].SetActive(true);
                 bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
+                bullets[i].GetComponent<ProjectileBase>().penetration += penetrationBoost;
+                if(bullets[i].GetComponent<ProjectileBase>().durability < projectileDurability)
+                    bullets[i].GetComponent<ProjectileBase>().durability += projectileDurability;
                 bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
                 if (GetComponent<AudioSource>())
                     GetComponent<AudioSource>().Play();
@@ -269,9 +275,37 @@ public class TowerProjectile : TowerBase
 
     protected override void UpgradeStatus()
     {
-        range += rangeUpgrade;
-        damageBoost += damageUpgrade;
-        fireRate += fireRateUpgrade;
+        string _range = "range";
+        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
+        {
+            range += rangeUpgrade;
+            upgrades[_range]++;
+        }
+
+        string _damage = "damage";
+        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
+        {
+            damageBoost += damageUpgrade;
+            upgrades[_damage]++;
+        }
+        switch (gameObject.name)
+        {
+            case "Basic":
+                string _piercing = "piercing";
+                if (upgrades[_piercing] < TowerUpgrade.instance.towers[gameObject.name][_piercing])
+                {
+                     penetrationBoost += .1f;
+                    upgrades[_piercing]++;
+                }
+
+                string _penetration = "penetration";
+                if (upgrades[_penetration] < TowerUpgrade.instance.towers[gameObject.name][_penetration])
+                {
+                    projectileDurability += 1;
+                    upgrades[_penetration]++;
+                }
+                break;
+        }
     }
 
     protected void OnDrawGizmosSelected()
@@ -279,5 +313,4 @@ public class TowerProjectile : TowerBase
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
-
 }
