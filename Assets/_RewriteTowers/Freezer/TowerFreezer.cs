@@ -4,6 +4,7 @@ using UnityEngine;
 public class TowerFreezer : TowerNonProjectile
 {
     private float multiplicator = .1f;
+    public float reloadTime = 3f;
 
     public int targettingStyle;
     private Transform target;
@@ -37,21 +38,6 @@ public class TowerFreezer : TowerNonProjectile
 
     protected virtual void UpdateTarget()
     {
-        //switch (targetStyle)
-        //{
-        //    case (TargetStyle.first):
-        //        FindFirstTarget();
-        //        break;
-        //    case (TargetStyle.last):
-        //        FindLastTarget();
-        //        break;
-        //    case (TargetStyle.strongest):
-        //        FindStrongestTarget();
-        //        break;
-        //    case (TargetStyle.weakest):
-        //        FindWeakestTarget();
-        //        break;
-        //}
         switch (targetSelected)
         {
             case ("First"):
@@ -204,7 +190,19 @@ public class TowerFreezer : TowerNonProjectile
 
     protected override void UpgradeStatus()
     {
-        range += rangeUpgrade;
+        string _damage = "damage";
+        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
+        {
+            damage += damageBoost;
+            upgrades[_damage]++;
+        }
+
+        string _chargeTime = "chargeTime";
+        if (upgrades[_chargeTime] < TowerUpgrade.instance.towers[gameObject.name][_chargeTime])
+        {
+            reloadTime -= .5f;
+            upgrades[_chargeTime]++;
+        }
     }
 
 }

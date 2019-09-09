@@ -18,6 +18,9 @@ public class TowerProjectile : TowerBase
     protected List<GameObject> bullets;
     public GameObject bulletPrefab;
 
+    public float penetrationBoost = 0;
+    public int projectileDurability = 1;
+
     public float damageUpgrade = .1f;
     public float fireRateUpgrade = .1f;
 
@@ -253,6 +256,9 @@ public class TowerProjectile : TowerBase
                 bullets[i].transform.rotation = firePoint.rotation;
                 bullets[i].SetActive(true);
                 bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
+                bullets[i].GetComponent<ProjectileBase>().penetration += penetrationBoost;
+                if(bullets[i].GetComponent<ProjectileBase>().durability < projectileDurability)
+                    bullets[i].GetComponent<ProjectileBase>().durability += projectileDurability;
                 bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
                 if (GetComponent<AudioSource>())
                     GetComponent<AudioSource>().Play();
@@ -269,17 +275,36 @@ public class TowerProjectile : TowerBase
 
     protected override void UpgradeStatus()
     {
-        if(upgrades["range"] < TowerUpgrade.instance.towers[gameObject.name]["range"])
+        string _range = "range";
+        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
         {
             range += rangeUpgrade;
+            upgrades[_range]++;
         }
-        if (upgrades["damage"] < TowerUpgrade.instance.towers[gameObject.name]["damage"])
+
+        string _damage = "damage";
+        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
         {
             damageBoost += damageUpgrade;
+            upgrades[_damage]++;
         }
-        if (upgrades["fireRate"] < TowerUpgrade.instance.towers[gameObject.name]["fireRate"])
+        switch (gameObject.name)
         {
-            fireRate += fireRateUpgrade;
+            case "Basic":
+                string _piercing = "piercing";
+                if (upgrades[_piercing] < TowerUpgrade.instance.towers[gameObject.name][_piercing])
+                {
+                     penetrationBoost += .1f;
+                    upgrades[_piercing]++;
+                }
+
+                string _penetration = "penetration";
+                if (upgrades[_penetration] < TowerUpgrade.instance.towers[gameObject.name][_penetration])
+                {
+                    projectileDurability += 1;
+                    upgrades[_penetration]++;
+                }
+                break;
         }
     }
 

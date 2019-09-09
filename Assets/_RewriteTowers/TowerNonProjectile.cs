@@ -6,7 +6,9 @@ public abstract class TowerNonProjectile : TowerBase
     public float damage;
     public float penetration;
     public float debuffIntensity;
+    public float intensityUpgrade = 5f;
     public float debuffDuration;
+    public float durationUpgrade = 1f;
 
     public void SetDamage(float value)
     {
