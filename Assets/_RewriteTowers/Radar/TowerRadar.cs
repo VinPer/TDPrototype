@@ -34,7 +34,11 @@ public class TowerRadar : TowerBase
 
     protected override void UpgradeStatus()
     {
-        range += rangeUpgrade;
+        if (upgrades["range"] < TowerUpgrade.instance.towers[gameObject.name]["range"])
+        {
+            range += rangeUpgrade;
+            upgrades["range"]++;
+        }
     }
 
     private void OnDestroy()

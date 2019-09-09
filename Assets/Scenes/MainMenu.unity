@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 161030158}
   - component: {fileID: 161030157}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Upgrades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

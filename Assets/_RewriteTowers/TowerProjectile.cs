@@ -269,9 +269,18 @@ public class TowerProjectile : TowerBase
 
     protected override void UpgradeStatus()
     {
-        range += rangeUpgrade;
-        damageBoost += damageUpgrade;
-        fireRate += fireRateUpgrade;
+        if(upgrades["range"] < TowerUpgrade.instance.towers[gameObject.name]["range"])
+        {
+            range += rangeUpgrade;
+        }
+        if (upgrades["damage"] < TowerUpgrade.instance.towers[gameObject.name]["damage"])
+        {
+            damageBoost += damageUpgrade;
+        }
+        if (upgrades["fireRate"] < TowerUpgrade.instance.towers[gameObject.name]["fireRate"])
+        {
+            fireRate += fireRateUpgrade;
+        }
     }
 
     protected void OnDrawGizmosSelected()

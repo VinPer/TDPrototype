@@ -112,7 +112,7 @@ public class Node : MonoBehaviour
 
         turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret.transform.SetParent(transform);
-
+        turret.name = blueprint.name;
         buildManager.DeselectTurret();
 
 
@@ -125,7 +125,12 @@ public class Node : MonoBehaviour
         //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
         StartCoroutine(Effect.PlayEffect(buildEffect,transform));
-
+        tower.upgrades = new Dictionary<string, int>(TowerUpgrade.instance.towers[blueprint.name]);
+        Dictionary<string, int> backup = new Dictionary<string, int>(tower.upgrades);
+        foreach (string item in backup.Keys)
+        {
+            tower.upgrades[item] = 0;
+        }
         //Sound
         AudioManager.instance.Play("buildTurret");
         Debug.Log("Turret built!");
