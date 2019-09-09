@@ -76,7 +76,7 @@ public class ProjectileBase : MonoBehaviour
 
     protected virtual void Hit()
     {
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1.5f);
         if (!target.GetComponent<EnemyBase>())
         {
@@ -104,7 +104,7 @@ public class ProjectileBase : MonoBehaviour
         }
     }
 
-    private void Damage(Transform enemy)
+    protected void Damage(Transform enemy)
     {
         EnemyBase e = enemy.GetComponent<EnemyBase>();
         e.TakeDamage(damage, penetration, debuffElement);
@@ -112,7 +112,7 @@ public class ProjectileBase : MonoBehaviour
             e.ActivateDebuff(debuffIntensity, debuffDuration, debuffElement);
     }
 
-    private void Explode()
+    protected void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders)

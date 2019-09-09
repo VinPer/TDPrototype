@@ -47,8 +47,6 @@ public abstract class SkillTargetted : SkillBase
         CapsuleCollider capsule = transform.GetComponent<CapsuleCollider>();
         Vector3 top = new Vector3(transform.position.x, transform.position.y + capsule.height / 2, transform.position.z);
         Vector3 bottom = new Vector3(transform.position.x, transform.position.y - capsule.height / 2, transform.position.z);
-        Debug.Log(top.y);
-        Debug.Log(bottom.y);
         Collider[] colliders = Physics.OverlapCapsule(top, bottom, capsule.radius);
         foreach (Collider collider in colliders)
         {

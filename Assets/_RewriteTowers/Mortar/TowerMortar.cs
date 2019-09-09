@@ -10,9 +10,9 @@ public class TowerMortar : TowerProjectile
     protected override void Start()
     {
         // initialize scale of firingArea in function of explosion radius to display the area it'll affect
-        firingArea.localScale = new Vector3(explosionRadius * 4, 1f, explosionRadius * 4);
+        firingArea.localScale = new Vector3(explosionRadius * 4, 0.1f, explosionRadius * 4);
     }
-    
+
     public void SetArea()
     {
         // allows player to select where tower will fire
@@ -58,18 +58,40 @@ public class TowerMortar : TowerProjectile
         }
     }
 
-    // checks if there's collision with the ground within an appropriate range to allow for a valid firing area
-    private bool IsValidArea()
+    protected override void Shoot()
     {
-        //Collider[] colliders = Physics.OverlapSphere(firingArea.position, explosionRadius / 4);
-        //foreach (Collider collider in colliders)
-        //{
-        //    if (collider.tag == "Ground")
-        //    {
-        //        return true;
-        //    }
-        //}
-        //return false;
-        return true;
+        for (int i = 0; i < bullets.Count; i++)
+        {
+            if (!bullets[i].activeInHierarchy)
+            {
+                bullets[i].transform.position = firePoint.position;
+                bullets[i].transform.rotation = firePoint.rotation;
+                bullets[i].SetActive(true);
+                bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
+                bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
+                bullets[i].GetComponent<ProjectileMortar>().CalculateArc();
+                if (GetComponent<AudioSource>())
+                    GetComponent<AudioSource>().Play();
+                break;
+            }
+        }
+    }
+
+    // checks if there's collision with the ground within an appropriate range to allow for a valid firing area
+    protected bool IsValidArea()
+    {
+        //Collider[] colliders = Physics.OverlapCapsule(transform.position, transform.GetComponent<CapsuleCollider>().height);
+        CapsuleCollider capsule = firingArea.GetComponent<CapsuleCollider>();
+        Vector3 top = new Vector3(firingArea.position.x, firingArea.position.y + capsule.height / 2, firingArea.position.z);
+        Vector3 bottom = new Vector3(firingArea.position.x, firingArea.position.y - capsule.height / 2, firingArea.position.z);
+        Collider[] colliders = Physics.OverlapCapsule(top, bottom, capsule.radius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Ground")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
