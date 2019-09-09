@@ -87,7 +87,7 @@ public class TowerMortar : TowerProjectile
         Collider[] colliders = Physics.OverlapCapsule(top, bottom, capsule.radius);
         foreach (Collider collider in colliders)
         {
-            if (collider.tag == "Ground")
+            if (collider.CompareTag("Ground"))
             {
                 return true;
             }

@@ -102,8 +102,7 @@ MonoBehaviour:
   seeking: 0
   explosionRadius: 0
   durability: 1
-  impactEffect: {fileID: 6452593582639930427, guid: db3b6ace8b4bcf84cba927f0bc2b47a3,
-    type: 3}
+  impactEffect: {fileID: 100014, guid: a57a6829db3568c4d9bdc37e9e63c017, type: 3}
   decayTimer: 1
 --- !u!135 &6232384731935394705
 SphereCollider:
@@ -116,7 +115,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.65
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5214888205595875388
 Rigidbody:

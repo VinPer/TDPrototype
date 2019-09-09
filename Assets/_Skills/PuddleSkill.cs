@@ -30,7 +30,7 @@ public class PuddleSkill : Skill
             Collider[] colliders = Physics.OverlapSphere(transform.position, 2.5f);
             foreach(Collider col in colliders)
             {
-                if(col.tag == enemyTag)
+                if(col.CompareTag(enemyTag))
                 {
                     Enemy e = col.GetComponent<Enemy>();
                     e.ActivateDebuff(debuffIntensity, debuffDuration, debuffType);

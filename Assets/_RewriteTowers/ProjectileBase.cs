@@ -80,7 +80,7 @@ public class ProjectileBase : MonoBehaviour
     protected virtual void Hit(Transform hitPart)
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, hitPart.position, hitPart.rotation);
-        Destroy(effectIns, 1.5f);
+        //Destroy(effectIns, 1.5f);
 
         EnemyBase enemy = hitPart.GetComponent<EnemyBase>();
         if (enemy == null)
@@ -127,7 +127,7 @@ public class ProjectileBase : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders)
         {
-            if (collider.tag == "Enemy")
+            if (collider.CompareTag("Enemy"))
             {
                 Damage(collider.transform);
             }
@@ -205,9 +205,6 @@ public class ProjectileBase : MonoBehaviour
     {
         if (col.tag != "BlackHole")
         {
-            //if (col.tag == "Enemy")
-                //target = col.transform;
-
             Hit(col.transform);
         }
     }
