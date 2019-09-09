@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class TowerBase : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public abstract class TowerBase : MonoBehaviour
     protected float rangeBoost = 1f;
     protected float rateBoost = 1f;
     protected float damageBoost = 1f;
-
+    
     //public TowerModel model;s
 
     protected virtual void Awake()
@@ -100,6 +101,6 @@ public abstract class TowerBase : MonoBehaviour
     }
     
     protected abstract void UpgradeStatus();
-
+    
     //public abstract void BuffTower();
 }

@@ -279,5 +279,4 @@ public class TowerProjectile : TowerBase
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
-
 }

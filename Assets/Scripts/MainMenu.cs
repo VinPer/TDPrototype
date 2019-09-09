@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public string levelToLoad = "MainLevel";
+    public string upgradeScene = "ShopTest";
 
     public SceneFader sceneFader;
 
@@ -16,5 +17,10 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Exiting");
         Application.Quit();
+    }
+    public void Upgrades()
+    {
+        Debug.Log("Upgrades");
+        sceneFader.FadeTo(upgradeScene);
     }
 }
