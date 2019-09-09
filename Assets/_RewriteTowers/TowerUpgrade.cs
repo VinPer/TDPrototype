@@ -129,7 +129,7 @@ public class TowerUpgrade : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        if (!instance)
+        if (instance == null)
         {
             instance = this;
         }
