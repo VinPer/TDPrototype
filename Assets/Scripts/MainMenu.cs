@@ -8,10 +8,13 @@ public class MainMenu : MonoBehaviour
     public SceneFader sceneFader;
     [SerializeField]
     private string nextSceneName;
+    [SerializeField]
     private int nextLevelIndex;
+
     public void Play()
     {
         sceneFader.FadeTo(levelToLoad);
+        Debug.Log("popopopopo");
     }
 
     public void Quit()

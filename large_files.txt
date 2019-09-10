@@ -1,0 +1,12 @@
+40863011 Assets/Scenes/big spiral map.unity
+29031347 Assets/Scenes/LevelT.unity
+19231481 Build/WebGLTeste.wasm.code.unityweb
+1480217 Assets/Imports/ScifiPack/Scenes/Demo_1.unity
+1137493 Build/WebGLTeste.wasm.framework.unityweb
+567091610 Assets/Imports.rar
+292243003 Builds.rar
+40863011 Assets/Scenes/big spiral map.unity
+29031347 Assets/Scenes/LevelT.unity
+19231481 Build/WebGLTeste.wasm.code.unityweb
+1480217 Assets/Imports/ScifiPack/Scenes/Demo_1.unity
+1137493 Build/WebGLTeste.wasm.framework.unityweb
