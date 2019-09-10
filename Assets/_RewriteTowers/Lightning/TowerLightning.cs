@@ -10,6 +10,7 @@ public class TowerLightning : TowerNonProjectile
 
     public GameObject lightning;
     public Transform firePoint;
+    public GameObject hitEffect;
 
     private List<GameObject> enemies;
     private int targettingStyle;
@@ -101,6 +102,9 @@ public class TowerLightning : TowerNonProjectile
             if (target != null)
             {
                 Damage(target, currentReference);
+                //Assuming self deleting effect!
+                Instantiate(hitEffect,target.position, target.rotation, transform);
+                
                 // uses the selected enemy as the point of reference to create a LineRenderer between enemies
                 currentReference = target;
                 GetComponent<AudioSource>().Play();

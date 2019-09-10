@@ -47,7 +47,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
   seeking: 0
   explosionRadius: 1
   durability: 1
-  impactEffect: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9,
+  impactEffect: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0,
     type: 3}
   decayTimer: 1
 --- !u!135 &6232384731935394705

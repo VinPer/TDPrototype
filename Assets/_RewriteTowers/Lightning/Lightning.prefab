@@ -138,11 +138,14 @@ MonoBehaviour:
   damage: 5
   penetration: 0
   debuffIntensity: 0
+  intensityUpgrade: 5
   debuffDuration: 0
+  durationUpgrade: 1
   maxTargets: 3
   lightning: {fileID: 5604451113781230812, guid: df24cafd659b023489318aed923c3a29,
     type: 3}
   firePoint: {fileID: 3907978033142513034}
+  hitEffect: {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
   enemyTag: Enemy
 --- !u!82 &6612357836489831588
 AudioSource:

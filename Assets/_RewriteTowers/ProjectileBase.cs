@@ -79,7 +79,8 @@ public class ProjectileBase : MonoBehaviour
 
     protected virtual void Hit(Transform hitPart)
     {
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, hitPart.position, hitPart.rotation);
+        //Assumes self destroying Impact Effect
+        GameObject effectIns = Instantiate(impactEffect, hitPart.position, hitPart.rotation);
         //Destroy(effectIns, 1.5f);
 
         EnemyBase enemy = hitPart.GetComponent<EnemyBase>();
