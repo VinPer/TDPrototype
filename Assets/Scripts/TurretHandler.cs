@@ -10,7 +10,7 @@ public class TurretHandler : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        if (instance)
+        if (instance != null)
         {
             Destroy(instance.gameObject);
         }
@@ -19,7 +19,9 @@ public class TurretHandler : MonoBehaviour
 
     // Lists for the turrets that are available and selected
     public List<TurretBlueprint> allTurrets;
+    private List<TurretBlueprint> unlockedTurrets;
     public static List<TurretBlueprint> selectedTurrets;
+    public List<string> turretsToBuy = new List<string> {"Mortar", "Shotgun", "Gatling", "Buffer", "Tesla", "Flamethrower", "Freezer", "Spitter" };
     public int max = 5;
 
     // uhh ignore this
@@ -38,22 +40,48 @@ public class TurretHandler : MonoBehaviour
         active = true;
         // Instantiate the selected turrets list
         selectedTurrets = new List<TurretBlueprint>();
-
+        unlockedTurrets = new List<TurretBlueprint>();
         // Set the cost display for all available turrets
-        for(int i = 0; i < allTurrets.Count; i++)
+        for (int i = 0; i < allTurrets.Count; i++)
         {
-            allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
-            allTurretsGUI.transform.GetChild(i)
-                .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
+            if(!string.Equals(allTurrets[i].name,"Bomb"))
+            if (IsUnlock(allTurrets[i].name))
+            {
+                allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
+                allTurretsGUI.transform.GetChild(i)
+                    .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
+                allTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
+                unlockedTurrets.Add(allTurrets[i]);
+            }
+
         }
 
         // Add the first (max) turrets to the selected turrets list
-        for(int i = 0; i < max; i++)
+        for (int i = 0; i < max; i++)
         {
-            selectedTurrets.Add(allTurrets[i]);
+            selectedTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
+            if (unlockedTurrets.Contains(allTurrets[i]))
+            {
+                selectedTurrets.Add(allTurrets[i]);
+            }
+
         }
 
         UpdateSelectedTurrets();
+    }
+
+    public bool IsUnlock(string name)
+    {
+        bool res = false;
+        if (turretsToBuy.Contains(name))
+        {
+            foreach (string item in UpgradeHandler.data.shopUpgrades.Keys)
+            {
+                if (UpgradeHandler.data.shopUpgrades[item].ContainsKey(name) && UpgradeHandler.data.shopUpgrades[item][name]) res = true;
+            }
+        }
+        else res = true;
+        return res;
     }
 
     // Add a turret to the selected turrets list when it is clicked from the available list
