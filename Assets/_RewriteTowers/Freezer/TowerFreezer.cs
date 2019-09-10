@@ -191,14 +191,14 @@ public class TowerFreezer : TowerNonProjectile
     protected override void UpgradeStatus()
     {
         string _damage = "damage";
-        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
         {
             damage += damageBoost;
             upgrades[_damage]++;
         }
 
         string _chargeTime = "chargeTime";
-        if (upgrades[_chargeTime] < TowerUpgrade.instance.towers[gameObject.name][_chargeTime])
+        if (upgrades[_chargeTime] < UpgradeHandler.data.towerUpgrades[gameObject.name][_chargeTime])
         {
             reloadTime -= .5f;
             upgrades[_chargeTime]++;

@@ -250,21 +250,21 @@ public class TowerLaser : TowerNonProjectile
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
         {
             range += rangeUpgrade;
             upgrades[_range]++;
         }
 
         string _damage = "damage";
-        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
         {
             damage += damageBoost;
             upgrades[_damage]++;
         }
 
         string _multiplierSpeed = "multiplierSpeed";
-        if (upgrades[_multiplierSpeed] < TowerUpgrade.instance.towers[gameObject.name][_multiplierSpeed])
+        if (upgrades[_multiplierSpeed] < UpgradeHandler.data.towerUpgrades[gameObject.name][_multiplierSpeed])
         {
             range += rangeUpgrade;
             upgrades[_multiplierSpeed]++;

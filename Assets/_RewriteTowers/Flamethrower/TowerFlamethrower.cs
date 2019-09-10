@@ -99,21 +99,21 @@ public class TowerFlamethrower : TowerNonProjectile
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
         {
             range += rangeUpgrade;
             upgrades[_range]++;
         }
 
         string _intensity = "debuffIntensity";
-        if (upgrades[_intensity] < TowerUpgrade.instance.towers[gameObject.name][_intensity])
+        if (upgrades[_intensity] < UpgradeHandler.data.towerUpgrades[gameObject.name][_intensity])
         {
             debuffIntensity += intensityUpgrade;
             upgrades[_intensity]++;
         }
 
         string _duration = "debuffDuration";
-        if (upgrades[_duration] < TowerUpgrade.instance.towers[gameObject.name][_duration])
+        if (upgrades[_duration] < UpgradeHandler.data.towerUpgrades[gameObject.name][_duration])
         {
             debuffDuration += durationUpgrade;
             upgrades[_duration]++;

@@ -89,7 +89,7 @@ public class UpgradeManager : MonoBehaviour
         turretSelected = allTurrets[i];
         turretImage.sprite = turretSelected.sprite;
         turretName.text = turretSelected.name;
-        Dictionary<string, int> upgrades = TowerUpgrade.instance.towers[turretSelected.name];
+        Dictionary<string, int> upgrades = UpgradeHandler.data.towerUpgrades[turretSelected.name];
 
         foreach (string item in status.Keys)
         {
@@ -105,7 +105,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void UpgradeStatus(string _status)
     {
-        Dictionary<string, int> upgrades = TowerUpgrade.instance.towers[turretSelected.name];
+        Dictionary<string, int> upgrades = UpgradeHandler.data.towerUpgrades[turretSelected.name];
 
         if(upgrades[_status] < 3)
         {

@@ -34,10 +34,11 @@ public class TowerRadar : TowerBase
 
     protected override void UpgradeStatus()
     {
-        if (upgrades["range"] < TowerUpgrade.instance.towers[gameObject.name]["range"])
+        if (upgrades["range"] < UpgradeHandler.data.towerUpgrades[gameObject.name]["range"])
         {
             range += rangeUpgrade;
             upgrades["range"]++;
+            Debug.Log(range);
         }
     }
 

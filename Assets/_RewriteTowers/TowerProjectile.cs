@@ -284,14 +284,14 @@ public class TowerProjectile : TowerBase
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
         {
             range += rangeUpgrade;
             upgrades[_range]++;
         }
 
         string _damage = "damage";
-        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
         {
             damageBoost += damageUpgrade;
             upgrades[_damage]++;
@@ -300,14 +300,14 @@ public class TowerProjectile : TowerBase
         {
             case "Basic":
                 string _piercing = "piercing";
-                if (upgrades[_piercing] < TowerUpgrade.instance.towers[gameObject.name][_piercing])
+                if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[gameObject.name][_piercing])
                 {
                      penetrationBoost += .1f;
                     upgrades[_piercing]++;
                 }
 
                 string _penetration = "penetration";
-                if (upgrades[_penetration] < TowerUpgrade.instance.towers[gameObject.name][_penetration])
+                if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[gameObject.name][_penetration])
                 {
                     projectileDurability += 1;
                     upgrades[_penetration]++;
