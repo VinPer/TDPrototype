@@ -113,6 +113,7 @@ public class UpgradeManager : MonoBehaviour
             upgradeStatus = status[_status].GetComponent<UpgradeStatus>();
             upgradeStatus.UpdateUpgradeStatus(upgrades[_status]);
             Debug.Log(turretSelected.name + ": " + _status + ": " + upgrades[_status]);
+            UpgradeHandler.instance.SaveData();
         }
     }
 

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static bool GameIsOver;
 
+    public string levelNumber;
+
     public GameObject gameOverUI;
     public GameObject debugUI;
     public GameObject turretUI;
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         GameIsOver = true;
+        UpgradeHandler.instance.SaveData();
         gameOverUI.SetActive(true);
         AudioManager.instance.Play("Defeat");
         AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
@@ -68,6 +71,8 @@ public class GameManager : MonoBehaviour
     public void Winning()
     {
         GameIsOver = true;
+        GetComponent<Winning>().Win();
+        UpgradeHandler.instance.SaveData();
         winUI.SetActive(true);
         AudioManager.instance.Play("Victory");
         AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
