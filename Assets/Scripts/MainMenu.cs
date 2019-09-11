@@ -35,4 +35,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Upgrades");
         sceneFader.FadeTo(shopScene);
     }
+    public void ResetSave()
+    {
+        UpgradeHandler.data.Reset();
+        UpgradeHandler.instance.SaveData();
+    }
 }

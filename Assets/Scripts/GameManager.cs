@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         GetComponent<Winning>().Win();
+        UpgradeHandler.data.levelsClear[levelNumber] = PlayerStats.Stars;
         UpgradeHandler.instance.SaveData();
         winUI.SetActive(true);
         AudioManager.instance.Play("Victory");
