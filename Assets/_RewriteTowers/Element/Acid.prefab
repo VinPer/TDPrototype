@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f063792452d057479744edf14d8bd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 20
   seesInvisible: 0
   rangeUpgrade: 2
   numberOfUpgrades: 0
@@ -101,4 +101,6 @@ MonoBehaviour:
   damage: 0
   penetration: 0
   debuffIntensity: 15
-  debuffDuration: 5
+  intensityUpgrade: 5
+  debuffDuration: 6
+  durationUpgrade: 1

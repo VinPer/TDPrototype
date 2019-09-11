@@ -100,5 +100,7 @@ MonoBehaviour:
   triggerRate: 0
   damage: 0
   penetration: 0
-  debuffIntensity: 45
-  debuffDuration: 5
+  debuffIntensity: 40
+  intensityUpgrade: 5
+  debuffDuration: 3
+  durationUpgrade: 1
