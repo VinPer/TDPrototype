@@ -22,7 +22,7 @@ public class TurretHandler : MonoBehaviour
     private List<TurretBlueprint> unlockedTurrets;
     public static List<TurretBlueprint> selectedTurrets;
     public List<string> turretsToBuy = new List<string> {"Mortar", "Shotgun", "Gatling", "Buffer", "Tesla", "Flamethrower", "Freezer", "Spitter" };
-    public int max = 5;
+    public int max = 4;
 
     // uhh ignore this
     public List<TurretBlueprint> defaultSelected;
@@ -38,6 +38,10 @@ public class TurretHandler : MonoBehaviour
     void Start()
     {
         active = true;
+        //Upgrade max number of towers
+        if (UpgradeHandler.data.shopUpgrades["Block1"]["MoreTowers"]) max = 5;
+        if (UpgradeHandler.data.shopUpgrades["Block2"]["MoreTowersPlus"]) max = 6;
+
         // Instantiate the selected turrets list
         selectedTurrets = new List<TurretBlueprint>();
         unlockedTurrets = new List<TurretBlueprint>();
