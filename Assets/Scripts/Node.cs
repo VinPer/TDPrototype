@@ -76,7 +76,7 @@ public class Node : MonoBehaviour
     private void OnMouseDownExecute()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-
+ 
         if (turret != null)
         {
             buildManager.SelectNode(this);
