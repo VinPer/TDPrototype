@@ -243,7 +243,7 @@ public class TowerProjectile : TowerBase
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, rotation.z);
+        partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0);
     }
 
     protected virtual void Shoot()

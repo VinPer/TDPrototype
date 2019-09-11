@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7032998276832883183}
   - component: {fileID: 7145911482001321989}
   - component: {fileID: 7158174894109557447}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Flames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1935,7 +1935,7 @@ ParticleSystem:
         m_RotationOrder: 4
     inWorldSpace: 1
   InheritVelocityModule:
-    enabled: 1
+    enabled: 0
     m_Mode: 1
     m_Curve:
       serializedVersion: 2
@@ -3338,7 +3338,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4530,7 +4530,7 @@ GameObject:
   - component: {fileID: 7032998273375996179}
   - component: {fileID: 7145911482033013565}
   - component: {fileID: 7158174887274785431}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireEmbers
   m_TagString: Untagged
   m_Icon: {fileID: 0}

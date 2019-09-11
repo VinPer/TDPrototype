@@ -56,8 +56,7 @@ MonoBehaviour:
   seeking: 1
   explosionRadius: 5
   durability: 100
-  impactEffect: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
-    type: 3}
+  impactEffect: {fileID: 100008, guid: 1ae4db7b36e51124b89d2b32303a7a0b, type: 3}
   decayTimer: 5
 --- !u!135 &3698602533075816543
 SphereCollider:
