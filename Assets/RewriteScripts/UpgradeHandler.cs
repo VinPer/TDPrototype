@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Newtonsoft.Json;
 
 public class UpgradeHandler : MonoBehaviour
 {
@@ -21,14 +22,16 @@ public class UpgradeHandler : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void Start()
     {
-        //if (!LoadData())
-        if(true)
+        if (!LoadData())
+        //if(true)
         {
             CreateDefaultData();
             SaveData();
         }
+        else Debug.Log("Loaded");
 
         //Debug.Log(data.towerUpgrades["Radar"]["range"]);
     }
@@ -41,7 +44,7 @@ public class UpgradeHandler : MonoBehaviour
 
     // note about saving/loading: need to fix as unity's JsonUtility does not parse dictionaries properly
 
-    private bool SaveData()
+    public bool SaveData()
     {
         try
         {
@@ -49,7 +52,7 @@ public class UpgradeHandler : MonoBehaviour
             string path = Application.persistentDataPath + "/PlayerData.td";
             FileStream stream = new FileStream(path, FileMode.Create);
 
-            string json = JsonUtility.ToJson(data);
+            string json = JsonConvert.SerializeObject(data);
             StringContainer strCont = new StringContainer();
             strCont.json = json;
             formatter.Serialize(stream, strCont);
@@ -72,7 +75,7 @@ public class UpgradeHandler : MonoBehaviour
             FileStream stream = new FileStream(path, FileMode.Open);
 
             StringContainer strCont = (StringContainer) formatter.Deserialize(stream);
-            data = JsonUtility.FromJson<PlayerData>(strCont.json);
+            data = JsonConvert.DeserializeObject<PlayerData>(strCont.json);
             stream.Close();
             return true;
         }

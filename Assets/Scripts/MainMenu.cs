@@ -9,6 +9,12 @@ public class MainMenu : MonoBehaviour
 
     public SceneFader sceneFader;
 
+    private void Start()
+    {
+        //UpgradeHandler.instance.SaveData();
+    }
+
+
     public void Play()
     {
         sceneFader.FadeTo(levelToLoad);
