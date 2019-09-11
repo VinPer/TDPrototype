@@ -70,6 +70,11 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
+        OnMouseDownExecute();
+    }
+
+    private void OnMouseDownExecute()
+    {
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
         if (turret != null)
@@ -83,6 +88,11 @@ public class Node : MonoBehaviour
 
         // buildManager.BuildTurretOn(this);
         BuildTurret(buildManager.GetTurretToBuild());
+    }
+
+    public void CallOnMouseDown()
+    {
+        OnMouseDownExecute();
     }
 
     public void SelectNode()
