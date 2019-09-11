@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &837246666861044526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7899305379034069375}
+  - component: {fileID: 3330027867954166170}
+  - component: {fileID: 3020940492236447365}
+  - component: {fileID: 1482301581865422270}
+  m_Layer: 14
+  m_Name: Rocket18-Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7899305379034069375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837246666861044526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.13131148, y: -0.1652466, z: -4.698964}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8194829394452366280}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3330027867954166170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837246666861044526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  penetration: 0
+  debuffElement: 0
+  debuffIntensity: 1
+  debuffDuration: 5
+  speed: 100
+  acceleration: 0
+  seeking: 0
+  explosionRadius: 0
+  durability: 1
+  impactEffect: {fileID: 100014, guid: a57a6829db3568c4d9bdc37e9e63c017, type: 3}
+  decayTimer: 1
+--- !u!136 &3020940492236447365
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837246666861044526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.54
+  m_Height: 2.25
+  m_Direction: 2
+  m_Center: {x: -0.000000745058, y: 0.13, z: 0.00000029802322}
+--- !u!54 &1482301581865422270
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837246666861044526}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1001 &8190206779191609256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7899305379034069375}
+    m_Modifications:
+    - target: {fileID: 1605608762714494, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_Name
+      value: Rocket18_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605608762714494, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1384139
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.70127064
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.090654224
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.09065396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7012726
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 75.268005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 89.999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 89.999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.20000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.50000024
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8882046023656756438, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+    - {fileID: 1158337382536540210, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+    - {fileID: 7546536847296319168, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 8bbe2cd4a6ee1ad418abd23e258489a3, type: 3}
+--- !u!4 &8194829394452366280 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4666630243419232, guid: 8bbe2cd4a6ee1ad418abd23e258489a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8190206779191609256}
+  m_PrefabAsset: {fileID: 0}

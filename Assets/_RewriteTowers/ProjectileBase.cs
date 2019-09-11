@@ -68,11 +68,8 @@ public class ProjectileBase : MonoBehaviour
                 return;
             }
             direction = target.position - transform.position;
-        }
-
-        if(target != null)
             transform.LookAt(target);
-
+        }
 
         float distanceThisFrame = speed * Time.deltaTime;
 
