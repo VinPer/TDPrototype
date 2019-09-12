@@ -98,9 +98,15 @@ public class TowerLaser : TowerNonProjectile
                 EnemyBase enemy = e.GetComponent<EnemyBase>();
                 if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
-                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() >= nextWaypoint)
+                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() > nextWaypoint)
                     {
                         nextWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
+                        target = enemy.transform;
+                        targetEnemy = enemy;
+                        shortestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                    }
+                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() == nextWaypoint)
+                    {
                         if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint < shortestDist)
                         {
                             target = enemy.transform;
@@ -134,10 +140,16 @@ public class TowerLaser : TowerNonProjectile
                     float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
                     if (distToEnemy <= range)
                     {
-                        if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
+                        if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() < lastWaypoint)
                         {
                             lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
-                            if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                            target = enemy.transform;
+                            targetEnemy = enemy;
+                            longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                        }
+                        if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() == lastWaypoint)
+                        {
+                            if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint < longestDist)
                             {
                                 target = enemy.transform;
                                 targetEnemy = enemy;

@@ -21,7 +21,7 @@ public class Overheat : TowerProjectile
     }
     protected override void Update()
     {
-        if (possibleTargets.Count == 0) return;
+        //if (possibleTargets.Count == 0) return;
         if (fireCountdown <= 0f)
         {
             Shoot();
@@ -56,8 +56,8 @@ public class Overheat : TowerProjectile
             }
         }
         rotationPart.Rotate(new Vector3(0, 30, 0));
-        if (GetComponent<AudioSource>())
-            GetComponent<AudioSource>().Play();
+        if (GetComponentInParent<AudioSource>())
+            GetComponentInParent<AudioSource>().Play();
         List<GameObject> backup = new List<GameObject>(possibleTargets);
         foreach (GameObject item in backup)
         {

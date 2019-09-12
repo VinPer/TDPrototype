@@ -4,44 +4,29 @@ using UnityEngine;
 
 public class TowerElement : TowerNonProjectile
 {
-    private List<GameObject> possibleTargets;
-
     private void Start()
     {
-        possibleTargets = new List<GameObject>();
-        GetComponent<SphereCollider>().radius = range;
-        InvokeRepeating("Debuff", 0f, 0.5f);
+        GetComponent<SphereCollider>().radius = range/3;
     }
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.GetComponent<EnemyBase>() && !possibleTargets.Contains(col.gameObject))
+        EnemyBase enemy = col.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            possibleTargets.Add(col.gameObject);
+            col.GetComponent<EnemyBase>().ActivateDebuff(debuffIntensity, Mathf.Infinity, element);
+            print("debuff enter");
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (possibleTargets.Contains(col.gameObject))
-            possibleTargets.Remove(col.gameObject);
-    }
-
-    void Debuff()
-    {
-        List<GameObject> backup = new List<GameObject>(possibleTargets);
-        print(possibleTargets.Count);
-        foreach (GameObject e in backup)
+        print("hi");
+        EnemyBase enemy = col.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            EnemyBase enemy = e.GetComponent<EnemyBase>();
-            if(seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
-            {
-
-                if (enemy.element != element)
-                {
-                    enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
-                }
-            }
+            enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
+            print("debuff exit");
         }
     }
     
@@ -68,5 +53,10 @@ public class TowerElement : TowerNonProjectile
             debuffDuration += durationUpgrade;
             upgrades[_duration]++;
         }
+    }
+    protected void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

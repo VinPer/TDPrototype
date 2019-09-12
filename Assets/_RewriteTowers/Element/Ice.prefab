@@ -138,7 +138,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3.333333
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8884705446080424815
 MonoBehaviour:
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f063792452d057479744edf14d8bd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  range: 10
   seesInvisible: 0
   rangeUpgrade: 2
   numberOfUpgrades: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   triggerRate: 0
   damage: 0
   penetration: 0
-  debuffIntensity: 45
+  debuffIntensity: 30
   intensityUpgrade: 5
   debuffDuration: 5
   durationUpgrade: 1
