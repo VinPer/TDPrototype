@@ -24343,6 +24343,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: buildEffect
+      value: 
+      objectReference: {fileID: 100000, guid: 7bb39187c48be5f40becec9725d9536c, type: 3}
+    - target: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: sellEffect
+      value: 
+      objectReference: {fileID: 100000, guid: d078fc059d7c6b14b8c40a37203aad33, type: 3}
     - target: {fileID: 1276107921016421597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: startMoney

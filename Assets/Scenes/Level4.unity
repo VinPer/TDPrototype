@@ -17282,6 +17282,11 @@ PrefabInstance:
       propertyPath: turretMenu
       value: 
       objectReference: {fileID: 1934084311}
+    - target: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: buildEffect
+      value: 
+      objectReference: {fileID: 100000, guid: 7bb39187c48be5f40becec9725d9536c, type: 3}
     - target: {fileID: 1276107921016421597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: moneyDisplayStart

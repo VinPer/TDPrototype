@@ -676,6 +676,11 @@ PrefabInstance:
       propertyPath: buildEffect
       value: 
       objectReference: {fileID: 100000, guid: 7bb39187c48be5f40becec9725d9536c, type: 3}
+    - target: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: sellEffect
+      value: 
+      objectReference: {fileID: 100000, guid: d078fc059d7c6b14b8c40a37203aad33, type: 3}
     - target: {fileID: 1276107921016421597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: livesDisplayStart
@@ -5946,6 +5951,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cac38f7990a60149ad12fa921063724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &807622771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
+    type: 3}
+  m_PrefabInstance: {fileID: 79632104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807622768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1f45c96f669d4d90390a00c72a991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &822147181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10237,6 +10254,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391483531, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 807622771}
+    - target: {fileID: 1391483531, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 396638043, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 807622771}
+    - target: {fileID: 396638043, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Sell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
