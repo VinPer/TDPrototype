@@ -431,8 +431,8 @@ GameObject:
   - component: {fileID: 2318900}
   - component: {fileID: 9544402}
   - component: {fileID: 6534552}
-  - component: {fileID: 4871097474895528398}
   - component: {fileID: 3391890428436286783}
+  - component: {fileID: 9161470399495844193}
   m_Layer: 13
   m_Name: Rocket
   m_TagString: Untagged
@@ -452,6 +452,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 434064}
+  - {fileID: 5343234651518487321}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -532,40 +533,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.764595, y: 0.8373253, z: 2.764596}
   m_Center: {x: -0.0000005364418, y: 0.41866222, z: 0.0000013709068}
---- !u!114 &4871097474895528398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 20
-  seesInvisible: 0
-  rangeUpgrade: 2
-  numberOfUpgrades: 0
-  maxUpgrade: 3
-  turretMaximized: 0
-  element: 0
-  fireRate: 0.4
-  partToRotate: {fileID: 434064}
-  turnSpeed: 10
-  firePoint: {fileID: 7299632427139851549}
-  poolAmount: 2
-  bulletPrefab: {fileID: 169384279486500228, guid: 4d67ee03ca6fbc9479a896cf302a8117,
-    type: 3}
-  damageUpgrade: 0.1
-  fireRateUpgrade: 0.1
-  targetStyles:
-  - First
-  - Last
-  - Strongest
-  - Weakest
-  targetSelected: 
 --- !u!82 &3391890428436286783
 AudioSource:
   m_ObjectHideFlags: 0
@@ -662,6 +629,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &9161470399495844193
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174414}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5104661713612967759
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,3 +675,84 @@ Transform:
   m_Father: {fileID: 484214}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5160604112925415497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5343234651518487321}
+  - component: {fileID: 3579317943777721211}
+  - component: {fileID: 2351607057987917781}
+  m_Layer: 2
+  m_Name: Range
+  m_TagString: Range
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5343234651518487321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160604112925415497}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 422910}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3579317943777721211
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160604112925415497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2351607057987917781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160604112925415497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 20
+  seesInvisible: 0
+  rangeUpgrade: 2
+  numberOfUpgrades: 0
+  maxUpgrade: 3
+  turretMaximized: 0
+  element: 0
+  fireRate: 0.4
+  partToRotate: {fileID: 434064}
+  turnSpeed: 10
+  firePoint: {fileID: 7299632427139851549}
+  poolAmount: 2
+  bulletPrefab: {fileID: 169384279486500228, guid: 4d67ee03ca6fbc9479a896cf302a8117,
+    type: 3}
+  penetrationBoost: 0
+  projectileDurability: 1
+  damageUpgrade: 0.1
+  fireRateUpgrade: 0.1
+  targetStyles:
+  - First
+  - Last
+  - Strongest
+  - Weakest
+  targetSelected: 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6550614}
   m_Layer: 13
   m_Name: Mortar_Turret
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2302358}
   m_Layer: 13
   m_Name: Mortar_Up_Gun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,11 +182,11 @@ GameObject:
   - component: {fileID: 3384004}
   - component: {fileID: 2324556}
   - component: {fileID: 9576110}
-  - component: {fileID: 6875089014858047891}
   - component: {fileID: 6500326}
+  - component: {fileID: 7516715081359769912}
   m_Layer: 13
   m_Name: Mortar
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +206,7 @@ Transform:
   - {fileID: 424940}
   - {fileID: 2721182675877871911}
   - {fileID: 2062060716834877446}
+  - {fileID: 3656539798805132119}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -273,42 +274,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6875089014858047891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1eddcd309ede449885b3a3535a0043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 15
-  seesInvisible: 0
-  rangeUpgrade: 2
-  numberOfUpgrades: 0
-  maxUpgrade: 3
-  turretMaximized: 0
-  element: 0
-  fireRate: 1
-  partToRotate: {fileID: 474202}
-  turnSpeed: 10
-  firePoint: {fileID: 1868700633259152326}
-  poolAmount: 3
-  bulletPrefab: {fileID: 1061678678567061204, guid: 6320ed07610a0594eaa36c95b04d79e2,
-    type: 3}
-  damageUpgrade: 0.1
-  fireRateUpgrade: 0.1
-  targetStyles:
-  - First
-  - Last
-  - Strongest
-  - Weakest
-  targetSelected: 
-  firingArea: {fileID: 2062060716834877446}
-  explosionRadius: 5
 --- !u!65 &6500326
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -322,6 +287,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.466382, y: 0.9213911, z: 2.7931714}
   m_Center: {x: 0.014002562, y: 0.46069515, z: 0.0000011920929}
+--- !u!54 &7516715081359769912
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176338}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &180506
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +317,7 @@ GameObject:
   - component: {fileID: 6593382}
   m_Layer: 13
   m_Name: Mortar
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +409,7 @@ GameObject:
   - component: {fileID: 2348668}
   m_Layer: 13
   m_Name: Mortar_Up_Aim
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,7 +486,7 @@ GameObject:
   - component: {fileID: 2351102}
   m_Layer: 13
   m_Name: Mortar_Up_Armor
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -798,7 +779,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6875089014858047891}
+      - m_Target: {fileID: 82731664753188416}
         m_MethodName: SetArea
         m_Mode: 1
         m_Arguments:
@@ -822,7 +803,7 @@ GameObject:
   - component: {fileID: 1868700633259152326}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -933,6 +914,89 @@ CapsuleCollider:
   m_Height: 1000
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &9113542139747242057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3656539798805132119}
+  - component: {fileID: 6260067631870495381}
+  - component: {fileID: 82731664753188416}
+  m_Layer: 2
+  m_Name: Range
+  m_TagString: Range
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3656539798805132119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113542139747242057}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 458698}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6260067631870495381
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113542139747242057}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &82731664753188416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113542139747242057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1eddcd309ede449885b3a3535a0043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 15
+  seesInvisible: 0
+  rangeUpgrade: 2
+  numberOfUpgrades: 0
+  maxUpgrade: 3
+  turretMaximized: 0
+  element: 0
+  fireRate: 1
+  partToRotate: {fileID: 474202}
+  turnSpeed: 10
+  firePoint: {fileID: 1868700633259152326}
+  poolAmount: 3
+  bulletPrefab: {fileID: 1061678678567061204, guid: 6320ed07610a0594eaa36c95b04d79e2,
+    type: 3}
+  penetrationBoost: 0
+  projectileDurability: 1
+  damageUpgrade: 0.1
+  fireRateUpgrade: 0.1
+  targetStyles:
+  - First
+  - Last
+  - Strongest
+  - Weakest
+  targetSelected: 
+  firingArea: {fileID: 2062060716834877446}
+  explosionRadius: 5
 --- !u!1 &9184348455763619622
 GameObject:
   m_ObjectHideFlags: 0

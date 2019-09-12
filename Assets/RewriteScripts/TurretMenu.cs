@@ -65,6 +65,7 @@ public class TurretMenu : MonoBehaviour
         turretName.text = target.turretBlueprint.name;
         //Debug.Log(target.GetComponentInChildren<TowerBase>().GetComponent<TowerProjectile>().bulletPrefab.GetComponent<ProjectileBase>().damage);
         turretSelected = target.GetComponentInChildren<TowerBase>();
+        if (turretSelected == null) turretSelected = target.transform.Find("Range").GetComponentInChildren<TowerBase>();
         GetComponent<TargetSelectionDropdown>().UpdateDropdown();
         rangeText.text = turretSelected.range.ToString();
         if (turretSelected.turretMaximized)
@@ -80,7 +81,9 @@ public class TurretMenu : MonoBehaviour
         btnUpgradeText.text ="$" + target.turretBlueprint.GetUpgradeCost();
 
         //Element Sprite
-        switch (target.turretBlueprint.prefab.GetComponent<TowerBase>().element)
+        TowerBase tb = target.turretBlueprint.prefab.GetComponent<TowerBase>();
+        if (tb == null) tb = target.turretBlueprint.prefab.GetComponentInChildren<TowerBase>();
+        switch (tb.element)
         {
             case Enums.Element.fire:
                 elementImage.sprite = fire;

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5214888205595875388}
   m_Layer: 14
   m_Name: ProjectileBasic
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 8
   penetration: 0
   debuffElement: 0
   debuffIntensity: 1

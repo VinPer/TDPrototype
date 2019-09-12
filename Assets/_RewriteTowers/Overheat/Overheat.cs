@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class Overheat : TowerProjectile
 {
-    public Transform firePoints;
+    private Transform firePoints;
+    public Transform rotationPart;
     private Transform[] fps = new Transform[6];
 
     protected override void Start()
     {
         targetStyles = null;
+        firePoints = rotationPart.GetChild(0);
         for (int i = 0; i < fps.Length; i++)
         {
             fps[i] = firePoints.GetChild(i).GetComponent<Transform>();
         }
-        base.Start();
+        GetComponent<SphereCollider>().radius = range;
+        possibleTargets = new List<GameObject>();
     }
     protected override void Update()
     {
-        if (target == null) return;
+        if (possibleTargets.Count == 0) return;
         if (fireCountdown <= 0f)
         {
             Shoot();
@@ -27,23 +30,8 @@ public class Overheat : TowerProjectile
 
         fireCountdown -= Time.deltaTime;
     }
-    protected override void UpdateTarget()
-    {
-        target = null;
-        targetEnemy = null;
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
-        {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
-            {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
-                {
-                target = enemy.transform;
-                targetEnemy = enemy.GetComponent<EnemyBase>();
-                }
-            }
-        }
-    }
+    
+
     protected override void Shoot()
     {
         foreach(Transform fp in fps)
@@ -54,11 +42,11 @@ public class Overheat : TowerProjectile
                 {
                     Transform t = bullets[i].transform;
                     ProjectileBase p = bullets[i].GetComponent<ProjectileBase>();
-                    t.position = new Vector3(fp.position.x,target.position.y,fp.position.z);
+                    t.position = new Vector3(fp.position.x,possibleTargets[0].transform.position.y,fp.position.z);
                     t.rotation = fp.rotation;
                     bullets[i].SetActive(true);
                     p.damage *= damageBoost;
-                    p.SetTarget(target);
+                    p.SetTarget(possibleTargets[0].transform);
                     Vector3 dir = fp.GetChild(0).transform.position - t.position;
                     dir.y = 0;
                     p.SetDirection(dir);
@@ -67,8 +55,14 @@ public class Overheat : TowerProjectile
                 }
             }
         }
+        rotationPart.Rotate(new Vector3(0, 30, 0));
         if (GetComponent<AudioSource>())
             GetComponent<AudioSource>().Play();
-
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+        foreach (GameObject item in backup)
+        {
+            if (!item.gameObject.activeSelf)
+                possibleTargets.Remove(item);
+        }
     }
 }

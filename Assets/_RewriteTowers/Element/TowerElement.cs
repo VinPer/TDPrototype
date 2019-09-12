@@ -4,14 +4,34 @@ using UnityEngine;
 
 public class TowerElement : TowerNonProjectile
 {
+    private List<GameObject> possibleTargets;
+
     private void Start()
     {
-        InvokeRepeating("Debuff", 0f, 0.2f);
+        possibleTargets = new List<GameObject>();
+        GetComponent<SphereCollider>().radius = range;
+        InvokeRepeating("Debuff", 0f, 0.5f);
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.GetComponent<EnemyBase>() && !possibleTargets.Contains(col.gameObject))
+        {
+            possibleTargets.Add(col.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (possibleTargets.Contains(col.gameObject))
+            possibleTargets.Remove(col.gameObject);
     }
 
     void Debuff()
     {
-        foreach (GameObject e in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+        print(possibleTargets.Count);
+        foreach (GameObject e in backup)
         {
             EnemyBase enemy = e.GetComponent<EnemyBase>();
             if(seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
@@ -19,12 +39,7 @@ public class TowerElement : TowerNonProjectile
 
                 if (enemy.element != element)
                 {
-                    float distToEnemy = Vector3.Distance(transform.position, e.transform.position);
-                    if (distToEnemy <= range)
-                    {
-                        enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
-
-                    }
+                    enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
                 }
             }
         }
@@ -37,6 +52,7 @@ public class TowerElement : TowerNonProjectile
         {
             range += rangeUpgrade;
             upgrades[_range]++;
+            GetComponent<SphereCollider>().radius = range;
         }
 
         string _intensity = "debuffIntensity";

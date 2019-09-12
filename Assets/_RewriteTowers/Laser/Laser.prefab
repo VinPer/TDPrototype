@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2305912}
   m_Layer: 13
   m_Name: Plasma_Up_Aim
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2381076}
   m_Layer: 13
   m_Name: Plasma_Up_Gun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,12 +167,12 @@ GameObject:
   - component: {fileID: 2301066}
   - component: {fileID: 9525550}
   - component: {fileID: 6579638}
-  - component: {fileID: 7804344676697579092}
   - component: {fileID: 5967300103941238142}
   - component: {fileID: 5205353356554521258}
+  - component: {fileID: 4489344607028087889}
   m_Layer: 13
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,6 +190,7 @@ Transform:
   m_Children:
   - {fileID: 438652}
   - {fileID: 2699453482319547403}
+  - {fileID: 5099681694754953234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -270,44 +271,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7906017, y: 0.81869465, z: 2.790603}
   m_Center: {x: 0, y: 0.40934703, z: 0}
---- !u!114 &7804344676697579092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b3e7029bed7034f92ba3e5dd0a8de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 15
-  seesInvisible: 0
-  rangeUpgrade: 2
-  numberOfUpgrades: 0
-  maxUpgrade: 3
-  turretMaximized: 0
-  element: 0
-  triggerRate: 100
-  damage: 25
-  penetration: 0
-  debuffIntensity: 0
-  debuffDuration: 0
-  lineRenderer: {fileID: 5967300103941238142}
-  impactEffect: {fileID: 5820695504531019553}
-  impactLight: {fileID: 6005442984672213924}
-  targettingStyle: 0
-  firePoint: {fileID: 4048797603864055642}
-  partToRotate: {fileID: 438652}
-  turnSpeed: 10
-  enemyTag: Enemy
-  targetStyles:
-  - First
-  - Last
-  - Strongest
-  - Weakest
-  targetSelected: 
 --- !u!120 &5967300103941238142
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -499,6 +462,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &4489344607028087889
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122216}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &138512
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +492,7 @@ GameObject:
   - component: {fileID: 6512492}
   m_Layer: 13
   m_Name: Plasma
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,7 +586,7 @@ GameObject:
   - component: {fileID: 6534174}
   m_Layer: 13
   m_Name: Plasma_Turret
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -699,7 +678,7 @@ GameObject:
   - component: {fileID: 2326592}
   m_Layer: 13
   m_Name: Plasma_Up_Armor
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5461,6 +5440,92 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &4795418344377957344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5099681694754953234}
+  - component: {fileID: 7908428260255388425}
+  - component: {fileID: 8639927294132673649}
+  m_Layer: 2
+  m_Name: Range
+  m_TagString: Range
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5099681694754953234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795418344377957344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445008}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7908428260255388425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795418344377957344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b3e7029bed7034f92ba3e5dd0a8de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 15
+  seesInvisible: 0
+  rangeUpgrade: 2
+  numberOfUpgrades: 0
+  maxUpgrade: 3
+  turretMaximized: 0
+  element: 0
+  triggerRate: 100
+  damage: 25
+  penetration: 0
+  debuffIntensity: 0
+  intensityUpgrade: 5
+  debuffDuration: 0
+  durationUpgrade: 1
+  multiplierSpeed: 1.01
+  lineRenderer: {fileID: 5967300103941238142}
+  impactEffect: {fileID: 5820695504531019553}
+  impactLight: {fileID: 6005442984672213924}
+  targettingStyle: 0
+  firePoint: {fileID: 4048797603864055642}
+  partToRotate: {fileID: 438652}
+  turnSpeed: 10
+  enemyTag: Enemy
+  targetStyles:
+  - First
+  - Last
+  - Strongest
+  - Weakest
+  targetSelected: 
+--- !u!135 &8639927294132673649
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795418344377957344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5830411371190268101
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,7 +5606,7 @@ GameObject:
   - component: {fileID: 4048797603864055642}
   m_Layer: 13
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

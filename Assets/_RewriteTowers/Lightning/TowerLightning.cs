@@ -12,6 +12,7 @@ public class TowerLightning : TowerNonProjectile
     public Transform firePoint;
 
     private List<GameObject> enemies;
+    private List<GameObject> possibleTargets;
     private int targettingStyle;
 
     private float fireCountdown = 0;
@@ -20,6 +21,9 @@ public class TowerLightning : TowerNonProjectile
     // Start is called before the first frame update
     protected void Start()
     {
+        GetComponent<SphereCollider>().radius = range;
+        enemies = new List<GameObject>();
+        possibleTargets = new List<GameObject>();
         targets = new Transform[maxTargets];
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
@@ -35,12 +39,27 @@ public class TowerLightning : TowerNonProjectile
         fireCountdown -= Time.deltaTime;
     }
 
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.GetComponent<EnemyBase>() && !possibleTargets.Contains(col.gameObject))
+        {
+            possibleTargets.Add(col.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (possibleTargets.Contains(col.gameObject))
+            possibleTargets.Remove(col.gameObject);
+    }
+
     // runs GetTarget multiple times, depending on maxTargets, keeping an array of enemies to attack
     private void UpdateTarget()
     {
         // currentReference serves to indicate where the lightning will come from
         Transform currentReference = transform;
-        enemies = new List<GameObject>(WaveSpawner.EnemiesAlive);
+        //enemies = new List<GameObject>(WaveSpawner.EnemiesAlive);
+        enemies = new List<GameObject>(possibleTargets);
         for (int i = 0; i < maxTargets; i++)
         {
             targets[i] = FindEnemy(currentReference);
@@ -62,13 +81,13 @@ public class TowerLightning : TowerNonProjectile
         for (int i = 0; i < enemies.Count; i++)
         {
             // in case the enemy was already selected
-            if (enemies[i] != null)
+            if (enemies[i] != null && enemies[i].activeSelf)
             {
                 // calculates distance depending on the origin passed
                 float distanceToEnemy = Vector3.Distance(origin.position, enemies[i].transform.position);
                 if (distanceToEnemy < shortestDistance)
                 {
-                    if(seesInvisible || (!seesInvisible && !enemies[i].GetComponent<EnemyBase>().GetInvisibleState()))
+                    if (seesInvisible || (!seesInvisible && !enemies[i].GetComponent<EnemyBase>().GetInvisibleState()))
                     {
                         shortestDistance = distanceToEnemy;
                         nearestEnemy = enemies[i];
@@ -103,7 +122,7 @@ public class TowerLightning : TowerNonProjectile
                 Damage(target, currentReference);
                 // uses the selected enemy as the point of reference to create a LineRenderer between enemies
                 currentReference = target;
-                GetComponent<AudioSource>().Play();
+                GetComponentInParent<AudioSource>().Play();
             }
         }
     }

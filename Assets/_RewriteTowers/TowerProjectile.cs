@@ -29,6 +29,8 @@ public class TowerProjectile : TowerBase
     public List<string> targetStyles = new List<string> {"First","Last","Strongest","Weakest" };
     public string targetSelected;
 
+    protected List<GameObject> possibleTargets;
+
     protected override void Awake()
     {
         base.Awake();
@@ -51,7 +53,9 @@ public class TowerProjectile : TowerBase
 
     protected virtual void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        GetComponent<SphereCollider>().radius = range;
+        possibleTargets = new List<GameObject>();
+        InvokeRepeating("UpdateTarget", 0f, 0.1f);
     }
 
     protected virtual void Update()
@@ -82,21 +86,8 @@ public class TowerProjectile : TowerBase
 
     protected virtual void UpdateTarget()
     {
-        //switch (targetStyles)
-        //{
-        //    case (TargetStyle.first):
-        //        FindFirstTarget();
-        //        break;
-        //    case (TargetStyle.last):
-        //        FindLastTarget();
-        //        break;
-        //    case (TargetStyle.strongest):
-        //        FindStrongestTarget();
-        //        break;
-        //    case (TargetStyle.weakest):
-        //        FindWeakestTarget();
-        //        break;
-        //}
+        target = null;
+        targetEnemy = null;
         switch (targetSelected)
         {
             case ("First"):
@@ -123,12 +114,15 @@ public class TowerProjectile : TowerBase
         float shortestDist = Mathf.Infinity; //shortest distance to next waypoint
         int nextWaypoint = 0; //index of next waypoint
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
                     if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() >= nextWaypoint)
                     {
@@ -136,7 +130,7 @@ public class TowerProjectile : TowerBase
                         if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint < shortestDist)
                         {
                             target = enemy.transform;
-                            targetEnemy = enemy.GetComponent<EnemyBase>();
+                            targetEnemy = enemy;
                             shortestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
                         }
                     }
@@ -153,21 +147,28 @@ public class TowerProjectile : TowerBase
         float longestDist = 0; //shortest distance to next waypoint
         int lastWaypoint = 1000; //index of next waypoint
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
-                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
+                    float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distToEnemy <= range)
                     {
-                        lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
-                        if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                        if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
                         {
-                            target = enemy.transform;
-                            targetEnemy = enemy.GetComponent<EnemyBase>();
-                            longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                            lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
+                            if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                            {
+                                target = enemy.transform;
+                                targetEnemy = enemy;
+                                longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                            }
                         }
                     }
                 }
@@ -183,18 +184,25 @@ public class TowerProjectile : TowerBase
 
         float highestHp = 0;
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
-                    if (highestHp < enemy.GetComponent<EnemyBase>().GetHp())
+                    float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distToEnemy <= range)
                     {
-                        target = enemy.transform;
-                        targetEnemy = enemy.GetComponent<EnemyBase>();
-                        highestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                        if (highestHp < enemy.GetHp())
+                        {
+                            target = enemy.transform;
+                            targetEnemy = enemy;
+                            highestHp = enemy.GetHp();
+                        }
                     }
                 }
             }
@@ -208,22 +216,43 @@ public class TowerProjectile : TowerBase
 
         float lowestHp = Mathf.Infinity;
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
-                    if (lowestHp > enemy.GetComponent<EnemyBase>().GetHp())
+                    float distToEnemy = Vector3.Distance(transform.position, e.transform.position);
+                    if (distToEnemy <= range)
                     {
-                        target = enemy.transform;
-                        targetEnemy = enemy.GetComponent<EnemyBase>();
-                        lowestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                        if (lowestHp > enemy.GetHp())
+                        {
+                            target = e.transform;
+                            targetEnemy = enemy;
+                            lowestHp = enemy.GetHp();
+                        }
                     }
                 }
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.GetComponent<EnemyBase>() && !possibleTargets.Contains(col.gameObject))
+        {
+            possibleTargets.Add(col.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (possibleTargets.Contains(col.gameObject))
+            possibleTargets.Remove(col.gameObject);
     }
 
     public Transform GetTarget()
@@ -267,8 +296,8 @@ public class TowerProjectile : TowerBase
 
                 bullet.SetTarget(target);
 
-                if (GetComponent<AudioSource>())
-                    GetComponent<AudioSource>().Play();
+                if (GetComponentInParent<AudioSource>())
+                    GetComponentInParent<AudioSource>().Play();
 
                 break;
             }
@@ -288,6 +317,7 @@ public class TowerProjectile : TowerBase
         {
             range += rangeUpgrade;
             upgrades[_range]++;
+            GetComponent<SphereCollider>().radius = range;
         }
 
         string _damage = "damage";
