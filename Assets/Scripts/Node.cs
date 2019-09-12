@@ -112,6 +112,8 @@ public class Node : MonoBehaviour
 
         turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret.transform.SetParent(transform);
+        turret.SetActive(false);
+        turret.SetActive(true);
         turret.name = blueprint.name;
         buildManager.DeselectTurret();
 
@@ -189,7 +191,7 @@ public class Node : MonoBehaviour
         // Add money at half the cost spent
         PlayerStats.Money += turretBlueprint.GetSellValue(tower.numberOfUpgrades);
         // Destroy turret and kill references
-        Destroy(turret);
+        turret.SetActive(false);
         turret = null;
 
         // Play effect

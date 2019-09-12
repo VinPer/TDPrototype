@@ -23,11 +23,10 @@ public class TowerBuff : TowerBase
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Enemy")) return;
-
-        print("Oi");
-        TowerBase tb = col.GetComponent<TowerBase>();
-        if(tb != null && !col.GetComponent<TowerBuff>())
+        if (col.CompareTag("Enemy") || col.CompareTag("BlackHole")) return;
+        print("trigger");
+        TowerBase tb = col.GetComponentInChildren<TowerBase>();
+        if(tb != null && !col.GetComponentInChildren<TowerBuff>())
         {
             print("add");
             towers.Add(tb);
@@ -35,8 +34,9 @@ public class TowerBuff : TowerBase
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
+        if (towers == null) return;
         foreach (TowerBase tower in towers)
         {
             if (tower != null)
