@@ -51,7 +51,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Start()
     {
-        allTurrets = new List<TurretBlueprint>(TurretHandler.instance.allTurrets);
+        allTurrets = new List<TurretBlueprint>(SelectedTurrets.allTurrets);
         status = new Dictionary<string, GameObject>
         {
             {"range", range},

@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour
         // checks if TurretHandler has been carried from main menu, places the selected turrets
         if (TurretHandler.active)
         {
-            turretBlueprints = TurretHandler.selectedTurrets;
+            turretBlueprints = SelectedTurrets.instance.selectedTurrets;
         }
 
         // if the scene is being played without going through the menu, load some defaults

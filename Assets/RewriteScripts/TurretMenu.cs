@@ -52,7 +52,7 @@ public class TurretMenu : MonoBehaviour
     private void Start()
     {
         if (TurretHandler.active)
-            turretBlueprints = TurretHandler.selectedTurrets;
+            turretBlueprints = SelectedTurrets.instance.selectedTurrets;
         else
             LoadDefault();
         anim = gameObject.GetComponent<Animator>();
