@@ -72,6 +72,5 @@ public class Flames : MonoBehaviour
         EnemyBase e = enemy.GetComponent<EnemyBase>();
         e.TakeDamage(damage * Time.deltaTime, piercingValue,fire);
         e.ActivateDebuff(damage, duration, fire);
-        Debug.Log("Burn");
     }
 }
