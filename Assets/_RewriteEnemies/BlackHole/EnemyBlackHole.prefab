@@ -413,6 +413,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackHole
       objectReference: {fileID: 0}
+    - target: {fileID: 3396050072578950173, guid: ca672c97a63597246bf386022d33fa8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3304246708343459426, guid: ca672c97a63597246bf386022d33fa8f,
         type: 3}
       propertyPath: m_LocalPosition.x

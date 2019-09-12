@@ -482,6 +482,8 @@ MonoBehaviour:
   poolAmount: 3
   bulletPrefab: {fileID: 3369391130654538165, guid: 5daa84cc091c3d1408d1eda387732e00,
     type: 3}
+  penetrationBoost: 0
+  projectileDurability: 1
   damageUpgrade: 0.1
   fireRateUpgrade: 0.1
   targetStyles:
@@ -494,6 +496,7 @@ MonoBehaviour:
   chargeRate: 0.5
   charging: {fileID: 8274475054476532716}
   shoot: {fileID: 9153667437752671086}
+  chargingFX: {fileID: 1628744458893394, guid: d5b88fd60fe3ca342b70b663bc332613, type: 3}
 --- !u!82 &8274475054476532716
 AudioSource:
   m_ObjectHideFlags: 0

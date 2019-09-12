@@ -16,6 +16,7 @@ public class Charger : MonoBehaviour
 
     public Transform firePoint;
     public Transform orbPrefab;
+    public GameObject chargeFX;
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class Charger : MonoBehaviour
         }
 
         cooldown -= Time.deltaTime;
-        RotateOrbs();
+        //RotateOrbs();
     }
 
     private void SpawnOrb()
@@ -41,10 +42,12 @@ public class Charger : MonoBehaviour
         orb.SetParent(firePoint);
     }
 
+
     private void RotateOrbs()
     {
         firePoint.rotation = Quaternion.Euler(0f, currentRotation * turnSpeed, 0f);
         currentRotation += Time.deltaTime;
         if (currentRotation * turnSpeed * 0.1f >= 360f) currentRotation = 0f;
     }
+
 }

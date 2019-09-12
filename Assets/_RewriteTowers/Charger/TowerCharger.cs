@@ -11,9 +11,25 @@ public class TowerCharger : TowerProjectile
 
     public AudioSource charging;
     public AudioSource shoot;
+    public GameObject chargingFX;
+    private GameObject chargingFXGO;
+
+    private bool hasShot = false; 
+    public float chargingFXRate;
+    private float initialChargingFXRate;
+
+    protected override void Start(){
+        base.Start();
+        chargingFXGO = Instantiate(chargingFX, firePoint.position, firePoint.rotation);
+        InvokeRepeating("UpdateFXPosition", 0f, .5f);
+        chargingFXRate = 1f/fireRate * 2f;
+        initialChargingFXRate = chargingFXRate;
+    }
 
     protected override void Update()
     {
+        updateChargingFX();
+
         if (currentChargeLevel < maxChargeLevel && chargeCooldown <= 0f)
         {
             currentChargeLevel++;
@@ -35,6 +51,19 @@ public class TowerCharger : TowerProjectile
         }
 
         fireCountdown -= Time.deltaTime;
+    }
+
+    private void updateChargingFX(){
+
+        chargingFXRate -= Time.deltaTime;
+            
+        if (chargingFXRate < 0f && hasShot)
+        {
+            chargingFXRate = initialChargingFXRate;
+            print("activating");
+            chargingFXGO.SetActive(true);
+            hasShot = false;
+        }
     }
 
     protected override void Shoot()
@@ -59,5 +88,21 @@ public class TowerCharger : TowerProjectile
                 break;
             }
         }
+
+        hasShot = true;
+        chargingFXRate = initialChargingFXRate;
+        chargingFXGO.SetActive(false);
+    }
+
+    private IEnumerator RestartChargingFX()
+    {
+        chargingFX.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        chargingFX.SetActive(true);
+    }
+
+    private void UpdateFXPosition()
+    {
+        chargingFXGO.transform.position = firePoint.position;
     }
 }
