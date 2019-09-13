@@ -70,8 +70,8 @@ public class TowerMortar : TowerProjectile
                 bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
                 bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
                 bullets[i].GetComponent<ProjectileMortar>().CalculateArc();
-                if (GetComponent<AudioSource>())
-                    GetComponent<AudioSource>().Play();
+                if (GetComponentInParent<AudioSource>())
+                    GetComponentInParent<AudioSource>().Play();
                 break;
             }
         }

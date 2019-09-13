@@ -37,8 +37,10 @@ public class EnemyBase : MonoBehaviour
 
 
 
-
-    public bool invisible;
+    public bool stealth;
+    private bool invisible;
+    [HideInInspector]
+    public int radarsAffecting;
 
     [HideInInspector]
     public float freezeStatus = 0;
@@ -254,9 +256,18 @@ public class EnemyBase : MonoBehaviour
         if (status == Enums.Status.disable) status = Enums.Status.enable;
         else status = Enums.Status.disable;
     }
-    public void UpdateInvisible(bool update)
+    public void UpdateInvisible()
     {
-        invisible = update;
+        print(radarsAffecting);
+        if (stealth && radarsAffecting <= 0)
+        {
+            invisible = true;
+            radarsAffecting = 0;
+        }
+        else
+        {
+            invisible = false;
+        }
     }
 
     protected virtual void Die()
@@ -294,6 +305,9 @@ public class EnemyBase : MonoBehaviour
         speed = initialSpeed;
         armor = initialArmor;
         freezeStatus = 0;
+        if (stealth) invisible = true;
+        else invisible = false;
+        radarsAffecting = 0;
         foreach (Debuff debuff in debuffs.Values) debuff.Zero();
         healthBar.fillAmount = health / initialHp;
         numberArmor = armor * 5;

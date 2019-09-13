@@ -9,6 +9,6 @@ public abstract class SkillGlobal : SkillBase
 
     protected void FindTargets()
     {
-        enemies = GameObject.FindGameObjectsWithTag(targetTag);
+        enemies = WaveSpawner.EnemiesAlive.ToArray();
     }
 }

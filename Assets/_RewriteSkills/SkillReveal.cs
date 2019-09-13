@@ -24,7 +24,8 @@ public class SkillReveal : SkillGlobal
         FindTargets();
         foreach (GameObject target in enemies)
         {
-            target.GetComponent<EnemyBase>().UpdateInvisible(false);
+            target.GetComponent<EnemyBase>().radarsAffecting = int.MaxValue;
+            target.GetComponent<EnemyBase>().UpdateInvisible();
         }
     }
 

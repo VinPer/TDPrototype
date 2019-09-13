@@ -204,7 +204,7 @@ public class ProjectileBase : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if (col.tag != "BlackHole")
+        if (!col.CompareTag("BlackHole") && !col.CompareTag("Range"))
         {
             Hit(col.transform);
         }

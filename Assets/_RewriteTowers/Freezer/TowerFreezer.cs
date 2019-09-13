@@ -20,9 +20,13 @@ public class TowerFreezer : TowerNonProjectile
     public List<string> targetStyles = new List<string> { "First", "Last", "Strongest", "Weakest" };
     public string targetSelected;
 
+    private List<GameObject> possibleTargets;
+
     protected void Start()
     {
-        targetSelected = "First";
+        possibleTargets = new List<GameObject>();
+        GetComponent<SphereCollider>().radius = range;
+        targetSelected = targetStyles[0];
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
@@ -65,12 +69,15 @@ public class TowerFreezer : TowerNonProjectile
         float shortestDist = Mathf.Infinity; //shortest distance to next waypoint
         int nextWaypoint = 0; //index of next waypoint
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
                     if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() >= nextWaypoint)
                     {
@@ -78,7 +85,7 @@ public class TowerFreezer : TowerNonProjectile
                         if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint < shortestDist)
                         {
                             target = enemy.transform;
-                            targetEnemy = enemy.GetComponent<EnemyBase>();
+                            targetEnemy = enemy;
                             shortestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
                         }
                     }
@@ -95,21 +102,28 @@ public class TowerFreezer : TowerNonProjectile
         float longestDist = 0; //shortest distance to next waypoint
         int lastWaypoint = 1000; //index of next waypoint
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
-                    if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
+                    float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distToEnemy <= range)
                     {
-                        lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
-                        if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                        if (enemy.GetComponent<EnemyMovement>().GetWaypointIndex() <= lastWaypoint)
                         {
-                            target = enemy.transform;
-                            targetEnemy = enemy.GetComponent<EnemyBase>();
-                            longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                            lastWaypoint = enemy.GetComponent<EnemyMovement>().GetWaypointIndex();
+                            if (enemy.GetComponent<EnemyMovement>().distToNextWaypoint > longestDist)
+                            {
+                                target = enemy.transform;
+                                targetEnemy = enemy;
+                                longestDist = enemy.GetComponent<EnemyMovement>().distToNextWaypoint;
+                            }
                         }
                     }
                 }
@@ -125,18 +139,25 @@ public class TowerFreezer : TowerNonProjectile
 
         float highestHp = 0;
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
-                    if (highestHp < enemy.GetComponent<EnemyBase>().GetHp())
+                    float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distToEnemy <= range)
                     {
-                        target = enemy.transform;
-                        targetEnemy = enemy.GetComponent<EnemyBase>();
-                        highestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                        if (highestHp < enemy.GetHp())
+                        {
+                            target = enemy.transform;
+                            targetEnemy = enemy;
+                            highestHp = enemy.GetHp();
+                        }
                     }
                 }
             }
@@ -150,22 +171,43 @@ public class TowerFreezer : TowerNonProjectile
 
         float lowestHp = Mathf.Infinity;
 
-        foreach (GameObject enemy in WaveSpawner.EnemiesAlive)
+        List<GameObject> backup = new List<GameObject>(possibleTargets);
+
+        foreach (GameObject e in backup)
         {
-            if (seesInvisible || (!seesInvisible && !enemy.GetComponent<EnemyBase>().GetInvisibleState()))
+            if (!e.activeSelf) possibleTargets.Remove(e);
+            else
             {
-                float distToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distToEnemy <= range)
+                EnemyBase enemy = e.GetComponent<EnemyBase>();
+                if (seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
                 {
-                    if (lowestHp > enemy.GetComponent<EnemyBase>().GetHp())
+                    float distToEnemy = Vector3.Distance(transform.position, e.transform.position);
+                    if (distToEnemy <= range)
                     {
-                        target = enemy.transform;
-                        targetEnemy = enemy.GetComponent<EnemyBase>();
-                        lowestHp = enemy.GetComponent<EnemyBase>().GetHp();
+                        if (lowestHp > enemy.GetHp())
+                        {
+                            target = e.transform;
+                            targetEnemy = enemy;
+                            lowestHp = enemy.GetHp();
+                        }
                     }
                 }
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.GetComponent<EnemyBase>() && !possibleTargets.Contains(col.gameObject))
+        {
+            possibleTargets.Add(col.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (possibleTargets.Contains(col.gameObject))
+            possibleTargets.Remove(col.gameObject);
     }
 
     public Transform GetTarget()
@@ -191,14 +233,14 @@ public class TowerFreezer : TowerNonProjectile
     protected override void UpgradeStatus()
     {
         string _damage = "damage";
-        if (upgrades[_damage] < TowerUpgrade.instance.towers[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
         {
             damage += damageBoost;
             upgrades[_damage]++;
         }
 
         string _chargeTime = "chargeTime";
-        if (upgrades[_chargeTime] < TowerUpgrade.instance.towers[gameObject.name][_chargeTime])
+        if (upgrades[_chargeTime] < UpgradeHandler.data.towerUpgrades[gameObject.name][_chargeTime])
         {
             reloadTime -= .5f;
             upgrades[_chargeTime]++;

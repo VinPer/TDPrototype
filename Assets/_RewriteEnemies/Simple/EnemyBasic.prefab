@@ -138,7 +138,9 @@ MonoBehaviour:
   shieldCapacity: 0
   shieldRechargeRate: 20
   shieldRechargeDelay: 1
+  stealth: 0
   invisible: 0
+  radarsAffecting: 0
   freezeStatus: 0
   element: 0
   resistance: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6432043755947556634}
   - component: {fileID: 8326342658499412587}
   - component: {fileID: 3901365842218298209}
-  - component: {fileID: 3977130632526356202}
   - component: {fileID: 3766434167632452358}
   - component: {fileID: 1889199903079058774}
+  - component: {fileID: 828396630395665111}
   m_Layer: 14
   m_Name: ProjectileOverheat
   m_TagString: Untagged
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3977130632526356202
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5896042634351383040}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3766434167632452358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,11 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777343649618554449315eae542ac64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 18
   penetration: 0.5
   debuffElement: 0
   debuffIntensity: 20
-  debuffDuration: 3
+  debuffDuration: 5
   speed: 80
   acceleration: 0
   seeking: 0
@@ -118,7 +105,7 @@ MonoBehaviour:
   durability: 1
   impactEffect: {fileID: 6452593582639930427, guid: 793815334f0082d4cb914bebb518c15a,
     type: 3}
-  decayTimer: 0.5
+  decayTimer: 0.15
 --- !u!54 &1889199903079058774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,6 +122,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &828396630395665111
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896042634351383040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7007787843722611808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +195,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010646992276, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013439165456, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 198000013227194214, guid: 3228a22491941734bb83ad691d17fcb9,
         type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
@@ -203,14 +212,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010646992276, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013439165456, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
-      propertyPath: m_Layer
-      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}

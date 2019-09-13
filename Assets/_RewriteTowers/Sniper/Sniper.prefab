@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6558956}
   m_Layer: 13
   m_Name: Cannon_Turret
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,11 +106,11 @@ GameObject:
   - component: {fileID: 2382176}
   - component: {fileID: 9558238}
   - component: {fileID: 6572384}
-  - component: {fileID: 5406751053055945312}
   - component: {fileID: 3260764297251725825}
+  - component: {fileID: 3775164359484416460}
   m_Layer: 13
   m_Name: Sniper
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437540}
+  - {fileID: 587450173118132172}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -207,40 +208,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0090408, y: 0.4267593, z: 3.00904}
   m_Center: {x: 0, y: 0.21337947, z: -0.00000011920929}
---- !u!114 &5406751053055945312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 50
-  seesInvisible: 1
-  rangeUpgrade: 2
-  numberOfUpgrades: 0
-  maxUpgrade: 3
-  turretMaximized: 0
-  element: 0
-  fireRate: 0.2
-  partToRotate: {fileID: 437540}
-  turnSpeed: 10
-  firePoint: {fileID: 8801715720961649628}
-  poolAmount: 2
-  bulletPrefab: {fileID: 3369391130654538165, guid: fd620d868875212489e7e353fe9cf16a,
-    type: 3}
-  damageUpgrade: 0.1
-  fireRateUpgrade: 0.1
-  targetStyles:
-  - First
-  - Last
-  - Strongest
-  - Weakest
-  targetSelected: 
 --- !u!82 &3260764297251725825
 AudioSource:
   m_ObjectHideFlags: 0
@@ -337,6 +304,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &3775164359484416460
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129874}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &148146
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +333,7 @@ GameObject:
   - component: {fileID: 2334972}
   m_Layer: 13
   m_Name: Cannon_Up_Aim
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +411,7 @@ GameObject:
   - component: {fileID: 6541350}
   m_Layer: 13
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -521,7 +504,7 @@ GameObject:
   - component: {fileID: 2386336}
   m_Layer: 13
   m_Name: Cannon_Up_Armor
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -598,7 +581,7 @@ GameObject:
   - component: {fileID: 2306426}
   m_Layer: 13
   m_Name: Cannon_Up_Gun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,6 +645,87 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6413515517630163255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 587450173118132172}
+  - component: {fileID: 4121588203798052898}
+  - component: {fileID: 3221223818364172911}
+  m_Layer: 2
+  m_Name: Range
+  m_TagString: Range
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &587450173118132172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413515517630163255}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 464220}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &4121588203798052898
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413515517630163255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3221223818364172911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413515517630163255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 50
+  seesInvisible: 1
+  rangeUpgrade: 2
+  numberOfUpgrades: 0
+  maxUpgrade: 3
+  turretMaximized: 0
+  element: 0
+  fireRate: 0.2
+  partToRotate: {fileID: 437540}
+  turnSpeed: 10
+  firePoint: {fileID: 8801715720961649628}
+  poolAmount: 2
+  bulletPrefab: {fileID: 3369391130654538165, guid: fd620d868875212489e7e353fe9cf16a,
+    type: 3}
+  penetrationBoost: 0
+  projectileDurability: 1
+  damageUpgrade: 0.1
+  fireRateUpgrade: 0.1
+  targetStyles:
+  - First
+  - Last
+  - Strongest
+  - Weakest
+  targetSelected: 
 --- !u!1 &9042518912959370279
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +737,7 @@ GameObject:
   - component: {fileID: 8801715720961649628}
   m_Layer: 13
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

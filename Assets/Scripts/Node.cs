@@ -122,6 +122,8 @@ public class Node : MonoBehaviour
 
         turret = Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret.transform.SetParent(transform);
+        turret.SetActive(false);
+        turret.SetActive(true);
         turret.name = blueprint.name;
         buildManager.DeselectTurret();
 
@@ -135,7 +137,7 @@ public class Node : MonoBehaviour
         //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
         StartCoroutine(Effect.PlayEffect(buildEffect,transform));
-        tower.upgrades = new Dictionary<string, int>(TowerUpgrade.instance.towers[blueprint.name]);
+        tower.upgrades = new Dictionary<string, int>(UpgradeHandler.data.towerUpgrades[blueprint.name]);
         Dictionary<string, int> backup = new Dictionary<string, int>(tower.upgrades);
         foreach (string item in backup.Keys)
         {
@@ -199,7 +201,7 @@ public class Node : MonoBehaviour
         // Add money at half the cost spent
         PlayerStats.Money += turretBlueprint.GetSellValue(tower.numberOfUpgrades);
         // Destroy turret and kill references
-        Destroy(turret);
+        turret.SetActive(false);
         turret = null;
 
         // Play effect

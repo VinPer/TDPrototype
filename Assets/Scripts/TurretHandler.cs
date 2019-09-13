@@ -5,22 +5,25 @@ using UnityEngine.UI;
 
 public class TurretHandler : MonoBehaviour
 {
-    public static TurretHandler instance;
-    // Keep the object to reference in the actual level so we can know which turrets are being used
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-        if (instance)
-        {
-            Destroy(instance.gameObject);
-        }
-        instance = this;
-    }
+    //public static TurretHandler instance;
+    //// Keep the object to reference in the actual level so we can know which turrets are being used
+    //private void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //    if (instance != null)
+    //    {
+    //        Destroy(instance.gameObject);
+    //    }
+    //    instance = this;
+    //}
 
     // Lists for the turrets that are available and selected
     public List<TurretBlueprint> allTurrets;
-    public static List<TurretBlueprint> selectedTurrets;
-    public int max = 5;
+    public List<string> allTurretsName;
+    private List<TurretBlueprint> unlockedTurrets;
+    public static List<string> selectedTurrets;
+    public List<string> turretsToBuy = new List<string> {"Mortar", "Shotgun", "Gatling", "Buffer", "Tesla", "Flamethrower", "Freezer", "Spitter" };
+    public int max = 4;
 
     // uhh ignore this
     public List<TurretBlueprint> defaultSelected;
@@ -36,24 +39,63 @@ public class TurretHandler : MonoBehaviour
     void Start()
     {
         active = true;
-        // Instantiate the selected turrets list
-        selectedTurrets = new List<TurretBlueprint>();
+        //Upgrade max number of towers
+        if (UpgradeHandler.data.shopUpgrades["Block1"]["MoreTowers"]) max = 5;
+        if (UpgradeHandler.data.shopUpgrades["Block2"]["MoreTowersPlus"]) max = 6;
 
-        // Set the cost display for all available turrets
-        for(int i = 0; i < allTurrets.Count; i++)
+        // Instantiate the selected turrets list
+        selectedTurrets = new List<string>();
+        unlockedTurrets = new List<TurretBlueprint>();
+        SelectedTurrets.allTurrets = new List<TurretBlueprint>(allTurrets);
+        foreach (TurretBlueprint item in SelectedTurrets.instance.selectedTurrets)
         {
-            allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
-            allTurretsGUI.transform.GetChild(i)
-                .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
+            selectedTurrets.Add(item.name);
+        }
+        foreach (TurretBlueprint item in SelectedTurrets.allTurrets)
+        {
+            allTurretsName.Add(item.name);
+        }
+        // Set the cost display for all available turrets
+        for (int i = 0; i < allTurrets.Count; i++)
+        {
+            if(!string.Equals(allTurrets[i].name,"Bomb"))
+            if (IsUnlock(allTurrets[i].name))
+            {
+                allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
+                allTurretsGUI.transform.GetChild(i)
+                    .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
+                allTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
+                unlockedTurrets.Add(allTurrets[i]);
+            }
+
         }
 
         // Add the first (max) turrets to the selected turrets list
-        for(int i = 0; i < max; i++)
+        for (int i = 0; i < max; i++)
         {
-            selectedTurrets.Add(allTurrets[i]);
+            selectedTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
+            //if (unlockedTurrets.Contains(allTurrets[i]))
+            //{
+            //   SelectedTurrets.instance.selectedTurrets.Add(allTurrets[i]);
+            //}
+
         }
 
         UpdateSelectedTurrets();
+    }
+
+    public bool IsUnlock(string name)
+    {
+        bool res = false;
+        if (turretsToBuy.Contains(name))
+        {
+            foreach (string item in UpgradeHandler.data.shopUpgrades.Keys)
+            {
+                if (UpgradeHandler.data.shopUpgrades[item].ContainsKey(name) && UpgradeHandler.data.shopUpgrades[item][name]) res = true;
+            }
+        }
+        else res = true;
+        return res;
     }
 
     // Add a turret to the selected turrets list when it is clicked from the available list
@@ -62,7 +104,11 @@ public class TurretHandler : MonoBehaviour
         TurretBlueprint turret = allTurrets[turretIndex];
 
         // Keeps the list limited to max turrets and without duplicates
-        if (selectedTurrets.Count < max && !selectedTurrets.Contains(turret)) selectedTurrets.Add(turret);
+        if (selectedTurrets.Count < max && !selectedTurrets.Contains(turret.name))
+        {
+            SelectedTurrets.instance.selectedTurrets.Add(turret);
+            selectedTurrets.Add(turret.name);
+        }
         UpdateSelectedTurrets();
     }
 
@@ -71,15 +117,15 @@ public class TurretHandler : MonoBehaviour
     {
         // If you click an empty slot
         if (turretIndex >= selectedTurrets.Count) return;
-        TurretBlueprint turret = selectedTurrets[turretIndex];
+        TurretBlueprint turret = SelectedTurrets.instance.selectedTurrets[turretIndex];
         //if (!selectedTurrets.Contains(turret)) return;
         
         //Transform element = selectedTurretsGUI.transform.GetChild(turretIndex);
         //element.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         //element.GetComponentInChildren<Text>().text = "$0";
 
-        selectedTurrets.Remove(turret);
-
+        SelectedTurrets.instance.selectedTurrets.Remove(turret);
+        selectedTurrets.Remove(turret.name);
         UpdateSelectedTurrets();
     }
 
@@ -94,14 +140,14 @@ public class TurretHandler : MonoBehaviour
         {
             currentChildSelected = selectedTurretsGUI.transform.GetChild(i);
             currentChildAll = allTurretsGUI.transform.GetChild(
-                allTurrets.IndexOf(selectedTurrets[i]));
+                allTurretsName.IndexOf(selectedTurrets[i]));
             currentChildSelected.GetComponent<Image>().sprite = currentChildAll.GetComponent<Image>().sprite;
             currentChildSelected.GetComponent<Image>().color = currentChildAll.GetComponent<Image>().color;
-            currentChildSelected.GetComponentsInChildren<Text>()[1].text = "$" + selectedTurrets[i].cost;
-            currentChildSelected.GetComponentsInChildren<Text>()[0].text = selectedTurrets[i].name;
+            currentChildSelected.GetComponentsInChildren<Text>()[1].text = "$" + SelectedTurrets.instance.selectedTurrets[i].cost;
+            currentChildSelected.GetComponentsInChildren<Text>()[0].text = SelectedTurrets.instance.selectedTurrets[i].name;
 
-            selectedTurrets[i].color = currentChildAll.GetComponent<Image>().color;
-            selectedTurrets[i].sprite = currentChildAll.GetComponent<Image>().sprite;
+            SelectedTurrets.instance.selectedTurrets[i].color = currentChildAll.GetComponent<Image>().color;
+            SelectedTurrets.instance.selectedTurrets[i].sprite = currentChildAll.GetComponent<Image>().sprite;
             //Debug.Log(currentChildSelected.GetComponent<Button>().onClick.);
         }
 

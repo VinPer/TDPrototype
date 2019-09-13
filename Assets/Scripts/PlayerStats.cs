@@ -16,6 +16,8 @@ public class PlayerStats : MonoBehaviour
     public Text livesDisplayStart;
 
     public static int WavesSurvived;
+    public static int maxStars = 3;
+    public static int Stars;
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class PlayerStats : MonoBehaviour
         UpdateLives();
 
         WavesSurvived = 0;
+        Stars = 0;
     }
 
     public static void UpdateLives()
@@ -38,5 +41,17 @@ public class PlayerStats : MonoBehaviour
     public static void UpdateMoney()
     {
         MoneyDisplay.text = "$" + Money;
+    }
+
+    public void UpdateStars()
+    {
+        if (GameManager.GameIsOver)
+        {
+            Stars++;
+            if (Lives >= startLives) Stars++;
+            if (Money >= startMoney / 2) Stars++;
+            if (Stars > 3) Stars = 3;
+        }
+        else Stars = 0;
     }
 }

@@ -25,7 +25,7 @@ public class Freeze : MonoBehaviour
     
     void Update()
     {
-        if(freezer.GetTarget() != null && GetComponent<CapsuleCollider>().enabled) freezerEffect.GetComponent<ParticleSystem>().Play();
+        if(freezer.GetTarget() != null && GetComponentInParent<CapsuleCollider>().enabled) freezerEffect.GetComponentInParent<ParticleSystem>().Play();
         else freezerEffect.GetComponent<ParticleSystem>().Stop();
         if (freezer.GetTarget() == null && freezeTime < initialFreezeTime) StartCoroutine(Reload(freezer.reloadTime));
 

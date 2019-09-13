@@ -51,7 +51,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Start()
     {
-        allTurrets = new List<TurretBlueprint>(TurretHandler.instance.allTurrets);
+        allTurrets = new List<TurretBlueprint>(SelectedTurrets.allTurrets);
         status = new Dictionary<string, GameObject>
         {
             {"range", range},
@@ -89,7 +89,7 @@ public class UpgradeManager : MonoBehaviour
         turretSelected = allTurrets[i];
         turretImage.sprite = turretSelected.sprite;
         turretName.text = turretSelected.name;
-        Dictionary<string, int> upgrades = TowerUpgrade.instance.towers[turretSelected.name];
+        Dictionary<string, int> upgrades = UpgradeHandler.data.towerUpgrades[turretSelected.name];
 
         foreach (string item in status.Keys)
         {
@@ -105,7 +105,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void UpgradeStatus(string _status)
     {
-        Dictionary<string, int> upgrades = TowerUpgrade.instance.towers[turretSelected.name];
+        Dictionary<string, int> upgrades = UpgradeHandler.data.towerUpgrades[turretSelected.name];
 
         if(upgrades[_status] < 3)
         {
@@ -113,6 +113,7 @@ public class UpgradeManager : MonoBehaviour
             upgradeStatus = status[_status].GetComponent<UpgradeStatus>();
             upgradeStatus.UpdateUpgradeStatus(upgrades[_status]);
             Debug.Log(turretSelected.name + ": " + _status + ": " + upgrades[_status]);
+            UpgradeHandler.instance.SaveData();
         }
     }
 

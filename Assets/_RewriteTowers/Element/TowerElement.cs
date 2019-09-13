@@ -6,51 +6,57 @@ public class TowerElement : TowerNonProjectile
 {
     private void Start()
     {
-        InvokeRepeating("Debuff", 0f, 0.2f);
+        GetComponent<SphereCollider>().radius = range/3;
     }
 
-    void Debuff()
+    private void OnTriggerEnter(Collider col)
     {
-        foreach (GameObject e in WaveSpawner.EnemiesAlive)
+        EnemyBase enemy = col.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            EnemyBase enemy = e.GetComponent<EnemyBase>();
-            if(seesInvisible || (!seesInvisible && !enemy.GetInvisibleState()))
-            {
+            col.GetComponent<EnemyBase>().ActivateDebuff(debuffIntensity, Mathf.Infinity, element);
+            print("debuff enter");
+        }
+    }
 
-                if (enemy.element != element)
-                {
-                    float distToEnemy = Vector3.Distance(transform.position, e.transform.position);
-                    if (distToEnemy <= range)
-                    {
-                        enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
-
-                    }
-                }
-            }
+    private void OnTriggerExit(Collider col)
+    {
+        print("hi");
+        EnemyBase enemy = col.GetComponent<EnemyBase>();
+        if (enemy != null)
+        {
+            enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
+            print("debuff exit");
         }
     }
     
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < TowerUpgrade.instance.towers[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
         {
             range += rangeUpgrade;
             upgrades[_range]++;
+            GetComponent<SphereCollider>().radius = range;
         }
 
         string _intensity = "debuffIntensity";
-        if (upgrades[_intensity] < TowerUpgrade.instance.towers[gameObject.name][_intensity])
+        if (upgrades[_intensity] < UpgradeHandler.data.towerUpgrades[gameObject.name][_intensity])
         {
             debuffIntensity += intensityUpgrade;
             upgrades[_intensity]++;
         }
 
         string _duration = "debuffDuration";
-        if (upgrades[_duration] < TowerUpgrade.instance.towers[gameObject.name][_duration])
+        if (upgrades[_duration] < UpgradeHandler.data.towerUpgrades[gameObject.name][_duration])
         {
             debuffDuration += durationUpgrade;
             upgrades[_duration]++;
         }
+    }
+    protected void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

@@ -12,10 +12,12 @@ public class Winning : MonoBehaviour
     public string menuScene = "MainMenu";
     public Text money;
     public Text lives;
+    public Image[] stars;
+    public Sprite starSprite;
+    public Sprite emptySprite;
 
-    private void Update()
+    public void Win()
     {
-        if (!GameManager.GameIsOver) return;
         if (string.Equals(nextLevel, ""))
         {
             nextLevelButton.interactable = false;
@@ -24,7 +26,12 @@ public class Winning : MonoBehaviour
         }
         money.text = "$" + PlayerStats.Money.ToString();
         lives.text = "♥" + PlayerStats.Lives.ToString();
-
+        GetComponent<PlayerStats>().UpdateStars();
+        for (int i = 0; i < PlayerStats.maxStars; i++)
+        {
+            if (i < PlayerStats.Stars) stars[i].sprite = starSprite;
+            else stars[i].sprite = emptySprite;
+        }
     }
 
     private void Toggle()

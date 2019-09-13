@@ -5,56 +5,66 @@ using UnityEngine;
 //TA TOSCO, AINDA TO MEXENDO
 public class TowerRadar : TowerBase
 {
-    List<TowerBase> towersAffecting;
-
-    // Start is called before the first frame update
-    void Start()
+    List<EnemyBase> enemiesAffecting;
+    private void Start()
     {
-        towersAffecting = new List<TowerBase>();
-        InvokeRepeating("Radar", 0f, 0.5f);
+        GetComponent<SphereCollider>().radius = range;
+        enemiesAffecting = new List<EnemyBase>();
     }
 
-    void Radar()
+    private void OnTriggerEnter(Collider col)
     {
-        foreach(GameObject t in BuildManager.TurretsBuilded)
+        EnemyBase enemy = col.GetComponent<EnemyBase>();
+        if(enemy != null)
         {
-            float distToTower = Vector3.Distance(transform.position, t.transform.position);
-            if (distToTower <= range)
+            if (enemy.stealth)
             {
-                TowerBase tower = t.GetComponent<TowerBase>();
-                if (!tower.seesInvisible)
-                {
-                    GetComponent<AudioSource>().Play();
-                    tower.seesInvisible = true;
-                    towersAffecting.Add(tower);
-                }
+                enemy.radarsAffecting++;
+                enemy.UpdateInvisible();
+                if(!enemiesAffecting.Contains(enemy))
+                    enemiesAffecting.Add(enemy);
             }
         }
     }
 
-    protected override void UpgradeStatus()
+    private void OnTriggerExit(Collider col)
     {
-        if (upgrades["range"] < TowerUpgrade.instance.towers[gameObject.name]["range"])
+        EnemyBase enemy = col.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            range += rangeUpgrade;
-            upgrades["range"]++;
+            if (enemy.stealth)
+            {
+                enemy.radarsAffecting--;
+                enemy.UpdateInvisible();
+                RemoveEnemy(enemy);
+            }
         }
     }
 
-    private void OnDestroy()
-    {
-        foreach (TowerBase t in towersAffecting)
-        {
-            if(t != null)
-                t.seesInvisible = false;
-        }
-    }
     private void OnDisable()
     {
-        foreach (TowerBase t in towersAffecting)
+        foreach(EnemyBase enemy in enemiesAffecting)
         {
-            if (t != null)
-                t.seesInvisible = false;
+            enemy.radarsAffecting--;
+            enemy.UpdateInvisible();
+            RemoveEnemy(enemy);
+        }
+    }
+
+    public void RemoveEnemy(EnemyBase enemy)
+    {
+        if (enemiesAffecting.Contains(enemy))
+            enemiesAffecting.Remove(enemy);
+    }
+
+    protected override void UpgradeStatus()
+    {
+        if (upgrades["range"] < UpgradeHandler.data.towerUpgrades[gameObject.name]["range"])
+        {
+            range += rangeUpgrade;
+            upgrades["range"]++;
+            GetComponent<SphereCollider>().radius = range;
+            Debug.Log(range);
         }
     }
 }

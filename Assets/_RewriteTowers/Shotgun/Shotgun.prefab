@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2329642}
   m_Layer: 13
   m_Name: Shotgun_Up_Armor
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,14 +87,14 @@ GameObject:
   m_Component:
   - component: {fileID: 467076}
   - component: {fileID: 3303590}
-  - component: {fileID: 5853350830820861943}
   - component: {fileID: 2372028}
   - component: {fileID: 9516262}
   - component: {fileID: 6547710}
   - component: {fileID: 125556997485129299}
+  - component: {fileID: 4478069703259759851}
   m_Layer: 13
   m_Name: Shotgun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425980}
+  - {fileID: 8765239512757764244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,41 +123,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130390}
   m_Mesh: {fileID: 4300000, guid: d77fb86f307715f42abd091e7551ce7e, type: 3}
---- !u!114 &5853350830820861943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a754a9310684b744a439c78fdb2e3a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 15
-  seesInvisible: 0
-  rangeUpgrade: 2
-  numberOfUpgrades: 0
-  maxUpgrade: 3
-  turretMaximized: 0
-  element: 0
-  fireRate: 0.5
-  partToRotate: {fileID: 425980}
-  turnSpeed: 10
-  firePoint: {fileID: 4221111140872492991}
-  poolAmount: 2
-  bulletPrefab: {fileID: 3369391130654538165, guid: dd09d0d601501d348add0ce11ed0f73c,
-    type: 3}
-  damageUpgrade: 0.1
-  fireRateUpgrade: 0.1
-  targetStyles:
-  - First
-  - Last
-  - Strongest
-  - Weakest
-  targetSelected: 
-  pelletCount: 6
 --- !u!23 &2372028
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -322,6 +288,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &4478069703259759851
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130390}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &144542
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +317,7 @@ GameObject:
   - component: {fileID: 2339176}
   m_Layer: 13
   m_Name: Shotgun_Up_Gun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,7 +395,7 @@ GameObject:
   - component: {fileID: 6525082}
   m_Layer: 13
   m_Name: Shotgun_Turret
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,7 +488,7 @@ GameObject:
   - component: {fileID: 2306406}
   m_Layer: 13
   m_Name: Shotgun_Up_Aim
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -584,7 +566,7 @@ GameObject:
   - component: {fileID: 6598280}
   m_Layer: 13
   m_Name: Shotgun
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -663,6 +645,88 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4014868, y: 0.75667787, z: 1.2530161}
   m_Center: {x: 0.0000004172325, y: -0.09322286, z: 0.36296582}
+--- !u!1 &3911137767706966973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8765239512757764244}
+  - component: {fileID: 456500855786669624}
+  - component: {fileID: 9214345832353279552}
+  m_Layer: 2
+  m_Name: Range
+  m_TagString: Range
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8765239512757764244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911137767706966973}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 467076}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &456500855786669624
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911137767706966973}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9214345832353279552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911137767706966973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a754a9310684b744a439c78fdb2e3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 15
+  seesInvisible: 0
+  rangeUpgrade: 2
+  numberOfUpgrades: 0
+  maxUpgrade: 3
+  turretMaximized: 0
+  element: 0
+  fireRate: 0.5
+  partToRotate: {fileID: 425980}
+  turnSpeed: 10
+  firePoint: {fileID: 4221111140872492991}
+  poolAmount: 2
+  bulletPrefab: {fileID: 3369391130654538165, guid: dd09d0d601501d348add0ce11ed0f73c,
+    type: 3}
+  penetrationBoost: 0
+  projectileDurability: 1
+  damageUpgrade: 0.1
+  fireRateUpgrade: 0.1
+  targetStyles:
+  - First
+  - Last
+  - Strongest
+  - Weakest
+  targetSelected: 
+  pelletCount: 6
 --- !u!1 &5870652856795768874
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +738,7 @@ GameObject:
   - component: {fileID: 4221111140872492991}
   m_Layer: 13
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
