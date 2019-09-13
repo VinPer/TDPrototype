@@ -717,7 +717,7 @@ MonoBehaviour:
   turnSpeed: 10
   firePoint: {fileID: 5883622315792275464}
   poolAmount: 8
-  bulletPrefab: {fileID: 3369391130654538165, guid: 1f2a42cf79f0a394983ac2d6b7f8a278,
+  bulletPrefab: {fileID: 837246666861044526, guid: f5c746a916e80914e86996689648f187,
     type: 3}
   penetrationBoost: 0
   projectileDurability: 1

@@ -27070,6 +27070,11 @@ PrefabInstance:
       propertyPath: buildEffect
       value: 
       objectReference: {fileID: 100000, guid: 7bb39187c48be5f40becec9725d9536c, type: 3}
+    - target: {fileID: 1276107921016421598, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: upgradeEffect
+      value: 
+      objectReference: {fileID: 100000, guid: d0e4631ff9a808a4ca0a507dad706692, type: 3}
     - target: {fileID: 1276107921016421597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: m_Enabled

@@ -16,6 +16,7 @@ public class BuildManager : MonoBehaviour
     }
     public GameObject buildEffect;
     public GameObject sellEffect;
+    public GameObject upgradeEffect;
     private TurretMenu turretMenu;
 
     private TurretBlueprint turretToBuild;

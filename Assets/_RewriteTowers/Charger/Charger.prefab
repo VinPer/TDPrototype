@@ -857,3 +857,5 @@ MonoBehaviour:
   chargeRate: 0.5
   charging: {fileID: 8274475054476532716}
   shoot: {fileID: 9153667437752671086}
+  chargingFX: {fileID: 1628744458893394, guid: dc1422e1ddc62ad42be990d4a241ee75, type: 3}
+  chargingFXRate: 0

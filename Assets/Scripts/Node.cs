@@ -40,7 +40,7 @@ public class Node : MonoBehaviour
 
         buildEffect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         sellEffect = Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
-        upgradeEffect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        upgradeEffect = Instantiate(buildManager.upgradeEffect, GetBuildPosition(), Quaternion.identity);
         buildEffect.transform.SetParent(transform);
         buildEffect.SetActive(false);
         sellEffect.transform.SetParent(transform);
