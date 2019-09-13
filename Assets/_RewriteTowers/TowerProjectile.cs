@@ -22,7 +22,7 @@ public class TowerProjectile : TowerBase
     public int projectileDurability = 1;
 
     public float damageUpgrade = .1f;
-    public float fireRateUpgrade = .1f;
+    public float fireRateUpgrade = 1f;
 
     //public enum TargetStyle { first, last, strongest, weakest };
     //public TargetStyle targetStyle = TargetStyle.first; //First by default
@@ -290,6 +290,7 @@ public class TowerProjectile : TowerBase
     protected virtual void Shoot()
     {
         ProjectileBase bullet;
+
         for (int i = 0; i < bullets.Count; i++)
         {
             if (!bullets[i].activeInHierarchy)
@@ -325,7 +326,7 @@ public class TowerProjectile : TowerBase
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
         {
             range += rangeUpgrade;
             upgrades[_range]++;
@@ -333,27 +334,113 @@ public class TowerProjectile : TowerBase
         }
 
         string _damage = "damage";
-        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
         {
             damageBoost += damageUpgrade;
             upgrades[_damage]++;
         }
-        switch (gameObject.name)
+        switch (transform.parent.name)
         {
             case "Basic":
                 string _piercing = "piercing";
-                if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[gameObject.name][_piercing])
+                if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_piercing])
                 {
                      penetrationBoost += .1f;
                     upgrades[_piercing]++;
                 }
 
                 string _penetration = "penetration";
-                if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[gameObject.name][_penetration])
+                if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_penetration])
                 {
                     projectileDurability += 1;
                     upgrades[_penetration]++;
                 }
+
+                string _fireRate = "fireRate";
+                if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
+                {
+                    fireRate += fireRateUpgrade;
+                    upgrades[_fireRate]++;
+                }
+                break;
+
+            //FALTA UM JEITO DE JOGAR EXPLOSION RADIUS PRO TIRO!
+            case "Rocket":
+                _fireRate = "fireRate";
+                if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
+                {
+                    fireRate += fireRateUpgrade;
+                    upgrades[_fireRate]++;
+                }
+                break;
+
+            case "Sniper":
+                _fireRate = "fireRate";
+                if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
+                {
+                    fireRate += fireRateUpgrade;
+                    upgrades[_fireRate]++;
+                }
+                
+                _penetration = "penetration";
+                if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_penetration])
+                {
+                    projectileDurability += 1;
+                    upgrades[_penetration]++;
+                }
+                break;    
+
+            //FALTA UM JEITO DE JOGAR CHARGE RATE E MAX CHARGE PRO TIRO
+            case "Charger":
+
+                break;
+
+            //FALTA UM JEITO DE JOGAR PROJECTILE AMMOUNT E SPREAD REDUCTION PRO TIRO
+            case "Shotgun":
+                _fireRate = "fireRate";
+                if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
+                {
+                    fireRate += fireRateUpgrade;
+                    upgrades[_fireRate]++;
+                }
+                _piercing = "piercing";
+                if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_piercing])
+                {
+                     penetrationBoost += .1f;
+                    upgrades[_piercing]++;
+                }
+                break;
+
+            case "Gatling":
+                _piercing = "piercing";
+                if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_piercing])
+                {
+                     penetrationBoost += .1f;
+                    upgrades[_piercing]++;
+                }
+
+                _penetration = "penetration";
+                if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_penetration])
+                {
+                    projectileDurability += 1;
+                    upgrades[_penetration]++;
+                }
+
+                _fireRate = "fireRate";
+                if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
+                {
+                    fireRate += fireRateUpgrade;
+                    upgrades[_fireRate]++;
+                }
+                break;
+
+            //FALTA UM JEITO DE JOGAR PUDDLE DURATION, PUDDLE SIZE, DEBUFF INTENSITY, E DEBUFF DURATION PRO TIRO
+            case "Spitter":
+
+                break;
+            
+            default:
+                print("Nome de Torre Errado pro Upgrade!!!!!");
                 break;
         }
     }

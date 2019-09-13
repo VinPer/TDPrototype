@@ -51,7 +51,7 @@ public class TowerBuff : TowerBase
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
         {
             range += rangeUpgrade;
             upgrades[_range]++;
@@ -70,21 +70,21 @@ public class TowerBuff : TowerBase
 
 
         string _buffRange = "buffRange";
-        if (upgrades[_buffRange] < UpgradeHandler.data.towerUpgrades[gameObject.name][_buffRange])
+        if (upgrades[_buffRange] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_buffRange])
         {
             buffRange += upgradeBuff;
             upgrades[_buffRange]++;
         }
 
         string _buffDamage = "buffDamage";
-        if (upgrades[_buffDamage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_buffDamage])
+        if (upgrades[_buffDamage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_buffDamage])
         {
             buffDamage += upgradeBuff;
             upgrades[_buffDamage]++;
         }
 
         string _buffFireRate = "buffFireRate";
-        if (upgrades[_buffFireRate] < UpgradeHandler.data.towerUpgrades[gameObject.name][_buffFireRate])
+        if (upgrades[_buffFireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_buffFireRate])
         {
             _buffFireRate += upgradeBuff;
             upgrades[_buffFireRate]++;

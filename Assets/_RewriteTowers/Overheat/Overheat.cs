@@ -106,7 +106,7 @@ public class Overheat : TowerBase
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
         {
             range += rangeUpgrade;
             upgrades[_range]++;

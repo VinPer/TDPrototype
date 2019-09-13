@@ -139,6 +139,7 @@ public class Node : MonoBehaviour
         StartCoroutine(Effect.PlayEffect(buildEffect,transform));
         tower.upgrades = new Dictionary<string, int>(UpgradeHandler.data.towerUpgrades[blueprint.name]);
         Dictionary<string, int> backup = new Dictionary<string, int>(tower.upgrades);
+        
         foreach (string item in backup.Keys)
         {
             tower.upgrades[item] = 0;

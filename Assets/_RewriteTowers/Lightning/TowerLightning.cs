@@ -148,28 +148,28 @@ public class TowerLightning : TowerNonProjectile
     protected override void UpgradeStatus()
     {
         string _range = "range";
-        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[gameObject.name][_range])
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
         {
             range += rangeBoost;
             upgrades[_range]++;
         }
 
         string _fireRate = "fireRate";
-        if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[gameObject.name][_fireRate])
+        if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
         {
             triggerRate += triggerRate/10;
             upgrades[_fireRate]++;
         }
 
         string _damage = "damage";
-        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
         {
             damage += damageBoost;
             upgrades[_damage]++;
         }
 
         string _chainAmount = "chainAmount";
-        if (upgrades[_chainAmount] < UpgradeHandler.data.towerUpgrades[gameObject.name][_chainAmount])
+        if (upgrades[_chainAmount] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_chainAmount])
         {
             maxTargets ++;
             upgrades[_chainAmount]++;
