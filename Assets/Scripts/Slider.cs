@@ -9,11 +9,10 @@ public class Slider : MonoBehaviour
     public Button[] btn;
     public RectTransform centerToCompare; //Center to Compare
     public float scrollSpeed = 1.0f;
-
-    public Queue<string> senteces;
+    public float[] distRepostion;
+    public DialogueTrigger dialogTrigger;
 
     private float[] distance; // btns distance to the center
-    public float[] distRepostion;
     private bool draggin = false; //True when drag panel  
     private int btnDist;
     private int minBtnNum; // Numb of button 
@@ -60,7 +59,7 @@ public class Slider : MonoBehaviour
                 switch(btn[minBtnNum].name)
                 {
                     case "Lv (1)":
-                        Debug.Log("Selected Level: " + btn[minBtnNum].name);
+                        dialogTrigger.TriggerDialogue();
                         break;
                     case "Lv (2)":
                         Debug.Log("Selected Level: " + btn[minBtnNum].name);

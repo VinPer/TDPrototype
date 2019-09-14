@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 15333551}
   - component: {fileID: 15333550}
   - component: {fileID: 15333552}
+  - component: {fileID: 15333553}
+  - component: {fileID: 15333554}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -183,6 +185,38 @@ MonoBehaviour:
   centerToCompare: {fileID: 1755025530}
   scrollSpeed: 1
   distRepostion: []
+  dialogTrigger: {fileID: 15333554}
+--- !u!114 &15333553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15333549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff7dc3a0d093a44e893bc9e210c0543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &15333554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15333549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75413da1b9c432b4b90d5b6a67b64beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: B1G D4TA
+    senteces:
+    - "<b>A invas\xE3o come\xE7ou!<b> Precisamos da sua ajuda! Elimine todos os inimigos
+      antes que eles destruam o nosso QG!"
+    - CHANG CHANG XUBIDUBOP XIBOP
+    - WE GO TOGETHER
 --- !u!1001 &22018215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,7 +865,7 @@ RectTransform:
   m_Children:
   - {fileID: 1327629344}
   m_Father: {fileID: 706492285}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1061,7 +1095,7 @@ RectTransform:
   - {fileID: 293118574}
   - {fileID: 1173673131}
   m_Father: {fileID: 706492285}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.2954535}
@@ -3617,10 +3651,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1874672391}
   - {fileID: 1072901443}
   - {fileID: 210272943}
   - {fileID: 171094559}
-  - {fileID: 1874672391}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4763,11 +4797,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 706492285}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.2954535}
   m_AnchorMax: {x: 0.2275, y: 0.8533335}
-  m_AnchoredPosition: {x: 6.6, y: -21.2}
+  m_AnchoredPosition: {x: 6.5999756, y: -21.199997}
   m_SizeDelta: {x: 11.8, y: 19.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1072901444
@@ -5068,7 +5102,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -7021,7 +7055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20362163, y: 0.5}
   m_AnchorMax: {x: 0.20362163, y: 0.5}
-  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -168.9, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1757706381
@@ -7488,7 +7522,7 @@ RectTransform:
   - {fileID: 1933563903}
   - {fileID: 1755025530}
   m_Father: {fileID: 706492285}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.26000002, y: 0.2954535}
   m_AnchorMax: {x: 1, y: 0.8533335}
@@ -7512,8 +7546,8 @@ MonoBehaviour:
   m_Vertical: 0
   m_MovementType: 0
   m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.5
+  m_Inertia: 0
+  m_DecelerationRate: 0.125
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
