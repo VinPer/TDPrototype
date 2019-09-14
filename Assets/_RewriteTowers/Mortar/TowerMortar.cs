@@ -5,7 +5,6 @@ using UnityEngine;
 public class TowerMortar : TowerProjectile
 {
     public Transform firingArea;
-    public float explosionRadius = 5f;
 
     protected override void Start()
     {
@@ -67,7 +66,7 @@ public class TowerMortar : TowerProjectile
                 bullets[i].transform.position = firePoint.position;
                 bullets[i].transform.rotation = firePoint.rotation;
                 bullets[i].SetActive(true);
-                bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
+                UpdateBulletStatus(bullets[i].GetComponent<ProjectileBase>());
                 bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
                 bullets[i].GetComponent<ProjectileMortar>().CalculateArc();
                 if (GetComponentInParent<AudioSource>())

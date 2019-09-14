@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pellet : ProjectileBase
 {
-    public float rotationOffset = 10f;
+    public float rotationOffset;
 
     private void OnEnable()
     {

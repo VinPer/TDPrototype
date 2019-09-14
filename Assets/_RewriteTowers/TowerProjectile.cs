@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class TowerProjectile : TowerBase
 {
+
     //private Magazine magazine;
     public float fireRate = 1f;
+    public float fireRateUpgrade = .2f;
     private float initialFireRate;
     protected Transform target;
     protected EnemyBase targetEnemy;
@@ -14,22 +16,38 @@ public class TowerProjectile : TowerBase
     public Transform firePoint;
     protected float fireCountdown = 0f;
 
-    public int poolAmount = 4;
     protected List<GameObject> bullets;
-    public GameObject bulletPrefab;
 
-    public float penetrationBoost = 0;
-    public int projectileDurability = 1;
-
-    public float damageUpgrade = .1f;
-    public float fireRateUpgrade = 1f;
-
-    //public enum TargetStyle { first, last, strongest, weakest };
-    //public TargetStyle targetStyle = TargetStyle.first; //First by default
-    public List<string> targetStyles = new List<string> {"First","Last","Strongest","Weakest" };
+    public List<string> targetStyles = new List<string> { "First", "Last", "Strongest", "Weakest" };
     public string targetSelected;
 
     protected List<GameObject> possibleTargets;
+
+    [Header("Projectile things")]
+    public GameObject bulletPrefab;
+    public int poolAmount = 4;
+    //Projectiles things
+    public float damage = 10f;
+    [Range(0f, 1f)]
+    public float penetration = 0f;
+    public float decayTimer = 2f;
+    public int durability = 1;
+    public float explosionRadius = 0f;
+    public float debuffIntensity = 0f;
+    public float debuffDuration = 0f;
+
+    //Upgrades
+
+    public float damageUpgrade = 1f;
+    public float penetrationUpgrade = .1f;
+    public float decayTimerUpgrade = .5f;
+    public int durabilityUpgrade = 1;
+    public int explosionRadiusUpgrade = 1;
+    public float debuffIntensityUpgrade = 10f;
+    public float debuffDurationUpgrade = 1f;
+
+    //public enum TargetStyle { first, last, strongest, weakest };
+    //public TargetStyle targetStyle = TargetStyle.first; //First by default
 
     protected override void Awake()
     {
@@ -300,12 +318,7 @@ public class TowerProjectile : TowerBase
                 bullets[i].SetActive(true);
 
                 bullet = bullets[i].GetComponent<ProjectileBase>();
-
-                bullet.damage *= damageBoost;
-                bullet.penetration += penetrationBoost;
-
-                if(bullet.durability < projectileDurability)
-                    bullet.durability += projectileDurability;
+                UpdateBulletStatus(bullet);
 
                 bullet.SetTarget(target);
 
@@ -315,6 +328,18 @@ public class TowerProjectile : TowerBase
                 break;
             }
         }
+    }
+
+    protected virtual void UpdateBulletStatus(ProjectileBase bullet)
+    {
+        bullet.damage = damage;
+        bullet.penetration += penetration;
+        bullet.durability = durability;
+        bullet.explosionRadius = explosionRadius;
+        bullet.debuffIntensity = debuffIntensity;
+        bullet.debuffDuration = debuffDuration;
+        bullet.decayTimer = decayTimer;
+        bullet.debuffElement = element;
     }
 
     public void SetFireRate(float value)
@@ -336,7 +361,7 @@ public class TowerProjectile : TowerBase
         string _damage = "damage";
         if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
         {
-            damageBoost += damageUpgrade;
+            damage += damageUpgrade;
             upgrades[_damage]++;
         }
         switch (transform.parent.name)
@@ -345,14 +370,14 @@ public class TowerProjectile : TowerBase
                 string _piercing = "piercing";
                 if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_piercing])
                 {
-                     penetrationBoost += .1f;
+                    penetration += penetrationUpgrade;
                     upgrades[_piercing]++;
                 }
 
                 string _penetration = "penetration";
                 if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_penetration])
                 {
-                    projectileDurability += 1;
+                    durability += durabilityUpgrade;
                     upgrades[_penetration]++;
                 }
 
@@ -363,14 +388,19 @@ public class TowerProjectile : TowerBase
                     upgrades[_fireRate]++;
                 }
                 break;
-
-            //FALTA UM JEITO DE JOGAR EXPLOSION RADIUS PRO TIRO!
+                
             case "Rocket":
                 _fireRate = "fireRate";
                 if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
                 {
                     fireRate += fireRateUpgrade;
                     upgrades[_fireRate]++;
+                }
+                string _radius = "explosionRadius";
+                if (upgrades[_radius] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_radius])
+                {
+                    explosionRadius += explosionRadiusUpgrade;
+                    upgrades[_radius]++;
                 }
                 break;
 
@@ -385,44 +415,26 @@ public class TowerProjectile : TowerBase
                 _penetration = "penetration";
                 if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_penetration])
                 {
-                    projectileDurability += 1;
+                    durability += durabilityUpgrade;
                     upgrades[_penetration]++;
                 }
                 break;    
 
-            //FALTA UM JEITO DE JOGAR CHARGE RATE E MAX CHARGE PRO TIRO
-            case "Charger":
+            //UPGRADE CHARGER NO CHARGER
 
-                break;
-
-            //FALTA UM JEITO DE JOGAR PROJECTILE AMMOUNT E SPREAD REDUCTION PRO TIRO
-            case "Shotgun":
-                _fireRate = "fireRate";
-                if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
-                {
-                    fireRate += fireRateUpgrade;
-                    upgrades[_fireRate]++;
-                }
-                _piercing = "piercing";
-                if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_piercing])
-                {
-                     penetrationBoost += .1f;
-                    upgrades[_piercing]++;
-                }
-                break;
 
             case "Gatling":
                 _piercing = "piercing";
                 if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_piercing])
                 {
-                     penetrationBoost += .1f;
+                    penetration += penetrationUpgrade;
                     upgrades[_piercing]++;
                 }
 
                 _penetration = "penetration";
                 if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_penetration])
                 {
-                    projectileDurability += 1;
+                    durability += durabilityUpgrade;
                     upgrades[_penetration]++;
                 }
 
@@ -434,9 +446,29 @@ public class TowerProjectile : TowerBase
                 }
                 break;
 
-            //FALTA UM JEITO DE JOGAR PUDDLE DURATION, PUDDLE SIZE, DEBUFF INTENSITY, E DEBUFF DURATION PRO TIRO
+            //FALTA UM JEITO DE JOGAR PUDDLE DURATION, PUDDLE SIZE PRO TIRO
             case "Spitter":
-
+                string _pDuration = "puddleDuration";
+                if (upgrades[_pDuration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_pDuration])
+                {
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        transform.GetChild(i).GetComponent<ProjectileSpitter>().puddleDuration += 1;
+                    }
+                    upgrades[_pDuration]++;
+                }
+                string _dIntensity = "debuffIntensity";
+                if (upgrades[_dIntensity] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dIntensity])
+                {
+                    debuffIntensity += debuffIntensityUpgrade;
+                    upgrades[_dIntensity]++;
+                }
+                string _dDuration = "debuffDuration";
+                if (upgrades[_dDuration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dDuration])
+                {
+                    debuffDuration += debuffDurationUpgrade;
+                    upgrades[_dDuration]++;
+                }
                 break;
             
             default:

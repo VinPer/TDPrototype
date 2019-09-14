@@ -299,7 +299,7 @@ public class TowerLaser : TowerNonProjectile
         string _damage = "damage";
         if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
         {
-            damage += damageBoost;
+            damage += damageUpgrade;
             upgrades[_damage]++;
         }
 

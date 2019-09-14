@@ -5,8 +5,10 @@ using UnityEngine;
 public class TowerCharger : TowerProjectile
 {
     public int maxChargeLevel = 5;
+    public int maxChargeUpgrade = 1;
     private int currentChargeLevel = 0;
     public float chargeRate = 0.5f;
+    public float chargeRateUpgrade = 0.5f;
     private float chargeCooldown = 0f;
 
     public AudioSource charging;
@@ -104,5 +106,52 @@ public class TowerCharger : TowerProjectile
     private void UpdateFXPosition()
     {
         chargingFXGO.transform.position = firePoint.position;
+    }
+    //FALTA UM JEITO DE JOGAR CHARGE RATE E MAX CHARGE PRO TIRO
+
+    protected override void UpgradeStatus()
+    {
+        string _range = "range";
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
+        {
+            range += rangeUpgrade;
+            upgrades[_range]++;
+            GetComponent<SphereCollider>().radius = range;
+        }
+
+        string _damage = "damage";
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
+        {
+            damage += damageUpgrade;
+            upgrades[_damage]++;
+        }
+
+        string _dIntensity = "debuffIntensity";
+        if (upgrades[_dIntensity] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dIntensity])
+        {
+            debuffIntensity += debuffIntensityUpgrade;
+            upgrades[_dIntensity]++;
+        }
+
+        string _dDuration = "debuffIntensity";
+        if (upgrades[_dDuration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dDuration])
+        {
+            debuffDuration += debuffDurationUpgrade;
+            upgrades[_dDuration]++;
+        }
+
+        string _chargeRate = "chargeRate";
+        if (upgrades[_chargeRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_chargeRate])
+        {
+            chargeRate += chargeRateUpgrade;
+            upgrades[_chargeRate]++;
+        }
+
+        string _maxCharge = "maxCharger";
+        if (upgrades[_maxCharge] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_maxCharge])
+        {
+            maxChargeLevel += maxChargeUpgrade;
+            upgrades[_maxCharge]++;
+        }
     }
 }

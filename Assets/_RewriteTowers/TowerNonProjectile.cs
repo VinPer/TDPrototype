@@ -4,6 +4,7 @@ public abstract class TowerNonProjectile : TowerBase
 {
     public float triggerRate;
     public float damage;
+    public float damageUpgrade = 2f;
     public float penetration;
     public float debuffIntensity;
     public float intensityUpgrade = 5f;

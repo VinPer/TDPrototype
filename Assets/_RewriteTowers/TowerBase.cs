@@ -23,8 +23,8 @@ public abstract class TowerBase : MonoBehaviour
     public Enums.Element element;
 
     protected float rangeBoost = 1f;
-    protected float rateBoost = 1f;
-    protected float damageBoost = 1f;
+    //protected float rateBoost = 1f;
+    //protected float damageBoost = 1f;
 
     public Dictionary<string, int> upgrades;
 
@@ -36,10 +36,10 @@ public abstract class TowerBase : MonoBehaviour
     }
     
     protected virtual void OnEnable()
-    {   
+    {
         rangeBoost = 1f;
-        rateBoost = 1f;
-        damageBoost = 1f;
+        //rateBoost = 1f;
+        //damageBoost = 1f;
         range = initialRange;
         BuildManager.TurretsBuilded.Add(gameObject);
     }
@@ -79,12 +79,12 @@ public abstract class TowerBase : MonoBehaviour
 
     public void SetRateBoost(float value)
     {
-       rateBoost = value;
+        //rateBoost = value;
     }
 
     public void SetDamageBoost(float value)
     {
-        damageBoost = value;
+        //damageBoost = value;
     }
 
     public void UpgradeTower()

@@ -5,12 +5,24 @@ using UnityEngine;
 public class ProjectileSpitter : ProjectileBase
 {
     public GameObject acidPuddle;
+    private GameObject puddle;
+
+    public float puddleDuration;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Vector3 t = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
+        puddle = Instantiate(acidPuddle, t, Quaternion.identity);
+        puddle.SetActive(false);
+    }
 
     protected override void Hit(Transform hitPart)
     {
         base.Hit(hitPart);
-        Vector3 t = new Vector3(transform.position.x,transform.position.y -1.5f,transform.position.z);
-        GameObject p = Instantiate(acidPuddle,t,Quaternion.identity);
-        p.transform.SetParent(transform.parent);
+        puddle.GetComponent<Puddle>().duration = puddleDuration;
+        puddle.transform.SetParent(transform.parent);
+        puddle.transform.position = transform.position;
+        puddle.SetActive(true);
     }
 }
