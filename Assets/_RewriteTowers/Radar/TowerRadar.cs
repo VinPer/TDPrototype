@@ -43,6 +43,7 @@ public class TowerRadar : TowerBase
 
     private void OnDisable()
     {
+        if(enemiesAffecting != null)
         foreach(EnemyBase enemy in enemiesAffecting)
         {
             enemy.radarsAffecting--;
@@ -65,6 +66,7 @@ public class TowerRadar : TowerBase
             upgrades["range"]++;
             GetComponent<SphereCollider>().radius = range;
             Debug.Log(range);
+            print("range upgraded");
         }
     }
 }

@@ -356,6 +356,7 @@ public class TowerProjectile : TowerBase
             range += rangeUpgrade;
             upgrades[_range]++;
             GetComponent<SphereCollider>().radius = range;
+            print("range upgraded");
         }
 
         string _damage = "damage";
@@ -363,6 +364,7 @@ public class TowerProjectile : TowerBase
         {
             damage += damageUpgrade;
             upgrades[_damage]++;
+            print("damage upgraded");
         }
         switch (transform.parent.name)
         {
@@ -372,6 +374,7 @@ public class TowerProjectile : TowerBase
                 {
                     penetration += penetrationUpgrade;
                     upgrades[_piercing]++;
+                    print("piercing upgraded");
                 }
 
                 string _penetration = "penetration";
@@ -379,6 +382,7 @@ public class TowerProjectile : TowerBase
                 {
                     durability += durabilityUpgrade;
                     upgrades[_penetration]++;
+                    print("penetration upgraded");
                 }
 
                 string _fireRate = "fireRate";
@@ -386,6 +390,7 @@ public class TowerProjectile : TowerBase
                 {
                     fireRate += fireRateUpgrade;
                     upgrades[_fireRate]++;
+                    print("fireRate upgraded");
                 }
                 break;
                 
@@ -395,12 +400,14 @@ public class TowerProjectile : TowerBase
                 {
                     fireRate += fireRateUpgrade;
                     upgrades[_fireRate]++;
+                    print("fireRate upgraded");
                 }
                 string _radius = "explosionRadius";
                 if (upgrades[_radius] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_radius])
                 {
                     explosionRadius += explosionRadiusUpgrade;
                     upgrades[_radius]++;
+                    print("explosionRadius upgraded");
                 }
                 break;
 
@@ -410,6 +417,7 @@ public class TowerProjectile : TowerBase
                 {
                     fireRate += fireRateUpgrade;
                     upgrades[_fireRate]++;
+                    print("fireRate upgraded");
                 }
                 
                 _penetration = "penetration";
@@ -417,6 +425,7 @@ public class TowerProjectile : TowerBase
                 {
                     durability += durabilityUpgrade;
                     upgrades[_penetration]++;
+                    print("penetration upgraded");
                 }
                 break;    
 
@@ -429,6 +438,7 @@ public class TowerProjectile : TowerBase
                 {
                     penetration += penetrationUpgrade;
                     upgrades[_piercing]++;
+                    print("piercing upgraded");
                 }
 
                 _penetration = "penetration";
@@ -436,6 +446,7 @@ public class TowerProjectile : TowerBase
                 {
                     durability += durabilityUpgrade;
                     upgrades[_penetration]++;
+                    print("penetration upgraded");
                 }
 
                 _fireRate = "fireRate";
@@ -443,6 +454,7 @@ public class TowerProjectile : TowerBase
                 {
                     fireRate += fireRateUpgrade;
                     upgrades[_fireRate]++;
+                    print("fireRate upgraded");
                 }
                 break;
 
@@ -456,18 +468,21 @@ public class TowerProjectile : TowerBase
                         transform.GetChild(i).GetComponent<ProjectileSpitter>().puddleDuration += 1;
                     }
                     upgrades[_pDuration]++;
+                    print("puddleDuration upgraded");
                 }
                 string _dIntensity = "debuffIntensity";
                 if (upgrades[_dIntensity] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dIntensity])
                 {
                     debuffIntensity += debuffIntensityUpgrade;
                     upgrades[_dIntensity]++;
+                    print("debuffIntensity upgraded");
                 }
                 string _dDuration = "debuffDuration";
                 if (upgrades[_dDuration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dDuration])
                 {
                     debuffDuration += debuffDurationUpgrade;
                     upgrades[_dDuration]++;
+                    print("debuffDuration upgraded");
                 }
                 break;
             

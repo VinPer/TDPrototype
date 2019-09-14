@@ -93,4 +93,41 @@ public class TowerMortar : TowerProjectile
         }
         return false;
     }
+
+    protected override void UpgradeStatus()
+    {
+        string _range = "range";
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
+        {
+            range += rangeUpgrade;
+            upgrades[_range]++;
+            GetComponent<SphereCollider>().radius = range;
+            print("range upgraded");
+        }
+
+        string _damage = "damage";
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
+        {
+            damage += damageUpgrade;
+            upgrades[_damage]++;
+            print("damage upgraded");
+        }
+        string _radius = "explosionRadius";
+        if (upgrades[_radius] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_radius])
+        {
+            explosionRadius += explosionRadiusUpgrade;
+            upgrades[_radius]++;
+            print("explosionRadius upgraded");
+        }
+
+        //FAZENDO UPGRADE DA QUANTIDADE DE TIROS QUE ELE DA
+        string _fireRate = "fireRate";
+        if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
+        {
+            //fireRate += fireRateUpgrade;
+            poolAmount++;
+            upgrades[_fireRate]++;
+            //print("fireRate upgraded");
+        }
+    }
 }

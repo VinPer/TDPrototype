@@ -5,6 +5,7 @@ public class TowerLaser : TowerNonProjectile
 {
     private float multiplier = .1f;
     public float multiplierSpeed = 1.01f;
+    public float multiplierSpeedUpgrade = .01f;
 
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
@@ -294,6 +295,7 @@ public class TowerLaser : TowerNonProjectile
             range += rangeUpgrade;
             upgrades[_range]++;
             GetComponent<SphereCollider>().radius = range;
+            print("range upgraded");
         }
 
         string _damage = "damage";
@@ -301,13 +303,15 @@ public class TowerLaser : TowerNonProjectile
         {
             damage += damageUpgrade;
             upgrades[_damage]++;
+            print("damage upgraded");
         }
 
         string _multiplierSpeed = "multiplierSpeed";
         if (upgrades[_multiplierSpeed] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_multiplierSpeed])
         {
-            range += rangeUpgrade;
+            multiplierSpeed += multiplierSpeedUpgrade;
             upgrades[_multiplierSpeed]++;
+            print("multiplierSpeed upgraded");
         }
     }
 

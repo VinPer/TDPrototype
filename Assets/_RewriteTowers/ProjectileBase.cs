@@ -28,12 +28,13 @@ public class ProjectileBase : MonoBehaviour
     protected virtual void Awake()
     {
         initialSpeed = speed;
+        initialSize = transform.localScale;
     }
 
     protected virtual void Destroy()
     {
         speed = initialSpeed;
-
+        transform.localScale = initialSize;
         target = null;
         gameObject.SetActive(false);
     }
@@ -140,6 +141,11 @@ public class ProjectileBase : MonoBehaviour
     public int GetDurability()
     {
         return durability;
+    }
+
+    public Vector3 GetInitialSize()
+    {
+        return initialSize;
     }
 
     public void SetDurability(int value)
