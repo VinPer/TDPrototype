@@ -38,6 +38,7 @@ public class TowerElement : TowerNonProjectile
             range += rangeUpgrade;
             upgrades[_range]++;
             GetComponent<SphereCollider>().radius = range;
+            print("range upgraded");
         }
 
         string _intensity = "debuffIntensity";
@@ -45,6 +46,7 @@ public class TowerElement : TowerNonProjectile
         {
             debuffIntensity += intensityUpgrade;
             upgrades[_intensity]++;
+            print("debuffIntensity upgraded");
         }
 
         string _duration = "debuffDuration";
@@ -52,6 +54,7 @@ public class TowerElement : TowerNonProjectile
         {
             debuffDuration += durationUpgrade;
             upgrades[_duration]++;
+            print("debuffDuration upgraded");
         }
     }
     protected void OnDrawGizmosSelected()

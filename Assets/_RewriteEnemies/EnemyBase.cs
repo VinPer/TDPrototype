@@ -159,8 +159,11 @@ public class EnemyBase : MonoBehaviour
 
     protected IEnumerator ApplySlow()
     {
-        debuffEffect = Instantiate(slowEffect, transform.position, transform.rotation);
-        debuffEffect.transform.SetParent(transform);
+        if(slowEffect != null)
+        {
+            debuffEffect = Instantiate(slowEffect, transform.position, transform.rotation);
+            debuffEffect.transform.SetParent(transform);
+        }
         while (slow.duration > 0)
         {
             speed = initialSpeed * (100f - slow.level) / 100; // checks this every time just in case it's updated

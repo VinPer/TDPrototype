@@ -5,8 +5,10 @@ using UnityEngine;
 public class TowerCharger : TowerProjectile
 {
     public int maxChargeLevel = 5;
-    private int currentChargeLevel = 0;
+    public int maxChargeUpgrade = 1;
+    private int currentChargeLevel = 1;
     public float chargeRate = 0.5f;
+    public float chargeRateUpgrade = 0.5f;
     private float chargeCooldown = 0f;
 
     public AudioSource charging;
@@ -20,6 +22,7 @@ public class TowerCharger : TowerProjectile
 
     protected override void Start(){
         base.Start();
+        chargeCooldown = 1 / chargeRate;
         chargingFXGO = Instantiate(chargingFX, firePoint.position, firePoint.rotation);
         InvokeRepeating("UpdateFXPosition", 0f, .5f);
         chargingFXRate = 1f/fireRate * 2f;
@@ -32,8 +35,9 @@ public class TowerCharger : TowerProjectile
 
         if (currentChargeLevel < maxChargeLevel && chargeCooldown <= 0f)
         {
-            currentChargeLevel++;
             chargeCooldown = 1f / chargeRate;
+            print("++");
+            currentChargeLevel++;
             if (!charging.isPlaying) charging.Play();
         }
 
@@ -48,6 +52,7 @@ public class TowerCharger : TowerProjectile
             Shoot();
             currentChargeLevel = 1;
             fireCountdown = 1f / fireRate;
+            chargeCooldown = 1f / chargeRate;
         }
 
         fireCountdown -= Time.deltaTime;
@@ -80,9 +85,7 @@ public class TowerCharger : TowerProjectile
                 _bullet.transform.position = firePoint.position;
                 _bullet.transform.rotation = firePoint.rotation;
                 _bullet.SetActive(true);
-                projectile.SetDamage(projectile.GetDamage() * currentChargeLevel);
-                projectile.SetExplosionRadius(projectile.GetExplosionRadius() * currentChargeLevel);
-                projectile.transform.localScale = projectile.transform.localScale * (1 + currentChargeLevel * .25f);
+                UpdateBulletStatus(projectile);
                 projectile.SetTarget(target);
                 shoot.Play();
                 break;
@@ -92,6 +95,15 @@ public class TowerCharger : TowerProjectile
         hasShot = true;
         chargingFXRate = initialChargingFXRate;
         chargingFXGO.SetActive(false);
+    }
+
+    protected override void UpdateBulletStatus(ProjectileBase projectile)
+    {
+        print(currentChargeLevel);
+        base.UpdateBulletStatus(projectile);
+        projectile.SetDamage(projectile.GetDamage() * currentChargeLevel);
+        projectile.SetExplosionRadius(currentChargeLevel);
+        projectile.transform.localScale = projectile.GetInitialSize()* (1 + currentChargeLevel * .25f);
     }
 
     private IEnumerator RestartChargingFX()
@@ -104,5 +116,42 @@ public class TowerCharger : TowerProjectile
     private void UpdateFXPosition()
     {
         chargingFXGO.transform.position = firePoint.position;
+    }
+    //FALTA UM JEITO DE JOGAR CHARGE RATE E MAX CHARGE PRO TIRO
+
+    protected override void UpgradeStatus()
+    {
+        string _range = "range";
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
+        {
+            range += rangeUpgrade;
+            upgrades[_range]++;
+            GetComponent<SphereCollider>().radius = range;
+            print("range upgraded");
+        }
+
+        string _damage = "damage";
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
+        {
+            damage += damageUpgrade;
+            upgrades[_damage]++;
+            print("damage upgraded");
+        }
+
+        string _chargeRate = "chargeRate";
+        if (upgrades[_chargeRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_chargeRate])
+        {
+            chargeRate += chargeRateUpgrade;
+            upgrades[_chargeRate]++;
+            print("chargeRate upgraded");
+        }
+
+        string _maxCharge = "maxCharge";
+        if (upgrades[_maxCharge] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_maxCharge])
+        {
+            maxChargeLevel += maxChargeUpgrade;
+            upgrades[_maxCharge]++;
+            print("maxCharge upgraded");
+        }
     }
 }

@@ -9,9 +9,10 @@ public class Puddle : MonoBehaviour
     private Enums.Element debuffType;
     public float duration = 3f;
     
-    private void Start()
+    private void onEnable()
     {
-        debuffType = GetComponentInParent<TowerBase>().element;
+        if(GetComponentInParent<TowerBase>())
+            debuffType = GetComponentInParent<TowerBase>().element;
     }
     private void Update()
     {
@@ -19,7 +20,7 @@ public class Puddle : MonoBehaviour
 
         if (duration <= 0f)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     private void OnTriggerStay(Collider col)

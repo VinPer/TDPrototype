@@ -83,12 +83,12 @@ public class TowerBuff : TowerBase
             upgrades[_buffDamage]++;
         }
 
-        string _buffFireRate = "buffFireRate";
-        if (upgrades[_buffFireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_buffFireRate])
-        {
-            _buffFireRate += upgradeBuff;
-            upgrades[_buffFireRate]++;
-        }
+        //string _buffFireRate = "buffFireRate";
+        //if (upgrades[_buffFireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_buffFireRate])
+        //{
+        //    _buffFireRate += upgradeBuff;
+        //    upgrades[_buffFireRate]++;
+        //}
 
         foreach (TowerBase tower in towers)
         {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class TowerMortar : TowerProjectile
 {
     public Transform firingArea;
-    public float explosionRadius = 5f;
 
     protected override void Start()
     {
@@ -67,7 +66,7 @@ public class TowerMortar : TowerProjectile
                 bullets[i].transform.position = firePoint.position;
                 bullets[i].transform.rotation = firePoint.rotation;
                 bullets[i].SetActive(true);
-                bullets[i].GetComponent<ProjectileBase>().damage *= damageBoost;
+                UpdateBulletStatus(bullets[i].GetComponent<ProjectileBase>());
                 bullets[i].GetComponent<ProjectileBase>().SetTarget(target);
                 bullets[i].GetComponent<ProjectileMortar>().CalculateArc();
                 if (GetComponentInParent<AudioSource>())
@@ -93,5 +92,42 @@ public class TowerMortar : TowerProjectile
             }
         }
         return false;
+    }
+
+    protected override void UpgradeStatus()
+    {
+        string _range = "range";
+        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
+        {
+            range += rangeUpgrade;
+            upgrades[_range]++;
+            GetComponent<SphereCollider>().radius = range;
+            print("range upgraded");
+        }
+
+        string _damage = "damage";
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
+        {
+            damage += damageUpgrade;
+            upgrades[_damage]++;
+            print("damage upgraded");
+        }
+        string _radius = "explosionRadius";
+        if (upgrades[_radius] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_radius])
+        {
+            explosionRadius += explosionRadiusUpgrade;
+            upgrades[_radius]++;
+            print("explosionRadius upgraded");
+        }
+
+        //FAZENDO UPGRADE DA QUANTIDADE DE TIROS QUE ELE DA
+        string _fireRate = "fireRate";
+        if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
+        {
+            //fireRate += fireRateUpgrade;
+            poolAmount++;
+            upgrades[_fireRate]++;
+            //print("fireRate upgraded");
+        }
     }
 }

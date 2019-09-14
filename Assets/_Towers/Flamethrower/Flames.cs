@@ -9,6 +9,7 @@ public class Flames : MonoBehaviour
     public float piercingValue = 0f;
     public float damageRate = 100f;
     private float damageCountdown = 0f;
+    public float intensity;
     public float duration = 5f;
     public GameObject fireEffect;
     private GameObject flameEffect;
@@ -21,6 +22,8 @@ public class Flames : MonoBehaviour
         Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
         flameEffect = Instantiate(fireEffect, transform);
         flameEffect.transform.position = pos;
+        TowerFlamethrower ft = GetComponentInParent<TowerFlamethrower>();
+        UpdateBurnData(ft);
         //for (int i = 0; i < 9; i ++)
         //{
         //    pos = new Vector3(transform.position.x, transform.position.y, transform.position.z + i);
@@ -71,6 +74,13 @@ public class Flames : MonoBehaviour
     {
         EnemyBase e = enemy.GetComponent<EnemyBase>();
         e.TakeDamage(damage * Time.deltaTime, piercingValue,fire);
-        e.ActivateDebuff(damage, duration, fire);
+        e.ActivateDebuff(intensity, duration, fire);
+    }
+
+    public void UpdateBurnData(TowerFlamethrower tower)
+    {
+        damage = tower.damage;
+        intensity = tower.debuffIntensity;
+        duration = tower.debuffDuration;
     }
 }

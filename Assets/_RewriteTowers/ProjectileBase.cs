@@ -2,14 +2,11 @@ using UnityEngine;
 
 public class ProjectileBase : MonoBehaviour
 {
-    public float damage = 10f;
-    private float initialDamage;
-    [Range(0f,1f)]
-    public float penetration = 0f;
-    [HideInInspector]
+    public float damage;
+    public float penetration;
     public Enums.Element debuffElement;
-    public float debuffIntensity = 0f;
-    public float debuffDuration = 0f;
+    public float debuffIntensity;
+    public float debuffDuration;
 
     private Vector3 initialSize;
 
@@ -17,37 +14,27 @@ public class ProjectileBase : MonoBehaviour
     private float initialSpeed;
     public float acceleration = 0f;
     public bool seeking = false;
-    public float explosionRadius = 0f;
-    private float initialExplosionRadius;
-    public int durability = 1;
-    private int initialDurability;
+    [HideInInspector]
+    public float explosionRadius;
+    public int durability;
     protected Transform target;
 
     public GameObject impactEffect;
 
-    private float initialDecayTimer;
-    public float decayTimer = 2f;
+    [HideInInspector]
+    public float decayTimer;
     protected Vector3 direction;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
-        initialDecayTimer = decayTimer;
-        initialDurability = durability;
-        initialDamage = damage;
-        initialSize = transform.localScale;
-        initialExplosionRadius = explosionRadius;
         initialSpeed = speed;
+        initialSize = transform.localScale;
     }
-    
+
     protected virtual void Destroy()
     {
-        decayTimer = initialDecayTimer;
-        durability = initialDurability;
-        damage = initialDamage;
-        transform.localScale = initialSize;
-        explosionRadius = initialExplosionRadius;
         speed = initialSpeed;
-
+        transform.localScale = initialSize;
         target = null;
         gameObject.SetActive(false);
     }
@@ -154,6 +141,11 @@ public class ProjectileBase : MonoBehaviour
     public int GetDurability()
     {
         return durability;
+    }
+
+    public Vector3 GetInitialSize()
+    {
+        return initialSize;
     }
 
     public void SetDurability(int value)

@@ -136,3 +136,4 @@ MonoBehaviour:
   decayTimer: 2
   acidPuddle: {fileID: 963432347121945285, guid: 56f66983ac2169b438a9e705351cc529,
     type: 3}
+  puddleDuration: 3

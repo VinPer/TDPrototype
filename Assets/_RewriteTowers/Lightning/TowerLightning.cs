@@ -122,7 +122,8 @@ public class TowerLightning : TowerNonProjectile
             {
                 Damage(target, currentReference);
                 //Assuming self deleting effect!
-                Instantiate(hitEffect,target.position, target.rotation, transform);
+                if(hitEffect != null)
+                    Instantiate(hitEffect,target.position, target.rotation, transform);
                 
                 // uses the selected enemy as the point of reference to create a LineRenderer between enemies
                 currentReference = target;
@@ -164,7 +165,7 @@ public class TowerLightning : TowerNonProjectile
         string _damage = "damage";
         if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
         {
-            damage += damageBoost;
+            damage += damageUpgrade;
             upgrades[_damage]++;
         }
 

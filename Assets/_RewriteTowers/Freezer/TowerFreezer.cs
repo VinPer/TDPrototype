@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TowerFreezer : TowerNonProjectile
 {
+
     private float multiplicator = .1f;
     public float reloadTime = 3f;
 
@@ -235,7 +236,7 @@ public class TowerFreezer : TowerNonProjectile
         string _damage = "damage";
         if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_damage])
         {
-            damage += damageBoost;
+            damage += damageUpgrade;
             upgrades[_damage]++;
         }
 

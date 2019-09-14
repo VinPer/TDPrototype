@@ -98,26 +98,30 @@ public class TowerFlamethrower : TowerNonProjectile
 
     protected override void UpgradeStatus()
     {
-        string _range = "range";
-        if (upgrades[_range] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_range])
+        string _damage = "damage";
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.parent.name][_damage])
         {
-            range += rangeUpgrade;
-            upgrades[_range]++;
+            damage += damageUpgrade;
+            upgrades[_damage]++;
+            print("damage upgraded");
         }
 
         string _intensity = "debuffIntensity";
-        if (upgrades[_intensity] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_intensity])
+        if (upgrades[_intensity] < UpgradeHandler.data.towerUpgrades[transform.parent.parent.name][_intensity])
         {
             debuffIntensity += intensityUpgrade;
             upgrades[_intensity]++;
         }
 
         string _duration = "debuffDuration";
-        if (upgrades[_duration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_duration])
+        if (upgrades[_duration] < UpgradeHandler.data.towerUpgrades[transform.parent.parent.name][_duration])
         {
             debuffDuration += durationUpgrade;
             upgrades[_duration]++;
         }
+
+        Flames flames = GetComponentInChildren<Flames>();
+        flames.UpdateBurnData(this);
     }
 
 }

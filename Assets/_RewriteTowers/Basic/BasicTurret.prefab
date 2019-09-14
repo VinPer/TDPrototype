@@ -740,19 +740,30 @@ MonoBehaviour:
   turretMaximized: 0
   element: 0
   fireRate: 1
+  fireRateUpgrade: 0.1
   partToRotate: {fileID: 495240}
   turnSpeed: 10
   firePoint: {fileID: 5608702030693297934}
-  poolAmount: 3
-  bulletPrefab: {fileID: 837246666861044526, guid: 3e5949cfd63fc8248bad5f6fe865952c,
-    type: 3}
-  penetrationBoost: 0
-  projectileDurability: 1
-  damageUpgrade: 0.1
-  fireRateUpgrade: 0.1
   targetStyles:
   - First
   - Last
   - Strongest
   - Weakest
   targetSelected: 
+  bulletPrefab: {fileID: 837246666861044526, guid: 3e5949cfd63fc8248bad5f6fe865952c,
+    type: 3}
+  poolAmount: 3
+  damage: 10
+  penetration: 0
+  decayTimer: 2
+  durability: 1
+  explosionRadius: 0
+  debuffIntensity: 0
+  debuffDuration: 0
+  damageUpgrade: 1
+  penetrationUpgrade: 0.1
+  decayTimerUpgrade: 0.5
+  durabilityUpgrade: 1
+  explosionRadiusUpgrade: 1
+  debuffIntensityUpgrade: 10
+  debuffDurationUpgrade: 1

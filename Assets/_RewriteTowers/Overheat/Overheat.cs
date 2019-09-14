@@ -14,11 +14,19 @@ public class Overheat : TowerBase
     protected List<GameObject> bullets;
     public GameObject bulletPrefab;
 
-    public float penetrationBoost = 0;
+    //Projectiles things
+    public float damage = 10f;
+    [Range(0f, 1f)]
+    public float penetration = 0f;
+    public float decayTimer = 2f;
+    public float debuffIntensity = 0f;
+    public float debuffDuration = 0f;
     public int projectileDurability = 1;
 
     public float damageUpgrade = .1f;
     public float fireRateUpgrade = .1f;
+    public float debuffIntensityUpgrade = 10f;
+    public float debuffDurationUpgrade = 1f;
 
     protected override void Awake()
     {
@@ -76,13 +84,12 @@ public class Overheat : TowerBase
                     t.position = new Vector3(fp.position.x, fp.position.y, fp.position.z);
                     t.rotation = fp.rotation;
                     bullets[i].SetActive(true);
-                    p.damage *= damageBoost;
                     //p.SetTarget(possibleTargets[0].transform);
                     Vector3 dir = fp.GetChild(0).transform.position - t.position;
                     dir.y = 0;
                     p.SetDirection(dir);
-                    p.damage *= damageBoost;
-                    p.penetration += penetrationBoost;
+
+                    UpdateBulletStatus(p);
 
                     if (p.durability < projectileDurability)
                         p.durability += projectileDurability;
@@ -102,7 +109,15 @@ public class Overheat : TowerBase
         //        possibleTargets.Remove(item);
         //}
     }
-
+    protected void UpdateBulletStatus(ProjectileBase bullet)
+    {
+        bullet.damage = damage;
+        bullet.penetration += penetration;
+        
+        bullet.debuffIntensity = debuffIntensity;
+        bullet.debuffDuration = debuffDuration;
+        bullet.decayTimer = decayTimer;
+    }
     protected override void UpgradeStatus()
     {
         string _range = "range";
@@ -112,30 +127,29 @@ public class Overheat : TowerBase
             upgrades[_range]++;
             GetComponent<SphereCollider>().radius = range;
         }
-
         string _damage = "damage";
-        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.gameObject.name][_damage])
         {
-            damageBoost += damageUpgrade;
+            damage += damageUpgrade;
             upgrades[_damage]++;
         }
-        switch (gameObject.name)
+        string _fireRate = "fireRate";
+        if (upgrades[_fireRate] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_fireRate])
         {
-            case "Basic":
-                string _piercing = "piercing";
-                if (upgrades[_piercing] < UpgradeHandler.data.towerUpgrades[gameObject.name][_piercing])
-                {
-                    penetrationBoost += .1f;
-                    upgrades[_piercing]++;
-                }
-
-                string _penetration = "penetration";
-                if (upgrades[_penetration] < UpgradeHandler.data.towerUpgrades[gameObject.name][_penetration])
-                {
-                    projectileDurability += 1;
-                    upgrades[_penetration]++;
-                }
-                break;
+            fireRate += fireRateUpgrade;
+            upgrades[_fireRate]++;
+        }
+        string _dIntensity = "debuffIntensity";
+        if (upgrades[_dIntensity] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dIntensity])
+        {
+            debuffIntensity += debuffIntensityUpgrade;
+            upgrades[_dIntensity]++;
+        }
+        string _dDuration = "debuffDuration";
+        if (upgrades[_dDuration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_dDuration])
+        {
+            debuffDuration += debuffDurationUpgrade;
+            upgrades[_dDuration]++;
         }
     }
 }
