@@ -35,7 +35,7 @@ public class TowerProjectile : TowerBase
     public float explosionRadius = 0f;
     public float debuffIntensity = 0f;
     public float debuffDuration = 0f;
-
+    public float puddleDuration = 2f;
     //Upgrades
 
     public float damageUpgrade = 1f;
@@ -78,7 +78,12 @@ public class TowerProjectile : TowerBase
 
     protected virtual void Update()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            if(fireCountdown > 0)
+                fireCountdown -= Time.deltaTime;
+            return;
+        }
 
         LockOnTarget();
 
@@ -463,10 +468,7 @@ public class TowerProjectile : TowerBase
                 string _pDuration = "puddleDuration";
                 if (upgrades[_pDuration] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_pDuration])
                 {
-                    for (int i = 0; i < transform.childCount; i++)
-                    {
-                        transform.GetChild(i).GetComponent<ProjectileSpitter>().puddleDuration += 1;
-                    }
+                    puddleDuration++;
                     upgrades[_pDuration]++;
                     print("puddleDuration upgraded");
                 }

@@ -128,7 +128,7 @@ public class Overheat : TowerBase
             GetComponent<SphereCollider>().radius = range;
         }
         string _damage = "damage";
-        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[gameObject.name][_damage])
+        if (upgrades[_damage] < UpgradeHandler.data.towerUpgrades[transform.parent.gameObject.name][_damage])
         {
             damage += damageUpgrade;
             upgrades[_damage]++;

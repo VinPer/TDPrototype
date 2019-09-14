@@ -86,10 +86,10 @@ public class TowerShotgun : TowerProjectile
             pelletCount += pelletCountUpgrade;
             upgrades[_pAmount]++;
         }
-        string _sReduction = "_sReduction";
+        string _sReduction = "spreadReduction";
         if (upgrades[_sReduction] < UpgradeHandler.data.towerUpgrades[transform.parent.name][_sReduction])
         {
-            rotationOffset += rotationOffsetUpgrade;
+            rotationOffset -= rotationOffsetUpgrade;
             upgrades[_sReduction]++;
         }
     }

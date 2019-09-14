@@ -7,8 +7,6 @@ public class ProjectileSpitter : ProjectileBase
     public GameObject acidPuddle;
     private GameObject puddle;
 
-    public float puddleDuration;
-
     protected override void Awake()
     {
         base.Awake();
@@ -20,7 +18,7 @@ public class ProjectileSpitter : ProjectileBase
     protected override void Hit(Transform hitPart)
     {
         base.Hit(hitPart);
-        puddle.GetComponent<Puddle>().duration = puddleDuration;
+        puddle.GetComponent<Puddle>().duration = GetComponentInParent<TowerProjectile>().puddleDuration;
         puddle.transform.SetParent(transform.parent);
         puddle.transform.position = transform.position;
         puddle.SetActive(true);
