@@ -13,7 +13,7 @@ public abstract class TowerBase : MonoBehaviour
     protected int level = 1;
     public bool seesInvisible = false;
 
-    public float rangeUpgrade = 2f;
+    public float rangeUpgrade = 10f;
     [HideInInspector]
     public int numberOfUpgrades = 0;
     public int maxUpgrade = 3;

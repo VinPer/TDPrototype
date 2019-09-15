@@ -38,11 +38,11 @@ public class TowerProjectile : TowerBase
     public float puddleDuration = 2f;
     //Upgrades
 
-    public float damageUpgrade = 1f;
-    public float penetrationUpgrade = .1f;
+    public float damageUpgrade = 10f;
+    public float penetrationUpgrade = .2f;
     public float decayTimerUpgrade = .5f;
     public int durabilityUpgrade = 1;
-    public int explosionRadiusUpgrade = 1;
+    public int explosionRadiusUpgrade = 10;
     public float debuffIntensityUpgrade = 10f;
     public float debuffDurationUpgrade = 1f;
 

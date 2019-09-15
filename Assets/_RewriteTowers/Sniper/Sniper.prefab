@@ -702,30 +702,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 50
+  range: 75
   seesInvisible: 1
-  rangeUpgrade: 2
+  rangeUpgrade: 10
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
   fireRate: 0.2
+  fireRateUpgrade: 0.1
   partToRotate: {fileID: 437540}
   turnSpeed: 10
   firePoint: {fileID: 8801715720961649628}
-  poolAmount: 2
-  bulletPrefab: {fileID: 3369391130654538165, guid: fd620d868875212489e7e353fe9cf16a,
-    type: 3}
-  penetrationBoost: 0
-  projectileDurability: 1
-  damageUpgrade: 0.1
-  fireRateUpgrade: 0.1
   targetStyles:
   - First
   - Last
   - Strongest
   - Weakest
   targetSelected: 
+  bulletPrefab: {fileID: 4513365524908910430, guid: 91a562f1d216f0143b138ac9829eb798,
+    type: 3}
+  poolAmount: 2
+  damage: 50
+  penetration: 0.8
+  decayTimer: 2
+  durability: 1
+  explosionRadius: 0
+  debuffIntensity: 0
+  debuffDuration: 0
+  puddleDuration: 2
+  damageUpgrade: 10
+  penetrationUpgrade: 0.1
+  decayTimerUpgrade: 0.5
+  durabilityUpgrade: 1
+  explosionRadiusUpgrade: 1
+  debuffIntensityUpgrade: 10
+  debuffDurationUpgrade: 1
 --- !u!1 &9042518912959370279
 GameObject:
   m_ObjectHideFlags: 0

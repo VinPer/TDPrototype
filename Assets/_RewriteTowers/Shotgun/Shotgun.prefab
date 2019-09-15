@@ -709,8 +709,8 @@ MonoBehaviour:
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
-  fireRate: 0.5
-  fireRateUpgrade: 0.1
+  fireRate: 0.6
+  fireRateUpgrade: 0.4
   partToRotate: {fileID: 425980}
   turnSpeed: 10
   firePoint: {fileID: 4221111140872492991}
@@ -723,7 +723,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3369391130654538165, guid: dd09d0d601501d348add0ce11ed0f73c,
     type: 3}
   poolAmount: 2
-  damage: 10
+  damage: 15
   penetration: 0
   decayTimer: 2
   durability: 1

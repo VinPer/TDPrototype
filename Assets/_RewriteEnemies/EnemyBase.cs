@@ -12,8 +12,8 @@ public class EnemyBase : MonoBehaviour
     private float initialHp;
 
     public float value = 10;
-    [Range(0f, 1f)]
-    public float armor = 0; //from 0 to 1
+    [Range(-1f, 1f)]
+    public float armor = 0; //from -1 to 1
     private float initialArmor;
 
     public float speed = 10;
@@ -200,7 +200,7 @@ public class EnemyBase : MonoBehaviour
         while (acid.duration > 0)
         {
             armor = armor - (initialArmor * (acid.level / 100) * Time.deltaTime);
-            if (armor <= 0) armor = 0;
+            if (armor <= -1) armor = -1;
             acid.duration -= Time.deltaTime;
             //armorBar.fillAmount = armor / initialArmor;
             numberArmor = armor * 5;
