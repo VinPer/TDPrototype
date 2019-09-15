@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -176,12 +175,15 @@ public class EnemyBase : MonoBehaviour
                 yield return null;
             }
             
+            
+
             speed = initialSpeed;
             slow.isActive = false;
         }
         finally
         {
-            Destroy(debuffEffect);
+            if (debuffEffect != null)
+                Destroy(debuffEffect);
         }
     }
 
@@ -204,7 +206,8 @@ public class EnemyBase : MonoBehaviour
         }
         finally
         {
-            Destroy(debuffEffect);
+            if (debuffEffect != null)
+                Destroy(debuffEffect);
         }
     }
 
@@ -261,17 +264,17 @@ public class EnemyBase : MonoBehaviour
             {
                 case Enums.Element.fire:
                     StopCoroutine(ApplyFire());
-                    ((IDisposable)ApplySlow()).Dispose();
+                    ((System.IDisposable)ApplySlow()).Dispose();
                     StartCoroutine(ApplyFire());
                     break;
                 case Enums.Element.acid:
                     StopCoroutine(ApplyAcid());
-                    ((IDisposable)ApplySlow()).Dispose();
+                    ((System.IDisposable)ApplySlow()).Dispose();
                     StartCoroutine(ApplyAcid());
                     break;
                 case Enums.Element.ice:
                     StopCoroutine(ApplySlow());
-                    ((IDisposable)ApplySlow()).Dispose();
+                    ((System.IDisposable)ApplySlow()).Dispose();
                     StartCoroutine(ApplySlow());
                     break;
             }

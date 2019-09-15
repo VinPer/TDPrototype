@@ -7388,31 +7388,31 @@ MonoBehaviour:
   - name: Basic
     prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
     cost: 200
-    upgradeCost: 250
+    upgradeCost: 500
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 78f42a330ed53e842bac7178d47af7a7, type: 3}
   - name: Rocket
     prefab: {fileID: 174414, guid: f10cb9f4e98ef41458c6a3b9b696648e, type: 3}
-    cost: 400
+    cost: 600
     upgradeCost: 550
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ed3a268be7c377542abce1ae14c359b0, type: 3}
   - name: Laser
     prefab: {fileID: 122216, guid: 4e50f7c196eb0e94282d8df00c58fbc7, type: 3}
     cost: 300
-    upgradeCost: 400
+    upgradeCost: 500
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e54c54116c6283d4ab70245e5d7b555a, type: 3}
   - name: Megaman
     prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
     cost: 300
-    upgradeCost: 350
+    upgradeCost: 500
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 3e3e09ef78d741f4f9e54657d5c85a50, type: 3}
   - name: Tesla
     prefab: {fileID: 108410, guid: 809c9e6c385da994ba56e27e307b629b, type: 3}
     cost: 450
-    upgradeCost: 600
+    upgradeCost: 650
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e237335f5cba8c841bac4159b1f7f55d, type: 3}
   - name: Flamethrower
@@ -7437,7 +7437,7 @@ MonoBehaviour:
   - name: Radar
     prefab: {fileID: 162182, guid: ece3573a92123e84b8b2787c40ce918a, type: 3}
     cost: 150
-    upgradeCost: 100
+    upgradeCost: 300
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69, type: 3}
   - name: Buffer
@@ -7449,51 +7449,51 @@ MonoBehaviour:
   - name: Shotgun
     prefab: {fileID: 130390, guid: b9836ac70b57ca5408f79c7a48ee16db, type: 3}
     cost: 350
-    upgradeCost: 500
+    upgradeCost: 700
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2a4fe609b910f244181bdfb444ad0438, type: 3}
   - name: Sniper
     prefab: {fileID: 129874, guid: 26bc24faf5ae2d44caaec3aa60a0236f, type: 3}
     cost: 500
-    upgradeCost: 600
+    upgradeCost: 750
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ce9f8eb148a30e844951e6dd54da1c88, type: 3}
   - name: Acid
     prefab: {fileID: 1000014142393632, guid: 0a4d785296d91174fb324fa33224c504, type: 3}
     cost: 300
-    upgradeCost: 500
+    upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 573c313583cc0ee4797e472e6c99f8a2, type: 3}
   - name: Ice
     prefab: {fileID: 1000011940937682, guid: 9c27ad61aa1515b4ea9d5b76cb841341, type: 3}
     cost: 300
-    upgradeCost: 500
+    upgradeCost: 800
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 55e5e92161b30514baedc65825d3dc2a, type: 3}
   - name: Gatling
     prefab: {fileID: 164160, guid: bd3111d7b003ed040b9e860c3572624c, type: 3}
     cost: 350
-    upgradeCost: 450
+    upgradeCost: 700
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 8ea92b06554b90c459ccdbdf4c66a794, type: 3}
   - name: Freezer
     prefab: {fileID: 113658, guid: 23de95250ee7aa24e84533ef303027f3, type: 3}
     cost: 350
-    upgradeCost: 600
+    upgradeCost: 700
     color: {r: 0.15566039, g: 0.73918015, b: 1, a: 1}
     sprite: {fileID: 21300000, guid: 1d831cc6f772c4549a5249de23a03c97, type: 3}
   - name: Spitter
     prefab: {fileID: 7223319574642828663, guid: 0077ac9b74da99540a01c12acf6c87ce,
       type: 3}
     cost: 350
-    upgradeCost: 500
+    upgradeCost: 550
     color: {r: 0.37911725, g: 0.8773585, b: 0.34349412, a: 1}
     sprite: {fileID: 21300000, guid: 41c6f94d80f9e034a9c63dcf97d30f5c, type: 3}
   - name: Overheat
     prefab: {fileID: 3900269410328158199, guid: 76f2d14fca5236243a4304167f91aac7,
       type: 3}
     cost: 350
-    upgradeCost: 300
+    upgradeCost: 500
     color: {r: 0.8784314, g: 0.34509808, b: 0.3551305, a: 1}
     sprite: {fileID: 21300000, guid: 588ac5b533407b74ab8b59d1f45e90db, type: 3}
   allTurretsName: []
