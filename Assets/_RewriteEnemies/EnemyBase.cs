@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -160,67 +161,90 @@ public class EnemyBase : MonoBehaviour
 
     protected IEnumerator ApplySlow()
     {
-        if(slowEffect != null)
+        try
         {
-            debuffEffect = Instantiate(slowEffect, transform.position, transform.rotation);
-            debuffEffect.transform.SetParent(transform);
+            if(slowEffect != null)
+            {
+                debuffEffect = Instantiate(slowEffect, transform.position, transform.rotation);
+                debuffEffect.transform.SetParent(transform);
+            }
+            while (slow.duration > 0)
+            {
+                speed = initialSpeed * (100f - slow.level) / 100; // checks this every time just in case it's updated
+                if (speed < 0) speed = 0;
+                slow.duration -= Time.deltaTime;
+                yield return null;
+            }
+            
+            speed = initialSpeed;
+            slow.isActive = false;
         }
-        while (slow.duration > 0)
+        finally
         {
-            speed = initialSpeed * (100f - slow.level) / 100; // checks this every time just in case it's updated
-            if (speed < 0) speed = 0;
-            slow.duration -= Time.deltaTime;
-            yield return null;
+            Destroy(debuffEffect);
         }
-        Destroy(debuffEffect);
-        speed = initialSpeed;
-        slow.isActive = false;
     }
 
     protected IEnumerator ApplyFire()
     {
-        debuffEffect = Instantiate(fireEffect, transform.position, transform.rotation);
-        debuffEffect.transform.SetParent(transform);
-        float damage;
-        while (fire.duration > 0)
+        try
         {
-            damage = Mathf.Min(fire.level, 100) / 100;
-            TakeDamage(damage, 0, Enums.Element.fire);
-            fire.duration--; // this needs to be improved with a time-relevant setting
-            yield return new WaitForSeconds(0.2f); // delay between damage ticks
+            debuffEffect = Instantiate(fireEffect, transform.position, transform.rotation);
+            debuffEffect.transform.SetParent(transform);
+            float damage;
+            while (fire.duration > 0)
+            {
+                damage = Mathf.Min(fire.level, 100) / 100;
+                TakeDamage(damage, 0, Enums.Element.fire);
+                fire.duration--; // this needs to be improved with a time-relevant setting
+                yield return new WaitForSeconds(0.2f); // delay between damage ticks
+            }
+
+            fire.isActive = false;
         }
-        Destroy(debuffEffect);
-        fire.isActive = false;
+        finally
+        {
+            Destroy(debuffEffect);
+        }
     }
 
     protected IEnumerator ApplyAcid()
     {
-        debuffEffect = Instantiate(acidEffect, transform.position, transform.rotation);
-        debuffEffect.transform.SetParent(transform);
-        float defaultArmor = armor;
-        while (acid.duration > 0)
+        try
         {
-            armor -= (initialArmor * (acid.level / 100) * Time.deltaTime);
-            if (armor <= -1) armor = -1;
-            acid.duration -= Time.deltaTime;
-            //armorBar.fillAmount = armor / initialArmor;
-            numberArmor = armor * 5;
-            for (int i = 0; i < armorImgs.Length; i++)
+            debuffEffect = Instantiate(acidEffect, transform.position, transform.rotation);
+            debuffEffect.transform.SetParent(transform);
+            float defaultArmor = armor;
+            while (acid.duration > 0)
             {
-                if (i < Mathf.Round(numberArmor)) armorImgs[i].sprite = armorSprite;
-                else armorImgs[i].sprite = noArmorSprite;
+                armor -= (initialArmor * (acid.level / 100) * Time.deltaTime);
+                if (armor <= -1) armor = -1;
+                acid.duration -= Time.deltaTime;
+                //armorBar.fillAmount = armor / initialArmor;
+                numberArmor = armor * 5;
+                for (int i = 0; i < armorImgs.Length; i++)
+                {
+                    if (i < Mathf.Round(numberArmor)) armorImgs[i].sprite = armorSprite;
+                    else armorImgs[i].sprite = noArmorSprite;
+                }
+                yield return null;
             }
-            yield return null;
-        }
-        Destroy(debuffEffect);
-        armor = defaultArmor;
-        //armorBar.fillAmount = armor / initialArmor;
+            armor = defaultArmor;
+            //armorBar.fillAmount = armor / initialArmor;
 
-        if(gameObject.activeInHierarchy)
-            StartCoroutine(reffilArmorSprites());
-        
-        acid.isActive = false;
+            if(gameObject.activeInHierarchy)
+                StartCoroutine(reffilArmorSprites());
+            
+            acid.isActive = false;
+        }
+        finally
+        {
+            if (debuffEffect != null)
+                Destroy(debuffEffect);
+
+        }
     }
+    
 
     public virtual void ActivateDebuff(float multiplier, float duration, Enums.Element debuffType)
     {
@@ -237,14 +261,17 @@ public class EnemyBase : MonoBehaviour
             {
                 case Enums.Element.fire:
                     StopCoroutine(ApplyFire());
+                    ((IDisposable)ApplySlow()).Dispose();
                     StartCoroutine(ApplyFire());
                     break;
                 case Enums.Element.acid:
                     StopCoroutine(ApplyAcid());
+                    ((IDisposable)ApplySlow()).Dispose();
                     StartCoroutine(ApplyAcid());
                     break;
                 case Enums.Element.ice:
                     StopCoroutine(ApplySlow());
+                    ((IDisposable)ApplySlow()).Dispose();
                     StartCoroutine(ApplySlow());
                     break;
             }
@@ -383,7 +410,7 @@ public class EnemyBase : MonoBehaviour
             if (i < numberArmor) armorImgs[i].sprite = armorSprite;
             else armorImgs[i].sprite = noArmorSprite;
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(.1f);
         }
     }
 }
