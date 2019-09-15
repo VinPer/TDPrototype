@@ -19,7 +19,7 @@ public class PlayerData
         };
         levelsClear = new Dictionary<string, int>
         {
-            { "1", -1 },
+            { "1", 0 },
             { "2", -1 },
             { "3", -1 },
             { "4", -1 },
