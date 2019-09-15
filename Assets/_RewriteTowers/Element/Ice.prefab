@@ -165,5 +165,5 @@ MonoBehaviour:
   penetration: 0
   debuffIntensity: 35
   intensityUpgrade: 15
-  debuffDuration: 3
-  durationUpgrade: 1.5
+  debuffDuration: 2
+  durationUpgrade: 1

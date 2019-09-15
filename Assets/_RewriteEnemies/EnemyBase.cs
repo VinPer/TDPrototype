@@ -236,12 +236,15 @@ public class EnemyBase : MonoBehaviour
             switch (debuffType)
             {
                 case Enums.Element.fire:
+                    StopCoroutine(ApplyFire());
                     StartCoroutine(ApplyFire());
                     break;
                 case Enums.Element.acid:
+                    StopCoroutine(ApplyAcid());
                     StartCoroutine(ApplyAcid());
                     break;
                 case Enums.Element.ice:
+                    StopCoroutine(ApplySlow());
                     StartCoroutine(ApplySlow());
                     break;
             }
