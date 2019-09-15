@@ -7403,7 +7403,7 @@ MonoBehaviour:
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e54c54116c6283d4ab70245e5d7b555a, type: 3}
-  - name: Megaman
+  - name: Charger
     prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
     cost: 250
     upgradeCost: 375
