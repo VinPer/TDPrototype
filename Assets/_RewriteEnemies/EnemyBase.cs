@@ -70,13 +70,19 @@ public class EnemyBase : MonoBehaviour
     public GameObject fireEffect;
     public GameObject slowEffect;
     public GameObject acidEffect;
-    private GameObject debuffEffect;
+    private GameObject fireDebuffEffect;
+    private GameObject acidDebuffEffect;
+    private GameObject slowDebuffEffect;
     public GameObject deathEffect;
 
     //Color
     protected Renderer rend;
     protected Color startColor;
     private Color invisibleColor;
+
+    protected Coroutine slowRoutine;
+    protected Coroutine acidRoutine;
+    protected Coroutine fireRoutine;
 
     private void OnEnable()
     {
@@ -164,8 +170,8 @@ public class EnemyBase : MonoBehaviour
         {
             if(slowEffect != null)
             {
-                debuffEffect = Instantiate(slowEffect, transform.position, transform.rotation);
-                debuffEffect.transform.SetParent(transform);
+                slowDebuffEffect = Instantiate(slowEffect, transform.position, transform.rotation);
+                slowDebuffEffect.transform.SetParent(transform);
             }
             while (slow.duration > 0)
             {
@@ -182,8 +188,8 @@ public class EnemyBase : MonoBehaviour
         }
         finally
         {
-            if (debuffEffect != null)
-                Destroy(debuffEffect);
+            if (slowDebuffEffect != null)
+                Destroy(slowDebuffEffect);
         }
     }
 
@@ -191,8 +197,8 @@ public class EnemyBase : MonoBehaviour
     {
         try
         {
-            debuffEffect = Instantiate(fireEffect, transform.position, transform.rotation);
-            debuffEffect.transform.SetParent(transform);
+            fireDebuffEffect = Instantiate(fireEffect, transform.position, transform.rotation);
+            fireDebuffEffect.transform.SetParent(transform);
             float damage;
             while (fire.duration > 0)
             {
@@ -206,8 +212,8 @@ public class EnemyBase : MonoBehaviour
         }
         finally
         {
-            if (debuffEffect != null)
-                Destroy(debuffEffect);
+            if (fireDebuffEffect != null)
+                Destroy(fireDebuffEffect);
         }
     }
 
@@ -215,13 +221,13 @@ public class EnemyBase : MonoBehaviour
     {
         try
         {
-            debuffEffect = Instantiate(acidEffect, transform.position, transform.rotation);
-            debuffEffect.transform.SetParent(transform);
+            acidDebuffEffect = Instantiate(acidEffect, transform.position, transform.rotation);
+            acidDebuffEffect.transform.SetParent(transform);
             float defaultArmor = armor;
             while (acid.duration > 0)
             {
                 armor -= (initialArmor * (acid.level / 100) * Time.deltaTime);
-                if (armor <= -1) armor = -1;
+                if (armor <= 0) armor = 0;
                 acid.duration -= Time.deltaTime;
                 //armorBar.fillAmount = armor / initialArmor;
                 numberArmor = armor * 5;
@@ -242,8 +248,8 @@ public class EnemyBase : MonoBehaviour
         }
         finally
         {
-            if (debuffEffect != null)
-                Destroy(debuffEffect);
+            if (acidDebuffEffect != null)
+                Destroy(acidDebuffEffect);
 
         }
     }
@@ -251,6 +257,7 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void ActivateDebuff(float multiplier, float duration, Enums.Element debuffType)
     {
+
         if (status == Enums.Status.disable || debuffs == null) return;
 
         if (debuffType == element) return;
@@ -263,19 +270,43 @@ public class EnemyBase : MonoBehaviour
             switch (debuffType)
             {
                 case Enums.Element.fire:
-                    StopCoroutine(ApplyFire());
-                    ((System.IDisposable)ApplySlow()).Dispose();
-                    StartCoroutine(ApplyFire());
+                    if (fireRoutine != null)
+                    {
+                        StopCoroutine(fireRoutine);
+                        ((System.IDisposable)ApplyFire()).Dispose();
+
+                        if (fireDebuffEffect != null)
+                            Destroy(fireDebuffEffect);
+                    }
+
+                    fireRoutine = StartCoroutine(ApplyFire());
                     break;
+
                 case Enums.Element.acid:
-                    StopCoroutine(ApplyAcid());
-                    ((System.IDisposable)ApplySlow()).Dispose();
-                    StartCoroutine(ApplyAcid());
+
+                    if (acidRoutine != null)
+                    {
+                        StopCoroutine(acidRoutine);
+                        ((System.IDisposable)ApplyAcid()).Dispose();
+
+                        if (acidDebuffEffect != null)
+                            Destroy(acidDebuffEffect);
+                    }
+                    
+                    acidRoutine = StartCoroutine(ApplyAcid());
                     break;
+
                 case Enums.Element.ice:
-                    StopCoroutine(ApplySlow());
-                    ((System.IDisposable)ApplySlow()).Dispose();
-                    StartCoroutine(ApplySlow());
+                    if (slowRoutine != null)
+                    {
+                        StopCoroutine(slowRoutine);
+                        ((System.IDisposable)ApplySlow()).Dispose();
+
+                        if (slowDebuffEffect != null)
+                            Destroy(slowDebuffEffect);
+                    }
+                    
+                    slowRoutine = StartCoroutine(ApplySlow());
                     break;
             }
         }
@@ -314,7 +345,10 @@ public class EnemyBase : MonoBehaviour
 
         StartCoroutine(Effect.PlayEffect(deathEffect, transform));
 
-        if (debuffEffect != null) Destroy(debuffEffect);
+        if (slowDebuffEffect != null) Destroy(slowDebuffEffect);
+        if (acidDebuffEffect != null) Destroy(acidDebuffEffect);
+        if (fireDebuffEffect != null) Destroy(fireDebuffEffect);
+        
         Hide();
     }
 

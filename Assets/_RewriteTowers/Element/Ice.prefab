@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   seesInvisible: 0
-  rangeUpgrade: 5
+  rangeUpgrade: 2
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   damage: 0
   damageUpgrade: 2
   penetration: 0
-  debuffIntensity: 35
-  intensityUpgrade: 15
-  debuffDuration: 2
+  debuffIntensity: 25
+  intensityUpgrade: 10
+  debuffDuration: 0
   durationUpgrade: 1

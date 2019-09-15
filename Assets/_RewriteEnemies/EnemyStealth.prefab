@@ -210,7 +210,7 @@ MonoBehaviour:
   health: 25
   value: 50
   armor: 0
-  speed: 7
+  speed: 10
   damage: 1
   shieldCapacity: 0
   shieldRechargeRate: 25

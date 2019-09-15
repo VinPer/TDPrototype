@@ -732,15 +732,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c75ade93d92c642aa35d4b4e2a1d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  range: 15
   seesInvisible: 0
-  rangeUpgrade: 5
+  rangeUpgrade: 3
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
-  fireRate: 0.5
-  fireRateUpgrade: 0.3
+  fireRate: 0.4
+  fireRateUpgrade: 0.2
   partToRotate: {fileID: 434064}
   turnSpeed: 15
   firePoint: {fileID: 7299632427139851549}
@@ -757,14 +757,14 @@ MonoBehaviour:
   penetration: 0
   decayTimer: 2
   durability: 1
-  explosionRadius: 7.5
+  explosionRadius: 3
   debuffIntensity: 0
   debuffDuration: 0
-  puddleDuration: 2
-  damageUpgrade: 5
-  penetrationUpgrade: 0.1
+  puddleDuration: 0
+  damageUpgrade: 4
+  penetrationUpgrade: 0
   decayTimerUpgrade: 0.5
-  durabilityUpgrade: 1
-  explosionRadiusUpgrade: 5
-  debuffIntensityUpgrade: 10
-  debuffDurationUpgrade: 1
+  durabilityUpgrade: 0
+  explosionRadiusUpgrade: 1
+  debuffIntensityUpgrade: 0
+  debuffDurationUpgrade: 0

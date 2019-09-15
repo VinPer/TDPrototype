@@ -37,7 +37,7 @@ public class TowerElement : TowerNonProjectile
         {
             range += rangeUpgrade;
             upgrades[_range]++;
-            GetComponent<SphereCollider>().radius = range;
+            GetComponent<SphereCollider>().radius = range/3;
             print("range upgraded");
         }
 
