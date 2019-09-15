@@ -153,7 +153,7 @@ MonoBehaviour:
   acidEffect: {fileID: 100002, guid: db50ab1c866680e4bb870bf5eb72dd3d, type: 3}
   deathEffect: {fileID: 1892078723244562, guid: 3c481c01fdcbcd64380ef3bc0150ada7,
     type: 3}
-  childrenToSpawn: 3
+  childrenToSpawn: 6
   overflow: 15
   child: {fileID: 108062, guid: 5be755b883175204595442cba0c487f0, type: 3}
 --- !u!114 &1880638996297619177

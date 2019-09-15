@@ -642,20 +642,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 0
-  rangeUpgrade: 2
+  rangeUpgrade: 5
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
   triggerRate: 1
   damage: 5
+  damageUpgrade: 2.5
   penetration: 0
   debuffIntensity: 0
   intensityUpgrade: 5
   debuffDuration: 0
   durationUpgrade: 1
-  maxTargets: 3
+  maxTargets: 4
   lightning: {fileID: 5604451113781230812, guid: df24cafd659b023489318aed923c3a29,
     type: 3}
   firePoint: {fileID: 3907978033142513034}
+  hitEffect: {fileID: 0}
   enemyTag: Enemy

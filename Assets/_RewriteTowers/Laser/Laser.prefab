@@ -5486,19 +5486,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 0
-  rangeUpgrade: 2
+  rangeUpgrade: 5
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
   triggerRate: 100
   damage: 25
+  damageUpgrade: 5
   penetration: 0
   debuffIntensity: 0
   intensityUpgrade: 5
   debuffDuration: 0
   durationUpgrade: 1
   multiplierSpeed: 1.01
+  multiplierSpeedUpgrade: 0.2
   lineRenderer: {fileID: 5967300103941238142}
   impactEffect: {fileID: 6290071173336388184}
   impactLight: {fileID: 6005442984672213924}

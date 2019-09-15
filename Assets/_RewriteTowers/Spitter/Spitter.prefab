@@ -890,25 +890,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 0
-  rangeUpgrade: 2
+  rangeUpgrade: 5
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 3
   fireRate: 0.3
-  partToRotate: {fileID: 7223319574642520833}
-  turnSpeed: 10
-  firePoint: {fileID: 2169498282149295609}
-  poolAmount: 3
-  bulletPrefab: {fileID: 3369391130654538165, guid: 72542328bb117e04186eb29340e80e50,
-    type: 3}
-  penetrationBoost: 0
-  projectileDurability: 1
-  damageUpgrade: 0.1
   fireRateUpgrade: 0.1
+  partToRotate: {fileID: 7223319574642520833}
+  turnSpeed: 15
+  firePoint: {fileID: 2169498282149295609}
   targetStyles:
   - First
   - Last
   - Strongest
   - Weakest
   targetSelected: 
+  bulletPrefab: {fileID: 3369391130654538165, guid: 72542328bb117e04186eb29340e80e50,
+    type: 3}
+  poolAmount: 3
+  damage: 15
+  penetration: 0
+  decayTimer: 2
+  durability: 1
+  explosionRadius: 0
+  debuffIntensity: 0
+  debuffDuration: 0
+  puddleDuration: 2
+  damageUpgrade: 2.5
+  penetrationUpgrade: 0.2
+  decayTimerUpgrade: 0.5
+  durabilityUpgrade: 1
+  explosionRadiusUpgrade: 10
+  debuffIntensityUpgrade: 15
+  debuffDurationUpgrade: 1

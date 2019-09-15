@@ -690,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 1
-  rangeUpgrade: 2
+  rangeUpgrade: 15
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0

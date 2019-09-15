@@ -103,6 +103,7 @@ public class EnemyBase : MonoBehaviour
         initialSpeed = speed;
 
         if (armor > 1) armor = 1;
+        if (armor < -1) armor = -1;
         initialArmor = armor;
 
         fire = new Debuff(true);
@@ -199,7 +200,7 @@ public class EnemyBase : MonoBehaviour
         float defaultArmor = armor;
         while (acid.duration > 0)
         {
-            armor = armor - (initialArmor * (acid.level / 100) * Time.deltaTime);
+            armor -= (initialArmor * (acid.level / 100) * Time.deltaTime);
             if (armor <= -1) armor = -1;
             acid.duration -= Time.deltaTime;
             //armorBar.fillAmount = armor / initialArmor;
@@ -214,12 +215,10 @@ public class EnemyBase : MonoBehaviour
         Destroy(debuffEffect);
         armor = defaultArmor;
         //armorBar.fillAmount = armor / initialArmor;
-        numberArmor = armor * 5;
-        for (int i = 0; i < armorImgs.Length; i++)
-        {
-            if (i < numberArmor) armorImgs[i].sprite = armorSprite;
-            else armorImgs[i].sprite = noArmorSprite;
-        }
+
+        if(gameObject.activeInHierarchy)
+            StartCoroutine(reffilArmorSprites());
+        
         acid.isActive = false;
     }
 
@@ -372,4 +371,16 @@ public class EnemyBase : MonoBehaviour
     }
 
     //END OF EXPERIMENTAL RECHARGING SHIELD
+
+    private IEnumerator reffilArmorSprites()
+    {
+        numberArmor = armor * 5;
+        for (int i = 0; i < armorImgs.Length; i++)
+        {
+            if (i < numberArmor) armorImgs[i].sprite = armorSprite;
+            else armorImgs[i].sprite = noArmorSprite;
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }

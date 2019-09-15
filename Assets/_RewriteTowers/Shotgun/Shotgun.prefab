@@ -704,7 +704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 0
-  rangeUpgrade: 2
+  rangeUpgrade: 5
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   targetSelected: 
   bulletPrefab: {fileID: 3369391130654538165, guid: dd09d0d601501d348add0ce11ed0f73c,
     type: 3}
-  poolAmount: 2
+  poolAmount: 3
   damage: 15
   penetration: 0
   decayTimer: 2
@@ -739,7 +739,7 @@ MonoBehaviour:
   debuffIntensityUpgrade: 10
   debuffDurationUpgrade: 1
   pelletCount: 6
-  pelletCountUpgrade: 1
+  pelletCountUpgrade: 2
   rotationOffset: 10
   rotationOffsetUpgrade: 2
 --- !u!1 &5870652856795768874
