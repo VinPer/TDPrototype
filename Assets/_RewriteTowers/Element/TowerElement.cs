@@ -15,18 +15,15 @@ public class TowerElement : TowerNonProjectile
         if (enemy != null)
         {
             col.GetComponent<EnemyBase>().ActivateDebuff(debuffIntensity, Mathf.Infinity, element);
-            print("debuff enter");
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        print("hi");
         EnemyBase enemy = col.GetComponent<EnemyBase>();
         if (enemy != null)
         {
             enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
-            print("debuff exit");
         }
     }
     

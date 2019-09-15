@@ -12,6 +12,7 @@ public class TargetSelectionDropdown : MonoBehaviour
     public void UpdateDropdown()
     {
         dropdown.interactable = true;
+        dropdown.gameObject.SetActive(true);
         dropdown.ClearOptions();
         towerProjectile = GetComponent<TurretMenu>().turretSelected.GetComponent<TowerProjectile>();
         if (towerProjectile && towerProjectile.targetStyles != null)
@@ -30,6 +31,7 @@ public class TargetSelectionDropdown : MonoBehaviour
             else
             {
                 dropdown.interactable = false;
+                dropdown.gameObject.SetActive(false);
             }
         }
         dropdown.RefreshShownValue();
