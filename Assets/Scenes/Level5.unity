@@ -11188,6 +11188,11 @@ PrefabInstance:
       propertyPath: switchText
       value: 
       objectReference: {fileID: 1697802532}
+    - target: {fileID: 1276107921016421596, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: levelNumber
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waypointHandler.Array.size
