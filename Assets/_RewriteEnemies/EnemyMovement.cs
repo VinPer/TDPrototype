@@ -107,7 +107,7 @@ public class EnemyMovement : MonoBehaviour
         PlayerStats.Lives--;
         PlayerStats.UpdateLives();
         enemy.Hide();
-        StartCoroutine(ReturnToSpawn());
+        ReturnToSpawn();
     }
 
     public int GetWaypointIndex()
@@ -120,9 +120,8 @@ public class EnemyMovement : MonoBehaviour
         waypointIndex = index;
     }
 
-    public IEnumerator ReturnToSpawn()
+    public void ReturnToSpawn()
     {
-        yield return new WaitForEndOfFrame();
         transform.position = spawnPosition;
     }
 }
