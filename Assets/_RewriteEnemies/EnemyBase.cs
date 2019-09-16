@@ -26,7 +26,7 @@ public class EnemyBase : MonoBehaviour
 
 
     //Experimental Recharching Shield
-    [Range(0f,100f)] public float shieldCapacity = 0f;
+    [Range(0f,300f)] public float shieldCapacity = 0f;
     private float initialShieldCapacity;
     public float shieldRechargeRate = 25f;
     public float shieldRechargeDelay = 2f;

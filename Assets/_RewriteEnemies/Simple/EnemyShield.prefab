@@ -284,12 +284,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
-  health: 10
+  health: 20
   value: 150
   armor: 0
   speed: 7.5
-  damage: 1
-  shieldCapacity: 100
+  damage: 5
+  shieldCapacity: 150
   shieldRechargeRate: 20
   shieldRechargeDelay: 10
   stealth: 0

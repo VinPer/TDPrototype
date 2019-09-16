@@ -211,7 +211,7 @@ MonoBehaviour:
   value: 400
   armor: 0.6
   speed: 7.5
-  damage: 1
+  damage: 10
   shieldCapacity: 50
   shieldRechargeRate: 10
   shieldRechargeDelay: 5
