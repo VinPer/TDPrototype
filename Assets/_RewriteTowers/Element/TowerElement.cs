@@ -21,12 +21,10 @@ public class TowerElement : TowerNonProjectile
 
     private void OnTriggerExit(Collider col)
     {
-        print("hi");
         EnemyBase enemy = col.GetComponent<EnemyBase>();
         if (enemy != null)
         {
             enemy.ActivateDebuff(debuffIntensity, debuffDuration, element);
-            print("debuff exit");
         }
     }
     

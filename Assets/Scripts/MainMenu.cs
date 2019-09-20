@@ -39,8 +39,6 @@ public class MainMenu : MonoBehaviour
     {
         UpgradeHandler.data.Reset();
         UpgradeHandler.instance.SaveData();
-        Destroy(UpgradeHandler.instance.gameObject);
-        Destroy(SelectedTurrets.instance.gameObject);
         sceneFader.FadeTo("MainMenu");
     }
 }

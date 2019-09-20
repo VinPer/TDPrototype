@@ -72,12 +72,20 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         GetComponent<Winning>().Win();
-        UpgradeHandler.data.levelsClear[levelNumber] = PlayerStats.Stars;
-        foreach (string item in UpgradeHandler.data.levelsClear.Keys)
+        if(UpgradeHandler.data.levelsClear[levelNumber] == 0)
         {
-            UpgradeHandler.data.playerStats["TotalStars"] += UpgradeHandler.data.levelsClear[item];
-            UpgradeHandler.data.playerStats["UnspentStars"] += UpgradeHandler.data.levelsClear[item];
+            int level = int.Parse(levelNumber);
+            level++;
+            UpgradeHandler.data.levelsClear[level.ToString()] = 0;
+            print(level.ToString() + " : " + UpgradeHandler.data.levelsClear[level.ToString()]);
         }
+        if (UpgradeHandler.data.levelsClear[levelNumber] < PlayerStats.Stars)
+        {
+            UpgradeHandler.data.playerStats["TotalStars"] += PlayerStats.Stars - UpgradeHandler.data.levelsClear[levelNumber];
+            UpgradeHandler.data.playerStats["UnspentStars"] += PlayerStats.Stars - UpgradeHandler.data.playerStats["UnspentStars"];
+            UpgradeHandler.data.levelsClear[levelNumber] = PlayerStats.Stars;
+        }
+
         UpgradeHandler.instance.SaveData();
         winUI.SetActive(true);
         AudioManager.instance.Play("Victory");

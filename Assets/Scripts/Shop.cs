@@ -41,7 +41,8 @@ public class Shop : MonoBehaviour
         // draw all from their data contained in TurretBlueprint
         for (int i = 0; i < turretBlueprints.Count; i++)
         {            
-            currentChild = transform.GetChild(i);
+            currentChild = transform.GetChild(0).GetChild(i);
+            currentChild.gameObject.SetActive(true);
             currentChild.GetComponent<Image>().sprite = turretBlueprints[i].sprite;
             currentChild.GetComponent<Image>().color = turretBlueprints[i].color;
             currentChild.GetComponentsInChildren<Text>()[1].text = "$" + turretBlueprints[i].cost;

@@ -36,7 +36,6 @@ public class TowerCharger : TowerProjectile
         if (currentChargeLevel < maxChargeLevel && chargeCooldown <= 0f)
         {
             chargeCooldown = 1f / chargeRate;
-            print("++");
             currentChargeLevel++;
             if (!charging.isPlaying) charging.Play();
         }
@@ -99,7 +98,6 @@ public class TowerCharger : TowerProjectile
 
     protected override void UpdateBulletStatus(ProjectileBase projectile)
     {
-        print(currentChargeLevel);
         base.UpdateBulletStatus(projectile);
         projectile.SetDamage(projectile.GetDamage() * currentChargeLevel);
         projectile.SetExplosionRadius(currentChargeLevel);
