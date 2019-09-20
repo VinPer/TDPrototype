@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
-  penetration: 1
+  damage: 0
+  penetration: 0
   debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   acceleration: 0
   seeking: 1
   explosionRadius: 0
-  durability: 3
+  durability: 1
   impactEffect: {fileID: 100014, guid: a57a6829db3568c4d9bdc37e9e63c017, type: 3}
   decayTimer: 1
 --- !u!54 &7382164805718639879

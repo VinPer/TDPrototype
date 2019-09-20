@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166cb6434910a7b4db4ab3a78a3ef2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 8
+  damage: 0
   penetration: 0
   debuffElement: 0
   debuffIntensity: 0

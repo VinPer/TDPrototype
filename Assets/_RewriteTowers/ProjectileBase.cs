@@ -10,10 +10,12 @@ public class ProjectileBase : MonoBehaviour
 
     private Vector3 initialSize;
 
+
     public float speed = 50f;
     private float initialSpeed;
     public float acceleration = 0f;
     public bool seeking = false;
+    private bool initialSeeking;
     [HideInInspector]
     public float explosionRadius;
     public int durability;
@@ -29,6 +31,7 @@ public class ProjectileBase : MonoBehaviour
     {
         initialSpeed = speed;
         initialSize = transform.localScale;
+        initialSeeking = seeking;
     }
 
     protected virtual void Destroy()
@@ -37,6 +40,7 @@ public class ProjectileBase : MonoBehaviour
         transform.localScale = initialSize;
         target = null;
         gameObject.SetActive(false);
+        seeking = initialSeeking;
     }
     
     protected virtual void Update()
@@ -46,6 +50,9 @@ public class ProjectileBase : MonoBehaviour
             Destroy();
             return;
         }
+
+        if (target.GetComponent<EnemyBase>().isDead)
+            seeking = false;
 
         if (seeking)
         {

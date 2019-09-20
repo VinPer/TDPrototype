@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3020940492236447365}
   - component: {fileID: 1482301581865422270}
   m_Layer: 14
-  m_Name: Rocket18-Red
+  m_Name: Projectile Basic New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f0a6e5a8acdad47ad1d3afc99abca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 0
   penetration: 0
   debuffElement: 0
-  debuffIntensity: 1
-  debuffDuration: 5
+  debuffIntensity: 0
+  debuffDuration: 0
   speed: 100
   acceleration: 0
   seeking: 0

@@ -707,7 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 0
-  rangeUpgrade: 5
+  rangeUpgrade: 2
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
@@ -733,14 +733,14 @@ MonoBehaviour:
   explosionRadius: 0
   debuffIntensity: 0
   debuffDuration: 0
-  puddleDuration: 2
+  puddleDuration: 0
   damageUpgrade: 1
-  penetrationUpgrade: 0.2
+  penetrationUpgrade: 0.1
   decayTimerUpgrade: 0.5
-  durabilityUpgrade: 1
-  explosionRadiusUpgrade: 10
-  debuffIntensityUpgrade: 10
-  debuffDurationUpgrade: 1
+  durabilityUpgrade: 0
+  explosionRadiusUpgrade: 0
+  debuffIntensityUpgrade: 0
+  debuffDurationUpgrade: 0
 --- !u!135 &180550739980348539
 SphereCollider:
   m_ObjectHideFlags: 0

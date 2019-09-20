@@ -161,9 +161,9 @@ MonoBehaviour:
   element: 3
   triggerRate: 0
   damage: 0
-  damageUpgrade: 2
+  damageUpgrade: 0
   penetration: 0
   debuffIntensity: 15
   intensityUpgrade: 5
-  debuffDuration: 0
+  debuffDuration: 1
   durationUpgrade: 1

@@ -837,7 +837,7 @@ MonoBehaviour:
   turretMaximized: 0
   element: 0
   fireRate: 1
-  fireRateUpgrade: 0.1
+  fireRateUpgrade: 0.2
   partToRotate: {fileID: 491510}
   turnSpeed: 10
   firePoint: {fileID: 8184259198771357106}
@@ -857,13 +857,14 @@ MonoBehaviour:
   explosionRadius: 0
   debuffIntensity: 0
   debuffDuration: 0
-  damageUpgrade: 1
-  penetrationUpgrade: 0.1
+  puddleDuration: 0
+  damageUpgrade: 2
+  penetrationUpgrade: 1
   decayTimerUpgrade: 0.5
-  durabilityUpgrade: 1
+  durabilityUpgrade: 0
   explosionRadiusUpgrade: 1
-  debuffIntensityUpgrade: 10
-  debuffDurationUpgrade: 1
+  debuffIntensityUpgrade: 0
+  debuffDurationUpgrade: 0
   maxChargeLevel: 5
   maxChargeUpgrade: 1
   chargeRate: 0.5

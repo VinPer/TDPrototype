@@ -642,19 +642,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 0
-  rangeUpgrade: 5
+  rangeUpgrade: 3
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
   triggerRate: 1
-  damage: 5
-  damageUpgrade: 2.5
+  damage: 7
+  damageUpgrade: 3
   penetration: 0
   debuffIntensity: 0
   intensityUpgrade: 5
   debuffDuration: 0
-  durationUpgrade: 1
+  durationUpgrade: 0
   maxTargets: 4
   lightning: {fileID: 5604451113781230812, guid: df24cafd659b023489318aed923c3a29,
     type: 3}

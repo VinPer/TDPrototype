@@ -704,13 +704,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   seesInvisible: 0
-  rangeUpgrade: 5
+  rangeUpgrade: 2
   numberOfUpgrades: 0
   maxUpgrade: 3
   turretMaximized: 0
   element: 0
   fireRate: 0.6
-  fireRateUpgrade: 0.4
+  fireRateUpgrade: 0.3
   partToRotate: {fileID: 425980}
   turnSpeed: 10
   firePoint: {fileID: 4221111140872492991}
@@ -730,16 +730,16 @@ MonoBehaviour:
   explosionRadius: 0
   debuffIntensity: 0
   debuffDuration: 0
-  puddleDuration: 2
-  damageUpgrade: 0.1
+  puddleDuration: 0
+  damageUpgrade: 3
   penetrationUpgrade: 0.1
   decayTimerUpgrade: 0.5
-  durabilityUpgrade: 1
-  explosionRadiusUpgrade: 1
-  debuffIntensityUpgrade: 10
-  debuffDurationUpgrade: 1
+  durabilityUpgrade: 0
+  explosionRadiusUpgrade: 0
+  debuffIntensityUpgrade: 0
+  debuffDurationUpgrade: 0
   pelletCount: 6
-  pelletCountUpgrade: 2
+  pelletCountUpgrade: 1
   rotationOffset: 10
   rotationOffsetUpgrade: 2
 --- !u!1 &5870652856795768874
