@@ -41209,6 +41209,10 @@ PrefabInstance:
       propertyPath: referencePoint
       value: 
       objectReference: {fileID: 1461820701}
+    - target: {fileID: 985722382, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 53.118042
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
 --- !u!1 &1370599762 stripped
@@ -49594,6 +49598,11 @@ PrefabInstance:
       propertyPath: switchText
       value: 
       objectReference: {fileID: 546937339}
+    - target: {fileID: 1276107921016421596, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: levelNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waypointHandler.Array.size

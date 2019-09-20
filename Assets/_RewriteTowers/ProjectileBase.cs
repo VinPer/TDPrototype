@@ -49,11 +49,6 @@ public class ProjectileBase : MonoBehaviour
 
         if (seeking)
         {
-            if (target.GetComponent<EnemyBase>().isDead)
-            {
-                Destroy();
-                return;
-            }
             direction = target.position - transform.position;
             transform.LookAt(target);
         }
