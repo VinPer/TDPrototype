@@ -50,14 +50,13 @@ public class ProjectileBase : MonoBehaviour
             Destroy();
             return;
         }
-
-        if (target.GetComponent<EnemyBase>().isDead)
-            seeking = false;
-
+        
         if (seeking)
         {
             direction = target.position - transform.position;
             transform.LookAt(target);
+            if (target.GetComponent<EnemyBase>().isDead)
+                seeking = false;
         }
 
         float distanceThisFrame = speed * Time.deltaTime;
