@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     public static int WavesSurvived;
     public static int maxStars = 3;
     public static int Stars;
+    public static int EnemiesKilled = 0;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class PlayerStats : MonoBehaviour
 
         WavesSurvived = 0;
         Stars = 0;
+        EnemiesKilled = 0;
     }
 
     public static void UpdateLives()

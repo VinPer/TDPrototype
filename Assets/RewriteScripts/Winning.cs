@@ -16,6 +16,10 @@ public class Winning : MonoBehaviour
     public Sprite starSprite;
     public Sprite emptySprite;
 
+    [Header("Coin System")]
+    public int enemiesKilled = 10;
+    public int moneyBonus = 1;
+
     public void Win()
     {
         if (string.Equals(nextLevel, ""))
@@ -45,6 +49,12 @@ public class Winning : MonoBehaviour
             UpgradeHandler.data.playerStats["UnspentStars"] += PlayerStats.Stars - UpgradeHandler.data.playerStats["UnspentStars"];
             UpgradeHandler.data.levelsClear[GameManager.instance.levelNumber] = PlayerStats.Stars;
         }
+
+        //COIN SYSTEM
+        int coins = PlayerStats.EnemiesKilled * enemiesKilled + PlayerStats.Money * moneyBonus;
+        UpgradeHandler.data.playerStats["Coins"] += coins;
+        print("Coins: " + coins);
+        print("Total coins: " + UpgradeHandler.data.playerStats["Coins"]);
 
         UpgradeHandler.instance.SaveData();
         GameManager.instance.winUI.SetActive(true);

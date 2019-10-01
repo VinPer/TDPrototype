@@ -340,6 +340,7 @@ public class EnemyBase : MonoBehaviour
     {
         PlayerStats.Money += (int)value;
         PlayerStats.UpdateMoney();
+        PlayerStats.EnemiesKilled++;
         GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 2f);
 
