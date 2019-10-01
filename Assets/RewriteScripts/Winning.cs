@@ -32,6 +32,24 @@ public class Winning : MonoBehaviour
             if (i < PlayerStats.Stars) stars[i].sprite = starSprite;
             else stars[i].sprite = emptySprite;
         }
+        if (UpgradeHandler.data.levelsClear[GameManager.instance.levelNumber] == 0)
+        {
+            int level = int.Parse(GameManager.instance.levelNumber);
+            level++;
+            UpgradeHandler.data.levelsClear[level.ToString()] = 0;
+            print(level.ToString() + " : " + UpgradeHandler.data.levelsClear[level.ToString()]);
+        }
+        if (UpgradeHandler.data.levelsClear[GameManager.instance.levelNumber] < PlayerStats.Stars)
+        {
+            UpgradeHandler.data.playerStats["TotalStars"] += PlayerStats.Stars - UpgradeHandler.data.levelsClear[GameManager.instance.levelNumber];
+            UpgradeHandler.data.playerStats["UnspentStars"] += PlayerStats.Stars - UpgradeHandler.data.playerStats["UnspentStars"];
+            UpgradeHandler.data.levelsClear[GameManager.instance.levelNumber] = PlayerStats.Stars;
+        }
+
+        UpgradeHandler.instance.SaveData();
+        GameManager.instance.winUI.SetActive(true);
+        AudioManager.instance.Play("Victory");
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 
     private void Toggle()
