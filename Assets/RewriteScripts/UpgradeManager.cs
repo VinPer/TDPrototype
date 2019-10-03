@@ -47,6 +47,9 @@ public class UpgradeManager : MonoBehaviour
     public GameObject puddleSize;
     public GameObject chargeTime;
 
+    public Text totalStars;
+    public Text totalCoins;
+
     private List<string> activeStatus;
 
     private Dictionary<string, GameObject> status;
@@ -77,6 +80,8 @@ public class UpgradeManager : MonoBehaviour
 
     private void Start()
     {
+        totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
+        totalCoins.text = UpgradeHandler.data.playerStats["Coins"].ToString();
         allTurrets = new List<TurretBlueprint>(SelectedTurrets.allTurrets);
         status = new Dictionary<string, GameObject>
         {
@@ -164,6 +169,8 @@ public class UpgradeManager : MonoBehaviour
                     status[item].GetComponentInChildren<Button>().interactable = true;
                 }
             }
+            totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
+            totalCoins.text = UpgradeHandler.data.playerStats["Coins"].ToString();
         }
     }
 
