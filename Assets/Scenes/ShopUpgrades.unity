@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 52903126}
   - component: {fileID: 52903125}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: MoreSkillsPlus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: MoreSkills
 --- !u!222 &78170687
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -469,7 +469,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: UltimateTower
 --- !u!222 &111565382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -548,7 +548,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Buffer
 --- !u!222 &127463844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 319440671}
   - component: {fileID: 319440670}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MoreTowersPlus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +916,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Mortar
 --- !u!222 &387373902
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 399229346}
   - component: {fileID: 399229345}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Mortar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1327,7 +1327,7 @@ GameObject:
   - component: {fileID: 597520674}
   - component: {fileID: 597520673}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MoreTowers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1513,7 +1513,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: MoreSkills
 --- !u!222 &674708380
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1592,7 +1592,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Nuke
 --- !u!222 &681262903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 689606346}
   - component: {fileID: 689606345}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Flamethrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1743,7 +1743,7 @@ GameObject:
   - component: {fileID: 807860784}
   - component: {fileID: 807860783}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: UltimateTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1929,7 +1929,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Tesla
 --- !u!222 &819365070
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2008,7 +2008,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Gatling
 --- !u!222 &858306527
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2030,7 +2030,7 @@ GameObject:
   - component: {fileID: 988535286}
   - component: {fileID: 988535285}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: MoreSkills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2320,7 +2320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Flamethrower
 --- !u!222 &1158354869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2421,7 +2421,7 @@ GameObject:
   - component: {fileID: 1195757371}
   - component: {fileID: 1195757370}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: BuffAllTowers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2653,7 +2653,7 @@ GameObject:
   - component: {fileID: 1237097102}
   - component: {fileID: 1237097101}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: Gatling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2943,11 +2943,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 195127036}
   blocks:
-  - transform: {fileID: 1059395511}
+  - name: Block1
+    transform: {fileID: 1059395511}
     starsRequired: 0
-  - transform: {fileID: 1378906801}
+  - name: Block2
+    transform: {fileID: 1378906801}
     starsRequired: 2
-  - transform: {fileID: 1228132077}
+  - name: Block3
+    transform: {fileID: 1228132077}
     starsRequired: 15
   totalStars: {fileID: 542545732}
   unspentStars: {fileID: 2026015796}
@@ -2978,7 +2981,7 @@ GameObject:
   - component: {fileID: 1328680574}
   - component: {fileID: 1328680573}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Buffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3107,7 +3110,7 @@ GameObject:
   - component: {fileID: 1329494332}
   - component: {fileID: 1329494331}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ElementalBlast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3339,7 +3342,7 @@ GameObject:
   - component: {fileID: 1392277933}
   - component: {fileID: 1392277932}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Nuke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3525,7 +3528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: More Towers
+  m_Text: MoreTowers
 --- !u!222 &1399589059
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3630,6 +3633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a2489d22f21a24f847af0407859b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomRotation: 1
 --- !u!45 &1475364023
 Skybox:
   m_ObjectHideFlags: 0
@@ -3810,7 +3814,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Freezer
 --- !u!222 &1520088337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3889,7 +3893,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Spitter
 --- !u!222 &1581347762
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3911,7 +3915,7 @@ GameObject:
   - component: {fileID: 1588287508}
   - component: {fileID: 1588287507}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Freezer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4117,7 +4121,7 @@ GameObject:
   - component: {fileID: 1734896028}
   - component: {fileID: 1734896027}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4369,7 +4373,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: BuffAllTowers
 --- !u!222 &1778411972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4391,7 +4395,7 @@ GameObject:
   - component: {fileID: 1865748731}
   - component: {fileID: 1865748730}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Spitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4577,7 +4581,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: ElementalBlast
 --- !u!222 &1870947800
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4598,7 +4602,7 @@ GameObject:
   - component: {fileID: 1925473670}
   - component: {fileID: 1925473669}
   m_Layer: 5
-  m_Name: UnspentStars
+  m_Name: Coins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4657,7 +4661,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Unspent \u2605: "
+  m_Text: 'Coins:'
 --- !u!222 &1925473670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4808,7 +4812,7 @@ GameObject:
   - component: {fileID: 1952738181}
   - component: {fileID: 1952738180}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Tesla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

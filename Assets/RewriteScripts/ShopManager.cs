@@ -15,14 +15,42 @@ public class ShopManager : MonoBehaviour
     [System.Serializable]
     public class Block
     {
+        public string name;
         public Transform transform;
         public int starsRequired;
     }
-
+    public Dictionary<string, Dictionary<string, int>> upgradesPrice = new Dictionary<string, Dictionary<string, int>>
+        {
+            { "Block1", new Dictionary<string, int>
+            {
+                { "MoreTowers", 100 },
+                { "MoreSkills", 100 },
+                { "ElementalBlast", 150},
+                { "Mortar", 150 },
+                { "Shotgun", 120 },
+                { "Gatling", 120 }
+            } },
+            { "Block2", new Dictionary<string, int>
+            {
+                { "MoreTowersPlus", 200 },
+                { "MoreSkillsPlus", 200 },
+                { "BuffAllTowers", 180 },
+                { "Buffer", 150 },
+                { "Tesla", 300 }
+            } },
+            { "Block3", new Dictionary<string, int>
+            {
+                { "Flamethrower", 400 },
+                { "Freezer", 350 },
+                { "Spitter", 320 },
+                { "UltimateTower", 350 },
+                { "Nuke", 400 }
+            } },
+        };
     private void Start()
     {
         totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
-        unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
+        unspentStars.text = UpgradeHandler.data.playerStats["Coins"].ToString();
         foreach (Block block in blocks)
         {
             if (UpgradeHandler.data.playerStats["TotalStars"] < block.starsRequired)
@@ -36,7 +64,13 @@ public class ShopManager : MonoBehaviour
             {
                 foreach (Button item in block.transform.GetComponentsInChildren<Button>())
                 {
-                    item.interactable = true;
+                    if(!UpgradeHandler.data.shopUpgrades[block.name][item.name])
+                        item.interactable = true;
+                    else
+                    {
+                        item.interactable = false;
+                        item.GetComponentInChildren<Text>().text += " Unlocked"; 
+                    }
                 }
             }
         }
@@ -44,37 +78,42 @@ public class ShopManager : MonoBehaviour
 
     public void BuyUpgradeBlock1(string name)
     {
-        if(UpgradeHandler.data.playerStats["UnspentStars"] > 0)
+        string block = "Block1";
+        if (UpgradeHandler.data.playerStats["Coins"] >= upgradesPrice[block][name])
         {
             UpgradeHandler.data.shopUpgrades["Block1"][name] = true;
-            UpgradeHandler.data.playerStats["UnspentStars"] -= 1;
+            UpgradeHandler.data.playerStats["Coins"] -= upgradesPrice[block][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
-            unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
+            unspentStars.text = UpgradeHandler.data.playerStats["Coins"].ToString();
+            GameObject.Find(name).GetComponent<Button>().interactable = false;
             UpgradeHandler.instance.SaveData();
         }
     }
     public void BuyUpgradeBlock2(string name)
     {
-        if (UpgradeHandler.data.playerStats["UnspentStars"] > 0)
+        string block = "Block2";
+        if (UpgradeHandler.data.playerStats["Coins"] >= upgradesPrice[block][name])
         {
             UpgradeHandler.data.shopUpgrades["Block2"][name] = true;
-            UpgradeHandler.data.playerStats["UnspentStars"] -= 1;
+            UpgradeHandler.data.playerStats["Coins"] -= upgradesPrice[block][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
-            unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
+            unspentStars.text = UpgradeHandler.data.playerStats["Coins"].ToString();
             UpgradeHandler.instance.SaveData();
         }
     }
     public void BuyUpgradeBlock3(string name)
     {
-        if (UpgradeHandler.data.playerStats["UnspentStars"] > 0)
+        string block = "Block3";
+        if (UpgradeHandler.data.playerStats["Coins"] >= upgradesPrice[block][name])
         {
-            UpgradeHandler.data.shopUpgrades["Block3"][name] = true;
-            UpgradeHandler.data.playerStats["UnspentStars"] -= 1;
+            UpgradeHandler.data.shopUpgrades[block][name] = true;
+            UpgradeHandler.data.playerStats["Coins"] -= upgradesPrice[block][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
-            unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
+            unspentStars.text = UpgradeHandler.data.playerStats["Coins"].ToString();
             UpgradeHandler.instance.SaveData();
         }
     }
+
     public void BackToMenu()
     {
         sceneFader.FadeTo("MainMenu");

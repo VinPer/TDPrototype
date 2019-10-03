@@ -47,7 +47,33 @@ public class UpgradeManager : MonoBehaviour
     public GameObject puddleSize;
     public GameObject chargeTime;
 
+    private List<string> activeStatus;
+
     private Dictionary<string, GameObject> status;
+    public Dictionary<string, int> upgradesPrice = new Dictionary<string, int>
+    {
+        {"range", 100},
+        {"fireRate",120 },
+        {"damage", 120 },
+        {"piercing",80 },
+        {"penetration", 100 },
+        {"explosionRadius", 150 },
+        {"debuffIntensity", 150 },
+        {"debuffDuration", 130 },
+        {"multiplierSpeed", 120 },
+        {"maxCharge", 150 },
+        {"chargeRate", 120 },
+        {"chainAmount", 110 },
+        {"buffRange", 100 },
+        {"buffDamage", 120 },
+        {"buffFireRate", 130 },
+        {"projectileAmount", 100 },
+        {"spreadReduction", 100 },
+        {"puddleDuration", 120 },
+        {"puddleSize", 100 },
+        {"chargeTime", 110 }
+    };
+
 
     private void Start()
     {
@@ -86,11 +112,12 @@ public class UpgradeManager : MonoBehaviour
 
     public void SelectTurret(int i)
     {
+        activeStatus = new List<string>();
         turretSelected = allTurrets[i];
         turretImage.sprite = turretSelected.sprite;
         turretName.text = turretSelected.name;
         Dictionary<string, int> upgrades = UpgradeHandler.data.towerUpgrades[turretSelected.name];
-
+        int coins = UpgradeHandler.data.playerStats["Coins"];
         foreach (string item in status.Keys)
         {
             status[item].gameObject.SetActive(false);
@@ -98,8 +125,18 @@ public class UpgradeManager : MonoBehaviour
         foreach (string item in upgrades.Keys)
         {
             status[item].gameObject.SetActive(true);
+            activeStatus.Add(item);
             upgradeStatus = status[item].GetComponent<UpgradeStatus>();
-            upgradeStatus.UpdateUpgradeStatus(upgrades[item]);
+            upgradeStatus.UpdateUpgradeStatus(upgrades[item],upgradesPrice[item]);
+            if(upgradesPrice[item] > UpgradeHandler.data.playerStats["Coins"])
+            {
+                upgradeStatus.GetComponentInChildren<Button>().interactable = false;
+            }
+            else
+            {
+
+                upgradeStatus.GetComponentInChildren<Button>().interactable = true;
+            }
         }
     }
 
@@ -107,13 +144,26 @@ public class UpgradeManager : MonoBehaviour
     {
         Dictionary<string, int> upgrades = UpgradeHandler.data.towerUpgrades[turretSelected.name];
 
-        if(upgrades[_status] < 3)
+        if(upgrades[_status] < 3 && upgradesPrice[_status] <= UpgradeHandler.data.playerStats["Coins"])
         {
             upgrades[_status]++;
+            UpgradeHandler.data.playerStats["Coins"] -= upgradesPrice[_status];
             upgradeStatus = status[_status].GetComponent<UpgradeStatus>();
             upgradeStatus.UpdateUpgradeStatus(upgrades[_status]);
             Debug.Log(turretSelected.name + ": " + _status + ": " + upgrades[_status]);
             UpgradeHandler.instance.SaveData();
+            foreach (string item in activeStatus)
+            {
+                if (upgradesPrice[item] > UpgradeHandler.data.playerStats["Coins"])
+                {
+                    status[item].GetComponentInChildren<Button>().interactable = false;
+                }
+                else
+                {
+
+                    status[item].GetComponentInChildren<Button>().interactable = true;
+                }
+            }
         }
     }
 

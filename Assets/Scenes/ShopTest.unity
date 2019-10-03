@@ -7998,5 +7998,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: range
       objectReference: {fileID: 0}
+    - target: {fileID: 1637144479735798405, guid: fa78ab66c28708743b647b781e262df7,
+        type: 3}
+      propertyPath: price
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa78ab66c28708743b647b781e262df7, type: 3}
