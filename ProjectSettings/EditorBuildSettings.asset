@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level3.unity
     guid: 4747a03ba6cde6a46b42aadedb897c62
   - enabled: 1
-    path: Assets/Scenes/ShopTest.unity
+    path: Assets/Scenes/TowerUpgrades.unity
     guid: 109d47ac7e8b98a4ba457e1a752f39f8
   - enabled: 1
     path: Assets/Scenes/Level4.unity
