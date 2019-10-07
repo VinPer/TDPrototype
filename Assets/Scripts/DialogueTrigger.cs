@@ -6,8 +6,14 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    public void TriggerDialogue()
+    private void Start()
     {
         FindObjectOfType<DialogSystem>().StartDialogue(dialogue);
+    }
+
+    public void TriggerDialogue()
+    {
+        FindObjectOfType<DialogSystem>().DisplayNextSentence();
+
     }
 }
