@@ -7,48 +7,45 @@ using UnityEngine.UI;
 public class DialogSystem : MonoBehaviour
 {
     private Queue<string> sentences;
-
     public GameObject dialog;
     private TextMeshProUGUI dialogText;
+    private IDictionary<int, string> levelBtn;
+
+
     private void Start()
     {
         sentences = new Queue<string>();
         dialogText = dialog.GetComponent<TextMeshProUGUI>();
-        
+        levelBtn = new Dictionary<int, string>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-        //Debug.Log("Starting conversation");
+        Debug.Log("Starting conversation");
 
-        sentences.Clear();
-        foreach (string sentence in dialogue.senteces)
+        //Como achei que seria:
+        for(int i = 0; i < dialogue.senteces.Length; i++)
         {
-            sentences.Enqueue(sentence);
+            levelBtn.Add(i + 1, dialogue.senteces[i]);
         }
-        Debug.Log("sentence count:  " + sentences.Count);
+
+        //Como tive que fazer
+        //levelBtn.Add(1, dialogue.senteces[0]);
+        //levelBtn.Add(2, dialogue.senteces[1]);
+        //levelBtn.Add(3, dialogue.senteces[2]);
+        //levelBtn.Add(4, dialogue.senteces[3]);
+        //levelBtn.Add(5, dialogue.senteces[4]);
+        //levelBtn.Add(6, dialogue.senteces[5]);
     }
 
-    public void DisplayNextSentence()
+    public void DisplayNextSentence(int numeroBtn)
     {
-        Debug.Log("xubixubi:  " + sentences.Count);
+        //Debug.Log("xubixubi:  " + levelBtn.Count);
 
-        if (sentences.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }
-        
-        string sentence = sentences.Dequeue();
-        Debug.Log("tripa seca:  " + sentence);
-        //Debug.Log(dialog);
+        string sentence = levelBtn[numeroBtn];
+        //Debug.Log("tripa seca:  " + sentence);
 
         dialogText.SetText(sentence);
-        //Debug.Log(dialogText);
-}
-
-    public void EndDialogue()
-    {
-        //Debug.Log("End of Dialog");
     }
+
 }

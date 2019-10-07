@@ -28,9 +28,6 @@ public class Slider : MonoBehaviour
         distRepostion = new float[btnLength];
 
         btnDist = (int)Mathf.Abs(btn[1].GetComponent<RectTransform>().anchoredPosition.x - btn[0].GetComponent<RectTransform>().anchoredPosition.x);
-        Debug.Log(btnDist);
-        //Debug.Log(distance);
-        //Debug.Log(distRepostion);
     }
 
     private void Update()
@@ -45,34 +42,26 @@ public class Slider : MonoBehaviour
         if (Mathf.Abs(newX) >= Mathf.Abs(pos) -1f && Mathf.Abs(newX) <= Mathf.Abs(pos) + 1 && !triggerMessage)
         {
             triggerMessage = true;
-            Debug.Log("newX: " + newX);
-            Debug.Log("pos: " + pos);
-            Debug.Log(btn[minBtnNum].name);
-            switch (btn[minBtnNum].name)
+
+            switch (minBtnNum + 1)
             {
-                case "Lv (1)":
-                    dialogTrigger.TriggerDialogue();
-                    Debug.Log("Selected Level: " + btn[minBtnNum].name);
+                case 1:
+                    dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
-                case "Lv (2)":
-                    dialogTrigger.TriggerDialogue();
-                    Debug.Log("Selected Level: " + btn[minBtnNum].name);
+                case 2:
+                    dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
-                case "Lv (3)":
-                    dialogTrigger.TriggerDialogue();
-                    Debug.Log("Selected Level: " + btn[minBtnNum].name);
+                case 3:
+                    dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
-                case "Lv (4)":
-                    dialogTrigger.TriggerDialogue();
-                    Debug.Log("Selected Level: " + btn[minBtnNum].name);
+                case 4:
+                    dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
-                case "Lv (5)":
-                    dialogTrigger.TriggerDialogue();
-                    Debug.Log("Selected Level: " + btn[minBtnNum].name);
+                case 5:
+                    dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
-                case "Lv (6)":
-                    dialogTrigger.TriggerDialogue();
-                    Debug.Log("Selected Level: " + btn[minBtnNum].name);
+                case 6:
+                    dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
             }
         }
@@ -88,7 +77,6 @@ public class Slider : MonoBehaviour
             distRepostion[i] = centerToCompare.GetComponent<RectTransform>().position.x - btn[i].GetComponent<RectTransform>().position.x;
 
             distance[i] = Mathf.Abs(distRepostion[i]);
-            //Debug.Log(i+ ":" + distRepostion[i]);
             if (distRepostion[i] > -11)
             {
                 float curX = btn[i].GetComponent<RectTransform>().anchoredPosition.x;
