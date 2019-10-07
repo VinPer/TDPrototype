@@ -215,10 +215,16 @@ MonoBehaviour:
   dialogue:
     name: B1G D4TA
     senteces:
-    - <b>Os aliens chegaram!</b> Precisamos da sua ajuda! Elimine todos os inimigos
-      antes que eles destruam o nosso QG!
-    - CHANG CHANG XUBIDUBOP XIBOP
-    - WE GO TOGETHER
+    - "<b><i> A invas\xE3o come\xE7ou!</i></b> Os aliens est\xE3o se preparando para
+      atacar nosso QG"
+    - "Os inimigos mandaram refor\xE7os! Drones mais <b>resistentes</b> e mais <b>r\xE1pidos</b>
+      foram avistados!"
+    - "Foram relatadas explos\xF5es no setor 3, mas <b>nenhum drone foi visto</b>!
+      Melhor se preparar para <b>novas amea\xE7as</b>!"
+    - "Os inimigos est\xE3o mais resistentes aos <b>elementos</b>! Melhor diversificar
+      a defesa..."
+    - "Quantos inimigos! Parece at\xE9 que eles est\xE3o<i><b>se multiplicando</b></i>."
+    - "Que caras chatos! Parece at\xE9 que os escudos <b> est\xE3o se regenerando</b>"
 --- !u!1001 &22018215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4803,7 +4809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.2954535}
   m_AnchorMax: {x: 0.2275, y: 0.8533335}
-  m_AnchoredPosition: {x: 0, y: -98}
+  m_AnchoredPosition: {x: -12.5, y: -98}
   m_SizeDelta: {x: 339.9, y: 389.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1072901444
@@ -5023,8 +5029,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: <b>Os aliens chegaram!</b> Precisamos da sua ajuda! Elimine todos os inimigos
-    antes que eles destruam o nosso QG!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5052,13 +5057,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 29.6
+  m_fontSize: 25.8
   m_fontSizeBase: 25.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 257
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -5093,13 +5098,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1173673132}
-    characterCount: 106
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 17
-    wordCount: 18
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 2
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
