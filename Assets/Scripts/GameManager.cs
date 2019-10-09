@@ -17,6 +17,13 @@ public class GameManager : MonoBehaviour
 
     public Text switchText;
 
+    [Header("Coin System")]
+    public int enemiesKilledBonus = 10;
+    public int moneyBonus = 1;
+    [Range(0,100)]
+    public int levelBonus = 10;
+    private bool win = false;
+
     public static GameManager instance;
     private void Awake()
     {
@@ -66,12 +73,30 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
         AudioManager.instance.Play("Defeat");
         AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
+        win = false;
+        ReciveCoins();
     }
 
     public void Winning()
     {
         GameIsOver = true;
         GetComponent<Winning>().Win();
+        win = true;
+        ReciveCoins();
+    }
 
+    public void ReciveCoins() {
+        //COIN SYSTEM
+        int coins = PlayerStats.EnemiesKilled * enemiesKilledBonus + PlayerStats.Money * moneyBonus;
+        coins += (int)Mathf.Round((coins * levelBonus)/100);
+        if (win) coins *= PlayerStats.Stars;
+        UpgradeHandler.data.playerStats["Coins"] += coins;
+        print("Coins: " + coins);
+        print("Total coins: " + UpgradeHandler.data.playerStats["Coins"]);
+
+        UpgradeHandler.instance.SaveData();
+        GameManager.instance.winUI.SetActive(true);
+        AudioManager.instance.Play("Victory");
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 }

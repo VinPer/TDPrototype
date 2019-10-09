@@ -6,15 +6,26 @@ using UnityEngine.UI;
 public class UpgradeStatus : MonoBehaviour
 {
     public Text statusName;
-    public Text statusValue;
+    public Image[] statusValue;
+    public Sprite unlocked;
+    public Sprite locked;
+
     public Text priceText; 
     public void UpdateUpgradeStatus(int value)
     {
-        statusValue.text =value.ToString();
+        for (int i = 0; i < statusValue.Length; i++)
+        {
+            if (i <= value) statusValue[i].sprite = unlocked;
+            else statusValue[i].sprite = locked;
+        }
     }
     public void UpdateUpgradeStatus(int value, int price)
     {
-        statusValue.text = value.ToString();
+        for (int i = 0; i < statusValue.Length; i++)
+        {
+            if (i <= value) statusValue[i].sprite = unlocked;
+            else statusValue[i].sprite = locked;
+        }
         priceText.text = price.ToString();
     }
 }

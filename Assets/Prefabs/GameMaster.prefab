@@ -50,24 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves: []
-  basicEnemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
-  fastEnemy: {fileID: 150684, guid: b37daab609aeb204c80873d303f25508, type: 3}
-  tankEnemy: {fileID: 162058, guid: a159dc8ad2f683545a3c762f81d990bb, type: 3}
-  shildedEnemy: {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
-  cluster: {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
-  fireElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
-  acidElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
-  iceElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
-  flying: {fileID: 127644, guid: c12cd68320f648a4c820f5858a2b0719, type: 3}
-  zip: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
-  invisible: {fileID: 126950, guid: 9367964038275c543b1f8070bf0be267, type: 3}
   spawnPoint: {fileID: 0}
-  waypointHandler: {fileID: 0}
+  waypointHandler:
+  - {fileID: 0}
   infiniteOffset: 1
   timeBetweenWaves: 5
-  waveCountdownText: {fileID: 0}
-  wavesSurvived: {fileID: 0}
-  waveNumber: {fileID: 0}
 --- !u!114 &5256149404726400498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,24 +68,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves: []
-  basicEnemy: {fileID: 115150, guid: 961ddd3dd5b4e4c45bfa80f72977c2fb, type: 3}
-  fastEnemy: {fileID: 150684, guid: b37daab609aeb204c80873d303f25508, type: 3}
-  tankEnemy: {fileID: 162058, guid: a159dc8ad2f683545a3c762f81d990bb, type: 3}
-  shildedEnemy: {fileID: 130838, guid: a652a9574c2879e4fb18356f5d1df57c, type: 3}
-  cluster: {fileID: 108062, guid: fe9effd36d82932419a7254b415acfac, type: 3}
-  fireElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
-  acidElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
-  iceElement: {fileID: 151234, guid: d578543f890d76e47b338743d783bb8b, type: 3}
-  flying: {fileID: 127644, guid: c12cd68320f648a4c820f5858a2b0719, type: 3}
-  zip: {fileID: 165244, guid: eaa543acfc2bf694e9c8fecda54e9540, type: 3}
-  invisible: {fileID: 126950, guid: 9367964038275c543b1f8070bf0be267, type: 3}
   spawnPoint: {fileID: 0}
-  waypointHandler: {fileID: 0}
+  waypointHandler:
+  - {fileID: 0}
   infiniteOffset: 1
   timeBetweenWaves: 5
-  waveCountdownText: {fileID: 0}
-  wavesSurvived: {fileID: 0}
-  waveNumber: {fileID: 0}
 --- !u!114 &1276107921016421598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +89,7 @@ MonoBehaviour:
     type: 3}
   sellEffect: {fileID: 3900145034223850294, guid: 77b07d1dda6077d4281a511bc90e1c53,
     type: 3}
-  turretMenu: {fileID: 0}
+  upgradeEffect: {fileID: 0}
 --- !u!114 &1276107921016421597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,11 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc932a60e66ed4449f72820202bdc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelNumber: 
   gameOverUI: {fileID: 0}
   debugUI: {fileID: 0}
   turretUI: {fileID: 0}
   skillUI: {fileID: 0}
   winUI: {fileID: 0}
+  switchText: {fileID: 0}
+  enemiesKilledBonus: 10
+  moneyBonus: 1
+  levelBonus: 10
 --- !u!114 &1276107921016421571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +163,6 @@ MonoBehaviour:
   menuScene: MainMenu
   money: {fileID: 0}
   lives: {fileID: 0}
+  stars: []
+  starSprite: {fileID: 21300000, guid: 76e3a685ddd67a04590744a98e3416ea, type: 3}
+  emptySprite: {fileID: 0}
