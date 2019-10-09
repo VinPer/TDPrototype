@@ -23,6 +23,7 @@ public class TurretHandler : MonoBehaviour
     private List<TurretBlueprint> unlockedTurrets;
     public static List<string> selectedTurrets;
     public List<string> turretsToBuy = new List<string> {"Mortar", "Shotgun", "Gatling", "Buffer", "Tesla", "Flamethrower", "Freezer", "Spitter" };
+    public List<string> turretsToUnlock = new List<string> { "Acid", "Radar", "Sniper", "Overheat", "Laser", "Charger" };
     public int max = 4;
 
     // uhh ignore this
@@ -92,6 +93,33 @@ public class TurretHandler : MonoBehaviour
             foreach (string item in UpgradeHandler.data.shopUpgrades.Keys)
             {
                 if (UpgradeHandler.data.shopUpgrades[item].ContainsKey(name) && UpgradeHandler.data.shopUpgrades[item][name]) res = true;
+            }
+        }
+        else if (turretsToUnlock.Contains(name))
+        {
+            foreach (string item in UpgradeHandler.data.levelsClear.Keys)
+            {
+                switch (name)
+                {
+                    case "Acid":
+                        if (UpgradeHandler.data.levelsClear["2"] >= 0) res = true;
+                        break;
+                    case "Radar":
+                        if (UpgradeHandler.data.levelsClear["3"] >= 0) res = true;
+                        break;
+                    case "Sniper":
+                        if (UpgradeHandler.data.levelsClear["4"] >= 0) res = true;
+                        break;
+                    case "Overheat":
+                        if (UpgradeHandler.data.levelsClear["5"] >= 0) res = true;
+                        break;
+                    case "Laser":
+                        if (UpgradeHandler.data.levelsClear["6"] >= 0) res = true;
+                        break;
+                    case "Charger":
+                        if (UpgradeHandler.data.levelsClear["7"] >= 0) res = true;
+                        break;
+                }
             }
         }
         else res = true;
