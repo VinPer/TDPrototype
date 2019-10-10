@@ -98,6 +98,7 @@ public class ShopManager : MonoBehaviour
             UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice[block][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
             unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
+            GameObject.Find(name).GetComponent<Button>().interactable = false;
             UpgradeHandler.instance.SaveData();
         }
     }
@@ -110,6 +111,7 @@ public class ShopManager : MonoBehaviour
             UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice[block][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
             unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
+            GameObject.Find(name).GetComponent<Button>().interactable = false;
             UpgradeHandler.instance.SaveData();
         }
     }
