@@ -6,6 +6,7 @@ public class PlayerData
 {
     public Dictionary<string, int> playerStats;
     public Dictionary<string, int> levelsClear;
+    public Dictionary<string, bool> unlockedTowers;
     public Dictionary<string, Dictionary<string, bool>> shopUpgrades;
     public Dictionary<string, Dictionary<string, int>> towerUpgrades;
 
@@ -26,6 +27,15 @@ public class PlayerData
             { "5", -1 },
             { "6", -1 },
             { "7", -1 },
+        };
+        unlockedTowers = new Dictionary<string, bool>
+        {
+            {"Acid", false },
+            {"Radar", false },
+            {"Sniper", false },
+            {"Overheat", false },
+            {"Laser", false },
+            {"Charger", false }
         };
         shopUpgrades = new Dictionary<string, Dictionary<string, bool>>
         {

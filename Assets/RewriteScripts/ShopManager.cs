@@ -78,11 +78,10 @@ public class ShopManager : MonoBehaviour
 
     public void BuyUpgradeBlock1(string name)
     {
-        string block = "Block1";
-        if (UpgradeHandler.data.playerStats["UnspentStars"] >= upgradesPrice[block][name])
+        if (UpgradeHandler.data.playerStats["UnspentStars"] >= upgradesPrice["Block1"][name])
         {
             UpgradeHandler.data.shopUpgrades["Block1"][name] = true;
-            UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice[block][name];
+            UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice["Block1"][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
             unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
             GameObject.Find(name).GetComponent<Button>().interactable = false;
@@ -91,11 +90,10 @@ public class ShopManager : MonoBehaviour
     }
     public void BuyUpgradeBlock2(string name)
     {
-        string block = "Block2";
-        if (UpgradeHandler.data.playerStats["UnspentStars"] >= upgradesPrice[block][name])
+        if (UpgradeHandler.data.playerStats["UnspentStars"] >= upgradesPrice["Block2"][name])
         {
             UpgradeHandler.data.shopUpgrades["Block2"][name] = true;
-            UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice[block][name];
+            UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice["Block2"][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
             unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
             UpgradeHandler.instance.SaveData();
@@ -103,11 +101,10 @@ public class ShopManager : MonoBehaviour
     }
     public void BuyUpgradeBlock3(string name)
     {
-        string block = "Block3";
-        if (UpgradeHandler.data.playerStats["UnspentStars"] >= upgradesPrice[block][name])
+        if (UpgradeHandler.data.playerStats["UnspentStars"] >= upgradesPrice["Block3"][name])
         {
-            UpgradeHandler.data.shopUpgrades[block][name] = true;
-            UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice[block][name];
+            UpgradeHandler.data.shopUpgrades["Block3"][name] = true;
+            UpgradeHandler.data.playerStats["UnspentStars"] -= upgradesPrice["Block3"][name];
             totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
             unspentStars.text = UpgradeHandler.data.playerStats["UnspentStars"].ToString();
             UpgradeHandler.instance.SaveData();

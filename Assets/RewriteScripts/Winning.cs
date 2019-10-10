@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class Winning : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Winning : MonoBehaviour
     public Image[] stars;
     public Sprite starSprite;
     public Sprite emptySprite;
+    public GameObject unlockTowerCanvas;
 
     public void Win()
     {
@@ -45,7 +47,41 @@ public class Winning : MonoBehaviour
             UpgradeHandler.data.playerStats["UnspentStars"] += PlayerStats.Stars - UpgradeHandler.data.playerStats["UnspentStars"];
             UpgradeHandler.data.levelsClear[GameManager.instance.levelNumber] = PlayerStats.Stars;
         }
+        UnlockTower();
+    }
 
+    private void UnlockTower()
+    {
+        Dictionary<string, string> towersToUnlock = new Dictionary<string, string>
+        {
+            {"1", "Acid" },
+            {"2", "Radar" },
+            {"3", "Sniper" },
+            {"4", "Overheat" },
+            {"5", "Laser" },
+            {"6", "Charger" },
+        };
+        if (UpgradeHandler.data.unlockedTowers.ContainsKey(towersToUnlock[GameManager.instance.levelNumber]))
+        {
+            if (!UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]])
+            {
+                unlockTowerCanvas.SetActive(true);
+                UnlockTowerCanvas canvas = unlockTowerCanvas.GetComponent<UnlockTowerCanvas>();
+                foreach (TurretBlueprint item in SelectedTurrets.allTurrets)
+                {
+
+                }
+                SelectedTurrets.allTurrets.ForEach(item => {
+                    if (string.Equals(item.name, towersToUnlock[GameManager.instance.levelNumber]))
+                    {
+                        canvas.turretImage.sprite = item.sprite;
+                        canvas.turretName.text = item.name;
+                        canvas.turretAbout.text = item.name;
+                    }
+                });
+                UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]] = true;
+            }
+        }
     }
 
     private void Toggle()

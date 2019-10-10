@@ -108,6 +108,16 @@ public class UpgradeManager : MonoBehaviour
         };
         for (int i = 0; i < allTurrets.Count; i++)
         {
+            if(SelectedTurrets.instance.unlockedTurrets.Contains(allTurrets[i]))
+            {
+                allTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                allTurretsGUI.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            
             allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
             allTurretsGUI.transform.GetChild(i)
                 .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;

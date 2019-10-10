@@ -20,7 +20,6 @@ public class TurretHandler : MonoBehaviour
     // Lists for the turrets that are available and selected
     public List<TurretBlueprint> allTurrets;
     public List<string> allTurretsName;
-    private List<TurretBlueprint> unlockedTurrets;
     public static List<string> selectedTurrets;
     public List<string> turretsToBuy = new List<string> {"Mortar", "Shotgun", "Gatling", "Buffer", "Tesla", "Flamethrower", "Freezer", "Spitter" };
     public List<string> turretsToUnlock = new List<string> { "Acid", "Radar", "Sniper", "Overheat", "Laser", "Charger" };
@@ -46,7 +45,6 @@ public class TurretHandler : MonoBehaviour
 
         // Instantiate the selected turrets list
         selectedTurrets = new List<string>();
-        unlockedTurrets = new List<TurretBlueprint>();
         SelectedTurrets.allTurrets = new List<TurretBlueprint>(allTurrets);
         foreach (TurretBlueprint item in SelectedTurrets.instance.selectedTurrets)
         {
@@ -60,13 +58,13 @@ public class TurretHandler : MonoBehaviour
         for (int i = 0; i < allTurrets.Count; i++)
         {
             if(!string.Equals(allTurrets[i].name,"Bomb"))
-            if (IsUnlock(allTurrets[i].name))
+            if (IsUnlocked(allTurrets[i].name))
             {
                 allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
                 allTurretsGUI.transform.GetChild(i)
                     .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
                 allTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
-                unlockedTurrets.Add(allTurrets[i]);
+                SelectedTurrets.instance.unlockedTurrets.Add(allTurrets[i]);
             }
 
         }
@@ -85,43 +83,22 @@ public class TurretHandler : MonoBehaviour
         UpdateSelectedTurrets();
     }
 
-    public bool IsUnlock(string name)
+    public bool IsUnlocked(string name)
     {
-        bool res = false;
-        if (turretsToBuy.Contains(name))
+        bool res = false;        
+        if (turretsToUnlock.Contains(name))
+        {
+            if (UpgradeHandler.data.unlockedTowers[name]) res = true;
+        }
+
+        else if (turretsToBuy.Contains(name))
         {
             foreach (string item in UpgradeHandler.data.shopUpgrades.Keys)
             {
                 if (UpgradeHandler.data.shopUpgrades[item].ContainsKey(name) && UpgradeHandler.data.shopUpgrades[item][name]) res = true;
             }
         }
-        else if (turretsToUnlock.Contains(name))
-        {
-            foreach (string item in UpgradeHandler.data.levelsClear.Keys)
-            {
-                switch (name)
-                {
-                    case "Acid":
-                        if (UpgradeHandler.data.levelsClear["2"] >= 0) res = true;
-                        break;
-                    case "Radar":
-                        if (UpgradeHandler.data.levelsClear["3"] >= 0) res = true;
-                        break;
-                    case "Sniper":
-                        if (UpgradeHandler.data.levelsClear["4"] >= 0) res = true;
-                        break;
-                    case "Overheat":
-                        if (UpgradeHandler.data.levelsClear["5"] >= 0) res = true;
-                        break;
-                    case "Laser":
-                        if (UpgradeHandler.data.levelsClear["6"] >= 0) res = true;
-                        break;
-                    case "Charger":
-                        if (UpgradeHandler.data.levelsClear["7"] >= 0) res = true;
-                        break;
-                }
-            }
-        }
+
         else res = true;
         return res;
     }
