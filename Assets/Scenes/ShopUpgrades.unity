@@ -403,6 +403,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Spitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock3
+      objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1011,6 +1016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: BuffAllTowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock2
       objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
@@ -1970,6 +1980,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Flamethrower
       objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock3
+      objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2199,6 +2214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Buffer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock2
       objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
@@ -2546,6 +2566,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: MoreSkillsPlus
       objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock2
+      objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2640,6 +2665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134700656572713974, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_Text
+      value: (inventory)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb, type: 3}
@@ -3059,6 +3089,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8134700656572713974, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_Text
+      value: (inventory)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb, type: 3}
 --- !u!1 &1247916780
@@ -3386,6 +3421,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: UltimateTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock3
       objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
@@ -4386,6 +4426,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Freezer
       objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock3
+      objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -4691,6 +4736,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: MoreTowersPlus
       objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock2
+      objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -4785,6 +4835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134700656572713974, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_Text
+      value: (inventory)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb, type: 3}
@@ -5294,6 +5349,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Nuke
       objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock3
+      objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -5522,6 +5582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Tesla
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051755107709460463, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgradeBlock2
       objectReference: {fileID: 0}
     - target: {fileID: 8051755107138322673, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
         type: 3}
@@ -5836,6 +5901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134700656572713974, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb,
+        type: 3}
+      propertyPath: m_Text
+      value: (inventory)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6cb6b0a7951ac940ae77c0ea5e68fcb, type: 3}
