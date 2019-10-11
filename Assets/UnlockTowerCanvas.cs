@@ -11,7 +11,7 @@ public class UnlockTowerCanvas : MonoBehaviour
 
     private void Update()
     {
-        if(Input.anyKey)
+        if(Input.anyKey || Input.touchCount > 0)
             gameObject.SetActive(false);
     }
 }
