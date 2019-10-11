@@ -67,10 +67,7 @@ public class Winning : MonoBehaviour
             {
                 unlockTowerCanvas.SetActive(true);
                 UnlockTowerCanvas canvas = unlockTowerCanvas.GetComponent<UnlockTowerCanvas>();
-                foreach (TurretBlueprint item in SelectedTurrets.allTurrets)
-                {
-
-                }
+                
                 SelectedTurrets.allTurrets.ForEach(item => {
                     if (string.Equals(item.name, towersToUnlock[GameManager.instance.levelNumber]))
                     {
