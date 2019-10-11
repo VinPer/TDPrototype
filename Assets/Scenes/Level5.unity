@@ -1950,7 +1950,7 @@ PrefabInstance:
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waypointHandler.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
@@ -2116,12 +2116,12 @@ PrefabInstance:
         type: 3}
       propertyPath: waypointHandler.Array.data[0]
       value: 
-      objectReference: {fileID: 877472240}
+      objectReference: {fileID: 1571286249}
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waypointHandler.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1736635323}
     - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waves.Array.data[1].burst.Array.data[2].enemyType
@@ -2712,6 +2712,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6618333997889329597, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: waypointHandler.Array.data[2]
+      value: 
+      objectReference: {fileID: 39052583}
     - target: {fileID: 5256149404726400498, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: waves.Array.size
