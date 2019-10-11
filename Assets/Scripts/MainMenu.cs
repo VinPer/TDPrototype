@@ -8,6 +8,10 @@ public class MainMenu : MonoBehaviour
     public string shopScene = "ShopUpgrades";
 
     public SceneFader sceneFader;
+    [SerializeField]
+    private string nextSceneName;
+    [SerializeField]
+    private int nextLevelIndex;
 
     private void Start()
     {
@@ -18,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         sceneFader.FadeTo(levelToLoad);
+        Debug.Log("popopopopo");
     }
 
     public void Quit()
