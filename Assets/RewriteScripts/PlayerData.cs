@@ -20,47 +20,85 @@ public class PlayerData
         };
         levelsClear = new Dictionary<string, int>
         {
+            //{ "1", 0 },
+            //{ "2", -1 },
+            //{ "3", -1 },
+            //{ "4", -1 },
+            //{ "5", -1 },
+            //{ "6", -1 },
+            //{ "7", -1 },
             { "1", 0 },
-            { "2", -1 },
-            { "3", -1 },
-            { "4", -1 },
-            { "5", -1 },
-            { "6", -1 },
-            { "7", -1 },
+            { "2", 0 },
+            { "3", 0 },
+            { "4", 0 },
+            { "5", 0 },
+            { "6", 0 },
+            { "7", 0 },
         };
         unlockedTowers = new Dictionary<string, bool>
         {
-            {"Acid", false },
-            {"Radar", false },
-            {"Sniper", false },
-            {"Overheat", false },
-            {"Laser", false },
-            {"Charger", false }
+            //{"Acid", false },
+            //{"Radar", false },
+            //{"Sniper", false },
+            //{"Overheat", false },
+            //{"Laser", false },
+            //{"Charger", false }
+            {"Acid", true },
+            {"Radar", true },
+            {"Sniper", true },
+            {"Overheat", true },
+            {"Laser", true },
+            {"Charger", true }
         };
         shopUpgrades = new Dictionary<string, Dictionary<string, bool>>
         {
+            //{ "Block1", new Dictionary<string, bool>
+            //{
+            //    { "MoreTowers", false },
+            //    { "MoreSkills", false },
+            //    { "ElementalBlast", false },
+            //    { "Mortar", false },
+            //    { "Shotgun", false },
+            //    { "Gatling", false }
+            //} },
+            //{ "Block2", new Dictionary<string, bool>
+            //{
+            //    { "MoreTowersPlus", false },
+            //    { "MoreSkillsPlus", false },
+            //    { "BuffAllTowers", false },
+            //    { "Buffer", false },
+            //    { "Tesla", false }
+            //} },
+            //{ "Block3", new Dictionary<string, bool>
+            //{
+            //    { "Flamethrower", false },
+            //    { "Freezer", false },
+            //    { "Spitter", false },
+            //    { "UltimateTower", false },
+            //    { "Nuke", false }
+            //} },
             { "Block1", new Dictionary<string, bool>
             {
                 { "MoreTowers", false },
                 { "MoreSkills", false },
                 { "ElementalBlast", false },
-                { "Mortar", false },
-                { "Shotgun", false },
-                { "Gatling", false }
+                { "Mortar", true },
+                { "Shotgun", true },
+                { "Gatling", true }
             } },
             { "Block2", new Dictionary<string, bool>
             {
                 { "MoreTowersPlus", false },
                 { "MoreSkillsPlus", false },
                 { "BuffAllTowers", false },
-                { "Buffer", false },
-                { "Tesla", false }
+                { "Buffer", true },
+                { "Tesla", true }
             } },
             { "Block3", new Dictionary<string, bool>
             {
-                { "Flamethrower", false },
-                { "Freezer", false },
-                { "Spitter", false },
+                { "Flamethrower", true },
+                { "Freezer", true },
+                { "Spitter", true },
                 { "UltimateTower", false },
                 { "Nuke", false }
             } },
