@@ -22,7 +22,10 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         sceneFader.FadeTo(levelToLoad);
-        Debug.Log("popopopopo");
+    }
+    public void Play(string level)
+    {
+        sceneFader.FadeTo(level);
     }
 
     public void Quit()
