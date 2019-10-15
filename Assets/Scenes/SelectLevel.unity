@@ -144,12 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa42dde20b6731d4a8cdb56616225ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Level3
   upgradeScene: ShopTest
   shopScene: ShopUpgrades
   sceneFader: {fileID: 1676405101}
-  nextSceneName: 
-  nextLevelIndex: 0
 --- !u!4 &15333551
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button 6
+  m_Text: 
 --- !u!222 &49680310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -443,7 +440,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button 4
+  m_Text: 
 --- !u!222 &81283410
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -904,8 +901,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Selecione o Level
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 19bab17844088ce448d9b1cd9035da8b, type: 2}
+  m_sharedMaterial: {fileID: 21072724939530480, guid: 19bab17844088ce448d9b1cd9035da8b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1388,8 +1386,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: B1G D4TA
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0d9607f259df5414b857a41e73e99d11, type: 2}
+  m_sharedMaterial: {fileID: 21376009140608860, guid: 0d9607f259df5414b857a41e73e99d11,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2089,7 +2088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button 3
+  m_Text: '<multi> '
 --- !u!222 &354452892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3123,6 +3122,17 @@ MonoBehaviour:
           m_StringArgument: SelectTurret
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 15333549}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &604028974
@@ -3472,7 +3482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button 1
+  m_Text: 
 --- !u!222 &652292266
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4159,7 +4169,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button 5
+  m_Text: 
 --- !u!222 &810245214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4484,7 +4494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button 2
+  m_Text: 
 --- !u!222 &897130179
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5246,8 +5256,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278239744
+  m_fontColor: {r: 0.0020095313, g: 0.764151, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8257,6 +8267,7 @@ GameObject:
   - component: {fileID: 1933563903}
   - component: {fileID: 1933563905}
   - component: {fileID: 1933563904}
+  - component: {fileID: 1933563906}
   m_Layer: 5
   m_Name: ScrollPanel
   m_TagString: Untagged
@@ -8326,6 +8337,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933563902}
   m_CullTransparentMesh: 0
+--- !u!114 &1933563906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933563902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0249a757e10d24bb1a26e64a3e5512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1934711645
 PrefabInstance:
   m_ObjectHideFlags: 0

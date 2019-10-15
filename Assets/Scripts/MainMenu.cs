@@ -3,15 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string levelToLoad = "MainLevel";
+    public static string levelToLoad { get; set; }
     public string upgradeScene = "ShopTest";
     public string shopScene = "ShopUpgrades";
 
     public SceneFader sceneFader;
-    [SerializeField]
-    private string nextSceneName;
-    [SerializeField]
-    private int nextLevelIndex;
+
 
     private void Start()
     {
@@ -25,7 +22,8 @@ public class MainMenu : MonoBehaviour
     }
     public void Play(string level)
     {
-        sceneFader.FadeTo(level);
+        levelToLoad = level;
+        sceneFader.FadeTo(level);        
     }
 
     public void Quit()
