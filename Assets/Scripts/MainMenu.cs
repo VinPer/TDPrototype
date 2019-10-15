@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public static string levelToLoad { get; set; }
+    public string levelToLoad;
     public string upgradeScene = "ShopTest";
     public string shopScene = "ShopUpgrades";
 
