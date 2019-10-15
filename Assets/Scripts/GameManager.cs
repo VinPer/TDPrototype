@@ -83,6 +83,9 @@ public class GameManager : MonoBehaviour
         GetComponent<Winning>().Win();
         win = true;
         ReciveCoins();
+        GameManager.instance.winUI.SetActive(true);
+        AudioManager.instance.Play("Victory");
+        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 
     public void ReciveCoins() {
@@ -95,8 +98,5 @@ public class GameManager : MonoBehaviour
         print("Total coins: " + UpgradeHandler.data.playerStats["Coins"]);
 
         UpgradeHandler.instance.SaveData();
-        GameManager.instance.winUI.SetActive(true);
-        AudioManager.instance.Play("Victory");
-        AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 }
