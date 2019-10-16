@@ -20,7 +20,7 @@ MonoImporter:
   - waveCountdownText: {instanceID: 0}
   - wavesLeft: {instanceID: 0}
   - waveNumber: {instanceID: 0}
-  executionOrder: 0
+  executionOrder: -20
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

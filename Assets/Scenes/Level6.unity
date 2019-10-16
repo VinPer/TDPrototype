@@ -9418,7 +9418,7 @@ PrefabInstance:
         type: 3}
       propertyPath: referencePoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1605404433}
     - target: {fileID: 5317946451285455294, guid: 791d4b5b0d2652747959411a66edc7e9,
         type: 3}
       propertyPath: sceneFader
