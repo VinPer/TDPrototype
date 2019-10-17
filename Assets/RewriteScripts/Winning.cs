@@ -66,16 +66,9 @@ public class Winning : MonoBehaviour
             if (!UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]])
             {
                 unlockTowerCanvas.SetActive(true);
-                UnlockTowerCanvas canvas = unlockTowerCanvas.GetComponent<UnlockTowerCanvas>();
-                
-                SelectedTurrets.allTurrets.ForEach(item => {
-                    if (string.Equals(item.name, towersToUnlock[GameManager.instance.levelNumber]))
-                    {
-                        canvas.turretImage.sprite = item.sprite;
-                        canvas.turretName.text = item.name;
-                        canvas.turretAbout.text = item.name;
-                    }
-                });
+                unlockTowerCanvas.GetComponent<UnlockTowerCanvas>().turretUnlocked = towersToUnlock[GameManager.instance.levelNumber];
+
+
                 UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]] = true;
             }
         }

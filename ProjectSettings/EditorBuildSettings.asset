@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SpiralMap.unity
     guid: 073a06e2186bcad4e8cf65539fbc1279
   - enabled: 1
+    path: Assets/Scenes/MainMenuAntigo.unity
+    guid: 8ddc666a121f86b4091098db5f0611f0
+  - enabled: 1
     path: Assets/Scenes/TowerUpgrades.unity
     guid: 109d47ac7e8b98a4ba457e1a752f39f8
   - enabled: 1
