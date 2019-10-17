@@ -13,6 +13,7 @@ public class Winning : MonoBehaviour
     public string menuScene = "MainMenu";
     public Text money;
     public Text lives;
+    public Text coins;
     public Image[] stars;
     public Sprite starSprite;
     public Sprite emptySprite;
@@ -28,6 +29,7 @@ public class Winning : MonoBehaviour
         }
         money.text = "$" + PlayerStats.Money.ToString();
         lives.text = "♥" + PlayerStats.Lives.ToString();
+        coins.text = "Coins: " + PlayerStats.Coins.ToString();
         GetComponent<PlayerStats>().UpdateStars();
         for (int i = 0; i < PlayerStats.maxStars; i++)
         {

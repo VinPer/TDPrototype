@@ -80,15 +80,15 @@ public class GameManager : MonoBehaviour
     public void Winning()
     {
         GameIsOver = true;
+        PlayerStats.Coins = ReciveCoins();
         GetComponent<Winning>().Win();
         win = true;
-        ReciveCoins();
         GameManager.instance.winUI.SetActive(true);
         AudioManager.instance.Play("Victory");
         AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
     }
 
-    public void ReciveCoins() {
+    public int ReciveCoins() {
         //COIN SYSTEM
         int coins = PlayerStats.EnemiesKilled * enemiesKilledBonus + PlayerStats.Money * moneyBonus;
         coins += (int)Mathf.Round((coins * levelBonus)/100);
@@ -98,5 +98,6 @@ public class GameManager : MonoBehaviour
         print("Total coins: " + UpgradeHandler.data.playerStats["Coins"]);
 
         UpgradeHandler.instance.SaveData();
+        return coins;
     }
 }
