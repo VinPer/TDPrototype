@@ -50,6 +50,7 @@ public class ZipMovement : EnemyMovement
     protected override void GetNextWaypoint()
     {
         base.GetNextWaypoint();
+        transform.LookAt(target);
         initialDistance = Vector3.Distance(transform.position, target.position);
     }
 }
