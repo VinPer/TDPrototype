@@ -46,21 +46,33 @@ public class Slider : MonoBehaviour
             switch (minBtnNum + 1)
             {
                 case 1:
+                    SelectedLevel.instance.selectedLevel = "LevelT";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 2:
+                    SelectedLevel.instance.selectedLevel = "Level2";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 3:
+                    SelectedLevel.instance.selectedLevel = "Level3";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 4:
+                    SelectedLevel.instance.selectedLevel = "Level4";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 5:
+                    SelectedLevel.instance.selectedLevel = "Level5";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 6:
+                    SelectedLevel.instance.selectedLevel = "Level6";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
             }
