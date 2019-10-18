@@ -13,6 +13,7 @@ public class Winning : MonoBehaviour
     public string menuScene = "MainMenu";
     public Text money;
     public Text lives;
+    public Text coins;
     public Image[] stars;
     public Sprite starSprite;
     public Sprite emptySprite;
@@ -28,6 +29,7 @@ public class Winning : MonoBehaviour
         }
         money.text = "$" + PlayerStats.Money.ToString();
         lives.text = "♥" + PlayerStats.Lives.ToString();
+        coins.text = "Coins: " + PlayerStats.Coins.ToString();
         GetComponent<PlayerStats>().UpdateStars();
         for (int i = 0; i < PlayerStats.maxStars; i++)
         {
@@ -66,16 +68,9 @@ public class Winning : MonoBehaviour
             if (!UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]])
             {
                 unlockTowerCanvas.SetActive(true);
-                UnlockTowerCanvas canvas = unlockTowerCanvas.GetComponent<UnlockTowerCanvas>();
-                
-                SelectedTurrets.allTurrets.ForEach(item => {
-                    if (string.Equals(item.name, towersToUnlock[GameManager.instance.levelNumber]))
-                    {
-                        canvas.turretImage.sprite = item.sprite;
-                        canvas.turretName.text = item.name;
-                        canvas.turretAbout.text = item.name;
-                    }
-                });
+                unlockTowerCanvas.GetComponent<UnlockTowerCanvas>().turretUnlocked = towersToUnlock[GameManager.instance.levelNumber];
+
+
                 UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]] = true;
             }
         }

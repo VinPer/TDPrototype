@@ -20,6 +20,8 @@ public class PlayerStats : MonoBehaviour
     public static int Stars;
     public static int EnemiesKilled = 0;
 
+    public static int Coins;
+
     private void Start()
     {
         Money = startMoney;

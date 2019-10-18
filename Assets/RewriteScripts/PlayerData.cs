@@ -37,18 +37,18 @@ public class PlayerData
         };
         unlockedTowers = new Dictionary<string, bool>
         {
-            //{"Acid", false },
-            //{"Radar", false },
-            //{"Sniper", false },
-            //{"Overheat", false },
-            //{"Laser", false },
-            //{"Charger", false }
-            {"Acid", true },
-            {"Radar", true },
-            {"Sniper", true },
-            {"Overheat", true },
-            {"Laser", true },
-            {"Charger", true }
+            {"Acid", false },
+            {"Radar", false },
+            {"Sniper", false },
+            {"Overheat", false },
+            {"Laser", false },
+            {"Charger", false }
+            //{"Acid", true },
+            //{"Radar", true },
+            //{"Sniper", true },
+            //{"Overheat", true },
+            //{"Laser", true },
+            //{"Charger", true }
         };
         shopUpgrades = new Dictionary<string, Dictionary<string, bool>>
         {
