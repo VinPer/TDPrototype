@@ -51,9 +51,22 @@ public class EnemyMovement : MonoBehaviour
         GetNextPosition();
     }   
 
-    protected virtual void Update()
+    // protected virtual void Update()
+    // {
+    //     Vector3 direction = targetPosition - transform.position;
+    //     transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
+
+    //     if (Vector3.Distance(transform.position, targetPosition) <= 0.4f)
+    //     {
+    //         GetNextWaypoint();
+    //     }
+    //     distToNextWaypoint = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+    //     LockOnTarget();
+    // }
+
+    void FixedUpdate()
     {
-        Vector3 direction = targetPosition - transform.position;
+        Vector3 direction = targetPosition - transform.position; 
         transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, targetPosition) <= 0.4f)

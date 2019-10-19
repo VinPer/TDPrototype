@@ -26,9 +26,26 @@ public class ZipMovement : EnemyMovement
         InvokeRepeating("Zip", 0.1f, delay);
     }
 
-    protected override void Update()
+
+    // protected override void Update()
+    // {
+    //     if (canMove)
+    //     {
+    //         Vector3 direction = target.position - transform.position;
+    //         float distance = direction.magnitude / initialDistance;
+    //         if (distance > 1) distance = 1;
+    //         transform.Translate(direction.normalized * enemy.speed * Time.deltaTime * distance, Space.World);
+    //     }
+    //     if (Vector3.Distance(transform.position, target.position) <= 0.5f)
+    //     {
+    //         GetNextWaypoint();
+    //         canMove = false;
+    //     }
+    // }
+
+    void FixedUpdate()
     {
-        if (canMove)
+        if (canMove) 
         {
             Vector3 direction = target.position - transform.position;
             float distance = direction.magnitude / initialDistance;
