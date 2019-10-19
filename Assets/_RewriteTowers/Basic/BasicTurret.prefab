@@ -740,7 +740,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 837246666861044526, guid: 3e5949cfd63fc8248bad5f6fe865952c,
     type: 3}
   poolAmount: 3
-  damage: 5
+  damage: 8
   penetration: 0
   decayTimer: 2
   durability: 1
