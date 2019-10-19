@@ -9429,6 +9429,11 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 135117804}
+    - target: {fileID: 8732202390043676320, guid: 791d4b5b0d2652747959411a66edc7e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.0999756
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791d4b5b0d2652747959411a66edc7e9, type: 3}
 --- !u!114 &620222243 stripped
@@ -9599,6 +9604,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 620222242}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &620222260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3323488205620044053, guid: 791d4b5b0d2652747959411a66edc7e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 620222242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &622050416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27705,16 +27722,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1346558949605609055, guid: c2ece4afb05f1844ea7461ae6be16f59,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1346558949605609055, guid: c2ece4afb05f1844ea7461ae6be16f59,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1346558948653394131, guid: c2ece4afb05f1844ea7461ae6be16f59,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -27731,6 +27738,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1346558949517139472, guid: c2ece4afb05f1844ea7461ae6be16f59,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346558949605609055, guid: c2ece4afb05f1844ea7461ae6be16f59,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346558949605609055, guid: c2ece4afb05f1844ea7461ae6be16f59,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -28359,6 +28376,11 @@ PrefabInstance:
       propertyPath: unlockTowerCanvas
       value: 
       objectReference: {fileID: 1754509110}
+    - target: {fileID: 311848045307514384, guid: 51d0a50ba1927e2448b607f9aa16c699,
+        type: 3}
+      propertyPath: coins
+      value: 
+      objectReference: {fileID: 620222260}
     - target: {fileID: 1276107921016421571, guid: 51d0a50ba1927e2448b607f9aa16c699,
         type: 3}
       propertyPath: ui
