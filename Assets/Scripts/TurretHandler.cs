@@ -24,7 +24,9 @@ public class TurretHandler : MonoBehaviour
     public List<string> turretsToBuy = new List<string> {"Mortar", "Shotgun", "Gatling", "Buffer", "Tesla", "Flamethrower", "Freezer", "Spitter" };
     public List<string> turretsToUnlock = new List<string> { "Acid", "Radar", "Sniper", "Overheat", "Laser", "Charger" };
     public int max = 4;
-
+    public Transform transformNode;
+    private GameObject turret4ui;
+    
     // uhh ignore this
     public List<TurretBlueprint> defaultSelected;
 
@@ -57,7 +59,7 @@ public class TurretHandler : MonoBehaviour
         // Set the cost display for all available turrets
         for (int i = 0; i < allTurrets.Count; i++)
         {
-            if(!string.Equals(allTurrets[i].name,"Bomb"))
+            if(!string.Equals(allTurrets[i].name,"Bomb") && !string.Equals(allTurrets[i].name, "Buffer"))
             if (IsUnlocked(allTurrets[i].name))
             {
                 allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
@@ -113,6 +115,12 @@ public class TurretHandler : MonoBehaviour
         {
             SelectedTurrets.instance.selectedTurrets.Add(turret);
             selectedTurrets.Add(turret.name);
+            if (turret4ui)
+            {
+                Destroy(turret4ui);
+            }
+            turret4ui = Instantiate(turret.prefab, transformNode.position, transformNode.rotation);
+            
         }
         UpdateSelectedTurrets();
     }
@@ -164,7 +172,7 @@ public class TurretHandler : MonoBehaviour
             currentChildSelected.GetComponentsInChildren<Text>()[1].text = "$0";
             currentChildSelected.GetComponentsInChildren<Text>()[0].text = "";
         }
-        if(selectedTurrets.Count < 1)
+        if (selectedTurrets.Count < 1)
             playButton.interactable = false;
         else
             playButton.interactable = true;

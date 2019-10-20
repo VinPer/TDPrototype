@@ -22,9 +22,8 @@ public class MainMenu : MonoBehaviour
         sceneFader.FadeTo(SelectedLevel.instance.selectedLevel);
     }
     public void Play(string level)
-    {
-        SelectedLevel.instance.selectedLevel = level;
-        sceneFader.FadeTo(SelectedLevel.instance.selectedLevel);        
+    {        
+        sceneFader.FadeTo(level);        
     }
 
     public void Quit()
