@@ -45,8 +45,7 @@ public class Slider : MonoBehaviour
             
         if (Mathf.Abs(newX) >= Mathf.Abs(pos) -1f && Mathf.Abs(newX) <= Mathf.Abs(pos) + 1 && !triggerMessage)
         {
-            triggerMessage = true;
-            btn[minBtnNum].interactable = true;
+            triggerMessage = true;            
             switch (minBtnNum + 1)
             {
                 case 1:
@@ -117,7 +116,11 @@ public class Slider : MonoBehaviour
         if (!draggin)
         {
             LerpToBtn(-btn[minBtnNum].GetComponent<RectTransform>().anchoredPosition.x);
+            btn[minBtnNum].interactable = true;
         }
+
+        else
+            btn[minBtnNum].interactable = false;
 
     }
     public void StartDrag()
