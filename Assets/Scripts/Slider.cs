@@ -28,6 +28,10 @@ public class Slider : MonoBehaviour
         distRepostion = new float[btnLength];
 
         btnDist = (int)Mathf.Abs(btn[1].GetComponent<RectTransform>().anchoredPosition.x - btn[0].GetComponent<RectTransform>().anchoredPosition.x);
+        foreach(Button b in btn)
+        {
+            b.interactable = false;
+        }
     }
 
     private void Update()
@@ -42,12 +46,12 @@ public class Slider : MonoBehaviour
         if (Mathf.Abs(newX) >= Mathf.Abs(pos) -1f && Mathf.Abs(newX) <= Mathf.Abs(pos) + 1 && !triggerMessage)
         {
             triggerMessage = true;
-
+            btn[minBtnNum].interactable = true;
             switch (minBtnNum + 1)
             {
                 case 1:
                     SelectedLevel.instance.selectedLevel = "LevelT";
-                    Debug.Log(SelectedLevel.instance.selectedLevel);
+                    Debug.Log(SelectedLevel.instance.selectedLevel);                    
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 2:
