@@ -7860,6 +7860,7 @@ GameObject:
   - component: {fileID: 1874672393}
   - component: {fileID: 1874672392}
   - component: {fileID: 1874672395}
+  - component: {fileID: 1874672396}
   m_Layer: 5
   m_Name: ScenePanel
   m_TagString: Untagged
@@ -7933,7 +7934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.37254903}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8005,6 +8006,19 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1874672396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874672390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1001 &1879492802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8286,7 +8300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2516892, y: 0.5}
   m_AnchorMax: {x: 0.2516892, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000019073486}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.000019073486}
   m_SizeDelta: {x: 281, y: 240}
   m_Pivot: {x: 0.5000001, y: 0.49999997}
 --- !u!114 &1933563904

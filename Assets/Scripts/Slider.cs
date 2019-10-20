@@ -32,6 +32,8 @@ public class Slider : MonoBehaviour
         {
             b.interactable = false;
         }
+
+        
     }
 
     private void Update()
