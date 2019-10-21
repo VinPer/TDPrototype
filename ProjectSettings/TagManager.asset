@@ -10,6 +10,7 @@ TagManager:
   - Tower
   - Range
   - BlackHole
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - BufferRange
   - Skills
   - element
-  - 
+  - post-processing-global
   - 
   - 
   - 
