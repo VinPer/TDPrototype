@@ -75,6 +75,37 @@ public class CameraController : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
         transform.position = pos;
 
+        //Zoom 2
+        if (Input.touchCount == 2)
+        {
+            Touch touchZero = Input.GetTouch(0);
+            Touch touchOne = Input.GetTouch(1);
 
+            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+            float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+            float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
+
+            float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+
+            pos = transform.position;
+            pos.y -= deltaMagnitudeDiff * scrollSpeed * 0.3f * Time.deltaTime;
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+            pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
+            transform.position = pos;
+        }
+
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            transform.Translate(-touchDeltaPosition.x * panSpeed * 0.01f * Time.deltaTime, 0, -touchDeltaPosition.y * panSpeed * 0.01f * Time.deltaTime);
+
+            pos = transform.position;
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+            pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
+        }
     }
 }
