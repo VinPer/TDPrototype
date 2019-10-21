@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class CameraController : MonoBehaviour
     public float panSpeed = 30f;
     public float panBorderThickness = 10f;
     //public float rotationSpeed = 100f;
-    public float scrollSpeed = 5f;
+    public float scrollSpeed = 3f;
+    public float scrollAmmount = 20f;
+    public float scrollSmoothTime = .1f;
 
     [Header("Limits")]
     public float minY = 10f;
@@ -22,6 +25,7 @@ public class CameraController : MonoBehaviour
 
     private float scroll;
     private Vector3 pos;
+    private Vector3 dynamicScrollSpeed = Vector3.zero;
 
     // Update is called once per frame
     void Update()
@@ -69,11 +73,12 @@ public class CameraController : MonoBehaviour
         //Zoom
         scroll = Input.GetAxis("Mouse ScrollWheel");
         pos = transform.position;
-        pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
+        pos.y -= scroll * 1000 * scrollAmmount * Time.deltaTime;
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
-        transform.position = pos;
+        transform.position = Vector3.SmoothDamp(transform.position, pos, ref dynamicScrollSpeed, scrollSmoothTime);
+        // transform.position = pos;
 
         //Zoom 2
         if (Input.touchCount == 2)
@@ -107,5 +112,7 @@ public class CameraController : MonoBehaviour
             pos.x = Mathf.Clamp(pos.x, minX, maxX);
             pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
         }
+
+
     }
 }
