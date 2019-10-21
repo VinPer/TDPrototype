@@ -354,8 +354,8 @@ MonoBehaviour:
   - {fileID: 617839577388395795}
   - {fileID: 6908779573589692752}
   - {fileID: 1476666158746045424}
-  unlocked: {fileID: 21300000, guid: ce97ed62c0a56e84ab25e22c8dfd5bca, type: 3}
-  locked: {fileID: 21300000, guid: 1153da39508c69e4ebc9c26be73e6745, type: 3}
+  unlocked: {fileID: 21300000, guid: 5b8e9d7bbf26c334f915e930e7e01463, type: 3}
+  locked: {fileID: 21300000, guid: 4dfe96ab1b5a25943ba02e7375682029, type: 3}
   priceText: {fileID: 9080374333569532329}
 --- !u!1 &4890693826298514563
 GameObject:
