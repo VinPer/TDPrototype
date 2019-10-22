@@ -15,8 +15,6 @@ public class UpgradeStatus : MonoBehaviour
     {
         for (int i = 0; i < statusValue.Length; i++)
         {
-            print(value);
-            print(i);
             if (i < value) statusValue[i].sprite = unlocked;
             else statusValue[i].sprite = locked;
         }
