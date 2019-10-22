@@ -14,7 +14,7 @@ public class PlayerData
     {
         playerStats = new Dictionary<string, int>
         {
-            { "Coins", 0 },
+            { "Coins", 1000 },
             { "TotalStars", 0 },
             { "UnspentStars", 0 }
         };

@@ -23,6 +23,7 @@ public class TurretHandler : MonoBehaviour
     public static List<string> selectedTurrets;
     public List<string> turretsToBuy = new List<string> {"Mortar", "Shotgun", "Gatling", "Buffer", "Tesla", "Flamethrower", "Freezer", "Spitter" };
     public List<string> turretsToUnlock = new List<string> { "Acid", "Radar", "Sniper", "Overheat", "Laser", "Charger" };
+    [Range(4,6)]
     public int max = 4;
 
     // uhh ignore this
@@ -40,8 +41,12 @@ public class TurretHandler : MonoBehaviour
     {
         active = true;
         //Upgrade max number of towers
-        if (UpgradeHandler.data.shopUpgrades["Block1"]["MoreTowers"]) max = 5;
-        if (UpgradeHandler.data.shopUpgrades["Block2"]["MoreTowersPlus"]) max = 6;
+        if(max > 6)
+        {
+            if (UpgradeHandler.data.shopUpgrades["Block1"]["MoreTowers"]) max++;
+            if (UpgradeHandler.data.shopUpgrades["Block2"]["MoreTowersPlus"]) max++;
+            if(max > 6) max = 6;
+        }
 
         // Instantiate the selected turrets list
         selectedTurrets = new List<string>();
