@@ -102,6 +102,7 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0.1, z: 0}
   hoverColor: {r: 0, g: 0, b: 0, a: 0}
   cannotAffordColor: {r: 0, g: 0, b: 0, a: 0}
+  turretSelectedColor: {r: 0, g: 0.2081022, b: 0.8207547, a: 1}
   range: {fileID: 0}
 --- !u!135 &4121219215192199253
 SphereCollider:

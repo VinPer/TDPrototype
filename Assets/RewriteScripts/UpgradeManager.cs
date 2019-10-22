@@ -110,11 +110,11 @@ public class UpgradeManager : MonoBehaviour
         {
             if(SelectedTurrets.instance.unlockedTurrets.Contains(allTurrets[i]))
             {
-                allTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
+                allTurretsGUI.transform.GetChild(i).GetComponent<Button>().interactable = true;
             }
             else
             {
-                allTurretsGUI.transform.GetChild(i).gameObject.SetActive(false);
+                allTurretsGUI.transform.GetChild(i).GetComponent<Button>().interactable = false;
             }
 
             

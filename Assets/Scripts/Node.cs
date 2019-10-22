@@ -9,7 +9,7 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public GameObject turret;
 
-    private TowerBase tower;
+    private TowerBase towerBuilded;
     [HideInInspector]
     public TurretBlueprint turretBlueprint;
 
@@ -19,16 +19,21 @@ public class Node : MonoBehaviour
     private Color startColor;
     public Color hoverColor;
     public Color cannotAffordColor;
-    
+    public Color turretSelectedColor;
+
     public Range range;
     GameObject buildEffect;
     GameObject sellEffect;
     GameObject upgradeEffect;
 
+    private bool nodeOn;
+
     //private List<GameObject> turrets;
 
     private void Start()
     {
+        nodeOn = false;
+
         buildManager = BuildManager.instance;
 
         rend = GetComponent<Renderer>();
@@ -47,6 +52,20 @@ public class Node : MonoBehaviour
         sellEffect.SetActive(false);
         upgradeEffect.transform.SetParent(transform);
         upgradeEffect.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (buildManager.GetTurretToBuild() != null && !nodeOn && PlayerStats.Money >= buildManager.GetTurretToBuild().cost && !towerBuilded)
+        {
+            nodeOn = !nodeOn;
+            rend.material.color = turretSelectedColor;
+        }
+        if (buildManager.GetTurretToBuild() == null && nodeOn)
+        {
+            nodeOn = !nodeOn;
+            rend.material.color = startColor;
+        }
     }
 
     IEnumerator FillTurretList()
@@ -129,20 +148,20 @@ public class Node : MonoBehaviour
 
 
         if (turret.GetComponent<TowerBase>())
-            tower = turret.GetComponent<TowerBase>();
+            towerBuilded = turret.GetComponent<TowerBase>();
         else
-            tower = turret.GetComponentInChildren<TowerBase>();
+            towerBuilded = turret.GetComponentInChildren<TowerBase>();
         turretBlueprint = blueprint;
 
         //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
         StartCoroutine(Effect.PlayEffect(buildEffect,transform));
-        tower.upgrades = new Dictionary<string, int>(UpgradeHandler.data.towerUpgrades[blueprint.name]);
-        Dictionary<string, int> backup = new Dictionary<string, int>(tower.upgrades);
+        towerBuilded.upgrades = new Dictionary<string, int>(UpgradeHandler.data.towerUpgrades[blueprint.name]);
+        Dictionary<string, int> backup = new Dictionary<string, int>(towerBuilded.upgrades);
         
         foreach (string item in backup.Keys)
         {
-            tower.upgrades[item] = 0;
+            towerBuilded.upgrades[item] = 0;
         }
         //Sound
         AudioManager.instance.Play("buildTurret");
@@ -188,7 +207,7 @@ public class Node : MonoBehaviour
         //turret = Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
         //turret.transform.SetParent(transform);
 
-        tower.UpgradeTower();
+        towerBuilded.UpgradeTower();
 
         //GameObject effect = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
@@ -200,7 +219,7 @@ public class Node : MonoBehaviour
     public void SellTurret()
     {
         // Add money at half the cost spent
-        PlayerStats.Money += turretBlueprint.GetSellValue(tower.numberOfUpgrades);
+        PlayerStats.Money += turretBlueprint.GetSellValue(towerBuilded.numberOfUpgrades);
         // Destroy turret and kill references
         turret.SetActive(false);
         turret = null;
@@ -232,7 +251,8 @@ public class Node : MonoBehaviour
 
     private void OnMouseExit()
     {
-        rend.material.color = startColor;
+        if (!nodeOn) rend.material.color = startColor;
+        else rend.material.color = turretSelectedColor;
         if (TurretMenu.instance.isActive == false)
         {
             range.Hide();
