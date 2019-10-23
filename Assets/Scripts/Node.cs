@@ -56,7 +56,7 @@ public class Node : MonoBehaviour
 
     private void Update()
     {
-        if (buildManager.GetTurretToBuild() != null && !nodeOn && PlayerStats.Money >= buildManager.GetTurretToBuild().cost && !towerBuilded)
+        if (buildManager.GetTurretToBuild() != null && !nodeOn && PlayerStats.Money >= buildManager.GetTurretToBuild().cost && !turret)
         {
             nodeOn = !nodeOn;
             rend.material.color = turretSelectedColor;
