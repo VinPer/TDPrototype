@@ -67,7 +67,7 @@ MonoBehaviour:
   durability: 1
   impactEffect: {fileID: 100014, guid: a57a6829db3568c4d9bdc37e9e63c017, type: 3}
   decayTimer: 0.4
-  rotationOffset: 5
+  rotationOffset: 2.5
 --- !u!23 &4575463744028352787
 MeshRenderer:
   m_ObjectHideFlags: 0

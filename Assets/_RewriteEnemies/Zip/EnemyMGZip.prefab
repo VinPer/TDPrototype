@@ -300,10 +300,10 @@ MonoBehaviour:
   healthBar: {fileID: 2465208435805420885}
   shieldBar: {fileID: 555521987715911511}
   armorSprites: {fileID: 6891542772240035962}
-  armorSprite: {fileID: 21300000, guid: 31be891e7b5f6324b93be171d386e464, type: 3}
+  armorSprite: {fileID: 21300000, guid: fbaf3a08e2661b8499bc18b1ebd10f34, type: 3}
   noArmorSprite: {fileID: 21300000, guid: 1153da39508c69e4ebc9c26be73e6745, type: 3}
   fireEffect: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
-  slowEffect: {fileID: 100000, guid: 18204b98237ccb540808f2cd2d78c2c8, type: 3}
+  slowEffect: {fileID: 100000, guid: 9b5feab0332214341b70f6322890ef3b, type: 3}
   acidEffect: {fileID: 100002, guid: db50ab1c866680e4bb870bf5eb72dd3d, type: 3}
   deathEffect: {fileID: 1892078723244562, guid: ea02646fe771a3e40b6e0e75548161d2,
     type: 3}
@@ -407,16 +407,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 405780}
     m_Modifications:
-    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
-        type: 3}
-      propertyPath: m_Name
-      value: CanvasLook
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 6459938684759093540, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -501,6 +491,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Name
+      value: CanvasLook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5760448055240896994, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}

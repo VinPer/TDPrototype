@@ -45,6 +45,6 @@ public class MainMenu : MonoBehaviour
     {
         UpgradeHandler.data.Reset();
         UpgradeHandler.instance.SaveData();
-        sceneFader.FadeTo("MainMenuAntigo");
+        sceneFader.FadeTo("MainMenu");
     }
 }

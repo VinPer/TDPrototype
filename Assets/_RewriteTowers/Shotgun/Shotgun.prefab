@@ -712,7 +712,7 @@ MonoBehaviour:
   fireRate: 0.6
   fireRateUpgrade: 0.3
   partToRotate: {fileID: 425980}
-  turnSpeed: 10
+  turnSpeed: 25
   firePoint: {fileID: 4221111140872492991}
   targetStyles:
   - First
@@ -723,7 +723,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3369391130654538165, guid: dd09d0d601501d348add0ce11ed0f73c,
     type: 3}
   poolAmount: 3
-  damage: 15
+  damage: 10
   penetration: 0
   decayTimer: 2
   durability: 1
@@ -740,8 +740,8 @@ MonoBehaviour:
   debuffDurationUpgrade: 0
   pelletCount: 6
   pelletCountUpgrade: 1
-  rotationOffset: 10
-  rotationOffsetUpgrade: 2
+  rotationOffset: 5
+  rotationOffsetUpgrade: 1.5
 --- !u!1 &5870652856795768874
 GameObject:
   m_ObjectHideFlags: 0
