@@ -105,6 +105,7 @@ public class TurretMenu : MonoBehaviour
         if (towerProjectile != null)
         {
             dmgText.text = towerProjectile.bulletPrefab.GetComponent<ProjectileBase>().damage.ToString();
+            dmgText.text = towerProjectile.damage.ToString();
         }
         else if(turretSelected.GetComponent<TowerNonProjectile>())
         {
