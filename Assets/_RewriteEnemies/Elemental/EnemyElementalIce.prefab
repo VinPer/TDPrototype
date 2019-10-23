@@ -142,7 +142,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab6a4853fbcfc274f87ca9a2eac7f0f6, type: 2}
+  - {fileID: 2100000, guid: 4858d0d937230ec4287345c24f96e8da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -176,10 +176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   health: 60
-  value: 300
+  value: 150
   armor: 0
   speed: 10
-  damage: 1
+  damage: 3
   shieldCapacity: 0
   shieldRechargeRate: 25
   shieldRechargeDelay: 2
@@ -187,7 +187,7 @@ MonoBehaviour:
   radarsAffecting: 0
   freezeStatus: 0
   element: 2
-  resistance: 0.7
+  resistance: 0.8
   healthBar: {fileID: 3093141919575147794}
   shieldBar: {fileID: 1112035611279505168}
   armorSprites: {fileID: 6302945534535059517}
@@ -304,7 +304,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab6a4853fbcfc274f87ca9a2eac7f0f6, type: 2}
+  - {fileID: 2100000, guid: 4858d0d937230ec4287345c24f96e8da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -408,16 +408,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 481296}
     m_Modifications:
-    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
-        type: 3}
-      propertyPath: m_Name
-      value: CanvasLook
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 6459938684759093540, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -517,6 +507,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Name
+      value: CanvasLook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587981093039433948, guid: 820df5e45d809a544891244299b95aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5760448055240896994, guid: 820df5e45d809a544891244299b95aa7,
         type: 3}

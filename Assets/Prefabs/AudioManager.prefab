@@ -51,7 +51,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: MainMenu
-    clip: {fileID: 8300000, guid: afe26a36506ee8b4b91e7de6bd78140c, type: 3}
+    clip: {fileID: 8300000, guid: aa91f70f45506e94b9a930e0933caedf, type: 3}
     volume: 0.132
     pitch: 1.32
     loop: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: LevelT
-    clip: {fileID: 8300000, guid: 403a0722bf5239346af57145b93c335a, type: 3}
+    clip: {fileID: 8300000, guid: afe26a36506ee8b4b91e7de6bd78140c, type: 3}
     volume: 0.04
     pitch: 1.02
     loop: 1
