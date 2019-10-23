@@ -28,6 +28,12 @@ public class Slider : MonoBehaviour
         distRepostion = new float[btnLength];
 
         btnDist = (int)Mathf.Abs(btn[1].GetComponent<RectTransform>().anchoredPosition.x - btn[0].GetComponent<RectTransform>().anchoredPosition.x);
+        foreach(Button b in btn)
+        {
+            b.interactable = false;
+        }
+
+        
     }
 
     private void Update()
@@ -41,26 +47,37 @@ public class Slider : MonoBehaviour
             
         if (Mathf.Abs(newX) >= Mathf.Abs(pos) -1f && Mathf.Abs(newX) <= Mathf.Abs(pos) + 1 && !triggerMessage)
         {
-            triggerMessage = true;
-
+            triggerMessage = true;            
             switch (minBtnNum + 1)
             {
                 case 1:
+                    SelectedLevel.instance.selectedLevel = "LevelT";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);                    
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 2:
+                    SelectedLevel.instance.selectedLevel = "Level2";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 3:
+                    SelectedLevel.instance.selectedLevel = "Level3";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 4:
+                    SelectedLevel.instance.selectedLevel = "Level4";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 5:
+                    SelectedLevel.instance.selectedLevel = "Level5";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
                 case 6:
+                    SelectedLevel.instance.selectedLevel = "Level6";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
             }
@@ -101,7 +118,11 @@ public class Slider : MonoBehaviour
         if (!draggin)
         {
             LerpToBtn(-btn[minBtnNum].GetComponent<RectTransform>().anchoredPosition.x);
+            btn[minBtnNum].interactable = true;
         }
+
+        else
+            btn[minBtnNum].interactable = false;
 
     }
     public void StartDrag()

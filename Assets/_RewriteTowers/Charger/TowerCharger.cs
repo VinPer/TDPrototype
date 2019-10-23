@@ -152,4 +152,9 @@ public class TowerCharger : TowerProjectile
             print("maxCharge upgraded");
         }
     }
+
+    private void OnDestroy()
+    {
+        Destroy(chargingFXGO);
+    }
 }

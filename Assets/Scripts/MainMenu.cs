@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string levelToLoad;
+    
     public string upgradeScene = "ShopTest";
     public string shopScene = "ShopUpgrades";
 
@@ -18,11 +18,11 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        sceneFader.FadeTo(levelToLoad);
+        Debug.Log(SelectedLevel.instance.selectedLevel);
+        sceneFader.FadeTo(SelectedLevel.instance.selectedLevel);
     }
     public void Play(string level)
-    {
-        levelToLoad = level;
+    {        
         sceneFader.FadeTo(level);        
     }
 
