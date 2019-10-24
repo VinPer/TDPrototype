@@ -52,12 +52,12 @@ public class TurretHandler : MonoBehaviour
 
         // Instantiate the selected turrets list
         selectedTurrets = new List<string>();
-        SelectedTurrets.allTurrets = new List<TurretBlueprint>(allTurrets);
+        SelectedTurrets.instance.allTurrets = new List<TurretBlueprint>(allTurrets);
         foreach (TurretBlueprint item in SelectedTurrets.instance.selectedTurrets)
         {
             selectedTurrets.Add(item.name);
         }
-        foreach (TurretBlueprint item in SelectedTurrets.allTurrets)
+        foreach (TurretBlueprint item in SelectedTurrets.instance.allTurrets)
         {
             allTurretsName.Add(item.name);
         }

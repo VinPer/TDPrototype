@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3390961184690500316}
   - component: {fileID: 6179436740157030497}
   - component: {fileID: 201893610026885734}
+  - component: {fileID: 6009309149522542866}
   m_Layer: 17
   m_Name: Flames
   m_TagString: Untagged
@@ -46,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053dbfb92d4e7474abac876cdd6a25a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  piercingValue: 0
+  damage: 10
+  piercingValue: 0.5
   damageRate: 100
+  intensity: 10
   duration: 5
   fireEffect: {fileID: 7032233199633603909, guid: 0d1ee1151df918d48b18f3e313f50ef7,
     type: 3}
@@ -65,7 +67,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7765a6369e641454e93f0f0c2fabc0d6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -174,8 +176,21 @@ CapsuleCollider:
   m_GameObject: {fileID: 6692567185919493131}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.2
-  m_Height: 1
+  m_Height: 1.666455
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Center: {x: 0, y: 4.2903278e-16, z: 0.6667753}
+--- !u!65 &6009309149522542866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692567185919493131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6070275, y: 0.98468685, z: 1.5923917}
+  m_Center: {x: 0.16906953, y: -0.07175689, z: 0.64656204}

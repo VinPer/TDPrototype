@@ -21,6 +21,6 @@ public class SelectedTurrets : MonoBehaviour
         selectedTurrets = new List<TurretBlueprint>();
     }
     public List<TurretBlueprint> selectedTurrets;
-    public static List<TurretBlueprint> allTurrets;
+    public List<TurretBlueprint> allTurrets;
     public List<TurretBlueprint> unlockedTurrets;
 }

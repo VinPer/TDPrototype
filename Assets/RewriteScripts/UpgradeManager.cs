@@ -82,7 +82,7 @@ public class UpgradeManager : MonoBehaviour
     {
         totalStars.text = UpgradeHandler.data.playerStats["TotalStars"].ToString();
         totalCoins.text = UpgradeHandler.data.playerStats["Coins"].ToString();
-        allTurrets = new List<TurretBlueprint>(SelectedTurrets.allTurrets);
+        allTurrets = new List<TurretBlueprint>(SelectedTurrets.instance.allTurrets);
         status = new Dictionary<string, GameObject>
         {
             {"range", range},

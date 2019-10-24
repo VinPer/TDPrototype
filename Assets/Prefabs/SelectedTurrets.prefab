@@ -44,4 +44,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedTurrets: []
+  allTurrets:
+  - name: Basic
+    prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
+    cost: 200
+    upgradeCost: 100
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 11b21d222c0ef934cb4bcd9713cd24c3, type: 3}
+  - name: Rocket
+    prefab: {fileID: 174414, guid: f10cb9f4e98ef41458c6a3b9b696648e, type: 3}
+    cost: 350
+    upgradeCost: 200
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 6430e78d19618c9478e60fd1b79dc387, type: 3}
+  - name: Laser
+    prefab: {fileID: 122216, guid: 4e50f7c196eb0e94282d8df00c58fbc7, type: 3}
+    cost: 350
+    upgradeCost: 200
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 3c0c0839f95ad9b469cef510e23d1043, type: 3}
+  - name: Charger
+    prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
+    cost: 400
+    upgradeCost: 220
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 41a5b9b9d6627c94f92e3f5efa5a8fb6, type: 3}
+  - name: Tesla
+    prefab: {fileID: 108410, guid: 809c9e6c385da994ba56e27e307b629b, type: 3}
+    cost: 380
+    upgradeCost: 210
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: d64cfe753ea6a5d4e940e54a45bdb2f3, type: 3}
+  - name: Flamethrower
+    prefab: {fileID: 113658, guid: 45d1fe44ae62c474f914b29f3c019ba0, type: 3}
+    cost: 450
+    upgradeCost: 250
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 0}
+  - name: Bomb
+    prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
+    cost: 10000
+    upgradeCost: 10000
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 11b21d222c0ef934cb4bcd9713cd24c3, type: 3}
+  - name: Mortar
+    prefab: {fileID: 176338, guid: 9e4c4b46609e4fd4493715851d0d95be, type: 3}
+    cost: 320
+    upgradeCost: 180
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 9f9ab2ef9b0963947a1aef7d6867034e, type: 3}
+  - name: Radar
+    prefab: {fileID: 162182, guid: ece3573a92123e84b8b2787c40ce918a, type: 3}
+    cost: 150
+    upgradeCost: 70
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: e2c74e4aa9063bd47ba5a4baaca1cda2, type: 3}
+  - name: Buffer
+    prefab: {fileID: 199946, guid: 5b97ec26bd5fc624bb21b8365cbcfb23, type: 3}
+    cost: 10000
+    upgradeCost: 10000
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 08d398c6ae57fd84cbbf75a43ff813d2, type: 3}
+  - name: Shotgun
+    prefab: {fileID: 130390, guid: b9836ac70b57ca5408f79c7a48ee16db, type: 3}
+    cost: 320
+    upgradeCost: 160
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: add707ad29d89a04ea8d96e71b97cd9c, type: 3}
+  - name: Sniper
+    prefab: {fileID: 129874, guid: 26bc24faf5ae2d44caaec3aa60a0236f, type: 3}
+    cost: 380
+    upgradeCost: 190
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 21b84c5316e33a849a469ff78c4579c1, type: 3}
+  - name: Acid
+    prefab: {fileID: 1000014142393632, guid: 0a4d785296d91174fb324fa33224c504, type: 3}
+    cost: 210
+    upgradeCost: 100
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 5b5b3d52a810eb44c8d293ad11d6f7c0, type: 3}
+  - name: Ice
+    prefab: {fileID: 1000011940937682, guid: 9c27ad61aa1515b4ea9d5b76cb841341, type: 3}
+    cost: 210
+    upgradeCost: 100
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 83a6747341869814d8609b9cc740e115, type: 3}
+  - name: Gatling
+    prefab: {fileID: 164160, guid: bd3111d7b003ed040b9e860c3572624c, type: 3}
+    cost: 320
+    upgradeCost: 160
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: d5f7312568ac28d4e8ba6325e4da9885, type: 3}
+  - name: Freezer
+    prefab: {fileID: 113658, guid: 23de95250ee7aa24e84533ef303027f3, type: 3}
+    cost: 370
+    upgradeCost: 150
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 2d8fdf63829ed14459383849cb20b8c2, type: 3}
+  - name: Spitter
+    prefab: {fileID: 7223319574642828663, guid: 0077ac9b74da99540a01c12acf6c87ce,
+      type: 3}
+    cost: 330
+    upgradeCost: 120
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: d1928378af37ab146a56e20abdf08825, type: 3}
+  - name: Overheat
+    prefab: {fileID: 3900269410328158199, guid: 76f2d14fca5236243a4304167f91aac7,
+      type: 3}
+    cost: 310
+    upgradeCost: 150
+    color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 82e9896e0e1365342a8eab8cd5b23978, type: 3}
   unlockedTurrets: []

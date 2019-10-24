@@ -19,7 +19,7 @@ public class UnlockTowerCanvas : MonoBehaviour
     {
         firstDialog.SetActive(true);
         turretAbout.SetActive(false);
-        SelectedTurrets.allTurrets.ForEach(item => {
+        SelectedTurrets.instance.allTurrets.ForEach(item => {
             if (string.Equals(item.name, turretUnlocked))
             {
                 turretImage.sprite = item.sprite;
