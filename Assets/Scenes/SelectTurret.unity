@@ -15763,30 +15763,30 @@ MonoBehaviour:
   - name: Basic
     prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
     cost: 200
-    upgradeCost: 200
+    upgradeCost: 300
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 78f42a330ed53e842bac7178d47af7a7, type: 3}
     description: "Essa \xE9 a torre b\xE1sica, \xFAtil para todas as situa\xE7\xF5es."
   - name: Rocket
     prefab: {fileID: 174414, guid: f10cb9f4e98ef41458c6a3b9b696648e, type: 3}
-    cost: 350
-    upgradeCost: 525
+    cost: 400
+    upgradeCost: 500
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ed3a268be7c377542abce1ae14c359b0, type: 3}
     description: "Essa belezinha atira m\xEDsseis tele-guiados, fortes contra inimigos
       mais resistentes."
   - name: Laser
     prefab: {fileID: 122216, guid: 4e50f7c196eb0e94282d8df00c58fbc7, type: 3}
-    cost: 300
-    upgradeCost: 375
+    cost: 400
+    upgradeCost: 500
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e54c54116c6283d4ab70245e5d7b555a, type: 3}
     description: A Laser concentra seu poder em um inimigo, aumentando o dano com
       o tempo.
   - name: Charger
     prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
-    cost: 250
-    upgradeCost: 375
+    cost: 400
+    upgradeCost: 500
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 3e3e09ef78d741f4f9e54657d5c85a50, type: 3}
     description: "Essa torre me lembra um certo personagem... ela precisa carregar
@@ -15801,8 +15801,8 @@ MonoBehaviour:
       inimigos."
   - name: Flamethrower
     prefab: {fileID: 113658, guid: 45d1fe44ae62c474f914b29f3c019ba0, type: 3}
-    cost: 450
-    upgradeCost: 750
+    cost: 500
+    upgradeCost: 800
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2d13065b2620f654c9772ed3e18ec55d, type: 3}
     description: "Esse lan\xE7a-chamas ir\xE1 incinerar todos seus inimigos com dano
@@ -15810,8 +15810,8 @@ MonoBehaviour:
   - name: Bomb
     prefab: {fileID: 3334567948707967717, guid: aa8f59ccd43c45842aedae553d47d793,
       type: 3}
-    cost: 350
-    upgradeCost: 525
+    cost: 300
+    upgradeCost: 600
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: f406e86cfced2e44b9e9ae666d64e5be, type: 3}
     description: 
@@ -15824,21 +15824,21 @@ MonoBehaviour:
     description: "Essa torre\u2026 n\xE3o est\xE1 funcionando corretamente, est\xE1?"
   - name: Radar
     prefab: {fileID: 162182, guid: ece3573a92123e84b8b2787c40ce918a, type: 3}
-    cost: 150
-    upgradeCost: 225
+    cost: 200
+    upgradeCost: 200
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69, type: 3}
     description: "Essa torre \xE9 essencial para detectar inimigos invis\xEDveis."
   - name: Buffer
     prefab: {fileID: 199946, guid: 5b97ec26bd5fc624bb21b8365cbcfb23, type: 3}
-    cost: 180
-    upgradeCost: 600
+    cost: 200
+    upgradeCost: 300
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e98b93686ee32534aac39ec253dd005f, type: 3}
     description: 
   - name: Shotgun
     prefab: {fileID: 130390, guid: b9836ac70b57ca5408f79c7a48ee16db, type: 3}
-    cost: 340
+    cost: 450
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2a4fe609b910f244181bdfb444ad0438, type: 3}
@@ -15854,14 +15854,14 @@ MonoBehaviour:
       ignoram armadura.\r\n"
   - name: Acid
     prefab: {fileID: 1000014142393632, guid: 0a4d785296d91174fb324fa33224c504, type: 3}
-    cost: 220
-    upgradeCost: 600
+    cost: 300
+    upgradeCost: 500
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 573c313583cc0ee4797e472e6c99f8a2, type: 3}
     description: Feita para corroer seus inimigos, derretendo sua  armadura temporariamente.
   - name: Ice
     prefab: {fileID: 1000011940937682, guid: 9c27ad61aa1515b4ea9d5b76cb841341, type: 3}
-    cost: 280
+    cost: 300
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 55e5e92161b30514baedc65825d3dc2a, type: 3}
@@ -15869,7 +15869,7 @@ MonoBehaviour:
       reduzindo sua velocidade."
   - name: Gatling
     prefab: {fileID: 164160, guid: bd3111d7b003ed040b9e860c3572624c, type: 3}
-    cost: 320
+    cost: 400
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 8ea92b06554b90c459ccdbdf4c66a794, type: 3}
@@ -15877,8 +15877,8 @@ MonoBehaviour:
       tiro altamente elevada.\r\n"
   - name: Freezer
     prefab: {fileID: 113658, guid: 23de95250ee7aa24e84533ef303027f3, type: 3}
-    cost: 350
-    upgradeCost: 700
+    cost: 400
+    upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2ace5324bb19ebe4eae4125787d7f7a2, type: 3}
     description: "Essa torre lan\xE7a uma rajada de gelo, congelando seus inimigos
@@ -15886,8 +15886,8 @@ MonoBehaviour:
   - name: Spitter
     prefab: {fileID: 7223319574642828663, guid: 0077ac9b74da99540a01c12acf6c87ce,
       type: 3}
-    cost: 350
-    upgradeCost: 550
+    cost: 400
+    upgradeCost: 500
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ca7aa1520a6aabe4b9103a867c11d896, type: 3}
     description: "Essa torre lan\xE7a esferas de \xE1cido, destruindo a armadura de
@@ -15895,7 +15895,7 @@ MonoBehaviour:
   - name: Overheat
     prefab: {fileID: 3900269410328158199, guid: 76f2d14fca5236243a4304167f91aac7,
       type: 3}
-    cost: 350
+    cost: 400
     upgradeCost: 500
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 5705297e9c1f6394bb4050504e870b43, type: 3}
