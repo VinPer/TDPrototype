@@ -68,6 +68,7 @@ public class TurretMenu : MonoBehaviour
         if (turretSelected == null) turretSelected = target.transform.Find("Range").GetComponentInChildren<TowerBase>();
         GetComponent<TargetSelectionDropdown>().UpdateDropdown();
         rangeText.text = turretSelected.range.ToString();
+        print(turretSelected.turretMaximized);
         if (turretSelected.turretMaximized)
         {
             btnUpgrade.interactable = false;

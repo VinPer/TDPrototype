@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 2335260}
   - component: {fileID: 6523982}
   m_Layer: 13
-  m_Name: Flamer_Turret
+  m_Name: Flamethrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

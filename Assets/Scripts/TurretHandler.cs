@@ -71,7 +71,6 @@ public class TurretHandler : MonoBehaviour
                 allTurretsGUI.transform.GetChild(i)
                     .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
                 allTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
-                SelectedTurrets.instance.unlockedTurrets.Add(allTurrets[i]);
             }
 
         }
