@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66c44a9269dc4514db1b6999af7740cd, type: 2}
+  - {fileID: 2100000, guid: 10c78efbf2084f34289de2526d19682c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,10 +99,11 @@ MonoBehaviour:
     upgradeCost: 0
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
+    description: 
   positionOffset: {x: 0, y: 0.1, z: 0}
   hoverColor: {r: 0, g: 0, b: 0, a: 0}
   cannotAffordColor: {r: 0, g: 0, b: 0, a: 0}
-  turretSelectedColor: {r: 0, g: 0.2081022, b: 0.8207547, a: 1}
+  turretSelectedColor: {r: 1, g: 1, b: 1, a: 1}
   range: {fileID: 0}
 --- !u!135 &4121219215192199253
 SphereCollider:

@@ -28,6 +28,11 @@ public class DebugMenu : MonoBehaviour
         waveSpawner = GameMaster.transform.GetComponent<WaveSpawner>();
     }
 
+    private void OnEnable()
+    {
+        NormalSpeed();
+    }
+
     public void SpawnEnemy()
     {
         int amount;
@@ -68,6 +73,11 @@ public class DebugMenu : MonoBehaviour
             Time.timeScale = 1f;
             speedButton.image.sprite = normalSpeed;
         }
+    }
+    public void NormalSpeed()
+    {
+        speedUp = false;
+        Time.timeScale = 1f;
     }
 
     //public void ToggleWave()

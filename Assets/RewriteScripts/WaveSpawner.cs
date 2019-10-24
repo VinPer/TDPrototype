@@ -177,6 +177,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Waves _wave)
     {
+        PlayerStats.WavesSurvived++;
         state = SpawnerState.spawning;
         int count;
         float rate;
