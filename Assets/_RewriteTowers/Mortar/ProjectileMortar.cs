@@ -32,7 +32,7 @@ public class ProjectileMortar : ProjectileBase
         }
     }
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
         if (decayTimer <= 0f)
         {

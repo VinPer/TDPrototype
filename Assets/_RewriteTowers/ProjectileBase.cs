@@ -43,7 +43,7 @@ public class ProjectileBase : MonoBehaviour
         seeking = initialSeeking;
     }
     
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         if (decayTimer <= 0f || durability <= 0f)
         {
