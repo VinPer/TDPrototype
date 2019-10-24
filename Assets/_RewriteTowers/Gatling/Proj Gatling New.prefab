@@ -81,7 +81,7 @@ MonoBehaviour:
   debuffElement: 0
   debuffIntensity: 0
   debuffDuration: 0
-  speed: 100
+  speed: 150
   acceleration: 0
   seeking: 0
   explosionRadius: 0

@@ -509,7 +509,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 299737f5f38315d44b621dba61800bd6, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -729,7 +729,7 @@ MonoBehaviour:
   fireRate: 1
   fireRateUpgrade: 0.25
   partToRotate: {fileID: 495240}
-  turnSpeed: 10
+  turnSpeed: 20
   firePoint: {fileID: 5608702030693297934}
   targetStyles:
   - First
