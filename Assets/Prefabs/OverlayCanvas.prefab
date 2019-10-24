@@ -7871,8 +7871,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7897,8 +7897,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9328,6 +9328,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5317946450721993045}
     m_Modifications:
+    - target: {fileID: 5232316780321625240, guid: dac7091076dc4984ea260af3afedeabe,
+        type: 3}
+      propertyPath: m_Name
+      value: DebugMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5232316780321625241, guid: dac7091076dc4984ea260af3afedeabe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9432,11 +9437,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5232316780321625240, guid: dac7091076dc4984ea260af3afedeabe,
-        type: 3}
-      propertyPath: m_Name
-      value: DebugMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5232316780321625242, guid: dac7091076dc4984ea260af3afedeabe,
         type: 3}
