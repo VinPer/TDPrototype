@@ -24,7 +24,7 @@ public class UnlockTowerCanvas : MonoBehaviour
             {
                 turretImage.sprite = item.sprite;
                 turretName.text = item.name;
-                turretAbout.GetComponent<TextMeshProUGUI>().text = item.name;
+                turretAbout.GetComponent<TextMeshProUGUI>().text = item.description;
             }
         });
     }
