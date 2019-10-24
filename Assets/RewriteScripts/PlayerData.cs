@@ -38,17 +38,11 @@ public class PlayerData
         unlockedTowers = new Dictionary<string, bool>
         {
             {"Acid", false },
-            {"Radar", false },
-            {"Sniper", false },
-            {"Overheat", false },
-            {"Laser", false },
-            {"Charger", false }
-            //{"Acid", true },
-            //{"Radar", true },
-            //{"Sniper", true },
-            //{"Overheat", true },
-            //{"Laser", true },
-            //{"Charger", true }
+            {"Radar", true },
+            {"Sniper", true },
+            {"Overheat", true },
+            {"Laser", true },
+            {"Charger", true }
         };
         shopUpgrades = new Dictionary<string, Dictionary<string, bool>>
         {
@@ -91,7 +85,7 @@ public class PlayerData
                 { "MoreTowersPlus", false },
                 { "MoreSkillsPlus", false },
                 { "BuffAllTowers", false },
-                { "Buffer", true },
+                { "Buffer", false },
                 { "Tesla", true }
             } },
             { "Block3", new Dictionary<string, bool>

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public abstract class TowerBase : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public abstract class TowerBase : MonoBehaviour
     public float rangeUpgrade = 10f;
     [HideInInspector]
     public int numberOfUpgrades = 0;
-    public int maxUpgrade = 3;
+    public int maxUpgrade = 0;
     [HideInInspector]
     public bool turretMaximized = false;
 
@@ -42,6 +43,19 @@ public abstract class TowerBase : MonoBehaviour
         //damageBoost = 1f;
         range = initialRange;
         BuildManager.TurretsBuilded.Add(gameObject);
+        StartCoroutine(CheckMaximizedUpgrade());
+    }
+
+    IEnumerator CheckMaximizedUpgrade()
+    {
+        yield return new WaitForEndOfFrame();
+        maxUpgrade = 0;
+        foreach (var item in UpgradeHandler.data.towerUpgrades[transform.parent.name].Values)
+        {
+            if (maxUpgrade < item) maxUpgrade = item;
+        }
+        print(maxUpgrade);
+        if (maxUpgrade <= 0) turretMaximized = true;
     }
 
     private void OnDisable()

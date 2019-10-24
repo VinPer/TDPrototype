@@ -18,6 +18,9 @@ public class DebugMenu : MonoBehaviour
 
     public float delay = .2f;
 
+    public Sprite normalSpeed;
+    public Sprite fastSpeed;
+
     private void Start()
     {
         enemy = transform.GetComponentInChildren<Dropdown>();
@@ -51,17 +54,19 @@ public class DebugMenu : MonoBehaviour
         }
     }
 
-    public void ToggleSpeed()
+    public void ToggleSpeed(Button speedButton)
     {
         speedUp = (!speedUp);
 
         if (speedUp)
         {
             Time.timeScale = speedUpMultiplier;
+            speedButton.image.sprite = fastSpeed;
         }
         else
         {
             Time.timeScale = 1f;
+            speedButton.image.sprite = normalSpeed;
         }
     }
 

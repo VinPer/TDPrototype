@@ -393,75 +393,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466ac4604eb48e84bb3f553d65ce3d0f, type: 3}
---- !u!1001 &66873107
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2893401345236095585, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_Name
-      value: SelectedTurrets
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893401345236095587, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b5e01a471fc6dbe4996a3cc11cd1d84b, type: 3}
 --- !u!4 &139819639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 481038, guid: 466ac4604eb48e84bb3f553d65ce3d0f,
@@ -3332,6 +3263,95 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[1].description
+      value: "Essa belezinha atira m\xEDsseis tele-guiados, fortes contra inimigos
+        mais resistentes."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[2].description
+      value: A Laser concentra seu poder em um inimigo, aumentando o dano com o tempo.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[0].description
+      value: "Essa \xE9 a torre b\xE1sica, \xFAtil para todas as situa\xE7\xF5es."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[3].description
+      value: "Essa torre me lembra um certo personagem... ela precisa carregar seus
+        proj\xE9teis, ficando mais forte o quanto mais ela carrega."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[4].description
+      value: "Essa torre lan\xE7a raios el\xE9tricos que atingem m\xFAltiplos inimigos."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[5].description
+      value: "Esse lan\xE7a-chamas ir\xE1 incinerar todos seus inimigos com dano duradouro."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[7].description
+      value: "Essa torre\u2026 n\xE3o est\xE1 funcionando corretamente, est\xE1?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[8].description
+      value: "Essa torre \xE9 essencial para detectar inimigos invis\xEDveis."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[10].description
+      value: "Uma varia\xE7\xE3o da torre b\xE1sica... atira v\xE1rios proj\xE9teis
+        ao mesmo tempo!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[11].description
+      value: "Essa torre consegue mirar em inimigos invis\xEDveis e seus proj\xE9teis
+        ignoram armadura."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[12].description
+      value: Feita para corroer seus inimigos, derretendo sua  armadura temporariamente.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[13].description
+      value: "Perfeita para ganhar tempo, essa torre ir\xE1 congelar seus inimigos,
+        reduzindo sua velocidade."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[14].description
+      value: "Uma varia\xE7\xE3o da torre b\xE1sica, otimizada para uma taxa de tiro
+        altamente elevada."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[15].description
+      value: "Essa torre lan\xE7a uma rajada de gelo, congelando seus inimigos rapidamente
+        e reduzindo sua velocidade."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[16].description
+      value: "Essa torre lan\xE7a esferas de \xE1cido, destruindo a armadura de seus
+        inimigos"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[17].description
+      value: "Essa torre lan\xE7a bolas de fogo em v\xE1rias dire\xE7\xF5es, incinerando
+        seus inimigos com dano duradouro."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e01a471fc6dbe4996a3cc11cd1d84b, type: 3}
 --- !u!4 &1029998045 stripped
@@ -4290,7 +4310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478103235
 PrefabInstance:
@@ -4930,7 +4950,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773981746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2010278141}
@@ -4939,7 +4959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -575.29, y: -494.61}
+  m_AnchoredPosition: {x: -22, y: -244}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773981748
