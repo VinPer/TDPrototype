@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,8 @@ public class TurretHandler : MonoBehaviour
     public int max = 4;
     public Transform transformNode;
     private GameObject turret4ui;
+    public TextMeshProUGUI tmpDialog;
+
     
     // uhh ignore this
     public List<TurretBlueprint> defaultSelected;
@@ -125,7 +128,7 @@ public class TurretHandler : MonoBehaviour
                 Destroy(turret4ui);
             }
             turret4ui = Instantiate(turret.prefab, transformNode.position, transformNode.rotation);
-            
+            tmpDialog.text = turret.description.ToString();
         }
         UpdateSelectedTurrets();
     }

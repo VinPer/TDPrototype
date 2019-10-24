@@ -16,6 +16,8 @@ public class TurretBlueprint
 
     public Color color;
     public Sprite sprite;
+    [TextArea (3,10)]
+    public string description;
     
     //public int GetSellValue(bool upgraded)
     //{

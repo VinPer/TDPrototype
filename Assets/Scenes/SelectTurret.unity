@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa42dde20b6731d4a8cdb56616225ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 
   upgradeScene: ShopTest
   shopScene: ShopUpgrades
   sceneFader: {fileID: 1676405101}
@@ -297,16 +296,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -421,6 +410,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -1284,6 +1283,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 183946804}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &188378548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188378549}
+  - component: {fileID: 188378551}
+  - component: {fileID: 188378550}
+  m_Layer: 5
+  m_Name: Title Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &188378549
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188378548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 706492285}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -548.7, y: 450.9}
+  m_SizeDelta: {x: -1014, y: -949.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &188378550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188378548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &188378551
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188378548}
+  m_CullTransparentMesh: 0
 --- !u!1001 &221407143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2675,17 +2748,17 @@ PrefabInstance:
     - target: {fileID: 4371235875966888198, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.020141602
+      value: 0.009399414
       objectReference: {fileID: 0}
     - target: {fileID: 4371235875966888198, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -176.6
+      value: -178.6
       objectReference: {fileID: 0}
     - target: {fileID: 4371235875966888198, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1064.4
+      value: -1076.6
       objectReference: {fileID: 0}
     - target: {fileID: 4371235875966888198, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
@@ -2750,7 +2823,24 @@ PrefabInstance:
     - target: {fileID: 4371235876073183625, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371235876073183625, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d9607f259df5414b857a41e73e99d11,
+        type: 2}
+    - target: {fileID: 4371235876073183625, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21376009140608860, guid: 0d9607f259df5414b857a41e73e99d11,
+        type: 2}
+    - target: {fileID: 4371235876073183625, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
@@ -2766,7 +2856,7 @@ PrefabInstance:
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_fontSize
-      value: 50.95
+      value: 27.3
       objectReference: {fileID: 0}
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
@@ -2791,37 +2881,72 @@ PrefabInstance:
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_text
-      value: Texto
+      value: "Selecione o seu arsenal e nos ajude a conter a invas\xE3o!"
       objectReference: {fileID: 0}
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 6
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 897854193}
+    - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 37.36018
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -4.395328
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 513
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371235877185093381, guid: 72dd71ef4e9dfd5489367865a9d79b17,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8867238743817784649, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8867238743817784649, guid: 72dd71ef4e9dfd5489367865a9d79b17,
         type: 3}
@@ -3073,16 +3198,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3190,6 +3305,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -5104,10 +5229,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 188378549}
   - {fileID: 896168935}
   - {fileID: 1547215584}
-  - {fileID: 5239782424902927955}
   - {fileID: 430451526}
+  - {fileID: 5239782424902927955}
   - {fileID: 1630709061}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -5676,16 +5802,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5808,6 +5924,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -6401,7 +6527,7 @@ RectTransform:
   - {fileID: 1141622702}
   - {fileID: 787696535}
   m_Father: {fileID: 706492285}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.2954535}
@@ -6531,7 +6657,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 0
+  m_padding: 0.5
   m_canvasRenderer: {fileID: 897854194}
   m_TextComponent: {fileID: 430451528}
   m_materialReferenceIndex: 1
@@ -7531,16 +7657,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7663,6 +7779,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -9876,7 +10002,7 @@ RectTransform:
   - {fileID: 1722653851}
   - {fileID: 1335133012}
   m_Father: {fileID: 706492285}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10208,16 +10334,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10326,6 +10442,16 @@ PrefabInstance:
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
 --- !u!224 &1603886247 stripped
@@ -10384,7 +10510,7 @@ PrefabInstance:
     - target: {fileID: 6523228693686683953, guid: 6f859381f76913c458694864920a52e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6523228693686683953, guid: 6f859381f76913c458694864920a52e7,
         type: 3}
@@ -14608,6 +14734,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 360672227899499453, guid: c9e72be2156c0e54b8d64e776794bb40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0049972534
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 530966474749000685, guid: c9e72be2156c0e54b8d64e776794bb40, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c9e72be2156c0e54b8d64e776794bb40, type: 3}
@@ -15635,36 +15766,47 @@ MonoBehaviour:
     upgradeCost: 200
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 78f42a330ed53e842bac7178d47af7a7, type: 3}
+    description: "Essa \xE9 a torre b\xE1sica, \xFAtil para todas as situa\xE7\xF5es."
   - name: Rocket
     prefab: {fileID: 174414, guid: f10cb9f4e98ef41458c6a3b9b696648e, type: 3}
     cost: 350
     upgradeCost: 525
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ed3a268be7c377542abce1ae14c359b0, type: 3}
+    description: "Essa belezinha atira m\xEDsseis tele-guiados, fortes contra inimigos
+      mais resistentes."
   - name: Laser
     prefab: {fileID: 122216, guid: 4e50f7c196eb0e94282d8df00c58fbc7, type: 3}
     cost: 300
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e54c54116c6283d4ab70245e5d7b555a, type: 3}
-  - name: Megaman
+    description: A Laser concentra seu poder em um inimigo, aumentando o dano com
+      o tempo.
+  - name: Charger
     prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
     cost: 250
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 3e3e09ef78d741f4f9e54657d5c85a50, type: 3}
+    description: "Essa torre me lembra um certo personagem... ela precisa carregar
+      seus proj\xE9teis, ficando mais forte o quanto mais ela carrega. "
   - name: Tesla
     prefab: {fileID: 108410, guid: 809c9e6c385da994ba56e27e307b629b, type: 3}
     cost: 400
     upgradeCost: 600
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e237335f5cba8c841bac4159b1f7f55d, type: 3}
+    description: "Essa torre lan\xE7a raios el\xE9tricos que atingem m\xFAltiplos
+      inimigos."
   - name: Flamethrower
     prefab: {fileID: 113658, guid: 45d1fe44ae62c474f914b29f3c019ba0, type: 3}
     cost: 450
     upgradeCost: 750
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2d13065b2620f654c9772ed3e18ec55d, type: 3}
+    description: "Esse lan\xE7a-chamas ir\xE1 incinerar todos seus inimigos com dano
+      duradouro."
   - name: Bomb
     prefab: {fileID: 3334567948707967717, guid: aa8f59ccd43c45842aedae553d47d793,
       type: 3}
@@ -15672,60 +15814,75 @@ MonoBehaviour:
     upgradeCost: 525
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: f406e86cfced2e44b9e9ae666d64e5be, type: 3}
+    description: 
   - name: Mortar
     prefab: {fileID: 176338, guid: 9e4c4b46609e4fd4493715851d0d95be, type: 3}
     cost: 500
     upgradeCost: 750
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 684654ecd76176e4b9df56cc42560ad7, type: 3}
+    description: "Essa torre\u2026 n\xE3o est\xE1 funcionando corretamente, est\xE1?"
   - name: Radar
     prefab: {fileID: 162182, guid: ece3573a92123e84b8b2787c40ce918a, type: 3}
     cost: 150
     upgradeCost: 225
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e608b071b8da3734f9fd02a98d0bfc69, type: 3}
+    description: "Essa torre \xE9 essencial para detectar inimigos invis\xEDveis."
   - name: Buffer
     prefab: {fileID: 199946, guid: 5b97ec26bd5fc624bb21b8365cbcfb23, type: 3}
     cost: 180
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: e98b93686ee32534aac39ec253dd005f, type: 3}
+    description: 
   - name: Shotgun
     prefab: {fileID: 130390, guid: b9836ac70b57ca5408f79c7a48ee16db, type: 3}
     cost: 340
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2a4fe609b910f244181bdfb444ad0438, type: 3}
+    description: "Uma varia\xE7\xE3o da torre b\xE1sica... atira v\xE1rios proj\xE9teis
+      ao mesmo tempo!"
   - name: Sniper
     prefab: {fileID: 129874, guid: 26bc24faf5ae2d44caaec3aa60a0236f, type: 3}
     cost: 500
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ce9f8eb148a30e844951e6dd54da1c88, type: 3}
+    description: "Essa torre consegue mirar em inimigos invis\xEDveis e seus proj\xE9teis
+      ignoram armadura.\r\n"
   - name: Acid
     prefab: {fileID: 1000014142393632, guid: 0a4d785296d91174fb324fa33224c504, type: 3}
     cost: 220
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 573c313583cc0ee4797e472e6c99f8a2, type: 3}
+    description: Feita para corroer seus inimigos, derretendo sua  armadura temporariamente.
   - name: Ice
     prefab: {fileID: 1000011940937682, guid: 9c27ad61aa1515b4ea9d5b76cb841341, type: 3}
     cost: 280
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 55e5e92161b30514baedc65825d3dc2a, type: 3}
+    description: "Perfeita para ganhar tempo, essa torre ir\xE1 congelar seus inimigos,
+      reduzindo sua velocidade."
   - name: Gatling
     prefab: {fileID: 164160, guid: bd3111d7b003ed040b9e860c3572624c, type: 3}
     cost: 320
     upgradeCost: 600
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 8ea92b06554b90c459ccdbdf4c66a794, type: 3}
+    description: "Uma varia\xE7\xE3o da torre b\xE1sica, otimizada para uma taxa de
+      tiro altamente elevada.\r\n"
   - name: Freezer
     prefab: {fileID: 113658, guid: 23de95250ee7aa24e84533ef303027f3, type: 3}
     cost: 350
     upgradeCost: 700
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 2ace5324bb19ebe4eae4125787d7f7a2, type: 3}
+    description: "Essa torre lan\xE7a uma rajada de gelo, congelando seus inimigos
+      rapidamente e reduzindo sua velocidade.\r\n"
   - name: Spitter
     prefab: {fileID: 7223319574642828663, guid: 0077ac9b74da99540a01c12acf6c87ce,
       type: 3}
@@ -15733,6 +15890,8 @@ MonoBehaviour:
     upgradeCost: 550
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: ca7aa1520a6aabe4b9103a867c11d896, type: 3}
+    description: "Essa torre lan\xE7a esferas de \xE1cido, destruindo a armadura de
+      seus inimigos"
   - name: Overheat
     prefab: {fileID: 3900269410328158199, guid: 76f2d14fca5236243a4304167f91aac7,
       type: 3}
@@ -15740,6 +15899,8 @@ MonoBehaviour:
     upgradeCost: 500
     color: {r: 0.9462812, g: 1, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 5705297e9c1f6394bb4050504e870b43, type: 3}
+    description: "Essa torre lan\xE7a bolas de fogo em v\xE1rias dire\xE7\xF5es, incinerando
+      seus inimigos com dano duradouro.\r\n"
   allTurretsName: []
   turretsToBuy:
   - Mortar
@@ -15759,6 +15920,7 @@ MonoBehaviour:
   - Charger
   max: 4
   transformNode: {fileID: 3381766489720673048}
+  tmpDialog: {fileID: 430451528}
   defaultSelected:
   - name: 
     prefab: {fileID: 197016, guid: bdcc2af49c70d304caf4ad15f3511c81, type: 3}
@@ -15766,24 +15928,28 @@ MonoBehaviour:
     upgradeCost: 150
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
+    description: 
   - name: 
     prefab: {fileID: 174414, guid: f10cb9f4e98ef41458c6a3b9b696648e, type: 3}
     cost: 350
     upgradeCost: 525
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
+    description: 
   - name: 
     prefab: {fileID: 122216, guid: 4e50f7c196eb0e94282d8df00c58fbc7, type: 3}
     cost: 250
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
+    description: 
   - name: 
     prefab: {fileID: 183736, guid: c7f0173f4bd93214aa0b8ff37a563e2d, type: 3}
     cost: 250
     upgradeCost: 375
     color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 0}
+    description: 
   allTurretsGUI: {fileID: 1722653852}
   selectedTurretsGUI: {fileID: 896168934}
   playButton: {fileID: 5239782424902927954}
@@ -16279,16 +16445,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4183598552398986939, guid: 3a1d36428391e1a41acb44cac16951c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -16405,6 +16561,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201879166827661938, guid: 3a1d36428391e1a41acb44cac16951c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a1d36428391e1a41acb44cac16951c6, type: 3}
@@ -17773,7 +17939,7 @@ RectTransform:
   - {fileID: 5239782424547734496}
   - {fileID: 5239782426295464910}
   m_Father: {fileID: 706492285}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
