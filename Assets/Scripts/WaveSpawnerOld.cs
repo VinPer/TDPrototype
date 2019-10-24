@@ -88,6 +88,7 @@ public class WaveSpawnerOld : MonoBehaviour
     IEnumerator SpawnWave()
     {
         PlayerStats.WavesSurvived++;
+        print(PlayerStats.WavesSurvived);
         int currentBurst = waveIndex % 4;
         waveIndex++;
         

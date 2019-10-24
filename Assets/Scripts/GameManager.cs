@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.Play("Defeat");
         AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
         win = false;
-        ReciveCoins();
+        PlayerStats.Coins = ReciveCoins();
     }
 
     public void Winning()

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class GameOver : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class GameOver : MonoBehaviour
 
     private void OnEnable()
     {
+        StartCoroutine(EnableGameOver());
+    }
+
+    IEnumerator EnableGameOver()
+    {
+        yield return new WaitForEndOfFrame();
         WavesText.text = PlayerStats.WavesSurvived + "";
         coins.text = "Coins: " + PlayerStats.Coins;
     }
