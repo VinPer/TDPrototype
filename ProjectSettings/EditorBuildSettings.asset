@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ShopUpgrades.unity
     guid: 9dabfb6da72c4864485a049250fc94bc
   - enabled: 1
+    path: Assets/Scenes/SettingMenu.unity
+    guid: ec2fd092c0913c94cb8dd0b61fc00ebb
+  - enabled: 1
     path: Assets/Scenes/SelectLevel.unity
     guid: 8c14bc3af1fe4184baddfc219284cf71
   - enabled: 1
