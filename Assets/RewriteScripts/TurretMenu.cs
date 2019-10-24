@@ -68,11 +68,15 @@ public class TurretMenu : MonoBehaviour
         if (turretSelected == null) turretSelected = target.transform.Find("Range").GetComponentInChildren<TowerBase>();
         GetComponent<TargetSelectionDropdown>().UpdateDropdown();
         rangeText.text = turretSelected.range.ToString();
-        print(turretSelected.turretMaximized);
         if (turretSelected.turretMaximized)
         {
             btnUpgrade.interactable = false;
             btnUpgradeText.text = "MAXIMIZED";
+        }
+        if (_target.turretBlueprint.cost > PlayerStats.Money)
+        {
+            btnUpgrade.interactable = false;
+            btnUpgradeText.text = "Not enough money";
         }
         else
         {
