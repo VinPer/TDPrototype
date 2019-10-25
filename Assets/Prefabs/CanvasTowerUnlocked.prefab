@@ -266,7 +266,7 @@ MonoBehaviour:
   turretUnlocked: 
   turretImage: {fileID: 123968327017482846}
   turretName: {fileID: 3461514606147928631}
-  turretAbout: {fileID: 4889957667608876860}
+  turretAbout: {fileID: 2590661854274501797}
   firstDialog: {fileID: 4889957667608876860}
 --- !u!1 &123968326686575249
 GameObject:
