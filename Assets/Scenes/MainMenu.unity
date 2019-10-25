@@ -492,13 +492,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 706492285}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -0.39200002, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.79332435}
-  m_AnchorMax: {x: 1, y: 0.92869973}
-  m_AnchoredPosition: {x: 1.2, y: 0.7}
-  m_SizeDelta: {x: 2.6, y: -0.4}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.7497514, y: 1}
+  m_AnchorMax: {x: 0.7497514, y: 1}
+  m_AnchoredPosition: {x: -0.7270508, y: -222}
+  m_SizeDelta: {x: 651.6, y: 244.4}
+  m_Pivot: {x: 0.5, y: 0.40495098}
 --- !u!114 &139480051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,16 +521,15 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Tower Defense  Prototype
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7a09d24e8a0fdda4eaec704ff1a55d9b, type: 2}
-  m_sharedMaterial: {fileID: 21238275568457850, guid: 7a09d24e8a0fdda4eaec704ff1a55d9b,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278245887
+  m_fontColor: {r: 1, g: 0.85225457, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -554,7 +553,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -586,7 +585,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -47.463013, y: 0, z: 67.80444, w: 0}
   m_textInfo:
     textComponent: {fileID: 139480051}
     characterCount: 24
@@ -594,7 +593,7 @@ MonoBehaviour:
     spaceCount: 3
     wordCount: 3
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -2376,6 +2375,7 @@ RectTransform:
   - {fileID: 748017376}
   - {fileID: 33852413}
   - {fileID: 1773981747}
+  - {fileID: 431104453}
   - {fileID: 139480050}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -4651,7 +4651,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1465281475
 PrefabInstance:
