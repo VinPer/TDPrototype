@@ -77,8 +77,8 @@ public class EnemyBase : MonoBehaviour
 
     //Color
     protected Renderer rend;
-    protected Color startColor;
-    private Color invisibleColor;
+    private Color startColor;
+    public Color invisibleColor;
 
     protected Coroutine slowRoutine;
     protected Coroutine acidRoutine;
@@ -101,6 +101,8 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
+        rend = GetComponent<Renderer>();
+        startColor = rend.material.color;
         //EXPERIMENTAL RECHARGING SHIELD
         initialShieldCapacity = shieldCapacity;
         initalShieldRechargeDelay = shieldRechargeDelay;
@@ -328,11 +330,13 @@ public class EnemyBase : MonoBehaviour
         if (stealth && radarsAffecting <= 0)
         {
             invisible = true;
+            rend.material.color = invisibleColor;
             radarsAffecting = 0;
         }
         else
         {
             invisible = false;
+            rend.material.color = startColor;
         }
     }
 
@@ -375,7 +379,11 @@ public class EnemyBase : MonoBehaviour
         speed = initialSpeed;
         armor = initialArmor;
         freezeStatus = 0;
-        if (stealth) invisible = true;
+        if (stealth)
+        {
+            invisible = true;
+            rend.material.color = invisibleColor;
+        } 
         else invisible = false;
         radarsAffecting = 0;
         foreach (Debuff debuff in debuffs.Values) debuff.Zero();
