@@ -3624,6 +3624,12 @@ PrefabInstance:
       value: "Essa torre lan\xE7a bolas de fogo em v\xE1rias dire\xE7\xF5es, incinerando
         seus inimigos com dano duradouro."
       objectReference: {fileID: 0}
+    - target: {fileID: 2893401345236095586, guid: b5e01a471fc6dbe4996a3cc11cd1d84b,
+        type: 3}
+      propertyPath: allTurrets.Array.data[5].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae5c607c7d9ba5144ba299fd277c9d6f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e01a471fc6dbe4996a3cc11cd1d84b, type: 3}
 --- !u!4 &1029998045 stripped

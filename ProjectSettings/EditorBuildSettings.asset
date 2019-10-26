@@ -26,13 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level6.unity
     guid: c8217bdb56745644fb97f19104bf9ba9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SpiralMap.unity
     guid: 073a06e2186bcad4e8cf65539fbc1279
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 8a58392fb9af7c74ea84c1eb391b53de
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuAntigo.unity
     guid: 8ddc666a121f86b4091098db5f0611f0
   - enabled: 1
