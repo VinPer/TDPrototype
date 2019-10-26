@@ -73,7 +73,7 @@ public class PlayerData
             //} },
             { "Block1", new Dictionary<string, bool>
             {
-                { "MoreTowers", false },
+                { "MoreTowers", true },
                 { "MoreSkills", false },
                 { "ElementalBlast", false },
                 { "Mortar", true },
@@ -82,7 +82,7 @@ public class PlayerData
             } },
             { "Block2", new Dictionary<string, bool>
             {
-                { "MoreTowersPlus", false },
+                { "MoreTowersPlus", true },
                 { "MoreSkillsPlus", false },
                 { "BuffAllTowers", false },
                 { "Buffer", false },
@@ -97,124 +97,244 @@ public class PlayerData
                 { "Nuke", false }
             } },
         };
+        //towerUpgrades = new Dictionary<string, Dictionary<string, int>>
+        //{
+        //    { "Basic", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "piercing", 0 },
+        //        { "penetration", 0 }
+        //    } },
+        //    { "Rocket", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "explosionRadius", 0 }
+        //    } },
+        //    { "Ice", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "debuffIntensity", 0 },
+        //        { "debuffDuration", 0 }
+        //    } },
+        //    { "Acid", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "debuffIntensity", 0 },
+        //        { "debuffDuration", 0 }
+        //    } },
+        //    { "Radar", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 }
+        //    } },
+        //    { "Sniper", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "penetration", 0 }
+        //    } },
+        //    { "Overheat", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "debuffIntensity", 0 },
+        //        { "debuffDuration", 0 }
+        //    } },
+        //    { "Laser", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "multiplierSpeed", 0 }
+        //    } },
+        //    { "Charger", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "chargeRate", 0 },
+        //        { "maxCharge", 0 }
+        //    } },
+        //    { "Tesla", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "chainAmount", 0 }
+        //    } },
+        //    { "Flamethrower", new Dictionary<string, int> //1
+        //    {
+        //        { "damage", 0 },
+        //        { "debuffIntensity", 0 },
+        //        { "debuffDuration", 0 }
+        //    } },
+        //    { "Mortar", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "explosionRadius", 0 }
+        //    } },
+        //    { "Buffer", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "buffRange", 0 },
+        //        { "buffDamage", 0 },
+        //        { "buffFireRate", 0 }
+        //    } },
+        //    { "Shotgun", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "piercing", 0 },
+        //        { "projectileAmount", 0 },
+        //        { "spreadReduction", 0 }
+        //    } },
+        //    { "Gatling", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "fireRate", 0 },
+        //        { "piercing", 0 },
+        //        { "penetration", 0 }
+        //    } },
+        //    { "Freezer", new Dictionary<string, int> //1
+        //    {
+        //        { "damage", 0 },
+        //        { "chargeTime", 0 }
+        //    } },
+        //    { "Spitter", new Dictionary<string, int> //1
+        //    {
+        //        { "range", 0 },
+        //        { "damage", 0 },
+        //        { "puddleDuration", 0 },
+        //        { "puddleSize", 0 },
+        //        { "debuffIntensity", 0 },
+        //        { "debuffDuration", 0 }
+        //    } }
+        //};
         towerUpgrades = new Dictionary<string, Dictionary<string, int>>
         {
             { "Basic", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "piercing", 0 },
-                { "penetration", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "piercing", 3 },
+                { "penetration", 3 }
             } },
             { "Rocket", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "explosionRadius", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "explosionRadius", 3 }
             } },
             { "Ice", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "debuffIntensity", 0 },
-                { "debuffDuration", 0 }
+                { "range", 3 },
+                { "debuffIntensity", 3 },
+                { "debuffDuration", 3 }
             } },
             { "Acid", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "debuffIntensity", 0 },
-                { "debuffDuration", 0 }
+                { "range", 3 },
+                { "debuffIntensity", 3 },
+                { "debuffDuration", 3 }
             } },
             { "Radar", new Dictionary<string, int> //1
             {
-                { "range", 0 }
+                { "range", 3 }
             } },
             { "Sniper", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "penetration", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "penetration", 3 }
             } },
             { "Overheat", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "debuffIntensity", 0 },
-                { "debuffDuration", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "debuffIntensity", 3 },
+                { "debuffDuration", 3 }
             } },
             { "Laser", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "multiplierSpeed", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "multiplierSpeed", 3 }
             } },
             { "Charger", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "chargeRate", 0 },
-                { "maxCharge", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "chargeRate", 3 },
+                { "maxCharge", 3 }
             } },
             { "Tesla", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "chainAmount", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "chainAmount", 3 }
             } },
             { "Flamethrower", new Dictionary<string, int> //1
             {
-                { "damage", 0 },
-                { "debuffIntensity", 0 },
-                { "debuffDuration", 0 }
+                { "damage", 3 },
+                { "debuffIntensity", 3 },
+                { "debuffDuration", 3 }
             } },
             { "Mortar", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "explosionRadius", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "explosionRadius", 3 }
             } },
             { "Buffer", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "buffRange", 0 },
-                { "buffDamage", 0 },
-                { "buffFireRate", 0 }
+                { "range", 3 },
+                { "buffRange", 3 },
+                { "buffDamage", 3 },
+                { "buffFireRate", 3 }
             } },
             { "Shotgun", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "piercing", 0 },
-                { "projectileAmount", 0 },
-                { "spreadReduction", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "piercing", 3 },
+                { "projectileAmount", 3 },
+                { "spreadReduction", 3 }
             } },
             { "Gatling", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "fireRate", 0 },
-                { "piercing", 0 },
-                { "penetration", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "fireRate", 3 },
+                { "piercing", 3 },
+                { "penetration", 3 }
             } },
             { "Freezer", new Dictionary<string, int> //1
             {
-                { "damage", 0 },
-                { "chargeTime", 0 }
+                { "damage", 3 },
+                { "chargeTime", 3 }
             } },
             { "Spitter", new Dictionary<string, int> //1
             {
-                { "range", 0 },
-                { "damage", 0 },
-                { "puddleDuration", 0 },
-                { "puddleSize", 0 },
-                { "debuffIntensity", 0 },
-                { "debuffDuration", 0 }
+                { "range", 3 },
+                { "damage", 3 },
+                { "puddleDuration", 3 },
+                { "puddleSize", 3 },
+                { "debuffIntensity", 3 },
+                { "debuffDuration", 3 }
             } }
         };
     }

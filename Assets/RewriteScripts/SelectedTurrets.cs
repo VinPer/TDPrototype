@@ -11,7 +11,7 @@ public class SelectedTurrets : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         if (instance != null)
         {
-            //selectedTurrets = new List<TurretBlueprint>(instance.selectedTurrets);
+            instance.selectedTurrets = new List<TurretBlueprint>();
             Destroy(gameObject);
         }
         else

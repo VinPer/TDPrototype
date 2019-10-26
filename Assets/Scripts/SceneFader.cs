@@ -43,6 +43,7 @@ public class SceneFader : MonoBehaviour
         }
         UpgradeHandler.instance.SaveData();
         AudioManager.instance.Stop(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
         SceneManager.LoadScene(scene);
     }
 }

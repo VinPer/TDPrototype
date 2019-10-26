@@ -46,7 +46,7 @@ public class TurretHandler : MonoBehaviour
     {
         active = true;
         //Upgrade max number of towers
-        if(max > 6)
+        if(max < 6)
         {
             if (UpgradeHandler.data.shopUpgrades["Block1"]["MoreTowers"]) max++;
             if (UpgradeHandler.data.shopUpgrades["Block2"]["MoreTowersPlus"]) max++;
@@ -55,7 +55,8 @@ public class TurretHandler : MonoBehaviour
 
         // Instantiate the selected turrets list
         selectedTurrets = new List<string>();
-        SelectedTurrets.instance.allTurrets = new List<TurretBlueprint>(allTurrets);
+        //SelectedTurrets.instance.allTurrets = new List<TurretBlueprint>(allTurrets);
+        allTurrets = new List<TurretBlueprint>(SelectedTurrets.instance.allTurrets);
         foreach (TurretBlueprint item in SelectedTurrets.instance.selectedTurrets)
         {
             selectedTurrets.Add(item.name);
@@ -68,14 +69,17 @@ public class TurretHandler : MonoBehaviour
         for (int i = 0; i < allTurrets.Count; i++)
         {
             if(!string.Equals(allTurrets[i].name,"Bomb") && !string.Equals(allTurrets[i].name, "Buffer"))
-            if (IsUnlocked(allTurrets[i].name))
             {
-                allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = "$" + allTurrets[i].cost;
-                allTurretsGUI.transform.GetChild(i)
-                    .GetComponentsInChildren<Text>()[0].text = allTurrets[i].name;
-                allTurretsGUI.transform.GetChild(i).gameObject.SetActive(true);
+                if (IsUnlocked(allTurrets[i].name))
+                {
+                    allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = allTurrets[i].name;
+                    allTurretsGUI.transform.GetChild(i).GetComponent<Button>().interactable = true;
+                }
+                else
+                {
+                    allTurretsGUI.transform.GetChild(i).GetComponent<Button>().interactable = false;
+                }
             }
-
         }
 
         // Add the first (max) turrets to the selected turrets list
