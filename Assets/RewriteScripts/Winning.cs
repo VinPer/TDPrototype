@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Winning : MonoBehaviour
 {
@@ -67,13 +68,17 @@ public class Winning : MonoBehaviour
         {
             if (!UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]])
             {
-                unlockTowerCanvas.SetActive(true);
-                unlockTowerCanvas.GetComponent<UnlockTowerCanvas>().turretUnlocked = towersToUnlock[GameManager.instance.levelNumber];
-
-
-                UpgradeHandler.data.unlockedTowers[towersToUnlock[GameManager.instance.levelNumber]] = true;
+                StartCoroutine(ActivateUnlockedTurret(towersToUnlock[GameManager.instance.levelNumber]));
             }
         }
+    }
+
+    IEnumerator ActivateUnlockedTurret(string tower)
+    {
+        yield return new WaitForSeconds(1.5f);
+        unlockTowerCanvas.SetActive(true);
+        unlockTowerCanvas.GetComponent<UnlockTowerCanvas>().turretUnlocked = tower;
+        UpgradeHandler.data.unlockedTowers[tower] = true;
     }
 
     private void Toggle()

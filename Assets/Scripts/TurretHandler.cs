@@ -70,8 +70,9 @@ public class TurretHandler : MonoBehaviour
         {
             if(!string.Equals(allTurrets[i].name,"Bomb") && !string.Equals(allTurrets[i].name, "Buffer"))
             {
-                if (IsUnlocked(allTurrets[i].name))
+                if (IsUnlocked(allTurrets[i].name) && !string.Equals(allTurrets[i].name, "Mortar"))
                 {
+                    allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[0].text = "";
                     allTurretsGUI.transform.GetChild(i).GetComponentsInChildren<Text>()[1].text = allTurrets[i].name;
                     allTurretsGUI.transform.GetChild(i).GetComponent<Button>().interactable = true;
                 }
@@ -167,8 +168,8 @@ public class TurretHandler : MonoBehaviour
                 allTurretsName.IndexOf(selectedTurrets[i]));
             currentChildSelected.GetComponent<Image>().sprite = currentChildAll.GetComponent<Image>().sprite;
             currentChildSelected.GetComponent<Image>().color = currentChildAll.GetComponent<Image>().color;
-            currentChildSelected.GetComponentsInChildren<Text>()[1].text = "$" + SelectedTurrets.instance.selectedTurrets[i].cost;
-            currentChildSelected.GetComponentsInChildren<Text>()[0].text = SelectedTurrets.instance.selectedTurrets[i].name;
+            currentChildSelected.GetComponentsInChildren<Text>()[1].text = SelectedTurrets.instance.selectedTurrets[i].name;
+            //currentChildSelected.GetComponentsInChildren<Text>()[0].text = SelectedTurrets.instance.selectedTurrets[i].name;
 
             SelectedTurrets.instance.selectedTurrets[i].color = currentChildAll.GetComponent<Image>().color;
             SelectedTurrets.instance.selectedTurrets[i].sprite = currentChildAll.GetComponent<Image>().sprite;

@@ -14759,6 +14759,16 @@ PrefabInstance:
       propertyPath: turretName
       value: 
       objectReference: {fileID: 1722653853}
+    - target: {fileID: 2795007947941479064, guid: c9e72be2156c0e54b8d64e776794bb40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795007948406808927, guid: c9e72be2156c0e54b8d64e776794bb40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6427043894236884952, guid: c9e72be2156c0e54b8d64e776794bb40,
         type: 3}
       propertyPath: m_IsActive

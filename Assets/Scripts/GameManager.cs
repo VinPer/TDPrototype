@@ -1,6 +1,7 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -83,6 +84,13 @@ public class GameManager : MonoBehaviour
         PlayerStats.Coins = ReciveCoins();
         GetComponent<Winning>().Win();
         win = true;
+
+        StartCoroutine(ActivateWinUI());
+    }
+
+    IEnumerator ActivateWinUI()
+    {
+        yield return new WaitForSeconds(1.5f);
         GameManager.instance.winUI.SetActive(true);
         AudioManager.instance.Play("Victory");
         AudioManager.instance.Stop(SceneManager.GetActiveScene().name);

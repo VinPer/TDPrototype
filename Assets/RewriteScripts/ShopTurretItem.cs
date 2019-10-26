@@ -32,6 +32,5 @@ public class ShopTurretItem : MonoBehaviour
             turretPrice.SetActive(true);
         }
         if (Equals(SceneManager.GetActiveScene().name, "TowerUpgrades")) turretPrice.SetActive(false);
-        if (Equals(SceneManager.GetActiveScene().name, "SelectTurret")) turretName.SetActive(false);
     }
 }
