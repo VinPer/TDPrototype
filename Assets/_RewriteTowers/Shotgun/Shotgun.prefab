@@ -723,7 +723,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3369391130654538165, guid: dd09d0d601501d348add0ce11ed0f73c,
     type: 3}
   poolAmount: 3
-  damage: 10
+  damage: 6
   penetration: 0
   decayTimer: 2
   durability: 1
@@ -731,7 +731,7 @@ MonoBehaviour:
   debuffIntensity: 0
   debuffDuration: 0
   puddleDuration: 0
-  damageUpgrade: 3
+  damageUpgrade: 2
   penetrationUpgrade: 0.1
   decayTimerUpgrade: 0.5
   durabilityUpgrade: 0
@@ -740,7 +740,7 @@ MonoBehaviour:
   debuffDurationUpgrade: 0
   pelletCount: 6
   pelletCountUpgrade: 1
-  rotationOffset: 5
+  rotationOffset: 8
   rotationOffsetUpgrade: 1.5
 --- !u!1 &5870652856795768874
 GameObject:

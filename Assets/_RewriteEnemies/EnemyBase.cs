@@ -64,6 +64,7 @@ public class EnemyBase : MonoBehaviour
     private float numberArmor = 0;
     public Sprite armorSprite;
     public Sprite noArmorSprite;
+    public Sprite negativeArmorSprite;
 
     //Effects
     [Header("Effects")]
@@ -228,15 +229,23 @@ public class EnemyBase : MonoBehaviour
             float defaultArmor = armor;
             while (acid.duration > 0)
             {
-                armor -= (initialArmor * (acid.level / 100) * Time.deltaTime);
-                if (armor <= 0) armor = 0;
+                armor -= (acid.level / 100) * Time.deltaTime;
                 acid.duration -= Time.deltaTime;
                 //armorBar.fillAmount = armor / initialArmor;
                 numberArmor = armor * 5;
                 for (int i = 0; i < armorImgs.Length; i++)
                 {
-                    if (i < Mathf.Round(numberArmor)) armorImgs[i].sprite = armorSprite;
-                    else armorImgs[i].sprite = noArmorSprite;
+                    if(numberArmor >= 0)
+                    {
+                        if (i < Mathf.Round(numberArmor)) armorImgs[i].sprite = armorSprite;
+                        else armorImgs[i].sprite = noArmorSprite;
+                    }
+                    else
+                    {
+                        if (-i > Mathf.Round(numberArmor)) armorImgs[i].sprite = negativeArmorSprite;
+                        else armorImgs[i].sprite = noArmorSprite;
+                    }
+
                 }
                 yield return null;
             }

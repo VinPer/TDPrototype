@@ -748,7 +748,7 @@ MonoBehaviour:
   debuffIntensity: 0
   debuffDuration: 0
   puddleDuration: 0
-  damageUpgrade: 1
+  damageUpgrade: 3
   penetrationUpgrade: 0.1
   decayTimerUpgrade: 0.5
   durabilityUpgrade: 1

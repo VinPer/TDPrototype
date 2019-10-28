@@ -10,7 +10,7 @@ public class ProjectileSpitter : ProjectileBase
     protected override void Awake()
     {
         base.Awake();
-        Vector3 t = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
+        Vector3 t = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
         puddle = Instantiate(acidPuddle, t, Quaternion.identity);
         puddle.SetActive(false);
     }

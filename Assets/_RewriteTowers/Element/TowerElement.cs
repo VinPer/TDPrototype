@@ -14,6 +14,7 @@ public class TowerElement : TowerNonProjectile
         EnemyBase enemy = col.GetComponent<EnemyBase>();
         if (enemy != null)
         {
+            print("trigger");
             enemy.ActivateDebuff(debuffIntensity, Mathf.Infinity, element);
             print("debuff enter");
         }

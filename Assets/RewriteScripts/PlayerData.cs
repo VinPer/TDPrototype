@@ -37,7 +37,7 @@ public class PlayerData
         };
         unlockedTowers = new Dictionary<string, bool>
         {
-            {"Acid", false },
+            {"Acid", true },
             {"Radar", true },
             {"Sniper", true },
             {"Overheat", true },
