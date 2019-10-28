@@ -73,17 +73,17 @@ public class TurretMenu : MonoBehaviour
             btnUpgrade.interactable = false;
             btnUpgradeText.text = "MAXIMIZED";
         }
-        if (_target.turretBlueprint.cost > PlayerStats.Money)
+        else if (_target.turretBlueprint.cost > PlayerStats.Money)
         {
             btnUpgrade.interactable = false;
-            btnUpgradeText.text = "Not enough money";
+            btnUpgradeText.text = "$" + target.turretBlueprint.GetUpgradeCost();
         }
         else
         {
             btnUpgrade.interactable = true;
-            btnSellText.text = "$" + target.turretBlueprint.GetSellValue(turretSelected.numberOfUpgrades);
+            btnUpgradeText.text = "$" + target.turretBlueprint.GetUpgradeCost();
         }
-        btnUpgradeText.text ="$" + target.turretBlueprint.GetUpgradeCost();
+        btnSellText.text = "$" + target.turretBlueprint.GetSellValue(turretSelected.numberOfUpgrades);
 
         //Element Sprite
         TowerBase tb = target.turretBlueprint.prefab.GetComponent<TowerBase>();
