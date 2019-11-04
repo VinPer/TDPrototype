@@ -1154,7 +1154,7 @@ RectTransform:
   - {fileID: 788353461}
   - {fileID: 1669008735}
   m_Father: {fileID: 5317946450721993045}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2847,12 +2847,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5317946450721993045}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 70.124, y: 54.08897}
-  m_SizeDelta: {x: 137.55, y: 107.9}
+  m_AnchoredPosition: {x: 73.13, y: 54.08897}
+  m_SizeDelta: {x: 143.55, y: 107.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4227768192011076373
 CanvasRenderer:
@@ -4412,7 +4412,7 @@ RectTransform:
   - {fileID: 4587581641955608180}
   - {fileID: 3688010585571142182}
   m_Father: {fileID: 5317946450721993045}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4647,10 +4647,10 @@ RectTransform:
   - {fileID: 7576232301649477802}
   - {fileID: 2921282987499775034}
   - {fileID: 890031789}
+  - {fileID: 3698522547907189034}
   - {fileID: 985722382}
   - {fileID: 5317946451285455293}
   - {fileID: 8604811879540937138}
-  - {fileID: 3698522547907189034}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5275,7 +5275,7 @@ RectTransform:
   - {fileID: 5317946452281443774}
   - {fileID: 1679786210619683435}
   m_Father: {fileID: 5317946450721993045}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7157,6 +7157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff8284d898956a40bb65ead02230829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedUp: 0
   normalSpeed: {fileID: 21300000, guid: 64bfaf7cd024ba64b9412961d88614a9, type: 3}
   fastSpeed: {fileID: 21300000, guid: 9e2edcd64fa8e2f41911fca7e37e9c8e, type: 3}
   speedUpMultiplier: 3
