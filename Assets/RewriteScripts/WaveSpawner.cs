@@ -147,7 +147,7 @@ public class WaveSpawner : MonoBehaviour
             waveCountdown = timeBetweenWaves;
             nextWave++;
             //WavesLeft();
-
+            WaveCount.instance.UpdateWaveCount();
         }
 
     }

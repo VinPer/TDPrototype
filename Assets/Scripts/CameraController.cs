@@ -27,6 +27,8 @@ public class CameraController : MonoBehaviour
     private Vector3 pos;
     private Vector3 dynamicScrollSpeed = Vector3.zero;
 
+    private bool alreadySpeed;
+
     // Update is called once per frame
     void Update()
     {
@@ -41,6 +43,29 @@ public class CameraController : MonoBehaviour
 
         //if (Input.GetKeyDown(KeyCode.X)) enableMovement = !enableMovement;
         if (!enableMovement) return;
+
+        if (SpeedButton.instance.speedUp)
+        {
+            if (!alreadySpeed)
+            {
+                panSpeed /= SpeedButton.instance.speedUpMultiplier;
+                scrollSpeed /= SpeedButton.instance.speedUpMultiplier;
+                scrollAmmount /= SpeedButton.instance.speedUpMultiplier;
+                scrollSmoothTime *= SpeedButton.instance.speedUpMultiplier;
+                alreadySpeed = true;
+            }
+        }
+        else
+        {
+            if (alreadySpeed)
+            {
+                panSpeed *= SpeedButton.instance.speedUpMultiplier;
+                scrollSpeed *= SpeedButton.instance.speedUpMultiplier;
+                scrollAmmount *= SpeedButton.instance.speedUpMultiplier;
+                scrollSmoothTime /= SpeedButton.instance.speedUpMultiplier;
+                alreadySpeed = false;
+            }
+        }
 
         ////Rotation
         //if (Input.GetKey("q"))
