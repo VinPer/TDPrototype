@@ -80,6 +80,11 @@ public class Slider : MonoBehaviour
                     Debug.Log(SelectedLevel.instance.selectedLevel);
                     dialogTrigger.TriggerDialogue(minBtnNum + 1);
                     break;
+                case 7:
+                    SelectedLevel.instance.selectedLevel = "Level7";
+                    Debug.Log(SelectedLevel.instance.selectedLevel);
+                    dialogTrigger.TriggerDialogue(minBtnNum + 1);
+                    break;
             }
         }
 
